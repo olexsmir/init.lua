@@ -4,7 +4,7 @@ return require("packer").startup(function(use)
   use "LunarVim/onedarker.nvim"
   use "kyazdani42/nvim-web-devicons"
   use "romgrk/barbar.nvim"
-  use { "tpope/vim-surround", keys = { "c", "y", "d" } }
+  -- use { "tpope/vim-surround", keys = { "c", "y", "d" } }
 
   use {
     "numToStr/Comment.nvim",
@@ -13,13 +13,13 @@ return require("packer").startup(function(use)
     end,
   }
 
-  -- use {
-  --   "folke/trouble.nvim",
-  --   cmd = "TroubleToggle",
-  --   config = function()
-  --     require("trouble").setup {}
-  --   end,
-  -- }
+  use {
+    "folke/trouble.nvim",
+    cmd = "TroubleToggle",
+    config = function()
+      require("trouble").setup {}
+    end,
+  }
 
   use {
     "neovim/nvim-lspconfig",
@@ -56,7 +56,6 @@ return require("packer").startup(function(use)
   --   requires = {
   --     { "Pocco81/DAPInstall.nvim" },
   --     { "theHamsta/nvim-dap-virtual-text", after = "nvim-dap" },
-  --     { "jbyuki/one-small-step-for-vimkind", ft = "lua", after = "nvim-dap" },
   --   },
   --   config = function()
   --     require("plugin.configs.dap").setup()
@@ -88,22 +87,6 @@ return require("packer").startup(function(use)
   }
 
   use {
-    "folke/lua-dev.nvim",
-    ft = "lua",
-    config = function()
-      require("lua-dev").setup {}
-    end,
-  }
-
-  use {
-    "ray-x/go.nvim",
-    ft = "go",
-    config = function()
-      require("go").setup { gofmt = "gofumpt" }
-    end,
-  }
-
-  use {
     "folke/todo-comments.nvim",
     config = function()
       require("todo-comments").setup {}
@@ -116,10 +99,7 @@ return require("packer").startup(function(use)
       { "hrsh7th/cmp-nvim-lua", after = "nvim-cmp" },
       { "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp" },
       { "hrsh7th/cmp-buffer", after = "nvim-cmp" },
-      { "hrsh7th/cmp-path", after = "nvim-cmp" },
-      { "saadparwaiz1/cmp_luasnip", after = "nvim-cmp" },
-      { "L3MON4D3/LuaSnip", requires = "rafamadriz/friendly-snippets", after = "nvim-cmp" },
-      { "tzachar/cmp-tabnine", run = "./install.sh", after = "nvim-cmp" },
+      { "saadparwaiz1/cmp_luasnip", requires = { "L3MON4D3/LuaSnip", "rafamadriz/friendly-snippets" }, after = "nvim-cmp" },
     },
     config = function()
       require("plugin.configs.cmp").setup()
@@ -129,9 +109,7 @@ return require("packer").startup(function(use)
   use {
     "max397574/better-escape.nvim",
     config = function()
-      require("better_escape").setup {
-        mapping = { "jk" },
-      }
+      require("better_escape").setup { mapping = { "jk", "jj" } }
     end,
   }
 
@@ -154,14 +132,13 @@ return require("packer").startup(function(use)
   use {
     "nvim-treesitter/nvim-treesitter",
     branch = "0.5-compat",
-    -- requires = {
-    --   "Smirnov-O/ts-unit.nvim",
-    --   after = "nvim-treesitter",
-    --   keys = { "cip", "vip", "yip", "dip" },
-    --   config = function()
-    --     require("ts-unit").setup { keymaps = true }
-    --   end,
-    -- },
+    requires = {
+      "Smirnov-O/ts-unit.nvim",
+      after = "nvim-treesitter",
+      config = function()
+        require("ts-unit").setup { keymaps = true }
+      end,
+    },
     config = function()
       require("plugin.configs.treesitter").setup()
     end,

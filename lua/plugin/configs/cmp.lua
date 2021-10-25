@@ -4,20 +4,18 @@ function M.setup()
   local cmp = require "cmp"
 
   cmp.setup {
-    snippet = {
-      expand = function(args)
-        require("luasnip").lsp_expand(args.body)
-      end,
-    },
+    -- snippet = {
+      -- expand = function(args)
+        -- require("luasnip").lsp_expand(args.body)
+      -- end,
+    -- },
     formatting = {
       format = function(entry, vim_item)
         vim_item.menu = ({
-          nvim_lsp = "(LSP)",
-          nvim_lua = "(Lua)",
-          buffer = "(Buffer)",
-          path = "(Path)",
-          luasnip = "(Snippet)",
-          tabnine = "(Tabnine)",
+          nvim_lsp = "(L)",
+          nvim_lua = "(N)",
+          buffer = "(B)",
+          luasnip = "(S)",
         })[entry.source.name]
 
         return vim_item
@@ -55,24 +53,13 @@ function M.setup()
     },
     sources = {
       { name = "nvim_lua" },
-      { name = "nvim_lsp" },
-      { name = "buffer" },
-      { name = "tabnine" },
-      { name = "luasnip" },
-      { name = "path" },
+      { name = "nvim_lsp", max_item_count = 10 },
+      { name = "buffer", keyword_length = 5, max_item_count = 5 },
+      { name = "luasnip", max_item_count = 4 },
     },
-    -- experimental = {
-    --   native_menu = false,
-    --   ghost_text = true,
-    -- },
   }
 
-  require("nvim-autopairs.completion.cmp").setup {
-    map_cr = true,
-    map_complete = true,
-    auto_select = true,
-    insert = false,
-  }
+  require("nvim-autopairs.completion.cmp").setup {}
 end
 
 return M
