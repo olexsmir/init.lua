@@ -38,6 +38,7 @@ nmap("<A-k>", ":m .-2<CR>==")
 -- Telescope
 nmap("<leader>f", "<cmd>Telescope find_files<cr>")
 nmap("<leader>st", "<cmd>Telescope live_grep<cr>")
+nmap("<leader>sT", "<cmd>Telescope grep_string<cr>")
 nmap("<leader>sp", "<cmd>Telescope projects<cr>")
 nmap("<leader>sr", "<cmd>Telescope oldfiles<cr>")
 nmap("<leader>sb", "<cmd>Telescope git_branches<cr>")
