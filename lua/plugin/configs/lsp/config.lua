@@ -28,10 +28,6 @@ function M.setup()
   require("nvim-lsp-installer").on_server_ready(function(server)
     local opts = { on_attach = on_attach }
 
-    if server.name == "sumneko_lua" then
-      opts = vim.tbl_deep_extend("force", opts, require "plugin.configs.lsp.providers.sumneko_lua")
-    end
-
     server:setup(opts)
     require("lspconfig")["null-ls"].setup {}
 

@@ -1,14 +1,15 @@
 local M = {}
 
 function M.setup()
-  local cmp = require "cmp"
+  require("nvim-autopairs.completion.cmp").setup {}
 
+  local cmp = require "cmp"
   cmp.setup {
-    -- snippet = {
-      -- expand = function(args)
-        -- require("luasnip").lsp_expand(args.body)
-      -- end,
-    -- },
+    snippet = {
+      expand = function(args)
+        require("luasnip").lsp_expand(args.body)
+      end,
+    },
     formatting = {
       format = function(entry, vim_item)
         vim_item.menu = ({
@@ -28,10 +29,7 @@ function M.setup()
       ["<C-f>"] = cmp.mapping.scroll_docs(4),
       ["<C-Space>"] = cmp.mapping.complete(),
       ["<C-e>"] = cmp.mapping.close(),
-      ["<CR>"] = cmp.mapping.confirm {
-        behavior = cmp.ConfirmBehavior.Replace,
-        select = false,
-      },
+      ["<CR>"] = cmp.mapping.confirm { behavior = cmp.ConfirmBehavior.Replace, select = false },
       ["<Tab>"] = function(fallback)
         if cmp.visible() then
           cmp.select_next_item()
@@ -52,14 +50,12 @@ function M.setup()
       end,
     },
     sources = {
-      { name = "nvim_lua" },
+      { name = "nvim_lua", max_item_count = 5 },
       { name = "nvim_lsp", max_item_count = 10 },
-      { name = "buffer", keyword_length = 5, max_item_count = 5 },
+      { name = "buffer", keyword_length = 4, max_item_count = 5 },
       { name = "luasnip", max_item_count = 4 },
     },
   }
-
-  require("nvim-autopairs.completion.cmp").setup {}
 end
 
 return M

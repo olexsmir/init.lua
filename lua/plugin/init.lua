@@ -13,17 +13,11 @@ return require("packer").startup(function(use)
     end,
   }
 
-  use {
-    "folke/trouble.nvim",
-    cmd = "TroubleToggle",
-    config = function()
-      require("trouble").setup {}
-    end,
-  }
+  -- use { "folke/trouble.nvim", cmd = "TroubleToggle", config = function() require("trouble").setup {} end }
 
   use {
     "neovim/nvim-lspconfig",
-    requires = { { "williamboman/nvim-lsp-installer", after = "nvim-lspconfig" } },
+    requires = "williamboman/nvim-lsp-installer",
     config = function()
       require("plugin.configs.lsp.config").setup()
     end,
@@ -50,17 +44,6 @@ return require("packer").startup(function(use)
       require("plugin.configs.project").setup()
     end,
   }
-
-  -- use {
-  --   "mfussenegger/nvim-dap",
-  --   requires = {
-  --     { "Pocco81/DAPInstall.nvim" },
-  --     { "theHamsta/nvim-dap-virtual-text", after = "nvim-dap" },
-  --   },
-  --   config = function()
-  --     require("plugin.configs.dap").setup()
-  --   end,
-  -- }
 
   use {
     "lewis6991/gitsigns.nvim",
