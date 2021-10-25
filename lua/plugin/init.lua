@@ -13,7 +13,13 @@ return require("packer").startup(function(use)
     end,
   }
 
-  -- use { "folke/trouble.nvim", cmd = "TroubleToggle", config = function() require("trouble").setup {} end }
+  use {
+    "folke/trouble.nvim",
+    cmd = "TroubleToggle",
+    config = function()
+      require("trouble").setup {}
+    end,
+  }
 
   use {
     "neovim/nvim-lspconfig",
@@ -61,7 +67,7 @@ return require("packer").startup(function(use)
 
   use {
     "rcarriga/vim-ultest",
-    requires = "vim-test/vim-test",
+    requires = { { "vim-test/vim-test", after = "vim-ultest" } },
     cmd = { "Ultest", "UltestStop", "UltestClear", "UltestNearest", "UltestOutput" },
     run = ":UpdateRemotePlugins",
     config = function()
@@ -82,7 +88,11 @@ return require("packer").startup(function(use)
       { "hrsh7th/cmp-nvim-lua", after = "nvim-cmp" },
       { "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp" },
       { "hrsh7th/cmp-buffer", after = "nvim-cmp" },
-      { "saadparwaiz1/cmp_luasnip", requires = { "L3MON4D3/LuaSnip", "rafamadriz/friendly-snippets" }, after = "nvim-cmp" },
+      {
+        "saadparwaiz1/cmp_luasnip",
+        requires = { "L3MON4D3/LuaSnip", "rafamadriz/friendly-snippets" },
+        after = "nvim-cmp",
+      },
     },
     config = function()
       require("plugin.configs.cmp").setup()
@@ -92,7 +102,7 @@ return require("packer").startup(function(use)
   use {
     "max397574/better-escape.nvim",
     config = function()
-      require("better_escape").setup { mapping = { "jk", "jj" } }
+      require("better_escape").setup { mapping = { "jk" } }
     end,
   }
 
