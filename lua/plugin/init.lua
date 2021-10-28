@@ -1,7 +1,7 @@
 return require("packer").startup(function(use)
   use "wbthomason/packer.nvim"
   use "nvim-lua/plenary.nvim"
-  use "LunarVim/onedarker.nvim"
+  use "Mofiqul/vscode.nvim"
   use "kyazdani42/nvim-web-devicons"
   use "romgrk/barbar.nvim"
   -- use { "tpope/vim-surround", keys = { "c", "y", "d" } }
@@ -59,7 +59,8 @@ return require("packer").startup(function(use)
   }
 
   use {
-    "Famiu/feline.nvim",
+    "nvim-lualine/lualine.nvim",
+
     config = function()
       require("plugin.configs.statusline").setup()
     end,
