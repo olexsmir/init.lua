@@ -20,7 +20,10 @@ function M.setup()
         vertical = { mirror = false },
       },
       vimgrep_arguments = {
-        "fd", "--colors=never", "--type files"
+        "fd",
+        "--colors=never",
+        "--type",
+        "files",
       },
       file_ignore_patterns = { ".git", "node_modules", "target", "env", ".bin" },
       path_display = { shorten = 5 },

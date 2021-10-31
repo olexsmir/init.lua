@@ -23,17 +23,18 @@ return require("packer").startup(function(use)
 
   use {
     "neovim/nvim-lspconfig",
-    requires = "williamboman/nvim-lsp-installer",
+    requires = {
+      "williamboman/nvim-lsp-installer",
+      {
+        "jose-elias-alvarez/null-ls.nvim",
+        after = "nvim-lspconfig",
+        config = function()
+          require("plugin.configs.lsp.null-ls").setup()
+        end,
+      },
+    },
     config = function()
       require("plugin.configs.lsp.config").setup()
-    end,
-  }
-
-  use {
-    "jose-elias-alvarez/null-ls.nvim",
-    after = "nvim-lspconfig",
-    config = function()
-      require("plugin.configs.lsp.null-ls").setup()
     end,
   }
 
@@ -41,6 +42,14 @@ return require("packer").startup(function(use)
     "windwp/nvim-autopairs",
     config = function()
       require("nvim-autopairs").setup {}
+    end,
+  }
+
+  use {
+    "ray-x/go.nvim",
+    ft = "go",
+    config = function()
+      require("go").setup { gofmt = "gofumpt" }
     end,
   }
 
@@ -60,7 +69,6 @@ return require("packer").startup(function(use)
 
   use {
     "nvim-lualine/lualine.nvim",
-
     config = function()
       require("plugin.configs.statusline").setup()
     end,
@@ -89,11 +97,7 @@ return require("packer").startup(function(use)
       { "hrsh7th/cmp-nvim-lua", after = "nvim-cmp" },
       { "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp" },
       { "hrsh7th/cmp-buffer", after = "nvim-cmp" },
-      {
-        "saadparwaiz1/cmp_luasnip",
-        requires = { "L3MON4D3/LuaSnip", "rafamadriz/friendly-snippets" },
-        after = "nvim-cmp",
-      },
+      { "saadparwaiz1/cmp_luasnip", requires = { "L3MON4D3/LuaSnip", "rafamadriz/friendly-snippets" }, after = "nvim-cmp" },
     },
     config = function()
       require("plugin.configs.cmp").setup()
@@ -126,15 +130,16 @@ return require("packer").startup(function(use)
   use {
     "nvim-treesitter/nvim-treesitter",
     branch = "0.5-compat",
-    requires = {
-      "Smirnov-O/ts-unit.nvim",
-      after = "nvim-treesitter",
-      config = function()
-        require("ts-unit").setup { keymaps = true }
-      end,
-    },
     config = function()
       require("plugin.configs.treesitter").setup()
+    end,
+  }
+
+  use {
+    "Smirnov-O/ts-unit.nvim",
+    after = "nvim-treesitter",
+    config = function()
+      require("ts-unit").setup { keymaps = true }
     end,
   }
 

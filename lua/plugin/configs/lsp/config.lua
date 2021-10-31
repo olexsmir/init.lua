@@ -28,6 +28,11 @@ function M.setup()
   require("nvim-lsp-installer").on_server_ready(function(server)
     local opts = { on_attach = on_attach }
 
+    local ok, user_opts = pcall(require, "plugin.configs.lsp.providers." .. server.name)
+    if ok then
+      opts = vim.tbl_deep_extend("force", opts, user_opts)
+    end
+
     server:setup(opts)
     require("lspconfig")["null-ls"].setup {}
 
