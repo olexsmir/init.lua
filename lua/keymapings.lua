@@ -1,6 +1,6 @@
 local u = require "utils"
-local nmap, map, expr = u.nmap, u.map, u.expr
--- map("i", "jk", "<ESC>")
+local map, nmap, expr = u.map, u.nmap, u.expr
+
 nmap("<C-s>", "<cmd>write!<cr>")
 nmap("<leader>h", "<cmd>nohlsearch<cr>")
 nmap("<leader>q", "<cmd>quit!<cr>")

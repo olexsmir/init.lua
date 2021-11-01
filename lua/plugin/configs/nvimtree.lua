@@ -3,18 +3,14 @@ local M = {}
 function M.setup()
   local tree_cb = require("nvim-tree.config").nvim_tree_callback
 
-  vim.g.nvim_tree_ignore = { ".git", "node_modules", ".cache", ".bin" }
-  vim.g.nvim_tree_gitignore = 1
-  vim.g.nvim_tree_quit_on_open = 0
-  vim.g.nvim_tree_hide_dotfiles = 1
-  vim.g.nvim_tree_git_hl = 1
-  vim.g.nvim_tree_root_folder_modifier = ":t"
-
   require("nvim-tree").setup {
-    auto_close = true,
-    update_cwd = true,
+    disable_netrw = true,
+    hijack_netrw = true,
+    auto_open = true,
+    update_cwd = false,
+    ignore_ft_on_setup = { ".git" },
     diagnostics = {
-      enable = false,
+      enable = true,
       icons = {
         hint = "",
         info = "",
@@ -22,9 +18,13 @@ function M.setup()
         error = "",
       },
     },
+    filters = {
+      dotfiles = true,
+      custom = {},
+    },
     view = {
       width = 30,
-      side = "left",
+      side = "right",
       auto_resize = false,
       mappings = {
         custom_only = false,
@@ -36,6 +36,15 @@ function M.setup()
       },
     },
   }
+
+  vim.g.nvim_tree_gitignore = 1
+  vim.g.nvim_tree_root_folder_modifier = ":t"
+
+  --[[
+  vim.g.nvim_tree_ignore = { ".git", "node_modules", ".cache", ".bin" }
+  vim.g.nvim_tree_gitignore = 1
+  vim.g.nvim_tree_hide_dotfiles = 1
+  vim.g.nvim_tree_git_hl = 1]]
 end
 
 return M
