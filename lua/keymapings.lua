@@ -42,6 +42,20 @@ nmap("<leader>sT", "<cmd>Telescope grep_string<cr>")
 nmap("<leader>sp", "<cmd>Telescope projects<cr>")
 nmap("<leader>sr", "<cmd>Telescope oldfiles<cr>")
 nmap("<leader>sb", "<cmd>Telescope git_branches<cr>")
+nmap("<leader>sc", "<cmd>Telescope git_commits<cr>")
+nmap("<leader>sd", "<cmd>Telescope dap list_breakpoints<cr>")
+
+-- Dap
+nmap("<leader>dt", "<cmd>lua require'dap'.toggle_breakpoint()<cr>")
+nmap("<leader>db", "<cmd>lua require'dap'.step_back()<cr>")
+nmap("<leader>dc", "<cmd>lua require'dap'.continue()<cr>")
+nmap("<leader>dd", "<cmd>lua require'dap'.disconnect()<cr>")
+nmap("<leader>di", "<cmd>lua require'dap'.step_into()<cr>")
+nmap("<leader>do", "<cmd>lua require'dap'.step_over()<cr>")
+nmap("<leader>du", "<cmd>lua require'dap'.step_out()<cr>")
+nmap("<leader>dr", "<cmd>lua require'dap'.repl.toggle()<cr>")
+nmap("<leader>dp", "<cmd>lua require'dap'.pause.toggle()<cr>")
+nmap("<leader>dq", "<cmd>lua require'dap'.close()<cr>")
 
 -- Ultest
 nmap("<leader>tt", "<cmd>Ultest<cr>")

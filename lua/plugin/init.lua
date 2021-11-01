@@ -4,7 +4,7 @@ return require("packer").startup(function(use)
   use "Mofiqul/vscode.nvim"
   use "kyazdani42/nvim-web-devicons"
   use "romgrk/barbar.nvim"
-  -- use { "tpope/vim-surround", keys = { "c", "y", "d" } }
+  use { "tpope/vim-surround", keys = { "c", "y", "d" } }
 
   use {
     "numToStr/Comment.nvim",
@@ -14,10 +14,9 @@ return require("packer").startup(function(use)
   }
 
   use {
-    "folke/trouble.nvim",
-    cmd = "TroubleToggle",
+    "windwp/nvim-autopairs",
     config = function()
-      require("trouble").setup {}
+      require("nvim-autopairs").setup {}
     end,
   }
 
@@ -39,9 +38,29 @@ return require("packer").startup(function(use)
   }
 
   use {
-    "windwp/nvim-autopairs",
+    "ahmedkhalf/project.nvim",
     config = function()
-      require("nvim-autopairs").setup {}
+      require("plugin.configs.project").setup()
+    end,
+  }
+
+  use {
+    "mfussenegger/nvim-dap",
+    requires = {
+      "Pocco81/DAPInstall.nvim",
+      "theHamsta/nvim-dap-virtual-text",
+      "nvim-telescope/telescope-dap.nvim",
+    },
+    config = function()
+      require("plugin.configs.dap").setup()
+    end,
+  }
+
+  use {
+    "folke/trouble.nvim",
+    cmd = "TroubleToggle",
+    config = function()
+      require("trouble").setup {}
     end,
   }
 
@@ -50,13 +69,6 @@ return require("packer").startup(function(use)
     ft = "go",
     config = function()
       require("go").setup { gofmt = "gofumpt" }
-    end,
-  }
-
-  use {
-    "ahmedkhalf/project.nvim",
-    config = function()
-      require("plugin.configs.project").setup()
     end,
   }
 
@@ -97,7 +109,13 @@ return require("packer").startup(function(use)
       { "hrsh7th/cmp-nvim-lua", after = "nvim-cmp" },
       { "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp" },
       { "hrsh7th/cmp-buffer", after = "nvim-cmp" },
-      { "saadparwaiz1/cmp_luasnip", requires = { "L3MON4D3/LuaSnip", "rafamadriz/friendly-snippets" }, after = "nvim-cmp" },
+      {
+        "saadparwaiz1/cmp_luasnip",
+        requires = {
+          { "L3MON4D3/LuaSnip", after = "cmp_luasnip" },
+          { "rafamadriz/friendly-snippets", after = "LuaSnip" },
+        },
+      },
     },
     config = function()
       require("plugin.configs.cmp").setup()
@@ -138,6 +156,7 @@ return require("packer").startup(function(use)
   use {
     "Smirnov-O/ts-unit.nvim",
     after = "nvim-treesitter",
+    keys = { "vip", "cip", "dip", "yip" },
     config = function()
       require("ts-unit").setup { keymaps = true }
     end,
