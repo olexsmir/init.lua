@@ -4,7 +4,6 @@ return require("packer").startup(function(use)
   use "Mofiqul/vscode.nvim"
   use "kyazdani42/nvim-web-devicons"
   use "romgrk/barbar.nvim"
-  use { "tpope/vim-surround", keys = { "c", "y", "d" } }
 
   use {
     "numToStr/Comment.nvim",
@@ -18,6 +17,21 @@ return require("packer").startup(function(use)
     config = function()
       require("nvim-autopairs").setup {}
     end,
+  }
+
+  use {
+    "lewis6991/spellsitter.nvim",
+    config = function()
+      require("spellsitter").setup()
+    end,
+  }
+
+  use {
+    "NTBBloodbath/rest.nvim",
+    ft = "http",
+    config = function()
+    require("rest-nvim").setup{}
+    end
   }
 
   use {
@@ -50,6 +64,7 @@ return require("packer").startup(function(use)
       "Pocco81/DAPInstall.nvim",
       "theHamsta/nvim-dap-virtual-text",
       "nvim-telescope/telescope-dap.nvim",
+      { "jbyuki/one-small-step-for-vimkind", ft = "lua"},
     },
     config = function()
       require("plugin.configs.dap").setup()
@@ -156,7 +171,7 @@ return require("packer").startup(function(use)
   use {
     "Smirnov-O/ts-unit.nvim",
     after = "nvim-treesitter",
-    keys = { "vip", "cip", "dip", "yip" },
+    -- keys = { "vip", "cip", "dip", "yip" },
     config = function()
       require("ts-unit").setup { keymaps = true }
     end,

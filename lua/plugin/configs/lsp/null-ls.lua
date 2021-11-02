@@ -28,6 +28,12 @@ function M.setup()
       fmt.black,
       fmt.isort,
       lint.flake8,
+
+      -- Spellcheck
+      lint.write_good,
+
+      -- Rust
+      fmt.rustfmt,
     },
   }
 end

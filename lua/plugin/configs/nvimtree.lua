@@ -9,7 +9,7 @@ function M.setup()
     auto_close = true,
     auto_open = true,
     update_cwd = false,
-    ignore_ft_on_setup = { ".git" },
+    ignore_ft_on_setup = { ".git", "node_modules" },
     diagnostics = {
       enable = true,
       icons = {
@@ -25,7 +25,7 @@ function M.setup()
     },
     view = {
       width = 30,
-      side = "right",
+      side = "left",
       auto_resize = false,
       mappings = {
         custom_only = false,

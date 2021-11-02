@@ -21,7 +21,7 @@ nmap("<C-Up", "<cmd>resize -1<cr>")
 nmap("<C-Down>", "<cmd>resize +2<cr>")
 nmap("<C-Right>", "<cmd>vertical resize +2<CR>")
 
--- Alternative up/down for arows
+-- Alternative up/down for arrows
 expr("i", "<C-j>", 'pumvisible() ? "\\<down>" : "\\<C-j>"')
 expr("i", "<C-k>", 'pumvisible() ? "\\<up>" : "\\<C-k>"')
 expr("c", "<C-j>", 'pumvisible() ? "\\<C-n>" : "\\<C-j>"')
@@ -45,7 +45,7 @@ nmap("<leader>sb", "<cmd>Telescope git_branches<cr>")
 nmap("<leader>sc", "<cmd>Telescope git_commits<cr>")
 nmap("<leader>sd", "<cmd>Telescope dap list_breakpoints<cr>")
 
--- Dap
+-- DAP
 nmap("<leader>dt", "<cmd>lua require'dap'.toggle_breakpoint()<cr>")
 nmap("<leader>db", "<cmd>lua require'dap'.step_back()<cr>")
 nmap("<leader>dc", "<cmd>lua require'dap'.continue()<cr>")
@@ -56,6 +56,11 @@ nmap("<leader>du", "<cmd>lua require'dap'.step_out()<cr>")
 nmap("<leader>dr", "<cmd>lua require'dap'.repl.toggle()<cr>")
 nmap("<leader>dp", "<cmd>lua require'dap'.pause.toggle()<cr>")
 nmap("<leader>dq", "<cmd>lua require'dap'.close()<cr>")
+
+-- Rest
+nmap("<leader>rr", "<cmd>lua require[[rest-nvim]].run()<cr>")
+nmap("<leader>rp", "<cmd>lua require[[rest-nvim]].run(true)<cr>")
+nmap("<leader>rl", "<cmd>lua require[[rest-nvim]].last()<cr>")
 
 -- Ultest
 nmap("<leader>tt", "<cmd>Ultest<cr>")

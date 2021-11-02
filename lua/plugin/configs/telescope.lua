@@ -22,7 +22,7 @@ function M.setup()
       vimgrep_arguments = {
         "fd",
         "--colors=never",
-        "--type=file",
+        "--type=f",
       },
       file_ignore_patterns = { ".git", "node_modules", "target", "env", ".bin" },
       path_display = { shorten = 5 },
@@ -39,6 +39,9 @@ function M.setup()
         i = {
           ["<C-j>"] = actions.move_selection_next,
           ["<C-k>"] = actions.move_selection_previous,
+          ["<C-u>"] = false,
+
+          ["<C-h>"] = "which_key",
         },
         n = {
           ["<C-j>"] = actions.move_selection_next,
