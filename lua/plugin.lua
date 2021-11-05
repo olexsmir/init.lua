@@ -15,15 +15,7 @@ return require("packer").startup(function(use)
   use {
     "windwp/nvim-autopairs",
     config = function()
-      require("nvim-autopairs").setup {}
-    end,
-  }
-
-  use {
-    "NTBBloodbath/rest.nvim",
-    ft = "http",
-    config = function()
-      require("rest-nvim").setup {}
+      require("nvim-autopairs").setup()
     end,
   }
 

@@ -43,7 +43,6 @@ nmap("<leader>sp", "<cmd>Telescope projects<cr>")
 nmap("<leader>sr", "<cmd>Telescope oldfiles<cr>")
 nmap("<leader>sb", "<cmd>Telescope git_branches<cr>")
 nmap("<leader>sc", "<cmd>Telescope git_commits<cr>")
-nmap("<leader>sd", "<cmd>Telescope dap list_breakpoints<cr>")
 
 -- DAP
 nmap("<leader>dt", "<cmd>lua require'dap'.toggle_breakpoint()<cr>")
@@ -57,19 +56,12 @@ nmap("<leader>dr", "<cmd>lua require'dap'.repl.toggle()<cr>")
 nmap("<leader>dp", "<cmd>lua require'dap'.pause.toggle()<cr>")
 nmap("<leader>dq", "<cmd>lua require'dap'.close()<cr>")
 
--- Rest
-nmap("<leader>rr", "<cmd>lua require[[rest-nvim]].run()<cr>")
-nmap("<leader>rp", "<cmd>lua require[[rest-nvim]].run(true)<cr>")
-nmap("<leader>rl", "<cmd>lua require[[rest-nvim]].last()<cr>")
-
 -- Ultest
 nmap("<leader>tt", "<cmd>Ultest<cr>")
 nmap("<leader>ts", "<cmd>UltestStop<cr>")
 nmap("<leader>tc", "<cmd>UltestClear<cr>")
 nmap("<leader>tn", "<cmd>UltestNearest<cr>")
 nmap("<leader>to", "<cmd>UltestOutput<cr>")
-nmap("<leader>tj", "<Plug>(ultest-next-fail)")
-nmap("<leader>tk", "<Plug>(ultest-prev-fail)")
 
 -- Buffer
 nmap("<A-0>", "<cmd>BufferLast<cr>")

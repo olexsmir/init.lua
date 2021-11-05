@@ -23,6 +23,8 @@ function M.setup()
     buf_set_keymap("<leader>lr", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
     buf_set_keymap("<leader>lf", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
     buf_set_keymap("<leader>ls", "<cmd>Telescope lsp_document_symbols<CR>", opts)
+    buf_set_keymap("<leader>li", "<cmd>LspInfo<CR>", opts)
+    buf_set_keymap("<leader>lR", "<cmd>LspRestart<CR>", opts)
   end
 
   require("nvim-lsp-installer").on_server_ready(function(server)

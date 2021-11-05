@@ -29,9 +29,6 @@ function M.setup()
       fmt.isort,
       lint.flake8,
 
-      -- Spellcheck
-      lint.write_good,
-
       -- Rust
       fmt.rustfmt,
     },
