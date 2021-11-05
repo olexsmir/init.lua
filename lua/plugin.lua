@@ -20,41 +20,33 @@ return require("packer").startup(function(use)
   }
 
   use {
-    "lewis6991/spellsitter.nvim",
+    "NTBBloodbath/rest.nvim",
+    ft = "http",
     config = function()
-      require("spellsitter").setup()
+      require("rest-nvim").setup {}
     end,
   }
 
   use {
-    "NTBBloodbath/rest.nvim",
-    ft = "http",
+    "neovim/nvim-lspconfig",
+    requires = "williamboman/nvim-lsp-installer",
     config = function()
-    require("rest-nvim").setup{}
-    end
+      require("lsp.config").setup()
+    end,
   }
 
   use {
-    "neovim/nvim-lspconfig",
-    requires = {
-      "williamboman/nvim-lsp-installer",
-      {
-        "jose-elias-alvarez/null-ls.nvim",
-        after = "nvim-lspconfig",
-        config = function()
-          require("plugin.configs.lsp.null-ls").setup()
-        end,
-      },
-    },
+    "jose-elias-alvarez/null-ls.nvim",
+    after = "nvim-lspconfig",
     config = function()
-      require("plugin.configs.lsp.config").setup()
+      require("lsp.null-ls").setup()
     end,
   }
 
   use {
     "ahmedkhalf/project.nvim",
     config = function()
-      require("plugin.configs.project").setup()
+      require("plugin.project").setup()
     end,
   }
 
@@ -64,18 +56,9 @@ return require("packer").startup(function(use)
       "Pocco81/DAPInstall.nvim",
       "theHamsta/nvim-dap-virtual-text",
       "nvim-telescope/telescope-dap.nvim",
-      { "jbyuki/one-small-step-for-vimkind", ft = "lua"},
     },
     config = function()
-      require("plugin.configs.dap").setup()
-    end,
-  }
-
-  use {
-    "folke/trouble.nvim",
-    cmd = "TroubleToggle",
-    config = function()
-      require("trouble").setup {}
+      require("plugin.dap").setup()
     end,
   }
 
@@ -90,14 +73,14 @@ return require("packer").startup(function(use)
   use {
     "lewis6991/gitsigns.nvim",
     config = function()
-      require("plugin.configs.gitsigns").setup()
+      require("plugin.gitsigns").setup()
     end,
   }
 
   use {
     "nvim-lualine/lualine.nvim",
     config = function()
-      require("plugin.configs.statusline").setup()
+      require("plugin.statusline").setup()
     end,
   }
 
@@ -107,7 +90,7 @@ return require("packer").startup(function(use)
     cmd = { "Ultest", "UltestStop", "UltestClear", "UltestNearest", "UltestOutput" },
     run = ":UpdateRemotePlugins",
     config = function()
-      require("plugin.configs.ultest").setup()
+      require("plugin.ultest").setup()
     end,
   }
 
@@ -126,14 +109,11 @@ return require("packer").startup(function(use)
       { "hrsh7th/cmp-buffer", after = "nvim-cmp" },
       {
         "saadparwaiz1/cmp_luasnip",
-        requires = {
-          { "L3MON4D3/LuaSnip", after = "cmp_luasnip" },
-          { "rafamadriz/friendly-snippets", after = "LuaSnip" },
-        },
+        requires = { { "L3MON4D3/LuaSnip", after = "cmp_luasnip" }, { "rafamadriz/friendly-snippets", after = "LuaSnip" } },
       },
     },
     config = function()
-      require("plugin.configs.cmp").setup()
+      require("plugin.cmp").setup()
     end,
   }
 
@@ -148,7 +128,7 @@ return require("packer").startup(function(use)
     "nvim-telescope/telescope.nvim",
     cmd = "Telescope",
     config = function()
-      require("plugin.configs.telescope").setup()
+      require("plugin.telescope").setup()
     end,
   }
 
@@ -156,7 +136,7 @@ return require("packer").startup(function(use)
     "kyazdani42/nvim-tree.lua",
     cmd = "NvimTreeToggle",
     config = function()
-      require("plugin.configs.nvimtree").setup()
+      require("plugin.nvimtree").setup()
     end,
   }
 
@@ -164,14 +144,13 @@ return require("packer").startup(function(use)
     "nvim-treesitter/nvim-treesitter",
     branch = "0.5-compat",
     config = function()
-      require("plugin.configs.treesitter").setup()
+      require("plugin.treesitter").setup()
     end,
   }
 
   use {
     "Smirnov-O/ts-unit.nvim",
     after = "nvim-treesitter",
-    -- keys = { "vip", "cip", "dip", "yip" },
     config = function()
       require("ts-unit").setup { keymaps = true }
     end,
@@ -181,7 +160,7 @@ return require("packer").startup(function(use)
     "akinsho/toggleterm.nvim",
     keys = "<C-t>",
     config = function()
-      require("plugin.configs.terminal").setup()
+      require("plugin.terminal").setup()
     end,
   }
 end)
