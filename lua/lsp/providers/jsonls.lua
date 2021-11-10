@@ -1,5 +1,14 @@
 return {
   settings = {
+    schemas = {
+      { fileMatch = { "package.json" }, url = "https://json.schemastore.org/package.json" },
+    },
+  },
+}
+
+--[[
+return {
+  settings = {
     json = {
       schemas = {
         {
@@ -35,4 +44,4 @@ return {
       },
     },
   },
-}
+}]]
