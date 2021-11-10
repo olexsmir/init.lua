@@ -5,6 +5,8 @@ local disabled_built_ins = {
   "netrwFileHandlers",
   "gzip",
   "zip",
+  "tohtml",
+  "man",
   "zipPlugin",
   "tar",
   "tarPlugin",
