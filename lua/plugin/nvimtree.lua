@@ -9,7 +9,6 @@ function M.setup()
     auto_close = true,
     auto_open = true,
     update_cwd = false,
-    ignore_ft_on_setup = { ".git", "node_modules" },
     diagnostics = {
       enable = true,
       icons = {
@@ -21,7 +20,7 @@ function M.setup()
     },
     filters = {
       dotfiles = true,
-      custom = {},
+      custom = { ".git", "node_modules", "__pycache__", "env", ".bin" },
     },
     view = {
       width = 30,
@@ -40,12 +39,6 @@ function M.setup()
 
   vim.g.nvim_tree_gitignore = 1
   vim.g.nvim_tree_root_folder_modifier = ":t"
-
-  --[[
-  vim.g.nvim_tree_ignore = { ".git", "node_modules", ".cache", ".bin" }
-  vim.g.nvim_tree_gitignore = 1
-  vim.g.nvim_tree_hide_dotfiles = 1
-  vim.g.nvim_tree_git_hl = 1]]
 end
 
 return M

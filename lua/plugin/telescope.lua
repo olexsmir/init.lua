@@ -19,12 +19,7 @@ function M.setup()
         horizontal = { mirror = false },
         vertical = { mirror = false },
       },
-      vimgrep_arguments = {
-        "fd",
-        "--colors=never",
-        "--type=f",
-      },
-      file_ignore_patterns = { ".git", "node_modules", "target", "env", ".bin" },
+      file_ignore_patterns = { ".git", "node_modules", "__pycache__", "target", "env", ".bin" },
       path_display = { shorten = 5 },
       winblend = 0,
       border = {},
