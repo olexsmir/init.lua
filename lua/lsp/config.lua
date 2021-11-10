@@ -41,6 +41,8 @@ function M.setup()
     end
 
     server:setup(opts)
+
+    require("lsp.null-ls").setup()
     require("lspconfig")["null-ls"].setup {}
 
     vim.cmd [[ do User LspAttachBuffers ]]

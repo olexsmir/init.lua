@@ -1,8 +1,6 @@
 local M = {}
 
 function M.setup()
-  require("nvim-dap-virtual-text").setup()
-
   vim.fn.sign_define("DapBreakpoint", {
     text = "",
     texthl = "LspDiagnosticsSignError",

@@ -5,6 +5,17 @@ return require("packer").startup(function(use)
   use "kyazdani42/nvim-web-devicons"
   use "romgrk/barbar.nvim"
 
+  use { "dstein64/vim-startuptime", cmd = "StartupTime" }
+
+  use {
+    "pwntester/octo.nvim",
+    cmd = "Octo",
+    opt = true,
+    config = function()
+      require("octo").setup()
+    end,
+  }
+
   use {
     "numToStr/Comment.nvim",
     config = function()
@@ -21,17 +32,12 @@ return require("packer").startup(function(use)
 
   use {
     "neovim/nvim-lspconfig",
-    requires = "williamboman/nvim-lsp-installer",
+    requires = {
+      "williamboman/nvim-lsp-installer",
+      { "jose-elias-alvarez/null-ls.nvim", after = "nvim-lspconfig" },
+    },
     config = function()
       require("lsp.config").setup()
-    end,
-  }
-
-  use {
-    "jose-elias-alvarez/null-ls.nvim",
-    after = "nvim-lspconfig",
-    config = function()
-      require("lsp.null-ls").setup()
     end,
   }
 
@@ -44,9 +50,10 @@ return require("packer").startup(function(use)
 
   use {
     "mfussenegger/nvim-dap",
+    module = "dap",
     requires = {
-      "Pocco81/DAPInstall.nvim",
-      "theHamsta/nvim-dap-virtual-text",
+      { "Pocco81/DAPInstall.nvim", requires = "nvim-dap" },
+      { "theHamsta/nvim-dap-virtual-text", after = "nvim-dap", config = [[ require"nvim-dap-virtual-text".setup() ]] },
       "nvim-telescope/telescope-dap.nvim",
     },
     config = function()
@@ -57,6 +64,7 @@ return require("packer").startup(function(use)
   use {
     "ray-x/go.nvim",
     ft = "go",
+    opt = true,
     config = function()
       require("go").setup { gofmt = "gofumpt" }
     end,
@@ -87,13 +95,6 @@ return require("packer").startup(function(use)
   }
 
   use {
-    "folke/todo-comments.nvim",
-    config = function()
-      require("todo-comments").setup {}
-    end,
-  }
-
-  use {
     "hrsh7th/nvim-cmp",
     requires = {
       { "hrsh7th/cmp-nvim-lua", after = "nvim-cmp" },
@@ -101,7 +102,10 @@ return require("packer").startup(function(use)
       { "hrsh7th/cmp-buffer", after = "nvim-cmp" },
       {
         "saadparwaiz1/cmp_luasnip",
-        requires = { { "L3MON4D3/LuaSnip", after = "cmp_luasnip" }, { "rafamadriz/friendly-snippets", after = "LuaSnip" } },
+        requires = {
+          { "L3MON4D3/LuaSnip", after = "cmp_luasnip" },
+          { "rafamadriz/friendly-snippets", after = "LuaSnip" },
+        },
       },
     },
     config = function()
@@ -119,6 +123,7 @@ return require("packer").startup(function(use)
   use {
     "nvim-telescope/telescope.nvim",
     cmd = "Telescope",
+    module = "telescope",
     config = function()
       require("plugin.telescope").setup()
     end,
