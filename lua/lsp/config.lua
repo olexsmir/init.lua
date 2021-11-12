@@ -38,6 +38,8 @@ function M.setup()
       opts = vim.tbl_deep_extend("force", opts, require "lsp.providers.tsserver" or {})
     elseif server.name == "sumneko_lua" then
       opts = vim.tbl_deep_extend("force", opts, require "lsp.providers.sumneko_lua" or {})
+    elseif server.name == "pyright" then
+      opts = vim.tbl_deep_extend("force", opts, require "lsp.providers.pyright" or {})
     end
 
     server:setup(opts)
