@@ -37,8 +37,6 @@ function M.setup()
     },
   }
 
-  vim.g.nvim_tree_gitignore = 1
-  vim.g.nvim_tree_root_folder_modifier = ":t"
   vim.g.nvim_tree_group_empty = 1
   vim.g.nvim_tree_indent_markers = 1
 end

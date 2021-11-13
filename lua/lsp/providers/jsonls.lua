@@ -1,5 +1,8 @@
 return {
   settings = {
+    schemaDownload = {
+      enable = true
+    },
     schemas = {
       { fileMatch = { "package.json" }, url = "https://json.schemastore.org/package.json" },
     },

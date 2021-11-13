@@ -43,6 +43,7 @@ nmap("<leader>sp", "<cmd>Telescope projects<cr>")
 nmap("<leader>sr", "<cmd>Telescope oldfiles<cr>")
 nmap("<leader>sb", "<cmd>Telescope git_branches<cr>")
 nmap("<leader>sc", "<cmd>Telescope git_commits<cr>")
+nmap("<leader>sk", "<cmd>Telescope keymaps<cr>")
 
 -- DAP
 nmap("<leader>dt", "<cmd>lua require'dap'.toggle_breakpoint()<cr>")

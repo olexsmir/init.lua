@@ -37,7 +37,7 @@ return require("packer").startup(function(use)
       { "jose-elias-alvarez/null-ls.nvim", after = "nvim-lspconfig" },
     },
     config = function()
-      require("lsp.config").setup()
+      require("lsp").setup()
     end,
   }
 
