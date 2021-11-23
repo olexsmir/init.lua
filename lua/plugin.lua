@@ -4,7 +4,6 @@ return require("packer").startup(function(use)
   use "Mofiqul/vscode.nvim"
   use "kyazdani42/nvim-web-devicons"
   use "romgrk/barbar.nvim"
-
   use { "dstein64/vim-startuptime", cmd = "StartupTime" }
 
   use {
@@ -54,7 +53,7 @@ return require("packer").startup(function(use)
     requires = {
       { "Pocco81/DAPInstall.nvim", requires = "nvim-dap" },
       { "theHamsta/nvim-dap-virtual-text", after = "nvim-dap", config = [[ require"nvim-dap-virtual-text".setup() ]] },
-      "nvim-telescope/telescope-dap.nvim",
+      { "nvim-telescope/telescope-dap.nvim", after = "nvim-dap", config = [[ require("telescope").load_extension "dap" ]] },
     },
     config = function()
       require("plugin.dap").setup()
@@ -155,6 +154,7 @@ return require("packer").startup(function(use)
 
   use {
     "akinsho/toggleterm.nvim",
+    module = "toggleterm",
     keys = "<C-t>",
     config = function()
       require("plugin.terminal").setup()

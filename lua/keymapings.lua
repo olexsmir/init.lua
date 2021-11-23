@@ -37,6 +37,7 @@ nmap("<A-k>", ":m .-2<CR>==")
 
 -- Telescope
 nmap("<leader>f", "<cmd>Telescope find_files<cr>")
+nmap("<leader>b", "<cmd>Telescope buffers<cr>")
 nmap("<leader>st", "<cmd>Telescope live_grep<cr>")
 nmap("<leader>sT", "<cmd>Telescope grep_string<cr>")
 nmap("<leader>sp", "<cmd>Telescope projects<cr>")
@@ -44,6 +45,9 @@ nmap("<leader>sr", "<cmd>Telescope oldfiles<cr>")
 nmap("<leader>sb", "<cmd>Telescope git_branches<cr>")
 nmap("<leader>sc", "<cmd>Telescope git_commits<cr>")
 nmap("<leader>sk", "<cmd>Telescope keymaps<cr>")
+
+-- Terminal
+nmap("<leader>gg", "<cmd>lua term_cmd('lazygit')<cr>")
 
 -- DAP
 nmap("<leader>dt", "<cmd>lua require'dap'.toggle_breakpoint()<cr>")
