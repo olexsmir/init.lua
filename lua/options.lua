@@ -20,7 +20,6 @@ o.ignorecase = true
 o.mouse = "a"
 o.pumheight = 10
 o.showmode = false
-o.showtabline = 2
 o.smartcase = true
 o.smartindent = true
 o.splitbelow = true

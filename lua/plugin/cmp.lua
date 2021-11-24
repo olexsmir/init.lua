@@ -55,6 +55,9 @@ function M.setup()
       { name = "buffer", keyword_length = 4, max_item_count = 5 },
       { name = "luasnip", keyword_length = 2, max_item_count = 4 },
     },
+    experimental = {
+      ghost_text = true,
+    },
   }
 end
 
