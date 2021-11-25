@@ -48,6 +48,7 @@ nmap("<leader>sk", "<cmd>Telescope keymaps<cr>")
 
 -- Terminal
 nmap("<leader>gg", "<cmd>lua term_cmd('lazygit')<cr>")
+nmap("<leader>D", "<cmd> lua term_cmd('lazydocker')<cr>")
 
 -- DAP
 nmap("<leader>dt", "<cmd>lua require'dap'.toggle_breakpoint()<cr>")
