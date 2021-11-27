@@ -1,6 +1,7 @@
 local o = vim.opt
 
 vim.g.mapleader = " "
+vim.g.maplocalleader = ","
 vim.g.netrw_banner = false
 
 -- o.laststatus = 0
