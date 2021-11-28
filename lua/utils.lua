@@ -24,4 +24,8 @@ function M.expr(mode, from, to)
   M._map(mode, from, to, { noremap = true, expr = true })
 end
 
+function M.setup(module, opts)
+  require(module).setup(opts or {})
+end
+
 return M

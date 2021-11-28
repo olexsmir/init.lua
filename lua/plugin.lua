@@ -1,50 +1,25 @@
+local setup = require("utils").setup
+
 return require("packer").startup(function(use)
   use "wbthomason/packer.nvim"
   use "nvim-lua/plenary.nvim"
   use "Mofiqul/vscode.nvim"
   use "kyazdani42/nvim-web-devicons"
-  use "romgrk/barbar.nvim"
-  use { "dstein64/vim-startuptime", cmd = "StartupTime" }
+  -- use "romgrk/barbar.nvim"
 
-  use {
-    "pwntester/octo.nvim",
-    cmd = "Octo",
-    opt = true,
-    config = function()
-      require("octo").setup()
-    end,
-  }
-
-  use {
-    "numToStr/Comment.nvim",
-    config = function()
-      require("Comment").setup()
-    end,
-  }
-
-  use {
-    "windwp/nvim-autopairs",
-    config = function()
-      require("nvim-autopairs").setup()
-    end,
-  }
+  use { "numToStr/Comment.nvim", config = setup "Comment" }
+  use { "windwp/nvim-autopairs", config = setup "nvim-autopairs" }
+  use { "ahmedkhalf/project.nvim", config = setup "plugin.project" }
+  use { "lewis6991/gitsigns.nvim", config = setup "plugin.gitsigns" }
+  use { "nvim-lualine/lualine.nvim", config = setup "plugin.statusline" }
 
   use {
     "neovim/nvim-lspconfig",
     requires = {
       "williamboman/nvim-lsp-installer",
-      { "jose-elias-alvarez/null-ls.nvim", after = "nvim-lspconfig" },
+      "jose-elias-alvarez/null-ls.nvim",
     },
-    config = function()
-      require("lsp").setup()
-    end,
-  }
-
-  use {
-    "ahmedkhalf/project.nvim",
-    config = function()
-      require("plugin.project").setup()
-    end,
+    config = setup "lsp",
   }
 
   use {
@@ -55,31 +30,14 @@ return require("packer").startup(function(use)
       { "theHamsta/nvim-dap-virtual-text", after = "nvim-dap", config = [[ require"nvim-dap-virtual-text".setup() ]] },
       { "nvim-telescope/telescope-dap.nvim", after = "nvim-dap", config = [[ require("telescope").load_extension "dap" ]] },
     },
-    config = function()
-      require("plugin.dap").setup()
-    end,
+    config = setup "plugin.dap",
   }
 
   use {
     "ray-x/go.nvim",
     ft = "go",
-    opt = true,
     config = function()
-      require("go").setup { gofmt = "gofumpt" }
-    end,
-  }
-
-  use {
-    "lewis6991/gitsigns.nvim",
-    config = function()
-      require("plugin.gitsigns").setup()
-    end,
-  }
-
-  use {
-    "nvim-lualine/lualine.nvim",
-    config = function()
-      require("plugin.statusline").setup()
+      require("go").setup { gofmt = "gpfumpt" }
     end,
   }
 
@@ -88,9 +46,7 @@ return require("packer").startup(function(use)
     requires = { { "vim-test/vim-test", after = "vim-ultest" } },
     cmd = { "Ultest", "UltestStop", "UltestClear", "UltestNearest", "UltestOutput" },
     run = ":UpdateRemotePlugins",
-    config = function()
-      require("plugin.ultest").setup()
-    end,
+    config = setup "plugin.ultest",
   }
 
   use {
@@ -99,13 +55,10 @@ return require("packer").startup(function(use)
       { "hrsh7th/cmp-nvim-lua", after = "nvim-cmp" },
       { "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp" },
       { "hrsh7th/cmp-buffer", after = "nvim-cmp" },
-      {
-        "saadparwaiz1/cmp_luasnip",
-        requires = {
-          { "L3MON4D3/LuaSnip", after = "cmp_luasnip" },
-          { "rafamadriz/friendly-snippets", after = "LuaSnip" },
-        },
-      },
+      { "saadparwaiz1/cmp_luasnip", requires = {
+        "L3MON4D3/LuaSnip",
+        "rafamadriz/friendly-snippets",
+      } },
     },
     config = function()
       require("plugin.cmp").setup()
@@ -120,19 +73,19 @@ return require("packer").startup(function(use)
   }
 
   use {
+    "kyazdani42/nvim-tree.lua",
+    cmd = "NvimTreeToggle",
+    config = function()
+      require("plugin.nvimtree").setup()
+    end,
+  }
+
+  use {
     "nvim-telescope/telescope.nvim",
     cmd = "Telescope",
     module = "telescope",
     config = function()
       require("plugin.telescope").setup()
-    end,
-  }
-
-  use {
-    "kyazdani42/nvim-tree.lua",
-    cmd = "NvimTreeToggle",
-    config = function()
-      require("plugin.nvimtree").setup()
     end,
   }
 
