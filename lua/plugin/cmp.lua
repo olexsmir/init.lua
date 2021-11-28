@@ -3,6 +3,10 @@ local M = {}
 function M.setup()
   local cmp = require "cmp"
 
+  require("luasnip/loaders/from_vscode").lazy_load {
+    paths = { "~/.local/share/nvim/site/pack/packer/start/friendly-snippets" },
+  }
+
   cmp.event:on("confirm_done", require("nvim-autopairs.completion.cmp").on_confirm_done())
   cmp.setup {
     snippet = {
@@ -53,7 +57,7 @@ function M.setup()
       { name = "nvim_lua", max_item_count = 5 },
       { name = "nvim_lsp", max_item_count = 8 },
       { name = "buffer", keyword_length = 4, max_item_count = 5 },
-      { name = "luasnip", keyword_length = 2, max_item_count = 4 },
+      { name = "luasnip", max_item_count = 4, keyword_length = 2 },
     },
     experimental = {
       ghost_text = true,
