@@ -3,7 +3,7 @@ local M = {}
 function M.setup()
   require("lualine").setup {
     options = {
-      theme = "codedark",
+      theme = "nord",
       component_separators = { "", "" },
       section_separators = { "", "" },
       disabled_filetypes = { "NvimTree", "Telescope" },

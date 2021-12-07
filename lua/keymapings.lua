@@ -70,13 +70,9 @@ nmap("<leader>tn", "<cmd>UltestNearest<cr>")
 nmap("<leader>to", "<cmd>UltestOutput<cr>")
 
 -- Buffer
-nmap("<C-w>", "<cmd>bdelete<cr>")
-nmap("<leader>c", "<cmd>bdelete!<cr>")
-
-
--- nmap("<A-0>", "<cmd>BufferLast<cr>")
--- nmap("<C-w>", "<cmd>BufferClose<cr>")
--- nmap("<leader>c", "<cmd>BufferClose!<cr>")
--- for i = 1, 9 do
---   nmap(string.format("<A-%d>", i), string.format("<cmd>BufferGoto %d<cr>", i))
--- end
+nmap("<A-0>", "<cmd>BufferLast<cr>")
+nmap("<C-w>", "<cmd>BufferClose<cr>")
+nmap("<leader>c", "<cmd>BufferClose!<cr>")
+for i = 1, 9 do
+  nmap(string.format("<A-%d>", i), string.format("<cmd>BufferGoto %d<cr>", i))
+end

@@ -24,7 +24,7 @@ function M.setup()
     },
     view = {
       width = 30,
-      side = "left",
+      side = "right",
       auto_resize = false,
       mappings = {
         custom_only = false,

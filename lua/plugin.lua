@@ -3,15 +3,51 @@ local setup = require("utils").setup
 return require("packer").startup(function(use)
   use "wbthomason/packer.nvim"
   use "nvim-lua/plenary.nvim"
-  use "Mofiqul/vscode.nvim"
+  use "shaunsingh/nord.nvim"
   use "kyazdani42/nvim-web-devicons"
-  -- use "romgrk/barbar.nvim"
+  use "romgrk/barbar.nvim"
 
-  use { "numToStr/Comment.nvim", config = setup "Comment" }
-  use { "windwp/nvim-autopairs", config = setup "nvim-autopairs" }
-  use { "ahmedkhalf/project.nvim", config = setup "plugin.project" }
-  use { "lewis6991/gitsigns.nvim", config = setup "plugin.gitsigns" }
-  use { "nvim-lualine/lualine.nvim", config = setup "plugin.statusline" }
+  use {
+    "numToStr/Comment.nvim",
+    config = function()
+      require("Comment").setup()
+   end,
+  }
+
+  use {
+    "windwp/nvim-autopairs",
+    config = function()
+      require("nvim-autopairs").setup()
+    end,
+  }
+  
+  use {
+    "ahmedkhalf/project.nvim",
+    config = function()
+      require("plugin.project").setup()
+    end,
+  }
+  
+  use {
+    "lewis6991/gitsigns.nvim",
+    config = function()
+      require("plugin.gitsigns").setup()
+    end,
+  }
+  
+  use {
+    "nvim-lualine/lualine.nvim",
+    config = function()
+      require("plugin.statusline").setup()
+    end,
+  }
+
+  use {
+    "folke/todo-comments.nvim",
+    config = function()
+      require("todo-comments").setup()
+    end,
+  }
 
   use {
     "neovim/nvim-lspconfig",
@@ -39,14 +75,6 @@ return require("packer").startup(function(use)
     config = function()
       require("go").setup { gofmt = "gpfumpt" }
     end,
-  }
-
-  use {
-    "rcarriga/vim-ultest",
-    requires = { { "vim-test/vim-test", after = "vim-ultest" } },
-    cmd = { "Ultest", "UltestStop", "UltestClear", "UltestNearest", "UltestOutput" },
-    run = ":UpdateRemotePlugins",
-    config = setup "plugin.ultest",
   }
 
   use {
