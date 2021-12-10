@@ -1,7 +1,7 @@
 return require("packer").startup(function(use)
   use "wbthomason/packer.nvim"
   use "nvim-lua/plenary.nvim"
-  use "shaunsingh/nord.nvim"
+  use "catppuccin/nvim"
   use "kyazdani42/nvim-web-devicons"
   use "romgrk/barbar.nvim"
 

@@ -3,7 +3,7 @@ local M = {}
 function M.setup()
   require("lualine").setup {
     options = {
-      theme = "nord",
+      theme = "catppuccin",
       component_separators = { "", "" },
       section_separators = { "", "" },
       disabled_filetypes = { "NvimTree", "Telescope" },
@@ -13,7 +13,8 @@ function M.setup()
       lualine_b = { "filename" },
       lualine_c = {},
       lualine_x = {},
-      lualine_y = { { "diagnostics", sources = { "nvim_lsp" } } },
+      lualine_y = { { "diagnostics", sources = { "nvim_diagnostic" } } },
+
       lualine_z = { "location" },
     },
   }
