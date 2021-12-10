@@ -132,6 +132,13 @@ return require("packer").startup(function(use)
   }
 
   use {
+    "rcarriga/vim-ultest",
+    requires = { { "vim-test/vim-test", after = "vim-ultest" } },
+    cmd = { "Ultest", "UltestStop", "UltestClear", "UltestNearest", "UltestOutput" },
+    run = ":UpdateRemotePlugins",
+  }
+
+  use {
     "Smirnov-O/ts-unit.nvim",
     after = "nvim-treesitter",
     config = function()
