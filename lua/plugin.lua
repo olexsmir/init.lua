@@ -5,8 +5,11 @@ return require("packer").startup(function(use)
   use "kyazdani42/nvim-web-devicons"
   use "romgrk/barbar.nvim"
 
+  use { "dstein64/vim-startuptime", cmd = "StartupTime" }
+
   use {
     "numToStr/Comment.nvim",
+    keys = { "gc", "<leader>/" },
     config = function()
       require("Comment").setup()
     end,
@@ -14,6 +17,7 @@ return require("packer").startup(function(use)
 
   use {
     "windwp/nvim-autopairs",
+    event = "InsertEnter",
     config = function()
       require("nvim-autopairs").setup()
     end,
@@ -28,6 +32,7 @@ return require("packer").startup(function(use)
 
   use {
     "lewis6991/gitsigns.nvim",
+    event = "BufEnter",
     config = function()
       require("plugin.gitsigns").setup()
     end,
@@ -42,6 +47,7 @@ return require("packer").startup(function(use)
 
   use {
     "folke/todo-comments.nvim",
+    event = "BufEnter",
     config = function()
       require("todo-comments").setup()
     end,
@@ -49,6 +55,7 @@ return require("packer").startup(function(use)
 
   use {
     "neovim/nvim-lspconfig",
+    event = "InsertEnter",
     requires = {
       "williamboman/nvim-lsp-installer",
       "jose-elias-alvarez/null-ls.nvim",
@@ -73,7 +80,7 @@ return require("packer").startup(function(use)
 
   use {
     "ray-x/go.nvim",
-    ft = {"go", "gomod"},
+    ft = { "go", "gomod" },
     config = function()
       require("go").setup { gofmt = "gpfumpt" }
     end,
@@ -81,15 +88,20 @@ return require("packer").startup(function(use)
 
   use {
     "hrsh7th/nvim-cmp",
+    event = "InsertEnter",
     requires = {
       { "hrsh7th/cmp-nvim-lua", after = "nvim-cmp" },
       { "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp" },
       { "hrsh7th/cmp-buffer", after = "nvim-cmp" },
       { "hrsh7th/cmp-path", after = "nvim-cmp" },
-      { "saadparwaiz1/cmp_luasnip", requires = {
-        "L3MON4D3/LuaSnip",
-        "rafamadriz/friendly-snippets",
-      } },
+      {
+        "saadparwaiz1/cmp_luasnip",
+        after = "nvim-cmp",
+        requires = {
+          "L3MON4D3/LuaSnip",
+          "rafamadriz/friendly-snippets",
+        },
+      },
     },
     config = function()
       require("plugin.cmp").setup()
@@ -98,6 +110,7 @@ return require("packer").startup(function(use)
 
   use {
     "max397574/better-escape.nvim",
+    event = "InsertEnter",
     config = function()
       require("better_escape").setup { mapping = { "jk" } }
     end,
@@ -122,9 +135,7 @@ return require("packer").startup(function(use)
 
   use {
     "nvim-treesitter/nvim-treesitter",
-    requires = {
-      { "nvim-treesitter/nvim-treesitter-refactor", after = "nvim-treesitter" },
-    },
+    requires = { { "nvim-treesitter/nvim-treesitter-refactor", after = "nvim-treesitter" } },
     branch = "0.5-compat",
     config = function()
       require("plugin.treesitter").setup()
