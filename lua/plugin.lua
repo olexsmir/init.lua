@@ -88,6 +88,14 @@ return require("packer").startup(function(use)
   }
 
   use {
+    "folke/lua-dev.nvim",
+    ft = "lua",
+    config = function()
+      require("lua-dev").setup()
+    end,
+  }
+
+  use {
     "hrsh7th/nvim-cmp",
     event = "InsertEnter",
     requires = {
