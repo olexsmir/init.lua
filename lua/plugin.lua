@@ -1,5 +1,3 @@
-local setup = require("utils").setup
-
 return require("packer").startup(function(use)
   use "wbthomason/packer.nvim"
   use "nvim-lua/plenary.nvim"
@@ -11,7 +9,7 @@ return require("packer").startup(function(use)
     "numToStr/Comment.nvim",
     config = function()
       require("Comment").setup()
-   end,
+    end,
   }
 
   use {
@@ -20,21 +18,21 @@ return require("packer").startup(function(use)
       require("nvim-autopairs").setup()
     end,
   }
-  
+
   use {
     "ahmedkhalf/project.nvim",
     config = function()
       require("plugin.project").setup()
     end,
   }
-  
+
   use {
     "lewis6991/gitsigns.nvim",
     config = function()
       require("plugin.gitsigns").setup()
     end,
   }
-  
+
   use {
     "nvim-lualine/lualine.nvim",
     config = function()
@@ -55,7 +53,9 @@ return require("packer").startup(function(use)
       "williamboman/nvim-lsp-installer",
       "jose-elias-alvarez/null-ls.nvim",
     },
-    config = setup "lsp",
+    config = function()
+      require("lsp").setup()
+    end,
   }
 
   use {
@@ -66,7 +66,9 @@ return require("packer").startup(function(use)
       { "theHamsta/nvim-dap-virtual-text", after = "nvim-dap", config = [[ require"nvim-dap-virtual-text".setup() ]] },
       { "nvim-telescope/telescope-dap.nvim", after = "nvim-dap", config = [[ require("telescope").load_extension "dap" ]] },
     },
-    config = setup "plugin.dap",
+    config = function()
+      require("plugin.dap").setup()
+    end,
   }
 
   use {
@@ -119,6 +121,9 @@ return require("packer").startup(function(use)
 
   use {
     "nvim-treesitter/nvim-treesitter",
+    requires = {
+      { "nvim-treesitter/nvim-treesitter-refactor", after = "nvim-treesitter" },
+    },
     branch = "0.5-compat",
     config = function()
       require("plugin.treesitter").setup()
