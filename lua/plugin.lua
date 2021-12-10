@@ -6,6 +6,7 @@ return require("packer").startup(function(use)
   use "romgrk/barbar.nvim"
 
   use { "dstein64/vim-startuptime", cmd = "StartupTime" }
+  use { "tpope/vim-surround", keys = { "c", "d", "y" } }
 
   use {
     "numToStr/Comment.nvim",
