@@ -73,7 +73,7 @@ return require("packer").startup(function(use)
 
   use {
     "ray-x/go.nvim",
-    ft = "go",
+    ft = {"go", "gomod"},
     config = function()
       require("go").setup { gofmt = "gpfumpt" }
     end,
