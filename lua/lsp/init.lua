@@ -4,6 +4,7 @@ local M = {}
 function M.setup()
   require("nvim-lsp-installer").on_server_ready(function(server)
     local opts = { on_attach = on_attach }
+    require("lsp.null").setup()
 
     local ok, server_opts = pcall(require, "lsp.providers." .. server.name)
     if ok then
@@ -13,9 +14,6 @@ function M.setup()
     server:setup(opts)
 
     vim.cmd [[ do User LspAttachBuffers ]]
-
-    require("lsp.null").setup()
-    require("lspconfig")["null-ls"].setup {}
   end)
 end
 
