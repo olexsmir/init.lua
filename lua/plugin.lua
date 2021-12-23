@@ -54,11 +54,18 @@ return require("packer").startup(function(use)
   }
 
   use {
+    "folke/trouble.nvim",
+    cmd = { "Trouble", "TroubleToggle" },
+    config = function()
+      require("trouble").setup {}
+    end,
+  }
+
+  use {
     "neovim/nvim-lspconfig",
-    event = "InsertEnter",
     requires = {
       "williamboman/nvim-lsp-installer",
-      "jose-elias-alvarez/null-ls.nvim",
+      { "jose-elias-alvarez/null-ls.nvim", after = "nvim-lspconfig" },
     },
     config = function()
       require("lsp").setup()
@@ -143,7 +150,7 @@ return require("packer").startup(function(use)
 
   use {
     "nvim-treesitter/nvim-treesitter",
-    requires = { { "nvim-treesitter/nvim-treesitter-refactor", after = "nvim-treesitter" } },
+    requires = { { "nvim-treesitter/nvim-treesitter-refactor", after = "nvim-treesitter" }, "nvim-treesitter/playground" },
     branch = "0.5-compat",
     config = function()
       require("plugin.treesitter").setup()
