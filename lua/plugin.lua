@@ -3,7 +3,6 @@ return require("packer").startup(function(use)
   use "nvim-lua/plenary.nvim"
   use "catppuccin/nvim"
   use "kyazdani42/nvim-web-devicons"
-  use "romgrk/barbar.nvim"
 
   use { "dstein64/vim-startuptime", cmd = "StartupTime" }
   use { "tpope/vim-surround", keys = { "c", "d", "y" } }
