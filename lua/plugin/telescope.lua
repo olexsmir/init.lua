@@ -1,3 +1,4 @@
+local nmap = require("utils").nmap
 local M = {}
 
 function M.setup()
@@ -44,7 +45,17 @@ function M.setup()
     },
   }
 
+  -- Extensions
   require("telescope").load_extension "projects"
+
+  -- Mappings
+  nmap("<leader>f", "<cmd>Telescope find_files<cr>")
+  nmap("<leader>b", "<cmd>Telescope buffers<cr>")
+  nmap("<leader>st", "<cmd>Telescope live_grep<cr>")
+  nmap("<leader>sr", "<cmd>Telescope oldfiles<cr>")
+  nmap("<leader>sb", "<cmd>Telescope git_branches<cr>")
+  nmap("<leader>sc", "<cmd>Telescope git_commits<cr>")
+  nmap("<leader>sk", "<cmd>Telescope keymaps<cr>")
 end
 
 return M

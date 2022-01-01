@@ -7,12 +7,6 @@ function M._map(mode, from, to, opts)
 end
 
 function M.map(mode, from, to)
-  if type(mode) == "table" then
-    for _, m in pairs(mode) do
-      M._map(m, from, to, M.opts)
-    end
-  end
-
   M._map(mode, from, to, M.opts)
 end
 
@@ -22,10 +16,6 @@ end
 
 function M.expr(mode, from, to)
   M._map(mode, from, to, { noremap = true, expr = true })
-end
-
-function M.setup(module, opts)
-  require(module).setup(opts or {})
 end
 
 function M.get_config(name)
