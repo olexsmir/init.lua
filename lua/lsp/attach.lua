@@ -9,9 +9,9 @@ return function(client, bufnr)
 
   local opts = { noremap = true, silent = true }
   buf_map("K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
-  buf_map("gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
+  buf_map("gd", "<cmd>Telescope lsp_definitions<CR>", opts)
   buf_map("gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-  buf_map("gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
+  buf_map("gr", "<cmd>lsp_references<CR>", opts)
   buf_map("gi", "<cmd>Telescope lsp_implementations<CR>", opts)
   buf_map("gs", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
   buf_map("gl", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", opts)
