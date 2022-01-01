@@ -17,9 +17,9 @@ function M.setup()
       noremap = true,
       ["n <leader>gs"] = '<cmd>lua require"gitsigns".stage_hunk()<CR>',
       ["n <leader>gr"] = '<cmd>lua require"gitsigns".reset_hunk()<CR>',
-      ["n <leader>gR"] = '<cmd>lua require"gitsigns".reset_buffer()<CR>',
       ["n <leader>gp"] = '<cmd>lua require"gitsigns".preview_hunk()<CR>',
-      ["n <leader>gl"] = '<cmd>lua require"gitsigns".blame_line(true)<CR>',
+      ["n <leader>gb"] = '<cmd>lua require"gitsigns".blame_line(true)<CR>',
+      ["n <leader>gR"] = '<cmd>lua require"gitsigns".reset_buffer()<CR>',
       ["n <leader>gS"] = '<cmd>lua require"gitsigns".stage_buffer()<CR>',
       ["n <leader>gU"] = '<cmd>lua require"gitsigns".reset_buffer_index()<CR>',
     },
@@ -31,14 +31,14 @@ function M.setup()
     current_line_blame = false,
     current_line_blame_opts = {
       virt_text = true,
-      virt_text_pos = "eol", -- 'eol' | 'overlay' | 'right_align'
+      virt_text_pos = "eol",
       delay = 300,
     },
     current_line_blame_formatter_opts = { relative_time = false },
     sign_priority = 6,
     update_debounce = 100,
     status_formatter = nil,
-    max_file_length = 40000,
+    max_file_length = 1500,
     preview_config = {
       border = "single",
       style = "minimal",
@@ -46,7 +46,6 @@ function M.setup()
       row = 0,
       col = 1,
     },
-    yadm = { enable = false },
   }
 end
 
