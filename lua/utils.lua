@@ -28,4 +28,8 @@ function M.setup(module, opts)
   require(module).setup(opts or {})
 end
 
+function M.get_config(name)
+  return string.format("require[[%s]].setup()", name)
+end
+
 return M

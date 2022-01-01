@@ -1,7 +1,9 @@
+local get_config = require("utils").get_config
+
 return require("packer").startup(function(use)
   use "wbthomason/packer.nvim"
   use "nvim-lua/plenary.nvim"
-  use "catppuccin/nvim"
+  use { "catppuccin/nvim", as = "catppuccin" }
   use "kyazdani42/nvim-web-devicons"
 
   use { "~/code/gopher.nvim", ft = "go" }
@@ -11,55 +13,68 @@ return require("packer").startup(function(use)
   use {
     "numToStr/Comment.nvim",
     keys = { "gc", "<leader>/" },
-    config = function()
-      require("Comment").setup()
-    end,
+    config = get_config "Comment",
   }
 
   use {
     "windwp/nvim-autopairs",
     event = "InsertEnter",
-    config = function()
-      require("nvim-autopairs").setup()
-    end,
+    config = get_config "nvim-autopairs",
   }
 
   use {
     "ahmedkhalf/project.nvim",
-    config = function()
-      require("plugin.project").setup()
-    end,
+    config = get_config "plugin.project",
   }
 
   use {
     "lewis6991/gitsigns.nvim",
     event = "BufEnter",
-    config = function()
-      require("plugin.gitsigns").setup()
-    end,
+    config = get_config "plugin.gitsigns",
   }
 
   use {
     "nvim-lualine/lualine.nvim",
-    config = function()
-      require("plugin.statusline").setup()
-    end,
+    config = get_config "plugin.statusline",
   }
 
   use {
     "folke/todo-comments.nvim",
     event = "BufEnter",
-    config = function()
-      require("todo-comments").setup()
-    end,
+    config = get_config "todo-comments",
   }
 
   use {
     "folke/trouble.nvim",
     cmd = { "Trouble", "TroubleToggle" },
-    config = function()
-      require("trouble").setup {}
-    end,
+    config = get_config "trouble",
+  }
+
+  use {
+    "folke/lua-dev.nvim",
+    ft = "lua",
+    after = "nvim-lspconfig",
+    config = get_config "lua-dev",
+  }
+
+  use {
+    "akinsho/toggleterm.nvim",
+    module = "toggleterm",
+    keys = "<C-t>",
+    config = get_config "plugin.terminal",
+  }
+
+  use {
+    "kyazdani42/nvim-tree.lua",
+    cmd = "NvimTreeToggle",
+    config = get_config "plugin.nvimtree",
+  }
+
+  use {
+    "nvim-telescope/telescope.nvim",
+    cmd = "Telescope",
+    module = "telescope",
+    config = get_config "plugin.telescope",
   }
 
   use {
@@ -68,30 +83,18 @@ return require("packer").startup(function(use)
       "williamboman/nvim-lsp-installer",
       { "jose-elias-alvarez/null-ls.nvim", after = "nvim-lspconfig" },
     },
-    config = function()
-      require("lsp").setup()
-    end,
+    config = get_config "lsp",
   }
 
   use {
     "mfussenegger/nvim-dap",
     module = "dap",
     requires = {
-      { "Pocco81/DAPInstall.nvim", requires = "nvim-dap" },
+      { "Pocco81/DAPInstall.nvim", module = "dap-install", requires = "nvim-dap" },
       { "theHamsta/nvim-dap-virtual-text", after = "nvim-dap", config = [[ require"nvim-dap-virtual-text".setup() ]] },
       { "nvim-telescope/telescope-dap.nvim", after = "nvim-dap", config = [[ require("telescope").load_extension "dap" ]] },
     },
-    config = function()
-      require("plugin.dap").setup()
-    end,
-  }
-
-  use {
-    "folke/lua-dev.nvim",
-    ft = "lua",
-    config = function()
-      require("lua-dev").setup()
-    end,
+    config = get_config "plugin.dap",
   }
 
   use {
@@ -111,9 +114,7 @@ return require("packer").startup(function(use)
         },
       },
     },
-    config = function()
-      require("plugin.cmp").setup()
-    end,
+    config = get_config "plugin.cmp",
   }
 
   use {
@@ -125,36 +126,13 @@ return require("packer").startup(function(use)
   }
 
   use {
-    "kyazdani42/nvim-tree.lua",
-    cmd = "NvimTreeToggle",
-    config = function()
-      require("plugin.nvimtree").setup()
-    end,
-  }
-
-  use {
-    "nvim-telescope/telescope.nvim",
-    cmd = "Telescope",
-    module = "telescope",
-    config = function()
-      require("plugin.telescope").setup()
-    end,
-  }
-
-  use {
     "nvim-treesitter/nvim-treesitter",
-    requires = { { "nvim-treesitter/nvim-treesitter-refactor", after = "nvim-treesitter" }, "nvim-treesitter/playground" },
     branch = "0.5-compat",
-    config = function()
-      require("plugin.treesitter").setup()
-    end,
-  }
-
-  use {
-    "rcarriga/vim-ultest",
-    requires = { { "vim-test/vim-test", after = "vim-ultest" } },
-    cmd = { "Ultest", "UltestStop", "UltestClear", "UltestNearest", "UltestOutput" },
-    run = ":UpdateRemotePlugins",
+    requires = {
+      { "nvim-treesitter/nvim-treesitter-refactor", after = "nvim-treesitter" },
+      { "nvim-treesitter/playground", after = "nvim-treesitter" },
+    },
+    config = get_config "plugin.treesitter",
   }
 
   use {
@@ -166,11 +144,9 @@ return require("packer").startup(function(use)
   }
 
   use {
-    "akinsho/toggleterm.nvim",
-    module = "toggleterm",
-    keys = "<C-t>",
-    config = function()
-      require("plugin.terminal").setup()
-    end,
+    "rcarriga/vim-ultest",
+    requires = { { "vim-test/vim-test", after = "vim-ultest" } },
+    cmd = { "Ultest", "UltestStop", "UltestClear", "UltestNearest", "UltestOutput" },
+    run = ":UpdateRemotePlugins",
   }
 end)
