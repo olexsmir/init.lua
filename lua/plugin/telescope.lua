@@ -19,7 +19,7 @@ function M.setup()
         horizontal = { mirror = false },
         vertical = { mirror = false },
       },
-      file_ignore_patterns = { ".git", "node_modules", "__pycache__", "target", "env", ".bin" },
+      file_ignore_patterns = { ".git", "node_modules", "__pycache__", "target", "vendor", "env", ".bin" },
       path_display = { shorten = 5 },
       winblend = 0,
       border = {},
@@ -35,8 +35,6 @@ function M.setup()
           ["<C-j>"] = actions.move_selection_next,
           ["<C-k>"] = actions.move_selection_previous,
           ["<C-u>"] = false,
-
-          ["<C-h>"] = "which_key",
         },
         n = {
           ["<C-j>"] = actions.move_selection_next,

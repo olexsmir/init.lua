@@ -4,6 +4,7 @@ return require("packer").startup(function(use)
   use "catppuccin/nvim"
   use "kyazdani42/nvim-web-devicons"
 
+  use { "~/code/gopher.nvim", ft = "go" }
   use { "dstein64/vim-startuptime", cmd = "StartupTime" }
   use { "tpope/vim-surround", keys = { "c", "d", "y" } }
 
@@ -82,14 +83,6 @@ return require("packer").startup(function(use)
     },
     config = function()
       require("plugin.dap").setup()
-    end,
-  }
-
-  use {
-    "ray-x/go.nvim",
-    ft = { "go", "gomod" },
-    config = function()
-      require("go").setup { gofmt = "gpfumpt" }
     end,
   }
 

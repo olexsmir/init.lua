@@ -43,6 +43,8 @@ nmap("<leader>sT", "<cmd>Telescope grep_string<cr>")
 nmap("<leader>sp", "<cmd>Telescope projects<cr>")
 nmap("<leader>sr", "<cmd>Telescope oldfiles<cr>")
 nmap("<leader>sb", "<cmd>Telescope git_branches<cr>")
+nmap("<leader>sf", "<cmd>Telescope git_files<cr>")
+nmap("<leader>ss", "<cmd>Telescope git_status<cr>")
 nmap("<leader>sc", "<cmd>Telescope git_commits<cr>")
 nmap("<leader>sk", "<cmd>Telescope keymaps<cr>")
 

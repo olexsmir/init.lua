@@ -20,7 +20,7 @@ function M.setup()
     },
     filters = {
       dotfiles = true,
-      custom = { ".git", "node_modules", "__pycache__", "env", ".bin" },
+      custom = { ".git", "node_modules", "__pycache__", "vendor", "env", ".bin" },
     },
     view = {
       width = 30,
