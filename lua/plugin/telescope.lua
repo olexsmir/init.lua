@@ -1,8 +1,8 @@
-local nmap = require("utils").nmap
 local M = {}
 
 function M.setup()
   local actions = require "telescope.actions"
+  local action_layout = require "telescope.actions.layout"
 
   require("telescope").setup {
     defaults = {
@@ -33,13 +33,16 @@ function M.setup()
       },
       mappings = {
         i = {
+          ["<esc>"] = actions.close,
           ["<C-j>"] = actions.move_selection_next,
           ["<C-k>"] = actions.move_selection_previous,
+          ["<A-p>"] = action_layout.toggle_preview,
           ["<C-u>"] = false,
         },
         n = {
           ["<C-j>"] = actions.move_selection_next,
           ["<C-k>"] = actions.move_selection_previous,
+          ["<A-p>"] = action_layout.toggle_preview,
         },
       },
     },
