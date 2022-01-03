@@ -11,6 +11,12 @@ return require("packer").startup(function(use)
   use { "tpope/vim-surround", keys = { "c", "d", "y" } }
 
   use {
+    "simrat39/rust-tools.nvim",
+    ft = { "rust" },
+    config = get_config "rust-tools",
+  }
+
+  use {
     "numToStr/Comment.nvim",
     keys = { "gc", "<leader>/" },
     config = get_config "Comment",
