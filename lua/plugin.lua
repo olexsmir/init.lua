@@ -5,16 +5,12 @@ return require("packer").startup(function(use)
   use "nvim-lua/plenary.nvim"
   use { "catppuccin/nvim", as = "catppuccin" }
   use "kyazdani42/nvim-web-devicons"
-
   use { "~/code/gopher.nvim", ft = "go" }
   use { "dstein64/vim-startuptime", cmd = "StartupTime" }
   use { "tpope/vim-surround", keys = { "c", "d", "y" } }
-
-  use {
-    "simrat39/rust-tools.nvim",
-    ft = { "rust" },
-    config = get_config "rust-tools",
-  }
+  use { "ahmedkhalf/project.nvim", config = get_config "plugin.project" }
+  use { "nvim-lualine/lualine.nvim", config = get_config "plugin.statusline" }
+  use { "simrat39/rust-tools.nvim", ft = "rust", config = get_config "rust-tools" }
 
   use {
     "numToStr/Comment.nvim",
@@ -29,19 +25,9 @@ return require("packer").startup(function(use)
   }
 
   use {
-    "ahmedkhalf/project.nvim",
-    config = get_config "plugin.project",
-  }
-
-  use {
     "lewis6991/gitsigns.nvim",
     event = "BufEnter",
     config = get_config "plugin.gitsigns",
-  }
-
-  use {
-    "nvim-lualine/lualine.nvim",
-    config = get_config "plugin.statusline",
   }
 
   use {
@@ -116,7 +102,7 @@ return require("packer").startup(function(use)
         after = "nvim-cmp",
         requires = {
           "L3MON4D3/LuaSnip",
-          "rafamadriz/friendly-snippets",
+          { "rafamadriz/friendly-snippets", after = "LuaSnip" },
         },
       },
     },
@@ -153,6 +139,6 @@ return require("packer").startup(function(use)
     "rcarriga/vim-ultest",
     requires = { { "vim-test/vim-test", after = "vim-ultest" } },
     cmd = { "Ultest", "UltestStop", "UltestClear", "UltestNearest", "UltestOutput" },
-    run = ":UpdateRemotePlugins",
+    run = "<cmd>UpdateRemotePlugins<cr>",
   }
 end)
