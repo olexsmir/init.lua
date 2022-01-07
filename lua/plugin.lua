@@ -10,8 +10,8 @@ return require("packer").startup(function(use)
   use { "tpope/vim-surround", keys = { "c", "d", "y" } }
   use { "ahmedkhalf/project.nvim", config = get_config "plugin.project" }
   use { "nvim-lualine/lualine.nvim", config = get_config "plugin.statusline" }
-  use { "simrat39/rust-tools.nvim", ft = "rust", config = get_config "rust-tools" }
-  use { "saecki/crates.nvim", ft = "toml", config = get_config "crates" }
+  -- use { "simrat39/rust-tools.nvim", ft = "rust", config = get_config "rust-tools" }
+  -- use { "saecki/crates.nvim", ft = "toml", config = get_config "crates" }
 
   use {
     "numToStr/Comment.nvim",
