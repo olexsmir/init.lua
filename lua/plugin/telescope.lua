@@ -3,6 +3,7 @@ local M = {}
 function M.setup()
   local actions = require "telescope.actions"
   local action_layout = require "telescope.actions.layout"
+  -- local themes = require "telescope.themes"
 
   require("telescope").setup {
     defaults = {
@@ -27,10 +28,6 @@ function M.setup()
       borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
       color_devicons = true,
       set_env = { ["COLORTERM"] = "truecolor" },
-      pickers = {
-        find_files = { find_command = { "fd", "--type=file", "--hidden", "--smart-case" } },
-        live_grep = { only_sort_text = true },
-      },
       mappings = {
         i = {
           ["<esc>"] = actions.close,
@@ -45,6 +42,21 @@ function M.setup()
           ["<A-p>"] = action_layout.toggle_preview,
         },
       },
+    },
+    pickers = {
+      find_files = { theme = "ivy" },
+      live_grep = { theme = "ivy", only_sort_text = true },
+      buffers = { theme = "ivy", previewer = false },
+      oldfiles = { theme = "ivy" },
+      keymaps = { theme = "ivy" },
+      git_branches = { theme = "cursor" },
+      git_commits = { theme = "cursor" },
+      lsp_definitions = { theme = "cursor" },
+      lsp_references = { theme = "cursor" },
+      lsp_implementations = { theme = "cursor" },
+      lsp_code_actions = { theme = "cursor" },
+      lsp_document_symbols = { theme = "ivy" },
+      reloader = { theme = "cursor" },
     },
   }
 
