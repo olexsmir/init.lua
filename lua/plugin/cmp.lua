@@ -61,7 +61,10 @@ function M.setup()
       { name = "luasnip", max_item_count = 4, keyword_length = 2 },
       { name = "path", max_item_count = 2 },
     },
-    experimental = { ghost_text = true },
+    experimental = {
+      native_menu = false,
+      ghost_text = true,
+    },
   }
 end
 
