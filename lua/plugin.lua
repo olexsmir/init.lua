@@ -4,8 +4,8 @@ return require("packer").startup(function(use)
   use "wbthomason/packer.nvim"
   use "nvim-lua/plenary.nvim"
   use "kyazdani42/nvim-web-devicons"
-  use { "catppuccin/nvim", as = "catppuccin" }
   use { "~/code/gopher.nvim", ft = "go" }
+  use "rmehri01/onenord.nvim"
   use { "dstein64/vim-startuptime", cmd = "StartupTime" }
   use { "tpope/vim-surround", keys = { "c", "d", "y" } }
   use { "ahmedkhalf/project.nvim", config = get_config "plugin.project" }

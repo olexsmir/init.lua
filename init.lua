@@ -5,4 +5,4 @@ require "disabled"
 require "globals"
 require "autocmd"
 
-vim.cmd [[colo catppuccin]]
+vim.cmd [[colo onenord]]
