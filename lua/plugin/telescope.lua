@@ -22,7 +22,7 @@ function M.setup()
         vertical = { mirror = false },
       },
       file_ignore_patterns = { ".git", "node_modules", "__pycache__", "target", "vendor", "env", ".bin" },
-      path_display = { shorten = 5 },
+      -- path_display = { shorten = 5 },
       winblend = 0,
       border = {},
       borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },

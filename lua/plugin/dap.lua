@@ -1,4 +1,3 @@
-local nmap = require("utils").nmap
 local M = {}
 
 function M.setup()
