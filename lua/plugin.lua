@@ -8,6 +8,7 @@ return require("packer").startup(function(use)
 
   use { "tpope/vim-surround", keys = { "c", "d", "y" } }
   use { "~/code/gopher.nvim", ft = "go" }
+  use { "mfussenegger/nvim-jdtls", after = "nvim-lspconfig", ft = "java" }
 
   use { "ahmedkhalf/project.nvim", config = get_config "plugin.project" }
   use { "nvim-lualine/lualine.nvim", config = get_config "plugin.statusline" }
