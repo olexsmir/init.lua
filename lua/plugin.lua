@@ -12,6 +12,7 @@ return require("packer").startup(function(use)
 
   use { "ahmedkhalf/project.nvim", config = get_config "plugin.project" }
   use { "nvim-lualine/lualine.nvim", config = get_config "plugin.statusline" }
+  use { "pwntester/octo.nvim", cmd = "Octo" }
 
   use {
     "numToStr/Comment.nvim",
