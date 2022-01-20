@@ -6,10 +6,11 @@ return require("packer").startup(function(use)
   use "kyazdani42/nvim-web-devicons"
   use "rmehri01/onenord.nvim"
 
-  use { "tpope/vim-surround", keys = { "c", "d", "y" } }
   use { "~/code/gopher.nvim", ft = "go" }
-  use { "mfussenegger/nvim-jdtls", after = "nvim-lspconfig", ft = "java" }
+  use { "mfussenegger/nvim-jdtls", ft = "java", after = "nvim-lspconfig" }
+  use { "folke/lua-dev.nvim", ft = "lua", after = "nvim-lspconfig", config = get_config "lua-dev" }
 
+  use { "tpope/vim-surround", keys = { "c", "d", "y" } }
   use { "ahmedkhalf/project.nvim", config = get_config "plugin.project" }
   use { "nvim-lualine/lualine.nvim", config = get_config "plugin.statusline" }
   use { "pwntester/octo.nvim", cmd = "Octo" }
@@ -45,23 +46,10 @@ return require("packer").startup(function(use)
   }
 
   use {
-    "folke/lua-dev.nvim",
-    ft = "lua",
-    after = "nvim-lspconfig",
-    config = get_config "lua-dev",
-  }
-
-  use {
     "akinsho/toggleterm.nvim",
     module = "toggleterm",
     keys = "<C-t>",
     config = get_config "plugin.terminal",
-  }
-
-  use {
-    "kyazdani42/nvim-tree.lua",
-    cmd = "NvimTreeToggle",
-    config = get_config "plugin.nvimtree",
   }
 
   use {
