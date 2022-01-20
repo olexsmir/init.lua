@@ -3,7 +3,10 @@ local M = {}
 
 function M.setup()
   require("nvim-lsp-installer").on_server_ready(function(server)
-    local opts = { on_attach = on_attach }
+    local opts = {
+      on_attach = on_attach,
+      capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+    }
     require("lsp.null").setup()
 
     local ok, server_opts = pcall(require, "lsp.providers." .. server.name)

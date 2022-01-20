@@ -8,6 +8,8 @@ function M.setup()
   }
 
   cmp.event:on("confirm_done", require("nvim-autopairs.completion.cmp").on_confirm_done())
+  cmp.setup.cmdline("/", { sources = { { name = "buffer" } } })
+  cmp.setup.cmdline(":", { sources = cmp.config.sources { { name = "path" }, { name = "cmdline" } } })
   cmp.setup {
     snippet = {
       expand = function(args)

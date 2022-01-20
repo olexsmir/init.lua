@@ -24,6 +24,7 @@ return require("packer").startup(function(use)
   use {
     "windwp/nvim-autopairs",
     event = "InsertEnter",
+    module = "nvim-autopairs",
     config = get_config "nvim-autopairs",
   }
 
@@ -61,42 +62,39 @@ return require("packer").startup(function(use)
 
   use {
     "neovim/nvim-lspconfig",
+    config = get_config "lsp",
     requires = {
       "williamboman/nvim-lsp-installer",
       { "jose-elias-alvarez/null-ls.nvim", after = "nvim-lspconfig" },
     },
-    config = get_config "lsp",
   }
 
   use {
     "mfussenegger/nvim-dap",
     module = "dap",
+    config = get_config "plugin.dap",
     requires = {
       { "Pocco81/DAPInstall.nvim", module = "dap-install", requires = "nvim-dap" },
       { "theHamsta/nvim-dap-virtual-text", after = "nvim-dap", config = [[ require"nvim-dap-virtual-text".setup() ]] },
       { "nvim-telescope/telescope-dap.nvim", after = "nvim-dap", config = [[ require("telescope").load_extension "dap" ]] },
     },
-    config = get_config "plugin.dap",
   }
 
   use {
     "hrsh7th/nvim-cmp",
+    config = get_config "plugin.cmp",
     event = "InsertEnter",
+    module = "cmp",
     requires = {
       { "hrsh7th/cmp-nvim-lua", after = "nvim-cmp" },
-      { "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp" },
+      { "hrsh7th/cmp-nvim-lsp", module = "cmp_nvim_lsp" },
       { "hrsh7th/cmp-buffer", after = "nvim-cmp" },
       { "hrsh7th/cmp-path", after = "nvim-cmp" },
-      {
-        "saadparwaiz1/cmp_luasnip",
-        after = "nvim-cmp",
-        requires = {
-          "L3MON4D3/LuaSnip",
-          { "rafamadriz/friendly-snippets", after = "LuaSnip" },
-        },
-      },
+      { "hrsh7th/cmp-cmdline", after = "nvim-cmp" },
+      { "saadparwaiz1/cmp_luasnip", after = "nvim-cmp" },
+      { "L3MON4D3/LuaSnip", module = "luasnip" },
+      { "rafamadriz/friendly-snippets", after = "nvim-cmp" },
     },
-    config = get_config "plugin.cmp",
   }
 
   use {
@@ -110,19 +108,11 @@ return require("packer").startup(function(use)
   use {
     "nvim-treesitter/nvim-treesitter",
     branch = "0.5-compat",
+    config = get_config "plugin.treesitter",
     requires = {
       { "nvim-treesitter/nvim-treesitter-refactor", after = "nvim-treesitter" },
       { "nvim-treesitter/playground", after = "nvim-treesitter" },
     },
-    config = get_config "plugin.treesitter",
-  }
-
-  use {
-    "Smirnov-O/ts-unit.nvim",
-    after = "nvim-treesitter",
-    config = function()
-      require("ts-unit").setup { keymaps = true }
-    end,
   }
 
   use {
