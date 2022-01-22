@@ -8,7 +8,7 @@ function M.setup()
     hijack_netrw = true,
     auto_close = true,
     auto_open = true,
-    update_cwd = false,
+    update_cwd = true,
     diagnostics = {
       enable = true,
       icons = {
@@ -17,15 +17,15 @@ function M.setup()
         warning = "",
         error = "",
       },
-    },
-    filters = {
-      dotfiles = true,
-      custom = { ".git", "node_modules", "__pycache__", "vendor", "env", ".bin" },
+      filters = {
+        dotfiles = true,
+        custom = { ".git", "node_modules", "__pycache__", "vendor", "env", ".bin" },
+      },
     },
     view = {
       width = 30,
-      side = "right",
       auto_resize = false,
+      hide_root_folder = true,
       mappings = {
         custom_only = false,
         list = {
@@ -35,10 +35,13 @@ function M.setup()
         },
       },
     },
+    trash = {
+      cmd = "trash",
+      require_confirm = true,
+    },
   }
 
   vim.g.nvim_tree_group_empty = 1
-  vim.g.nvim_tree_indent_markers = 1
 end
 
 return M

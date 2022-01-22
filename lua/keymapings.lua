@@ -8,7 +8,8 @@ nmap("<leader>q", "<cmd>quit!<cr>")
 nmap("<leader>w", "<cmd>write!<cr>")
 nmap("<leader>ps", "<cmd>PackerSync<cr>")
 nmap("<leader>c", "<cmd>bdelete<cr>")
-nmap("<leader>n", "<cmd>e! /tmp/note.md<cr>")
+nmap("<leader>e", "<cmd>NvimTreeToggle<cr>")
+nmap("<leader>n", "<cmd>vs | e! /tmp/note.md<cr>")
 
 -- Split
 nmap("<C-Left>", "<cmd>vertical resize -2<cr>")

@@ -12,12 +12,9 @@ function M.setup()
       formatting.gofumpt,
       formatting.goimports,
       diagnostic.golangci_lint,
-      formatting.prettierd,
-      diagnostic.eslint_d,
       formatting.black,
       formatting.isort,
       diagnostic.flake8,
-      formatting.rustfmt,
     },
   }
 end

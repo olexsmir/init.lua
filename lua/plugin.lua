@@ -7,9 +7,10 @@ return require("packer").startup(function(use)
   use "rmehri01/onenord.nvim"
 
   use { "~/code/gopher.nvim", ft = "go" }
-  use { "mfussenegger/nvim-jdtls", ft = "java", after = "nvim-lspconfig" }
   use { "folke/lua-dev.nvim", ft = "lua", after = "nvim-lspconfig", config = get_config "lua-dev" }
 
+  use { "kyazdani42/nvim-tree.lua", cmd = "NvimTreeToggle", config = get_config "plugin.nvimtree" }
+  use { "tpope/vim-endwise", ft = { "ruby", "vim", "lua" } }
   use { "tpope/vim-surround", keys = { "c", "d", "y" } }
   use { "ahmedkhalf/project.nvim", config = get_config "plugin.project" }
   use { "nvim-lualine/lualine.nvim", config = get_config "plugin.statusline" }
@@ -66,17 +67,6 @@ return require("packer").startup(function(use)
     requires = {
       "williamboman/nvim-lsp-installer",
       { "jose-elias-alvarez/null-ls.nvim", after = "nvim-lspconfig" },
-    },
-  }
-
-  use {
-    "mfussenegger/nvim-dap",
-    module = "dap",
-    config = get_config "plugin.dap",
-    requires = {
-      { "Pocco81/DAPInstall.nvim", module = "dap-install", requires = "nvim-dap" },
-      { "theHamsta/nvim-dap-virtual-text", after = "nvim-dap", config = [[ require"nvim-dap-virtual-text".setup() ]] },
-      { "nvim-telescope/telescope-dap.nvim", after = "nvim-dap", config = [[ require("telescope").load_extension "dap" ]] },
     },
   }
 
