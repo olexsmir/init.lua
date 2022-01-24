@@ -8,9 +8,9 @@ return require("packer").startup(function(use)
 
   use { "~/code/gopher.nvim", ft = "go" }
   use { "folke/lua-dev.nvim", ft = "lua", after = "nvim-lspconfig", config = get_config "lua-dev" }
+  use { "metakirby5/codi.vim", cmd = "Codi" }
 
   use { "kyazdani42/nvim-tree.lua", cmd = "NvimTreeToggle", config = get_config "plugin.nvimtree" }
-  use { "tpope/vim-endwise", ft = { "ruby", "vim", "lua" } }
   use { "tpope/vim-surround", keys = { "c", "d", "y" } }
   use { "ahmedkhalf/project.nvim", config = get_config "plugin.project" }
   use { "nvim-lualine/lualine.nvim", config = get_config "plugin.statusline" }
