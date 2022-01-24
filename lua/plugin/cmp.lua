@@ -9,7 +9,6 @@ function M.setup()
 
   cmp.event:on("confirm_done", require("nvim-autopairs.completion.cmp").on_confirm_done())
   cmp.setup.cmdline("/", { sources = { { name = "buffer" } } })
-  -- cmp.setup.cmdline(":", { sources = cmp.config.sources { { name = "path" }, { name = "cmdline" } } })
   cmp.setup {
     snippet = {
       expand = function(args)
@@ -17,14 +16,34 @@ function M.setup()
       end,
     },
     formatting = {
-      format = function(entry, vim_item)
-        vim_item.menu = ({
-          nvim_lsp = "(L)",
-          nvim_lua = "(N)",
-          buffer = "(B)",
-          luasnip = "(S)",
-          path = "(P)",
-        })[entry.source.name]
+      format = function(_, vim_item)
+        vim_item.kind = ({
+          Text = "",
+          Method = "",
+          Function = "",
+          Constructor = "",
+          Field = "",
+          Variable = "",
+          Class = "",
+          Interface = "ﰮ",
+          Module = "",
+          Property = "",
+          Unit = "",
+          Value = "",
+          Enum = "",
+          Keyword = "",
+          Snippet = "﬌",
+          Color = "",
+          File = "",
+          Reference = "",
+          Folder = "",
+          EnumMember = "",
+          Constant = "",
+          Struct = "",
+          Event = "",
+          Operator = "ﬦ",
+          TypeParameter = "",
+        })[vim_item.kind]
 
         return vim_item
       end,
