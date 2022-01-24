@@ -26,7 +26,7 @@ return require("packer").startup(function(use)
     "windwp/nvim-autopairs",
     event = "InsertEnter",
     module = "nvim-autopairs",
-    config = get_config "nvim-autopairs",
+    config = get_config "plugin.autopairs",
   }
 
   use {
