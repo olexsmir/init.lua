@@ -80,6 +80,7 @@ function M.setup()
       { name = "nvim_lsp", max_item_count = 8 },
       { name = "buffer", max_item_count = 5, keyword_length = 4 },
       { name = "luasnip", max_item_count = 4, keyword_length = 2 },
+      { name = "conjure", max_item_count = 4 },
       { name = "path", max_item_count = 2 },
     },
     experimental = {
