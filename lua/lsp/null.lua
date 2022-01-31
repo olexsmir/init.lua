@@ -11,11 +11,10 @@ function M.setup()
       diagnostic.selene,
       formatting.gofumpt,
       formatting.goimports,
-      -- diagnostic.golangci_lint,
+      diagnostic.golangci_lint,
       formatting.black,
       formatting.isort,
       diagnostic.flake8,
-      formatting.rufo,
     },
   }
 end

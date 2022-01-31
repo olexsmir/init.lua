@@ -70,6 +70,7 @@ return require("packer").startup(function(use)
     requires = {
       "williamboman/nvim-lsp-installer",
       { "jose-elias-alvarez/null-ls.nvim", after = "nvim-lspconfig" },
+      { "j-hui/fidget.nvim", after = "nvim-lspconfig", config = get_config "fidget" },
     },
   }
 
