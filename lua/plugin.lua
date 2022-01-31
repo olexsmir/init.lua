@@ -13,6 +13,8 @@ return require("packer").startup(function(use)
   use { "Olical/conjure", ft = "clojure", config = get_config "plugin.conjure" }
   use { "eraserhd/parinfer-rust", run = "cargo build --release", after = "conjure" }
 
+  use { "TimUntersberger/neogit", cmd = "Neogit", config = get_config "neogit" }
+  use { "folke/which-key.nvim", config = get_config "plugin.whichkey" }
   use { "kyazdani42/nvim-tree.lua", cmd = "NvimTreeToggle", config = get_config "plugin.nvimtree" }
   use { "tpope/vim-surround", keys = { "c", "d", "y" } }
   use { "ahmedkhalf/project.nvim", config = get_config "plugin.project" }
@@ -48,13 +50,6 @@ return require("packer").startup(function(use)
     "folke/trouble.nvim",
     cmd = { "Trouble", "TroubleToggle" },
     config = get_config "trouble",
-  }
-
-  use {
-    "akinsho/toggleterm.nvim",
-    module = "toggleterm",
-    keys = "<C-t>",
-    config = get_config "plugin.terminal",
   }
 
   use {

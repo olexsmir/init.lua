@@ -8,6 +8,7 @@ vim.g.maplocalleader = ","
 o.completeopt = { "menuone", "noselect" }
 o.clipboard = "unnamedplus"
 o.cmdheight = 1
+o.timeoutlen = 250
 o.fileencoding = "utf-8"
 o.hidden = true
 o.ignorecase = true
