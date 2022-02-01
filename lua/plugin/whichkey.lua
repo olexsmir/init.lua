@@ -7,10 +7,7 @@ function M.setup()
     plugins = {
       marks = false,
       registers = false,
-      spelling = {
-        enabled = false,
-        suggestions = 20,
-      },
+      spelling = { enabled = false, suggestions = 20 },
       presets = {
         operators = true,
         motions = true,
@@ -26,16 +23,8 @@ function M.setup()
     popup_mappings = { scroll_down = "<c-d>", scroll_up = "<c-u>" },
     ignore_missing = true,
     show_help = true,
-    key_labels = {
-      ["<space>"] = "SPC",
-      ["<cr>"] = "RET",
-      ["<tab>"] = "TAB",
-    },
-    icons = {
-      breadcrumb = "»",
-      separator = "➜",
-      group = "+",
-    },
+    key_labels = { ["<space>"] = "SPC", ["<cr>"] = "RET", ["<tab>"] = "TAB" },
+    icons = { breadcrumb = "»", separator = "➜", group = "+" },
     window = {
       border = "none",
       position = "bottom",
@@ -76,6 +65,16 @@ function M.setup()
       b = { "<cmd>Telescope git_branches<cr>", "Git branches" },
       c = { "<cmd>Telescope git_commits<cr>", "Git commits" },
       k = { "<cmd>Telescope keymaps<cr>", "Find keymap" },
+    },
+    l = {
+      name = "lsp",
+      a = { "<cmd>Telescope lsp_code_actions<cr>", "Code actions" },
+      d = { "<cmd>TroubleToggle<cr>", "Diagnostics" },
+      r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
+      f = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Format" },
+      i = { "<cmd>LspInfo<cr>", "Info" },
+      R = { "<cmd>LspRestart<cr>", "LspRestart" },
+      s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
     },
     g = {
       name = "git",
