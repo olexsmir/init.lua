@@ -10,9 +10,6 @@ return require("packer").startup(function(use)
   use { "folke/lua-dev.nvim", ft = "lua", after = "nvim-lspconfig", config = get_config "lua-dev" }
   use { "metakirby5/codi.vim", cmd = "Codi" }
 
-  use { "Olical/conjure", ft = "clojure", config = get_config "plugin.conjure" }
-  use { "eraserhd/parinfer-rust", run = "cargo build --release", after = "conjure" }
-
   use { "TimUntersberger/neogit", cmd = "Neogit", config = get_config "neogit" }
   use { "folke/which-key.nvim", config = get_config "plugin.whichkey" }
   use { "kyazdani42/nvim-tree.lua", cmd = "NvimTreeToggle", config = get_config "plugin.nvimtree" }
@@ -79,7 +76,6 @@ return require("packer").startup(function(use)
       { "hrsh7th/cmp-buffer", after = "nvim-cmp" },
       { "hrsh7th/cmp-path", after = "nvim-cmp" },
       { "hrsh7th/cmp-cmdline", after = "nvim-cmp" },
-      { "PaterJason/cmp-conjure", after = "conjure" },
       { "saadparwaiz1/cmp_luasnip", after = "nvim-cmp" },
       { "L3MON4D3/LuaSnip", module = "luasnip" },
       { "rafamadriz/friendly-snippets", after = "nvim-cmp" },

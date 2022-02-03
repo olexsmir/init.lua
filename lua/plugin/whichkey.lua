@@ -57,7 +57,7 @@ function M.setup()
     q = { "<cmd>quit!<cr>", "Quit" },
     c = { "<cmd>bdelete<cr>", "Close buffer" },
     h = { "<cmd>nohlsearch<cr>", "No hl" },
-    n = { "<cmd>vs | e! /tmp/note.md<cr>", "Note" },
+    n = { "<cmd>e! /tmp/note.md<cr>", "Note" },
     s = {
       name = "telescope",
       t = { "<cmd>Telescope live_grep<cr>", "Live grep" },
