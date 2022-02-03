@@ -7,16 +7,32 @@ return require("packer").startup(function(use)
   use "rmehri01/onenord.nvim"
 
   use { "~/code/gopher.nvim", ft = "go" }
-  use { "folke/lua-dev.nvim", ft = "lua", after = "nvim-lspconfig", config = get_config "lua-dev" }
   use { "metakirby5/codi.vim", cmd = "Codi" }
 
-  use { "TimUntersberger/neogit", cmd = "Neogit", config = get_config "neogit" }
   use { "folke/which-key.nvim", config = get_config "plugin.whichkey" }
-  use { "kyazdani42/nvim-tree.lua", cmd = "NvimTreeToggle", config = get_config "plugin.nvimtree" }
   use { "tpope/vim-surround", keys = { "c", "d", "y" } }
   use { "ahmedkhalf/project.nvim", config = get_config "plugin.project" }
   use { "nvim-lualine/lualine.nvim", config = get_config "plugin.statusline" }
   use { "pwntester/octo.nvim", cmd = "Octo" }
+
+  use {
+    "TimUntersberger/neogit",
+    cmd = "Neogit",
+    config = get_config "neogit",
+  }
+
+  use {
+    "folke/lua-dev.nvim",
+    ft = "lua",
+    after = "nvim-lspconfig",
+    config = get_config "lua-dev",
+  }
+
+  use {
+    "kyazdani42/nvim-tree.lua",
+    cmd = "NvimTreeToggle",
+    config = get_config "plugin.nvimtree",
+  }
 
   use {
     "numToStr/Comment.nvim",
