@@ -15,6 +15,7 @@ function M.setup()
       formatting.black,
       formatting.isort,
       diagnostic.flake8,
+      formatting.rustfmt,
     },
   }
 end
