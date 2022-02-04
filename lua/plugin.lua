@@ -23,9 +23,8 @@ return require("packer").startup(function(use)
 
   use {
     "folke/lua-dev.nvim",
-    ft = "lua",
-    after = "nvim-lspconfig",
     config = get_config "lua-dev",
+    ft = "lua",
   }
 
   use {
@@ -55,7 +54,6 @@ return require("packer").startup(function(use)
 
   use {
     "folke/todo-comments.nvim",
-    event = "BufEnter",
     config = get_config "todo-comments",
   }
 
@@ -101,9 +99,7 @@ return require("packer").startup(function(use)
   use {
     "max397574/better-escape.nvim",
     event = "InsertEnter",
-    config = function()
-      require("better_escape").setup { mapping = { "jk" } }
-    end,
+    config = get_config "better_escape",
   }
 
   use {
