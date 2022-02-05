@@ -9,35 +9,14 @@ return require("packer").startup(function(use)
   use { "~/code/gopher.nvim", ft = "go" }
   use { "metakirby5/codi.vim", cmd = "Codi" }
 
-  use { "folke/which-key.nvim", config = get_config "plugin.whichkey" }
   use { "tpope/vim-surround", keys = { "c", "d", "y" } }
+  use { "folke/which-key.nvim", config = get_config "plugin.whichkey" }
   use { "ahmedkhalf/project.nvim", config = get_config "plugin.project" }
   use { "nvim-lualine/lualine.nvim", config = get_config "plugin.statusline" }
-  use { "pwntester/octo.nvim", cmd = "Octo" }
-
-  use {
-    "TimUntersberger/neogit",
-    cmd = "Neogit",
-    config = get_config "neogit",
-  }
-
-  use {
-    "folke/lua-dev.nvim",
-    config = get_config "lua-dev",
-    ft = "lua",
-  }
-
-  use {
-    "kyazdani42/nvim-tree.lua",
-    cmd = "NvimTreeToggle",
-    config = get_config "plugin.nvimtree",
-  }
-
-  use {
-    "numToStr/Comment.nvim",
-    keys = { "gc" },
-    config = get_config "Comment",
-  }
+  use { "TimUntersberger/neogit", cmd = "Neogit", config = get_config "neogit" }
+  use { "numToStr/Comment.nvim", keys = { "gc" }, config = get_config "Comment" }
+  use { "folke/lua-dev.nvim", config = get_config "lua-dev", ft = "lua" }
+  use { "folke/todo-comments.nvim", config = get_config "todo-comments" }
 
   use {
     "windwp/nvim-autopairs",
@@ -50,11 +29,6 @@ return require("packer").startup(function(use)
     "lewis6991/gitsigns.nvim",
     event = "BufEnter",
     config = get_config "plugin.gitsigns",
-  }
-
-  use {
-    "folke/todo-comments.nvim",
-    config = get_config "todo-comments",
   }
 
   use {

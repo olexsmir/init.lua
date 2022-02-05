@@ -4,7 +4,7 @@ function M.setup()
   require("project_nvim").setup {
     manual_mode = false,
     detection_methods = { "lsp", "pattern" },
-    patterns = { ".git", ".svn", "Makefile", "Justfile", "justfile", "package.json", "go.mod" },
+    patterns = { ".git", ".svn", "Makefile", "Justfile", "package.json", "go.mod" },
     ignore_lsp = {},
     exclude_dirs = {},
     show_hidden = false,

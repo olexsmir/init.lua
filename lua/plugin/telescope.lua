@@ -3,7 +3,6 @@ local M = {}
 function M.setup()
   local actions = require "telescope.actions"
   local action_layout = require "telescope.actions.layout"
-  -- local themes = require "telescope.themes"
 
   require("telescope").setup {
     defaults = {
@@ -22,7 +21,6 @@ function M.setup()
         vertical = { mirror = false },
       },
       file_ignore_patterns = { ".git", "node_modules", "__pycache__", "target", "vendor", "env", ".bin" },
-      -- path_display = { shorten = 5 },
       winblend = 0,
       border = {},
       borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },

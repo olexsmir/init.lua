@@ -17,15 +17,15 @@ function M.setup()
         warning = "",
         error = "",
       },
-      filters = {
-        dotfiles = true,
-        custom = { ".git", "node_modules", "__pycache__", "vendor", "env", ".bin" },
-      },
+    },
+    filters = {
+      dotfiles = false,
+      custom = { ".git", "node_modules", "__pycache__", "vendor", "env", ".bin" },
     },
     view = {
       width = 30,
       auto_resize = false,
-      hide_root_folder = true,
+      hide_root_folder = false,
       mappings = {
         custom_only = false,
         list = {
