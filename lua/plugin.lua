@@ -26,6 +26,12 @@ return require("packer").startup(function(use)
   }
 
   use {
+      "kyazdani42/nvim-tree.lua",
+      cmd = "NvimTreeToggle",
+      config = get_config "plugin.nvimtree"
+    }
+
+  use {
     "lewis6991/gitsigns.nvim",
     event = "BufEnter",
     config = get_config "plugin.gitsigns",
