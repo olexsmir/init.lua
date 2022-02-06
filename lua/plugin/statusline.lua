@@ -10,10 +10,10 @@ function M.setup()
       always_divide_middle = false,
     },
     sections = {
-      lualine_a = { "branch" },
-      lualine_b = { "filename" },
+      lualine_a = { "filename" },
+      lualine_b = { "branch", "diff" },
       lualine_c = {},
-      lualine_x = { "diff" },
+      lualine_x = {},
       lualine_y = { { "diagnostics", sources = { "nvim_diagnostic" } } },
       lualine_z = { "location" },
     },

@@ -26,10 +26,10 @@ return require("packer").startup(function(use)
   }
 
   use {
-      "kyazdani42/nvim-tree.lua",
-      cmd = "NvimTreeToggle",
-      config = get_config "plugin.nvimtree"
-    }
+    "kyazdani42/nvim-tree.lua",
+    cmd = "NvimTreeToggle",
+    config = get_config "plugin.nvimtree",
+  }
 
   use {
     "lewis6991/gitsigns.nvim",
@@ -71,7 +71,7 @@ return require("packer").startup(function(use)
       { "hrsh7th/cmp-path", after = "nvim-cmp" },
       { "hrsh7th/cmp-cmdline", after = "nvim-cmp" },
       { "saadparwaiz1/cmp_luasnip", after = "nvim-cmp" },
-      { "L3MON4D3/LuaSnip", module = "luasnip" },
+      { "L3MON4D3/LuaSnip", module = "luasnip", after = "nvim-cmp" },
       { "rafamadriz/friendly-snippets", after = "nvim-cmp" },
     },
   }

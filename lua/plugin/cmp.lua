@@ -3,8 +3,11 @@ local M = {}
 function M.setup()
   local cmp = require "cmp"
 
-  require("luasnip/loaders/from_vscode").lazy_load {
-    paths = { "~/.local/share/nvim/site/pack/packer/start/friendly-snippets" },
+  require("luasnip/loaders/from_vscode").load {
+    paths = {
+      "~/.local/share/nvim/site/pack/packer/start/friendly-snippets",
+      "~/.local/share/nvim/site/pack/packer/opt/friendly-snippets",
+    },
   }
 
   cmp.event:on("confirm_done", require("nvim-autopairs.completion.cmp").on_confirm_done())
