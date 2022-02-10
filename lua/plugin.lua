@@ -32,6 +32,13 @@ return require("packer").startup(function(use)
   }
 
   use {
+    "akinsho/toggleterm.nvim",
+    config = get_config "plugin.terminal",
+    module = "toggleterm",
+    keys = "<C-t>",
+  }
+
+  use {
     "lewis6991/gitsigns.nvim",
     event = "BufEnter",
     config = get_config "plugin.gitsigns",
