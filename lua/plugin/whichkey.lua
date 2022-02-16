@@ -29,7 +29,7 @@ function M.setup()
       border = "none",
       position = "bottom",
       margin = { 1, 0, 1, 0 },
-      padding = { 0, 1, 1, 0 },
+      padding = { 2, 2, 2, 2 },
       winblend = 0,
     },
     layout = {
@@ -64,6 +64,7 @@ function M.setup()
       r = { "<cmd>Telescope oldfiles<cr>", "Find oldfile" },
       b = { "<cmd>Telescope git_branches<cr>", "Git branches" },
       c = { "<cmd>Telescope git_commits<cr>", "Git commits" },
+      s = { "<cmd>Telescope spell_suggest<cr>", "Spell suggest" },
       k = { "<cmd>Telescope keymaps<cr>", "Find keymap" },
       p = { "<cmd>Telescope projects<cr>", "Projects" },
     },
