@@ -79,7 +79,7 @@ return require("packer").startup(function(use)
       { "hrsh7th/cmp-cmdline", after = "nvim-cmp" },
       { "saadparwaiz1/cmp_luasnip", after = "nvim-cmp" },
       { "L3MON4D3/LuaSnip", module = "luasnip", after = "nvim-cmp" },
-      { "rafamadriz/friendly-snippets", after = "nvim-cmp" },
+      "rafamadriz/friendly-snippets",
     },
   }
 
