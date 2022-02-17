@@ -57,6 +57,7 @@ function M.setup()
       val = {
         button("f", "  search files", "<cmd>Telescope find_files<cr>"),
         button("p", "ﰍ  search project", "<cmd>Telescope projects<cr>"),
+        button("e", "  open file explorer", "<cmd>NvimTree<cr>"),
         button("n", "  new file", "<cmd>ene <cr>"),
       },
     },
