@@ -4,18 +4,27 @@ return require("packer").startup(function(use)
   use "wbthomason/packer.nvim"
   use "nvim-lua/plenary.nvim"
   use "kyazdani42/nvim-web-devicons"
-  use "rmehri01/onenord.nvim"
-
-  use { "~/code/gopher.nvim", ft = "go" }
-  use { "metakirby5/codi.vim", cmd = "Codi" }
+  use "rmehri01/onenord.nvim" -- theme
 
   use { "tpope/vim-surround", keys = { "c", "d", "y" } }
-  use { "folke/which-key.nvim", config = get_config "plugin.whichkey" }
-  use { "ahmedkhalf/project.nvim", config = get_config "plugin.project" }
-  use { "nvim-lualine/lualine.nvim", config = get_config "plugin.statusline" }
-  use { "TimUntersberger/neogit", cmd = "Neogit", config = get_config "neogit" }
   use { "numToStr/Comment.nvim", keys = { "gc" }, config = get_config "Comment" }
+  use { "ahmedkhalf/project.nvim", config = get_config "plugin.project" }
+
+  -- languages
+  use { "~/code/gopher.nvim", ft = "go" }
   use { "folke/lua-dev.nvim", config = get_config "lua-dev", ft = "lua" }
+
+  -- git
+  use { "TimUntersberger/neogit", cmd = "Neogit", config = get_config "neogit" }
+  use {
+    "lewis6991/gitsigns.nvim",
+    event = "BufEnter",
+    config = get_config "plugin.gitsigns",
+  }
+
+  -- appearance
+  use { "folke/which-key.nvim", config = get_config "plugin.whichkey" }
+  use { "nvim-lualine/lualine.nvim", config = get_config "plugin.statusline" }
   use { "folke/todo-comments.nvim", config = get_config "todo-comments" }
   use { "goolord/alpha-nvim", config = get_config "plugin.alpha" }
 
@@ -37,12 +46,6 @@ return require("packer").startup(function(use)
     config = get_config "plugin.terminal",
     module = "toggleterm",
     keys = "<C-t>",
-  }
-
-  use {
-    "lewis6991/gitsigns.nvim",
-    event = "BufEnter",
-    config = get_config "plugin.gitsigns",
   }
 
   use {
