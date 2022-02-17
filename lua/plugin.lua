@@ -17,6 +17,7 @@ return require("packer").startup(function(use)
   use { "numToStr/Comment.nvim", keys = { "gc" }, config = get_config "Comment" }
   use { "folke/lua-dev.nvim", config = get_config "lua-dev", ft = "lua" }
   use { "folke/todo-comments.nvim", config = get_config "todo-comments" }
+  use { "goolord/alpha-nvim", config = get_config "plugin.alpha" }
 
   use {
     "windwp/nvim-autopairs",
