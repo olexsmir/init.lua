@@ -1,7 +1,10 @@
 local on_attach = require "lsp.attach"
+local diagnostic = require "lsp.diagnostic"
 local M = {}
 
 function M.setup()
+  vim.diagnostic.config(diagnostic)
+
   require("nvim-lsp-installer").on_server_ready(function(server)
     local opts = {
       on_attach = on_attach,
