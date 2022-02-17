@@ -56,6 +56,7 @@ function M.setup()
       type = "group",
       val = {
         button("f", "  search files", "<cmd>Telescope find_files<cr>"),
+        button("p", "ﰍ  search project", "<cmd>Telescope projects<cr>"),
         button("n", "  new file", "<cmd>ene <cr>"),
       },
     },
