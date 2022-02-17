@@ -9,6 +9,7 @@ function M.setup()
     sources = {
       formatting.stylua,
       diagnostic.selene,
+      formatting.rustfmt,
       formatting.gofumpt,
       formatting.goimports,
       diagnostic.golangci_lint,
