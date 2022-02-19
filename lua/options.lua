@@ -4,6 +4,9 @@ local o = vim.opt
 vim.g.mapleader = " "
 vim.g.maplocalleader = ","
 
+-- GUI
+o.guifont = "Jetbrains Mono:h12"
+
 -- general
 o.completeopt = { "menuone", "noselect" }
 o.clipboard = "unnamedplus"
