@@ -5,6 +5,7 @@ return require("packer").startup(function(use)
   use "nvim-lua/plenary.nvim"
   use "kyazdani42/nvim-web-devicons"
   use "rmehri01/onenord.nvim" -- theme
+  use "lewis6991/impatient.nvim"
 
   use { "tpope/vim-surround", keys = { "c", "d", "y" } }
   use { "numToStr/Comment.nvim", keys = { "gc" }, config = get_config "Comment" }
