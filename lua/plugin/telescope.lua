@@ -41,6 +41,12 @@ function M.setup()
         },
       },
     },
+    find_command = {
+      "rg",
+      "--ignore",
+      "--hidden",
+      "--files",
+    },
     pickers = {
       find_files = { theme = "ivy" },
       live_grep = { theme = "ivy", only_sort_text = true },
