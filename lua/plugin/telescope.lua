@@ -50,7 +50,7 @@ function M.setup()
     pickers = {
       find_files = { theme = "ivy" },
       live_grep = { theme = "ivy", only_sort_text = true },
-      buffers = { theme = "dropdown", winblend = 10 },
+      buffers = { theme = "ivy" },
       oldfiles = { theme = "ivy" },
       keymaps = { theme = "ivy" },
       git_branches = { theme = "ivy" },
