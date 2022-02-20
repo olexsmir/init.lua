@@ -88,11 +88,11 @@ return require("packer").startup(function(use)
     },
   }
 
-  use {
-    "max397574/better-escape.nvim",
-    event = "InsertEnter",
-    config = get_config "better_escape",
-  }
+  -- use {
+  --   "max397574/better-escape.nvim",
+  --   event = "InsertEnter",
+  --   config = get_config "better_escape",
+  -- }
 
   use {
     "nvim-treesitter/nvim-treesitter",

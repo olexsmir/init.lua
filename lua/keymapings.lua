@@ -8,6 +8,7 @@ end
 
 -- Mappings
 map("n", "<C-s>", "<cmd>write!<cr>")
+map("i", "jk", "<esc>")
 
 expr("i", "<C-j>", 'pumvisible() ? "\\<down>" : "\\<C-j>"')
 expr("i", "<C-k>", 'pumvisible() ? "\\<up>" : "\\<C-k>"')
