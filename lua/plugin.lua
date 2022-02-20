@@ -19,11 +19,7 @@ return require("packer").startup(function(use)
 
   -- git
   use { "TimUntersberger/neogit", cmd = "Neogit", config = get_config "neogit" }
-  use {
-    "lewis6991/gitsigns.nvim",
-    event = "BufEnter",
-    config = get_config "plugin.gitsigns",
-  }
+  use { "lewis6991/gitsigns.nvim", config = get_config "plugin.gitsigns" }
 
   -- appearance
   use { "folke/which-key.nvim", config = get_config "plugin.whichkey" }
@@ -31,23 +27,15 @@ return require("packer").startup(function(use)
   use { "folke/todo-comments.nvim", config = get_config "todo-comments" }
   use { "goolord/alpha-nvim", config = get_config "plugin.alpha" }
 
-  use {
-    "kyazdani42/nvim-tree.lua",
-    cmd = "NvimTreeToggle",
-    config = get_config "plugin.nvimtree",
-  }
+  -- othe menus :D
+  use { "kyazdani42/nvim-tree.lua", cmd = "NvimTreeToggle", config = get_config "plugin.nvimtree" }
+  use { "folke/trouble.nvim", cmd = { "Trouble", "TroubleToggle" }, config = get_config "trouble" }
 
   use {
     "akinsho/toggleterm.nvim",
     config = get_config "plugin.terminal",
     module = "toggleterm",
     keys = "<C-t>",
-  }
-
-  use {
-    "folke/trouble.nvim",
-    cmd = { "Trouble", "TroubleToggle" },
-    config = get_config "trouble",
   }
 
   use {
@@ -62,7 +50,7 @@ return require("packer").startup(function(use)
     config = get_config "lsp",
     requires = {
       "williamboman/nvim-lsp-installer",
-      { "jose-elias-alvarez/null-ls.nvim", after = "nvim-lspconfig" },
+      "jose-elias-alvarez/null-ls.nvim",
     },
   }
 
