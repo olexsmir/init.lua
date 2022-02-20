@@ -13,6 +13,7 @@ return require("packer").startup(function(use)
   -- languages
   use { "~/code/gopher.nvim", ft = "go" }
   use { "folke/lua-dev.nvim", config = get_config "lua-dev", ft = "lua" }
+  use { "zah/nim.vim", ft = "nim" }
 
   -- git
   use { "TimUntersberger/neogit", cmd = "Neogit", config = get_config "neogit" }
