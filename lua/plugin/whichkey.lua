@@ -99,16 +99,6 @@ function M.setup()
       c = { "<cmd>PackerCompile<cr>", "Compile" },
       C = { "<cmd>PackerClean<cr>", "Clean" },
     },
-    t = {
-      name = "Tests",
-      t = { "<cmd>Ultest<cr>", "Run all" },
-      s = { "<cmd>UltestStop<cr>", "Stop all" },
-      c = { "<cmd>UltestClear<cr>", "Clean results" },
-      n = { "<cmd>UltestNearest<cr>", "Run nearest" },
-      N = { "<cmd>UltestStopNearest<cr>", "Stop nearest" },
-      o = { "<cmd>UltestOutput<cr>", "Show output" },
-      S = { "<cmd>UltestSummary<cr>", "Summary win" },
-    },
   }
 
   wk.register(mappings, opts)

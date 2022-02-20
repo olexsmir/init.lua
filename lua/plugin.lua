@@ -9,6 +9,7 @@ return require("packer").startup(function(use)
 
   use { "tpope/vim-surround", keys = { "c", "d", "y" } }
   use { "numToStr/Comment.nvim", keys = { "gc" }, config = get_config "Comment" }
+  use { "windwp/nvim-autopairs", config = get_config "plugin.autopairs" }
   use { "ahmedkhalf/project.nvim", config = get_config "plugin.project" }
 
   -- languages
@@ -29,13 +30,6 @@ return require("packer").startup(function(use)
   use { "nvim-lualine/lualine.nvim", config = get_config "plugin.statusline" }
   use { "folke/todo-comments.nvim", config = get_config "todo-comments" }
   use { "goolord/alpha-nvim", config = get_config "plugin.alpha" }
-
-  use {
-    "windwp/nvim-autopairs",
-    event = "InsertEnter",
-    module = "nvim-autopairs",
-    config = get_config "plugin.autopairs",
-  }
 
   use {
     "kyazdani42/nvim-tree.lua",
@@ -97,12 +91,5 @@ return require("packer").startup(function(use)
       { "nvim-treesitter/nvim-treesitter-refactor", after = "nvim-treesitter" },
       { "nvim-treesitter/playground", after = "nvim-treesitter" },
     },
-  }
-
-  use {
-    "rcarriga/vim-ultest",
-    requires = { { "vim-test/vim-test", after = "vim-ultest" } },
-    cmd = { "Ultest", "UltestStop", "UltestClear", "UltestNearest", "UltestOutput" },
-    run = "<cmd>UpdateRemotePlugins<cr>",
   }
 end)
