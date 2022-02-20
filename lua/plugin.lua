@@ -75,9 +75,5 @@ return require("packer").startup(function(use)
     "nvim-treesitter/nvim-treesitter",
     branch = "0.5-compat",
     config = get_config "plugin.treesitter",
-    requires = {
-      { "nvim-treesitter/nvim-treesitter-refactor", after = "nvim-treesitter" },
-      { "nvim-treesitter/playground", after = "nvim-treesitter" },
-    },
   }
 end)
