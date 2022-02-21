@@ -5,7 +5,7 @@ vim.opt_local.softtabstop = 4
 
 -- which-key
 require("which-key").register({
-  C = {
+  [";"] = {
     name = "Coding",
     a = { "<cmd>GoTagAdd<cr>", "Add tags to struct" },
     r = { "<cmd>GoTagRm<cr>", "Remove tags to struct" },
