@@ -15,7 +15,7 @@ return require("packer").startup(function(use)
 
   -- languages
   use { "~/code/gopher.nvim", ft = "go" }
-  use { "folke/lua-dev.nvim", config = get_config "lua-dev", ft = "lua" }
+  use { "folke/lua-dev.nvim", ft = "lua", config = get_config "plugin.lua-dev" }
   use { "zah/nim.vim", ft = "nim" }
 
   -- git
