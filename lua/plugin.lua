@@ -6,6 +6,7 @@ return require("packer").startup(function(use)
   use "kyazdani42/nvim-web-devicons"
   use "rmehri01/onenord.nvim" -- theme
   use "antoinemadec/FixCursorHold.nvim"
+  use "gpanders/editorconfig.nvim"
 
   use { "lewis6991/impatient.nvim", config = "require'impatient'" }
   use { "tpope/vim-surround", keys = { "c", "d", "y" } }
@@ -28,7 +29,7 @@ return require("packer").startup(function(use)
   use { "folke/todo-comments.nvim", config = get_config "todo-comments" }
   use { "goolord/alpha-nvim", config = get_config "plugin.alpha" }
 
-  -- othe menus :D
+  -- another menus :D
   use { "kyazdani42/nvim-tree.lua", cmd = "NvimTreeToggle", config = get_config "plugin.nvimtree" }
   use { "folke/trouble.nvim", cmd = { "Trouble", "TroubleToggle" }, config = get_config "trouble" }
 
