@@ -11,7 +11,6 @@ function M.setup()
   }
 
   cmp.event:on("confirm_done", require("nvim-autopairs.completion.cmp").on_confirm_done())
-  cmp.setup.cmdline("/", { sources = { { name = "buffer" } } })
   cmp.setup {
     snippet = {
       expand = function(args)
