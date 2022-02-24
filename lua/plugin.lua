@@ -8,7 +8,7 @@ return require("packer").startup(function(use)
   use "antoinemadec/FixCursorHold.nvim"
   use "gpanders/editorconfig.nvim"
 
-  use { "lewis6991/impatient.nvim", config = "require'impatient'" }
+  use "lewis6991/impatient.nvim"
   use { "tpope/vim-surround", keys = { "c", "d", "y" } }
   use { "numToStr/Comment.nvim", keys = { "gc" }, config = get_config "Comment" }
   use { "windwp/nvim-autopairs", config = get_config "plugin.autopairs" }
