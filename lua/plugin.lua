@@ -7,10 +7,9 @@ return require("packer").startup(function(use)
   use "nvim-lua/plenary.nvim"
   use "kyazdani42/nvim-web-devicons"
   use "rmehri01/onenord.nvim" -- theme
-  use "antoinemadec/FixCursorHold.nvim"
   use "gpanders/editorconfig.nvim"
-
   use "lewis6991/impatient.nvim"
+
   use { "tpope/vim-surround", keys = { "c", "d", "y" } }
   use { "numToStr/Comment.nvim", keys = { "gc" }, config = get_setup "Comment" }
   use { "windwp/nvim-autopairs", config = get_config "plugin.autopairs" }
@@ -32,8 +31,17 @@ return require("packer").startup(function(use)
   use { "goolord/alpha-nvim", config = get_config "plugin.alpha" }
 
   -- another menus :D
-  use { "kyazdani42/nvim-tree.lua", cmd = "NvimTreeToggle", config = get_config "plugin.nvimtree" }
-  use { "folke/trouble.nvim", cmd = { "Trouble", "TroubleToggle" }, config = get_setup "trouble" }
+  use {
+    "kyazdani42/nvim-tree.lua",
+    cmd = "NvimTreeToggle",
+    config = get_config "plugin.nvimtree",
+  }
+
+  use {
+    "folke/trouble.nvim",
+    cmd = { "Trouble", "TroubleToggle" },
+    config = get_setup "trouble",
+  }
 
   use {
     "akinsho/toggleterm.nvim",
@@ -49,6 +57,7 @@ return require("packer").startup(function(use)
     config = get_config "plugin.telescope",
   }
 
+  -- Lsp
   use {
     "neovim/nvim-lspconfig",
     config = get_setup "lsp",
@@ -58,6 +67,7 @@ return require("packer").startup(function(use)
     },
   }
 
+  -- Completion
   use {
     "hrsh7th/nvim-cmp",
     config = get_config "plugin.cmp",
@@ -69,11 +79,13 @@ return require("packer").startup(function(use)
       { "hrsh7th/cmp-buffer", after = "nvim-cmp" },
       { "hrsh7th/cmp-path", after = "nvim-cmp" },
       { "saadparwaiz1/cmp_luasnip", after = "nvim-cmp" },
-      { "L3MON4D3/LuaSnip", module = "luasnip", after = "nvim-cmp" },
+
+      "L3MON4D3/LuaSnip",
       "rafamadriz/friendly-snippets",
     },
   }
 
+  -- Syntax
   use {
     "nvim-treesitter/nvim-treesitter",
     branch = "0.5-compat",
