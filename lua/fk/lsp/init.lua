@@ -1,12 +1,12 @@
-local on_attach = require "lsp.attach"
-local diagnostic = require "lsp.diagnostic"
+local on_attach = require "fk.lsp.attach"
+local diagnostic = require "fk.lsp.diagnostic"
 local M = {}
 
 function M.setup()
   vim.diagnostic.config(diagnostic)
 
   require("nvim-lsp-installer").on_server_ready(function(server)
-    require "lsp.null" -- null-ls setup
+    require "fk.lsp.null" -- null-ls setup
     local opts = {
       on_attach = on_attach,
       capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities()),
@@ -18,7 +18,7 @@ function M.setup()
     end
 
     -- set server config him exists
-    local ok, server_opts = pcall(require, "lsp.providers." .. server.name)
+    local ok, server_opts = pcall(require, "fk.lsp.providers." .. server.name)
     if ok then
       opts = vim.tbl_deep_extend("force", opts, server_opts or {})
     end

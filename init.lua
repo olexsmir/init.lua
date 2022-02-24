@@ -1,9 +1,9 @@
 require "impatient"
-require "options"
-require "plugin"
-require "keymapings"
-require "disabled"
-require "globals"
-require "autocmd"
+require "fk.options"
+require "fk.plugin"
+require "fk.keymapings"
+require "fk.disabled"
+require "fk.globals"
+require "fk.autocmd"
 
 vim.cmd [[colo onenord]]

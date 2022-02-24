@@ -1,4 +1,4 @@
-local utils = require "utils"
+local utils = require "fk.utils"
 local get_config = utils.get_config
 local get_setup = utils.get_setup
 
@@ -12,29 +12,29 @@ return require("packer").startup(function(use)
 
   use { "tpope/vim-surround", keys = { "c", "d", "y" } }
   use { "numToStr/Comment.nvim", keys = { "gc" }, config = get_setup "Comment" }
-  use { "windwp/nvim-autopairs", config = get_config "plugin.autopairs" }
-  use { "ahmedkhalf/project.nvim", config = get_config "plugin.project" }
+  use { "windwp/nvim-autopairs", config = get_config "fk.plugin.autopairs" }
+  use { "ahmedkhalf/project.nvim", config = get_config "fk.plugin.project" }
 
   -- languages
   use { "~/code/gopher.nvim", ft = "go" }
-  use { "folke/lua-dev.nvim", ft = "lua", config = get_config "plugin.lua-dev" }
+  use { "folke/lua-dev.nvim", ft = "lua", config = get_config "fk.plugin.lua-dev" }
   use { "zah/nim.vim", ft = "nim" }
 
   -- git
   use { "TimUntersberger/neogit", cmd = "Neogit", config = get_setup "neogit" }
-  use { "lewis6991/gitsigns.nvim", config = get_config "plugin.gitsigns" }
+  use { "lewis6991/gitsigns.nvim", config = get_config "fk.plugin.gitsigns" }
 
   -- appearance
-  use { "folke/which-key.nvim", config = get_config "plugin.whichkey" }
-  use { "nvim-lualine/lualine.nvim", config = get_config "plugin.statusline" }
+  use { "folke/which-key.nvim", config = get_config "fk.plugin.whichkey" }
+  use { "nvim-lualine/lualine.nvim", config = get_config "fk.plugin.statusline" }
   use { "folke/todo-comments.nvim", config = get_setup "todo-comments" }
-  use { "goolord/alpha-nvim", config = get_config "plugin.alpha" }
+  use { "goolord/alpha-nvim", config = get_config "fk.plugin.alpha" }
 
   -- another menus :D
   use {
     "kyazdani42/nvim-tree.lua",
     cmd = "NvimTreeToggle",
-    config = get_config "plugin.nvimtree",
+    config = get_config "fk.plugin.nvimtree",
   }
 
   use {
@@ -45,7 +45,7 @@ return require("packer").startup(function(use)
 
   use {
     "akinsho/toggleterm.nvim",
-    config = get_config "plugin.terminal",
+    config = get_config "fk.plugin.terminal",
     module = "toggleterm",
     keys = "<C-t>",
   }
@@ -54,13 +54,13 @@ return require("packer").startup(function(use)
     "nvim-telescope/telescope.nvim",
     cmd = "Telescope",
     module = "telescope",
-    config = get_config "plugin.telescope",
+    config = get_config "fk.plugin.telescope",
   }
 
   -- Lsp
   use {
     "neovim/nvim-lspconfig",
-    config = get_setup "lsp",
+    config = get_setup "fk.lsp",
     requires = {
       "williamboman/nvim-lsp-installer",
       "jose-elias-alvarez/null-ls.nvim",
@@ -70,7 +70,7 @@ return require("packer").startup(function(use)
   -- Completion
   use {
     "hrsh7th/nvim-cmp",
-    config = get_config "plugin.cmp",
+    config = get_config "fk.plugin.cmp",
     event = "InsertEnter",
     module = "cmp",
     requires = {
@@ -89,6 +89,6 @@ return require("packer").startup(function(use)
   use {
     "nvim-treesitter/nvim-treesitter",
     branch = "0.5-compat",
-    config = get_config "plugin.treesitter",
+    config = get_config "fk.plugin.treesitter",
   }
 end)
