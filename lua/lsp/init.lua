@@ -6,7 +6,7 @@ function M.setup()
   vim.diagnostic.config(diagnostic)
 
   require("nvim-lsp-installer").on_server_ready(function(server)
-    require("lsp.null").setup()
+    require "lsp.null" -- null-ls setup
     local opts = {
       on_attach = on_attach,
       capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities()),
