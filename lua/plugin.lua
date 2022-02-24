@@ -1,4 +1,6 @@
-local get_config = require("utils").get_config
+local utils = require "utils"
+local get_config = utils.get_config
+local get_setup = utils.get_setup
 
 return require("packer").startup(function(use)
   use "wbthomason/packer.nvim"
@@ -10,7 +12,7 @@ return require("packer").startup(function(use)
 
   use "lewis6991/impatient.nvim"
   use { "tpope/vim-surround", keys = { "c", "d", "y" } }
-  use { "numToStr/Comment.nvim", keys = { "gc" }, config = get_config "Comment" }
+  use { "numToStr/Comment.nvim", keys = { "gc" }, config = get_setup "Comment" }
   use { "windwp/nvim-autopairs", config = get_config "plugin.autopairs" }
   use { "ahmedkhalf/project.nvim", config = get_config "plugin.project" }
 
@@ -20,18 +22,18 @@ return require("packer").startup(function(use)
   use { "zah/nim.vim", ft = "nim" }
 
   -- git
-  use { "TimUntersberger/neogit", cmd = "Neogit", config = get_config "neogit" }
+  use { "TimUntersberger/neogit", cmd = "Neogit", config = get_setup "neogit" }
   use { "lewis6991/gitsigns.nvim", config = get_config "plugin.gitsigns" }
 
   -- appearance
   use { "folke/which-key.nvim", config = get_config "plugin.whichkey" }
   use { "nvim-lualine/lualine.nvim", config = get_config "plugin.statusline" }
-  use { "folke/todo-comments.nvim", config = get_config "todo-comments" }
+  use { "folke/todo-comments.nvim", config = get_setup "todo-comments" }
   use { "goolord/alpha-nvim", config = get_config "plugin.alpha" }
 
   -- another menus :D
   use { "kyazdani42/nvim-tree.lua", cmd = "NvimTreeToggle", config = get_config "plugin.nvimtree" }
-  use { "folke/trouble.nvim", cmd = { "Trouble", "TroubleToggle" }, config = get_config "trouble" }
+  use { "folke/trouble.nvim", cmd = { "Trouble", "TroubleToggle" }, config = get_setup "trouble" }
 
   use {
     "akinsho/toggleterm.nvim",
@@ -49,7 +51,7 @@ return require("packer").startup(function(use)
 
   use {
     "neovim/nvim-lspconfig",
-    config = get_config "lsp",
+    config = get_setup "lsp",
     requires = {
       "williamboman/nvim-lsp-installer",
       "jose-elias-alvarez/null-ls.nvim",

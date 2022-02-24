@@ -1,4 +1,4 @@
-local M = {}
+local alpha = require "alpha"
 
 local function button(sc, txt, keybind, keybind_opts)
   local sc_ = sc:gsub("%s", ""):gsub("SPC", "<leader>")
@@ -28,52 +28,46 @@ local function button(sc, txt, keybind, keybind_opts)
   }
 end
 
-function M.setup()
-  local alpha = require "alpha"
-
-  local section = {
-    header = {
-      type = "text",
-      opts = { position = "center", hl = "String" },
-      val = {
-        [[ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
-        [[ ⠀⠀⠀⠀⠀⠀⠀⠀⡀⡢⢂⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⢄⢮⠀⠀⠀⠀⠀⠀]],
-        [[ ⠀⠀⠀⠀⠀⠀⡠⡂⣊⠢⡑⡐⠄⠀⠀⠀⠀⠀⠀⢀⢔⡕⣕⢗⠀⠀⠀⠀⠀⠀]],
-        [[ ⠀⠀⠀⠀⠀⠢⠨⢢⠢⡃⡪⡐⡑⢄⠀⠀⠀⠀⢰⢱⡣⣫⢪⢮⠀⠀⠀⠀⠀⠀]],
-        [[ ⠀⠀⠀⠀⠀⡑⠅⢅⠣⡊⡢⡊⢌⠢⡂⡀⠀⠀⢐⢧⢳⢕⢧⢳⠀⠀⠀⠀⠀⠀]],
-        [[ ⠀⠀⠀⠀⠀⠪⡨⠢⠡⡑⠰⡘⡌⡪⡂⡆⠄⠀⢐⡕⣗⢕⡗⡵⠀⠀⠀⠀⠀⠀]],
-        [[ ⠀⠀⠀⠀⠀⠕⢌⠪⡨⢌⠀⠘⡰⡑⡌⡪⡊⣂⠀⡯⣪⡳⣹⡪⠀⠀⠀⠀⠀⠀]],
-        [[ ⠀⠀⠀⠀⠀⠕⡅⠕⢌⠢⠀⠀⠀⢕⢅⢇⢕⢒⢬⢺⢕⢽⢜⢮⠀⠀⠀⠀⠀⠀]],
-        [[ ⠀⠀⠀⠀⠀⢕⢘⠜⢌⠪⠀⠀⠀⠀⠪⡢⡣⡣⡣⡳⣹⢕⢯⡳⠀⠀⠀⠀⠀⠀]],
-        [[ ⠀⠀⠀⠀⠀⢕⢅⢣⢑⠕⠀⠀⠀⠀⠀⠘⢜⢌⢎⢞⢎⢯⡳⡝⠀⠀⠀⠀⠀⠀]],
-        [[ ⠀⠀⠀⠀⠀⢕⢌⠆⠁⠀⠀⠀⠀⠀⠀⠀⠈⢎⢎⣗⢽⠑⠉⠀⠀⠀⠀⠀⠀⠀]],
-        [[ ⠀⠀⠀⠀⠀⠕⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠣⠓⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
-        [[ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
-        [[ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀neovim⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
-      },
+local section = {
+  header = {
+    type = "text",
+    opts = { position = "center", hl = "String" },
+    val = {
+      [[ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
+      [[ ⠀⠀⠀⠀⠀⠀⠀⠀⡀⡢⢂⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⢄⢮⠀⠀⠀⠀⠀⠀]],
+      [[ ⠀⠀⠀⠀⠀⠀⡠⡂⣊⠢⡑⡐⠄⠀⠀⠀⠀⠀⠀⢀⢔⡕⣕⢗⠀⠀⠀⠀⠀⠀]],
+      [[ ⠀⠀⠀⠀⠀⠢⠨⢢⠢⡃⡪⡐⡑⢄⠀⠀⠀⠀⢰⢱⡣⣫⢪⢮⠀⠀⠀⠀⠀⠀]],
+      [[ ⠀⠀⠀⠀⠀⡑⠅⢅⠣⡊⡢⡊⢌⠢⡂⡀⠀⠀⢐⢧⢳⢕⢧⢳⠀⠀⠀⠀⠀⠀]],
+      [[ ⠀⠀⠀⠀⠀⠪⡨⠢⠡⡑⠰⡘⡌⡪⡂⡆⠄⠀⢐⡕⣗⢕⡗⡵⠀⠀⠀⠀⠀⠀]],
+      [[ ⠀⠀⠀⠀⠀⠕⢌⠪⡨⢌⠀⠘⡰⡑⡌⡪⡊⣂⠀⡯⣪⡳⣹⡪⠀⠀⠀⠀⠀⠀]],
+      [[ ⠀⠀⠀⠀⠀⠕⡅⠕⢌⠢⠀⠀⠀⢕⢅⢇⢕⢒⢬⢺⢕⢽⢜⢮⠀⠀⠀⠀⠀⠀]],
+      [[ ⠀⠀⠀⠀⠀⢕⢘⠜⢌⠪⠀⠀⠀⠀⠪⡢⡣⡣⡣⡳⣹⢕⢯⡳⠀⠀⠀⠀⠀⠀]],
+      [[ ⠀⠀⠀⠀⠀⢕⢅⢣⢑⠕⠀⠀⠀⠀⠀⠘⢜⢌⢎⢞⢎⢯⡳⡝⠀⠀⠀⠀⠀⠀]],
+      [[ ⠀⠀⠀⠀⠀⢕⢌⠆⠁⠀⠀⠀⠀⠀⠀⠀⠈⢎⢎⣗⢽⠑⠉⠀⠀⠀⠀⠀⠀⠀]],
+      [[ ⠀⠀⠀⠀⠀⠕⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠣⠓⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
+      [[ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
+      [[ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀neovim⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
     },
-    buttons = {
-      type = "group",
-      val = {
-        button("f", "  search files", "<cmd>Telescope find_files<cr>"),
-        button("p", "ﰍ  search project", "<cmd>Telescope projects<cr>"),
-        button("e", "  open file explorer", "<cmd>NvimTree<cr>"),
-        button("n", "  new file", "<cmd>ene <cr>"),
-      },
+  },
+  buttons = {
+    type = "group",
+    val = {
+      button("f", "  search files", "<cmd>Telescope find_files<cr>"),
+      button("p", "ﰍ  search project", "<cmd>Telescope projects<cr>"),
+      button("e", "  open file explorer", "<cmd>NvimTree<cr>"),
+      button("n", "  new file", "<cmd>ene <cr>"),
     },
-  }
+  },
+}
 
-  local opts = {
-    layout = {
-      { type = "padding", val = 2 },
-      section.header,
-      { type = "padding", val = 2 },
-      section.buttons,
-    },
-    opts = { margin = 5 },
-  }
+local opts = {
+  layout = {
+    { type = "padding", val = 2 },
+    section.header,
+    { type = "padding", val = 2 },
+    section.buttons,
+  },
+  opts = { margin = 5 },
+}
 
-  alpha.setup(opts)
-end
-
-return M
+alpha.setup(opts)

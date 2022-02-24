@@ -1,23 +1,17 @@
-local M = {}
-
-function M.setup()
-  require("lualine").setup {
-    options = {
-      theme = "onenord",
-      component_separators = { "", "" },
-      section_separators = { "", "" },
-      disabled_filetypes = { "NvimTree", "Telescope", "alpha" },
-      always_divide_middle = false,
-    },
-    sections = {
-      lualine_a = { "filename" },
-      lualine_b = { "branch", "diff" },
-      lualine_c = {},
-      lualine_x = {},
-      lualine_y = { { "diagnostics", sources = { "nvim_diagnostic" } } },
-      lualine_z = { "location" },
-    },
-  }
-end
-
-return M
+require("lualine").setup {
+  options = {
+    theme = "onenord",
+    component_separators = { "", "" },
+    section_separators = { "", "" },
+    disabled_filetypes = { "NvimTree", "Telescope", "alpha" },
+    always_divide_middle = false,
+  },
+  sections = {
+    lualine_a = { "filename" },
+    lualine_b = { "branch", "diff" },
+    lualine_c = {},
+    lualine_x = {},
+    lualine_y = { { "diagnostics", sources = { "nvim_diagnostic" } } },
+    lualine_z = { "location" },
+  },
+}
