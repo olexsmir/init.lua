@@ -4,6 +4,10 @@ local M = {}
 
 function M.setup()
   vim.diagnostic.config(diagnostic)
+  -- Diagnostics
+  for _, sign in ipairs(diagnostic.signs.active) do
+    vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
+  end
 
   require("nvim-lsp-installer").on_server_ready(function(server)
     require "fk.lsp.null" -- null-ls setup
@@ -12,12 +16,7 @@ function M.setup()
       capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities()),
     }
 
-    -- set signs
-    for _, sign in ipairs(diagnostic.signs.active) do
-      vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
-    end
-
-    -- set server config him exists
+    -- setup server config if it exists
     local ok, server_opts = pcall(require, "fk.lsp.providers." .. server.name)
     if ok then
       opts = vim.tbl_deep_extend("force", opts, server_opts or {})

@@ -1,8 +1,8 @@
 return {
-  virtual_text = false,
-  update_in_insert = true,
+  virtual_text = true,
+  update_in_insert = false,
   underline = true,
-  severity_sort = true,
+  severity_sort = false,
   signs = {
     active = {
       { name = "DiagnosticSignError", text = "" },
@@ -12,7 +12,7 @@ return {
     },
   },
   float = {
-    focusable = false,
+    focusable = true,
     style = "minimal",
     border = "rounded",
     source = "always",
