@@ -3,7 +3,7 @@ require("lualine").setup {
     theme = "onenord",
     component_separators = { "", "" },
     section_separators = { "", "" },
-    disabled_filetypes = { "NvimTree", "Telescope", "alpha" },
+    disabled_filetypes = { "NvimTree", "Telescope" },
     always_divide_middle = false,
   },
   sections = {
