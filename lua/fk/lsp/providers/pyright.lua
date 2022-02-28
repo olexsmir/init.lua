@@ -1,7 +1,8 @@
 return {
   python = {
+    disableOrganizeImports = true,
+    autoSearchPaths = true,
     analysis = {
-      autoSearchPaths = true,
       useLibraryCodeForTypes = false,
     },
   },
