@@ -1,6 +1,10 @@
-local utils = require "fk.utils"
-local get_config = utils.get_config
-local get_setup = utils.get_setup
+local function get_config(path)
+  return string.format("require[[%s]]", path)
+end
+
+local function get_setup(path)
+  return string.format("require[[%s]].setup()", path)
+end
 
 return require("packer").startup(function(use)
   use "wbthomason/packer.nvim"
