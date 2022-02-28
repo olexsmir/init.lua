@@ -28,7 +28,6 @@ return require("packer").startup(function(use)
   use { "folke/which-key.nvim", config = get_config "fk.plugin.whichkey" }
   use { "nvim-lualine/lualine.nvim", config = get_config "fk.plugin.statusline" }
   use { "folke/todo-comments.nvim", config = get_setup "todo-comments" }
-  use { "goolord/alpha-nvim", config = get_config "fk.plugin.alpha" }
 
   -- another menus :D
   use {
