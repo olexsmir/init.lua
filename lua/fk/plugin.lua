@@ -85,6 +85,13 @@ return require("packer").startup(function(use)
     },
   }
 
+  -- Tests
+  use {
+    "rcarriga/vim-ultest",
+    requires = { { "vim-test/vim-test", after = "vim-ultest" } },
+    cmd = { "Ultest", "UltestStop", "UltestClear", "UltestNearest", "UltestStopNearest", "UltestOutput", "UltestSummary" },
+  }
+
   -- Syntax
   use {
     "nvim-treesitter/nvim-treesitter",

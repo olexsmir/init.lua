@@ -79,6 +79,16 @@ local mappings = {
     q = { "<cmd>lua vim.diagnostic.setloclist()<cr>", "Quickfix" },
     k = { "<cmd>lua vim.diagnostic.goto_prev()<cr>", "Prev Diagnostic" },
   },
+  t = {
+    name = "Tests",
+    t = { "<cmd>Ultest<cr>", "Run all" },
+    s = { "<cmd>UltestStop<cr>", "Stop all" },
+    c = { "<cmd>UltestClear<cr>", "Clean results" },
+    n = { "<cmd>UltestNearest<cr>", "Run nearest" },
+    N = { "<cmd>UltestStopNearest<cr>", "Stop nearest" },
+    o = { "<cmd>UltestOutput<cr>", "Show output" },
+    S = { "<cmd>UltestSummary<cr>", "Summary win" },
+  },
   g = {
     name = "git",
     g = { "<cmd>Neogit<cr>", "Neogit" },
