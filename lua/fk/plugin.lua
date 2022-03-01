@@ -12,8 +12,9 @@ return require("packer").startup(function(use)
   use "kyazdani42/nvim-web-devicons"
   use "rmehri01/onenord.nvim" -- theme
   use "gpanders/editorconfig.nvim"
-  use "lewis6991/impatient.nvim"
+  use "lewis6991/impatient.nvim" -- fast loading
 
+  -- Helpers
   use { "tpope/vim-surround", keys = { "c", "d", "y" } }
   use { "numToStr/Comment.nvim", keys = { "gc" }, config = get_setup "Comment" }
   use { "windwp/nvim-autopairs", config = get_config "fk.plugin.autopairs" }
