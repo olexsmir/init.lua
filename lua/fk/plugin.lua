@@ -19,15 +19,12 @@ return require("packer").startup(function(use)
   use { "numToStr/Comment.nvim", keys = { "gc" }, config = get_setup "Comment" }
   use { "windwp/nvim-autopairs", config = get_config "fk.plugin.autopairs" }
   use { "ahmedkhalf/project.nvim", config = get_config "fk.plugin.project" }
+  use { "lewis6991/gitsigns.nvim", config = get_config "fk.plugin.gitsigns" }
 
   -- languages
   use { "~/code/gopher.nvim", ft = "go" }
   use { "folke/lua-dev.nvim", ft = "lua", config = get_config "fk.plugin.lua-dev" }
   use { "zah/nim.vim", ft = "nim" }
-
-  -- git
-  use { "TimUntersberger/neogit", cmd = "Neogit", config = get_setup "neogit" }
-  use { "lewis6991/gitsigns.nvim", config = get_config "fk.plugin.gitsigns" }
 
   -- appearance
   use { "folke/which-key.nvim", config = get_config "fk.plugin.whichkey" }
