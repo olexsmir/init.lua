@@ -22,7 +22,6 @@ function M.setup()
       opts = vim.tbl_deep_extend("force", opts, server_opts or {})
     end
 
-    require("lspconfig").nimls.setup(opts)
     server:setup(opts)
 
     vim.cmd [[ do User LspAttachBuffers ]]
