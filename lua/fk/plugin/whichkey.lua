@@ -91,7 +91,6 @@ local mappings = {
   },
   g = {
     name = "git",
-    g = { "<cmd>Neogit<cr>", "Neogit" },
     s = { "<cmd>lua require[[gitsigns]].stage_hunk()<cr>", "Stage hunk" },
     r = { "<cmd>lua require[[gitsigns]].reset_hunk()<cr>", "Reset hunk" },
     p = { "<cmd>lua require[[gitsigns]].preview_hunk()<cr>", "Preview hunk" },
