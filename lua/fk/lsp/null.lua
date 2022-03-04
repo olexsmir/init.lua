@@ -8,7 +8,7 @@ null_ls.setup {
     diagnostic.selene,
     formatting.gofumpt,
     formatting.goimports,
-    diagnostic.golangci_lint,
+    -- diagnostic.golangci_lint,
     formatting.black,
     formatting.isort,
     diagnostic.flake8,

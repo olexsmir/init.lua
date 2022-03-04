@@ -8,7 +8,6 @@ return {
       },
       staticcheck = true,
       memoryMode = "DegradeClosed",
-      experimentalPostfixCompletions = true,
     },
   },
 }
