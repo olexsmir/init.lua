@@ -10,6 +10,9 @@ end
 map("n", "<C-s>", "<cmd>write!<cr>")
 map("i", "jk", "<esc>")
 
+map("n", "<S-h>", "<cmd>bp!<cr>")
+map("n", "<S-l>", "<cmd>bn!<cr>")
+
 expr("i", "<C-j>", 'pumvisible() ? "\\<down>" : "\\<C-j>"')
 expr("i", "<C-k>", 'pumvisible() ? "\\<up>" : "\\<C-k>"')
 expr("c", "<C-j>", 'pumvisible() ? "\\<C-n>" : "\\<C-j>"')
