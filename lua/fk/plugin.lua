@@ -89,7 +89,7 @@ return require("packer").startup(function(use)
   use {
     "rcarriga/vim-ultest",
     requires = { { "vim-test/vim-test", after = "vim-ultest" } },
-    cmd = { "Ultest", "UltestStop", "UltestClear", "UltestNearest", "UltestStopNearest", "UltestOutput", "UltestSummary" },
+    cmd = { "Ultest", "UltestStop", "UltestClear", "UltestNearest", "UltestOutput" },
   }
 
   -- Syntax
