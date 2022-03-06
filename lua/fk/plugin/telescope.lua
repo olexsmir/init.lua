@@ -46,6 +46,7 @@ require("telescope").setup {
     keymaps = { theme = "ivy" },
     git_branches = { theme = "ivy" },
     git_commits = { theme = "ivy" },
+    git_status = { theme = "ivy" },
     lsp_definitions = { theme = "ivy" },
     lsp_references = { theme = "ivy" },
     lsp_implementations = { theme = "ivy" },

@@ -61,6 +61,7 @@ local mappings = {
     r = { "<cmd>Telescope oldfiles<cr>", "Find oldfile" },
     b = { "<cmd>Telescope git_branches<cr>", "Git branches" },
     c = { "<cmd>Telescope git_commits<cr>", "Git commits" },
+    g = { "<cmd>Telescope git_status<cr>", "Git status" },
     s = { "<cmd>Telescope spell_suggest<cr>", "Spell suggest" },
     k = { "<cmd>Telescope keymaps<cr>", "Find keymap" },
     p = { "<cmd>Telescope projects<cr>", "Projects" },
