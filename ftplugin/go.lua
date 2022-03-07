@@ -9,8 +9,8 @@ require("which-key").register({
   [";"] = {
     name = "Coding",
     a = { "<cmd>GoTagAdd<cr>", "Add tags to struct" },
-    r = { "<cmd>GoTagRm<cr>", "Remove tags to struct" },
-    f = { "<cmd>GoFillStruct<cr>", "Fill struct" },
+    r = { "<cmd>GoTagRm<cr>", "Remove tags from struct" },
+    g = { "<cmd>GoGenerate<cr>", "Go generate" },
   },
 }, {
   prefix = "<leader>",
