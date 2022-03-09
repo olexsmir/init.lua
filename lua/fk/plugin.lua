@@ -19,11 +19,18 @@ return require("packer").startup(function(use)
   use { "tpope/vim-surround", keys = { "c", "d", "y" } }
   use { "windwp/nvim-autopairs", config = get_config "fk.plugin.autopairs" }
   use { "ahmedkhalf/project.nvim", config = get_config "fk.plugin.project" }
-  use { "lewis6991/gitsigns.nvim", config = get_config "fk.plugin.gitsigns" }
   use {
     "numToStr/Comment.nvim",
     keys = { "gc" },
     config = get_setup "Comment",
+  }
+
+  -- git
+  use { "lewis6991/gitsigns.nvim", config = get_config "fk.plugin.gitsigns" }
+  use {
+    "TimUntersberger/neogit",
+    cmd = "Neogit",
+    config = get_config "fk.plugin.neogit",
   }
 
   -- language specific
