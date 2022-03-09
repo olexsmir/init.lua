@@ -28,7 +28,6 @@ function M.setup()
       opts = vim.tbl_deep_extend("force", server:get_default_options(), opts)
       require "fk.plugin.rust-tools"(opts)
       server:attach_buffers()
-      vim.cmd [[ do User LspAttachBuffers ]]
       return
     end
 
