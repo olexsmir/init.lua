@@ -8,18 +8,25 @@ end
 
 return require("packer").startup(function(use)
   use "wbthomason/packer.nvim"
-  use "nvim-lua/plenary.nvim"
-  use "kyazdani42/nvim-web-devicons"
+  use { "nvim-lua/plenary.nvim", module = "plenary" }
+  use { "kyazdani42/nvim-web-devicons", module = "nvim-web-devicons" }
   use "folke/tokyonight.nvim" -- theme
-  use "gpanders/editorconfig.nvim"
-  use "lewis6991/impatient.nvim" -- fast loading
+  -- use "gpanders/editorconfig.nvim"
+  use "nathom/filetype.nvim"
+  use "lewis6991/impatient.nvim"
 
   -- Helpers
   use { "tpope/vim-surround", keys = { "c", "d", "y" } }
-  use { "numToStr/Comment.nvim", keys = { "gc" }, config = get_setup "Comment" }
   use { "windwp/nvim-autopairs", config = get_config "fk.plugin.autopairs" }
   use { "ahmedkhalf/project.nvim", config = get_config "fk.plugin.project" }
   use { "lewis6991/gitsigns.nvim", config = get_config "fk.plugin.gitsigns" }
+  use {
+    "numToStr/Comment.nvim",
+    keys = { "gc" },
+    config = get_setup "Comment",
+  }
+
+  -- language specific
   use { "~/code/gopher.nvim", ft = "go" }
 
   -- appearance
@@ -54,7 +61,7 @@ return require("packer").startup(function(use)
     config = get_config "fk.plugin.telescope",
   }
 
-  -- Lsp
+  -- lsp
   use {
     "neovim/nvim-lspconfig",
     config = get_setup "fk.lsp",
@@ -83,14 +90,14 @@ return require("packer").startup(function(use)
     },
   }
 
-  -- Tests
+  -- tests
   use {
     "rcarriga/vim-ultest",
     requires = { { "vim-test/vim-test", after = "vim-ultest" } },
     cmd = { "Ultest", "UltestStop", "UltestClear", "UltestNearest", "UltestOutput" },
   }
 
-  -- Syntax
+  -- syntax
   use {
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
