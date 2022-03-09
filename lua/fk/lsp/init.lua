@@ -17,6 +17,7 @@ function M.setup()
     }
 
     -- setup server config if it exists
+    require("lua-dev").setup()
     local ok, server_opts = pcall(require, "fk.lsp.providers." .. server.name)
     if ok then
       opts = vim.tbl_deep_extend("force", opts, server_opts or {})

@@ -20,10 +20,7 @@ return require("packer").startup(function(use)
   use { "windwp/nvim-autopairs", config = get_config "fk.plugin.autopairs" }
   use { "ahmedkhalf/project.nvim", config = get_config "fk.plugin.project" }
   use { "lewis6991/gitsigns.nvim", config = get_config "fk.plugin.gitsigns" }
-
-  -- languages
   use { "~/code/gopher.nvim", ft = "go" }
-  use { "folke/lua-dev.nvim", ft = "lua", config = get_config "fk.plugin.lua-dev" }
 
   -- appearance
   use { "folke/which-key.nvim", config = get_config "fk.plugin.whichkey" }
@@ -64,6 +61,7 @@ return require("packer").startup(function(use)
     requires = {
       "williamboman/nvim-lsp-installer",
       "jose-elias-alvarez/null-ls.nvim",
+      "folke/lua-dev.nvim",
     },
   }
 
