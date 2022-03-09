@@ -97,7 +97,7 @@ local mappings = {
     s = { "<cmd>lua require[[gitsigns]].stage_hunk()<cr>", "Stage hunk" },
     r = { "<cmd>lua require[[gitsigns]].reset_hunk()<cr>", "Reset hunk" },
     p = { "<cmd>lua require[[gitsigns]].preview_hunk()<cr>", "Preview hunk" },
-    b = { "<cmd>lua require[[gitsigns]].blame_line(true)<cr>", "Blame line" },
+    b = { "<cmd>lua require[[gitsigns]].blame_line {}<cr>", "Blame line" },
     R = { "<cmd>lua require[[gitsigns]].reset_buffer()<cr>", "Reset buffer" },
     S = { "<cmd>lua require[[gitsigns]].stage_buffer()<cr>", "Stage buffer" },
   },
