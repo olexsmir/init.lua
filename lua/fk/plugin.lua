@@ -35,6 +35,7 @@ return require("packer").startup(function(use)
 
   -- language specific
   use { "~/code/gopher.nvim", ft = "go" }
+  use { "simrat39/rust-tools.nvim", module = "rust-tools" }
 
   -- appearance
   use { "folke/which-key.nvim", config = get_config "fk.plugin.whichkey" }
