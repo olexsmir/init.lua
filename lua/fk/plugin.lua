@@ -10,7 +10,7 @@ return require("packer").startup(function(use)
   use "wbthomason/packer.nvim"
   use "nvim-lua/plenary.nvim"
   use "kyazdani42/nvim-web-devicons"
-  use "rmehri01/onenord.nvim" -- theme
+  use "folke/tokyonight.nvim" -- theme
   use "gpanders/editorconfig.nvim"
   use "lewis6991/impatient.nvim" -- fast loading
 

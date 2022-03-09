@@ -5,5 +5,4 @@ require "fk.keymapings"
 require "fk.disabled"
 require "fk.globals"
 require "fk.autocmd"
-
-vim.cmd [[colo onenord]]
+require "fk.theme"
