@@ -7,7 +7,7 @@ return {
         unreachable = true,
       },
       staticcheck = true,
-      memoryMode = "DegradeClosed",
+      memoryMode = "Normal",
     },
   },
 }
