@@ -3,7 +3,7 @@ require("lualine").setup {
     theme = "tokyonight",
     component_separators = { "", "" },
     section_separators = { "", "" },
-    disabled_filetypes = { "NvimTree", "Telescope" },
+    disabled_filetypes = { "NvimTree", "Telescope", "NeogitStatus" },
     always_divide_middle = false,
   },
   sections = {
