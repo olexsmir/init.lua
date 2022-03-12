@@ -59,6 +59,7 @@ return require("packer").startup(function(use)
     "akinsho/toggleterm.nvim",
     config = get_config "fk.plugin.terminal",
     module = "toggleterm",
+    cmd = "ToggleTerm";
     keys = "<C-t>",
   }
 
