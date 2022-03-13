@@ -9,40 +9,32 @@ end
 return require("packer").startup(function(use)
   use "wbthomason/packer.nvim"
   use { "nvim-lua/plenary.nvim", module = "plenary" }
-  use { "kyazdani42/nvim-web-devicons", module = "nvim-web-devicons" }
   use "folke/tokyonight.nvim" -- theme
-  -- use "gpanders/editorconfig.nvim"
-  use "nathom/filetype.nvim"
   use "lewis6991/impatient.nvim"
+  use "nathom/filetype.nvim"
+  use { "kyazdani42/nvim-web-devicons", module = "nvim-web-devicons" }
+  -- use "gpanders/editorconfig.nvim"
 
-  -- Helpers
+  -- general
   use { "tpope/vim-surround", keys = { "c", "d", "y" } }
   use { "windwp/nvim-autopairs", config = get_config "fk.plugin.autopairs" }
   use { "ahmedkhalf/project.nvim", config = get_config "fk.plugin.project" }
-  use {
-    "numToStr/Comment.nvim",
-    keys = { "gc" },
-    config = get_setup "Comment",
-  }
+  use { "numToStr/Comment.nvim", keys = { "gc" }, config = get_setup "Comment" }
 
   -- git
   use { "lewis6991/gitsigns.nvim", config = get_config "fk.plugin.gitsigns" }
-  use {
-    "TimUntersberger/neogit",
-    cmd = "Neogit",
-    config = get_config "fk.plugin.neogit",
-  }
+  use { "TimUntersberger/neogit", cmd = "Neogit", config = get_config "fk.plugin.neogit" }
 
   -- language specific
   use { "~/code/gopher.nvim", ft = "go" }
   use { "simrat39/rust-tools.nvim", module = "rust-tools" }
 
   -- appearance
-  use { "folke/which-key.nvim", config = get_config "fk.plugin.whichkey" }
   use { "nvim-lualine/lualine.nvim", config = get_config "fk.plugin.statusline" }
   use { "folke/todo-comments.nvim", config = get_setup "todo-comments" }
 
   -- another menus :D
+  use { "folke/which-key.nvim", config = get_config "fk.plugin.whichkey" }
   use {
     "kyazdani42/nvim-tree.lua",
     cmd = "NvimTreeToggle",
@@ -59,7 +51,7 @@ return require("packer").startup(function(use)
     "akinsho/toggleterm.nvim",
     config = get_config "fk.plugin.terminal",
     module = "toggleterm",
-    cmd = "ToggleTerm";
+    cmd = "ToggleTerm",
     keys = "<C-t>",
   }
 
@@ -81,7 +73,7 @@ return require("packer").startup(function(use)
     },
   }
 
-  -- Completion
+  -- completion
   use {
     "hrsh7th/nvim-cmp",
     config = get_config "fk.plugin.cmp",
