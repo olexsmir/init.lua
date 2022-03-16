@@ -52,19 +52,16 @@ local mappings = {
   b = { "<cmd>Telescope buffers<cr>", "Find buffer" },
   w = { "<cmd>write!<cr>", "Save file" },
   q = { "<cmd>quit!<cr>", "Quit" },
-  c = { "<cmd>bdelete!<cr>", "Close buffer" },
+  c = { "<cmd>bdelete<cr>", "Close buffer" },
   h = { "<cmd>nohlsearch<cr>", "No search hl" },
   n = { "<cmd>e! /tmp/note.md<cr>", "Open note" },
   s = {
     name = "Search",
-    t = { "<cmd>Telescope live_grep<cr>", "Live grep" },
-    r = { "<cmd>Telescope oldfiles<cr>", "Find oldfile" },
     b = { "<cmd>Telescope git_branches<cr>", "Git branches" },
-    c = { "<cmd>Telescope git_commits<cr>", "Git commits" },
     g = { "<cmd>Telescope git_status<cr>", "Git status" },
-    s = { "<cmd>Telescope spell_suggest<cr>", "Spell suggest" },
-    k = { "<cmd>Telescope keymaps<cr>", "Find keymap" },
     p = { "<cmd>Telescope projects<cr>", "Projects" },
+    r = { "<cmd>Telescope oldfiles<cr>", "Find oldfile" },
+    t = { "<cmd>Telescope live_grep<cr>", "Live grep" },
   },
   l = {
     name = "Lsp",
@@ -100,13 +97,6 @@ local mappings = {
     b = { "<cmd>lua require[[gitsigns]].blame_line {}<cr>", "Blame line" },
     R = { "<cmd>lua require[[gitsigns]].reset_buffer()<cr>", "Reset buffer" },
     S = { "<cmd>lua require[[gitsigns]].stage_buffer()<cr>", "Stage buffer" },
-  },
-  p = {
-    name = "Packer",
-    s = { "<cmd>PackerSync<cr>", "Sync" },
-    i = { "<cmd>PackerInstall<cr>", "Install" },
-    c = { "<cmd>PackerCompile<cr>", "Compile" },
-    C = { "<cmd>PackerClean<cr>", "Clean" },
   },
 }
 

@@ -8,10 +8,13 @@ end
 
 -- Mappings
 map("n", "<C-s>", "<cmd>write!<cr>")
+map("i", "<C-s>", "<cmd>write!<cr>")
 map("i", "jk", "<esc>")
 
 map("n", "<S-h>", "<cmd>bp!<cr>")
 map("n", "<S-l>", "<cmd>bn!<cr>")
+
+map("n", "<leader>ps", "<cmd>PackerSync<cr>")
 
 expr("i", "<C-j>", 'pumvisible() ? "\\<down>" : "\\<C-j>"')
 expr("i", "<C-k>", 'pumvisible() ? "\\<up>" : "\\<C-k>"')
