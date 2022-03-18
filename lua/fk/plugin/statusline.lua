@@ -1,6 +1,7 @@
 require("lualine").setup {
   options = {
     theme = "tokyonight",
+    globalstatus = true,
     component_separators = { "", "" },
     section_separators = { "", "" },
     disabled_filetypes = { "NvimTree", "Telescope", "NeogitStatus" },
