@@ -4,7 +4,7 @@ require("lualine").setup {
     globalstatus = true,
     component_separators = { "", "" },
     section_separators = { "", "" },
-    disabled_filetypes = { "NvimTree", "Telescope", "NeogitStatus" },
+    disabled_filetypes = { "NvimTree", "TelescopePrompt", "NeogitStatus" },
     always_divide_middle = false,
   },
   sections = {
