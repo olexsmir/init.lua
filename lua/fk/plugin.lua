@@ -80,7 +80,6 @@ return require("packer").startup(function(use)
     event = "InsertEnter",
     module = "cmp",
     requires = {
-      { "hrsh7th/cmp-nvim-lua", after = "nvim-cmp" },
       { "hrsh7th/cmp-nvim-lsp", module = "cmp_nvim_lsp" },
       { "hrsh7th/cmp-buffer", after = "nvim-cmp" },
       { "hrsh7th/cmp-path", after = "nvim-cmp" },
