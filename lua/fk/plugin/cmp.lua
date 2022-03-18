@@ -10,7 +10,7 @@ require("luasnip/loaders/from_vscode").load {
 }
 
 -- Autopairs
-cmp.event:on("confirm_done", require("nvim-autopairs.completion.cmp").on_confirm_done())
+cmp.event:on("confirm_done", require("nvim-autopairs.completion.cmp").on_confirm_done { map_char = { tex = "" } })
 
 cmp.setup {
   snippet = {
