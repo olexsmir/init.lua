@@ -77,13 +77,7 @@ local mappings = {
     k = { "<cmd>lua vim.diagnostic.goto_prev()<cr>", "Prev diagnostic" },
   },
   t = {
-    name = "Tests/tabs",
-    t = { "<cmd>Ultest<cr>", "Run all tests" },
-    s = { "<cmd>UltestStop<cr>", "Stop all runned tests" },
-    C = { "<cmd>UltestClear<cr>", "Clean tests results" },
-    n = { "<cmd>UltestNearest<cr>", "Run test under cursor" },
-    O = { "<cmd>UltestOutput<cr>", "Show test result" },
-
+    name = "Tabs",
     l = { "<cmd>tabnext<cr>", "Next tab" },
     h = { "<cmd>tabprev<cr>", "Prev tab" },
     N = { "<cmd>tabnew<cr>", "New tab" },
