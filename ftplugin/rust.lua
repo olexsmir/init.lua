@@ -10,8 +10,8 @@ require("which-key").register({
     t = { "<cmd>RustToggleInlayHints<cr>", "Toggle type hints" },
     r = { "<cmd>RustRunnables<cr>", "Run" },
     R = { "<cmd>RustReloadWorkspace<cr>", "Reload Workspace" },
-    K = { "<cmd>RustMoveItemUp<cr>", "Move current item up" },
-    J = { "<cmd>RustMoveItemDown<cr>", "Move current item down" },
+    K = { "<cmd>RustMoveItemUp<cr>", "Move up" },
+    J = { "<cmd>RustMoveItemDown<cr>", "Move down" },
   },
 }, {
   prefix = "<leader>",
