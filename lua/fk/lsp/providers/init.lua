@@ -10,12 +10,12 @@ return function(server, opts)
     return vim.tbl_extend("force", opts, require "fk.lsp.providers.pyright")
   end
 
-  if server.name == "yamlls" then
-    return vim.tbl_extend("force", opts, require "fk.lsp.providers.yamlls")
-  end
-
   if server.name == "gopls" then
     return vim.tbl_extend("force", opts, require "fk.lsp.providers.gopls")
+  end
+
+  if server.name == "yamlls" then
+    return vim.tbl_extend("force", opts, require "fk.lsp.providers.yamlls")
   end
 
   return opts
