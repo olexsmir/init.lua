@@ -25,10 +25,15 @@ map("n", "<C-Left>", "<cmd>vertical resize -2<cr>")
 map("n", "<C-Down>", "<cmd>resize +2<cr>")
 map("n", "<C-Up", "<cmd>resize -1<cr>")
 map("n", "<C-Right>", "<cmd>vertical resize +2<CR>")
-for _, key in ipairs { "h", "j", "k", "l" } do
-  map("n", string.format("<C-%s>", key), string.format("<cmd>wincmd %s<cr>", key))
-  map("t", string.format("<C-%s>", key), string.format("<C-\\><C-N><C-w>%s", key))
-end
+
+map("n", "<C-h>", "<cmd>wincmd h<cr>")
+map("n", "<C-j>", "<cmd>wincmd j<cr>")
+map("n", "<C-k>", "<cmd>wincmd k<cr>")
+map("n", "<C-l>", "<cmd>wincmd l<cr>")
+map("t", "<C-h>", "<C-\\><C-n><C-w>h")
+map("t", "<C-j>", "<C-\\><C-n><C-w>j")
+map("t", "<C-k>", "<C-\\><C-n><C-w>k")
+map("t", "<C-l>", "<C-\\><C-n><C-w>l")
 
 map("i", "<A-j>", "<Esc>:m .+1<CR>==gi")
 map("i", "<A-k>", "<Esc>:m .-2<CR>==gi")
