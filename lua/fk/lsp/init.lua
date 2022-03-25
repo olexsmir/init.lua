@@ -1,12 +1,7 @@
-local diagnostic = require "fk.lsp.diagnostic"
 local M = {}
 
 function M.setup()
-  vim.diagnostic.config(diagnostic)
-  for _, sign in ipairs(diagnostic.signs.active) do
-    vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
-  end
-
+  require "fk.lsp.diagnostic"()
   require "fk.lsp.null"
   require("nvim-lsp-installer").on_server_ready(function(server)
     local opts = {
