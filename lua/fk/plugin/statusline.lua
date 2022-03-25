@@ -2,10 +2,9 @@ require("lualine").setup {
   options = {
     theme = "tokyonight",
     globalstatus = true,
-    component_separators = { "", "" },
-    section_separators = { "", "" },
+    component_separators = { left = "", right = "" },
+    section_separators = { left = "", right = "" },
     disabled_filetypes = { "NvimTree", "TelescopePrompt", "NeogitStatus" },
-    always_divide_middle = false,
   },
   sections = {
     lualine_a = { "filename" },
