@@ -20,13 +20,6 @@ function M.setup()
       opts = vim.tbl_deep_extend("force", opts, server_opts or {})
     end
 
-    if server.name == "rust_analyzer" then
-      opts = vim.tbl_deep_extend("force", server:get_default_options(), opts)
-      require "fk.plugin.rust-tools"(opts)
-      server:attach_buffers()
-      return
-    end
-
     if server.name == "sumneko_lua" then
       opts = vim.tbl_extend("force", opts or {}, require("lua-dev").setup { lspconfig = server:get_default_options() })
     end

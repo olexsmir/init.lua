@@ -27,7 +27,6 @@ return require("packer").startup(function(use)
 
   -- language specific
   use { "~/code/gopher.nvim", ft = "go" }
-  use { "simrat39/rust-tools.nvim", module = "rust-tools" }
 
   -- appearance
   use { "nvim-lualine/lualine.nvim", config = get_config "fk.plugin.statusline" }
