@@ -15,14 +15,7 @@ function M.setup()
       flags = { debounce_text_changes = 150 },
     }
 
-    local ok, server_opts = pcall(require, "fk.lsp.providers." .. server.name)
-    if ok then
-      opts = vim.tbl_deep_extend("force", opts, server_opts or {})
-    end
-
-    if server.name == "sumneko_lua" then
-      opts = vim.tbl_extend("force", opts or {}, require("lua-dev").setup { lspconfig = server:get_default_options() })
-    end
+    opts = require "fk.lsp.providers"(server, opts)
 
     server:setup(opts)
     vim.cmd [[ do User LspAttachBuffers ]]
