@@ -14,8 +14,6 @@ return require("packer").startup(function(use)
   use "nathom/filetype.nvim"
   use { "kyazdani42/nvim-web-devicons", module = "nvim-web-devicons" }
   -- use "gpanders/editorconfig.nvim"
-
-  -- general
   use { "tpope/vim-surround", keys = { "c", "d", "y" } }
   use { "windwp/nvim-autopairs", config = get_config "fk.plugin.autopairs" }
   use { "ahmedkhalf/project.nvim", config = get_config "fk.plugin.project" }
@@ -68,7 +66,7 @@ return require("packer").startup(function(use)
     requires = {
       "williamboman/nvim-lsp-installer",
       "jose-elias-alvarez/null-ls.nvim",
-      "folke/lua-dev.nvim",
+      { "folke/lua-dev.nvim", module = "lua-dev" },
     },
   }
 
