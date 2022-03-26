@@ -1,6 +1,6 @@
 require "fk.options"
 require "fk.keymapings"
-require "fk.disabled"
+require "fk.disable"
 require "fk.globals"
 require "fk.autocmd"
 require "fk.plugin"
