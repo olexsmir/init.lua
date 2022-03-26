@@ -1,41 +1,39 @@
 local o = vim.opt
 
--- Mappings
+-- leader
 vim.g.mapleader = " "
 vim.g.maplocalleader = ","
 
--- GUI
-o.guifont = "Jetbrains Mono:h12"
-
--- general
-o.completeopt = { "menuone", "noselect" }
-o.clipboard = "unnamedplus"
-o.cmdheight = 1
-o.timeoutlen = 250
-o.fileencoding = "utf-8"
-o.hidden = true
-o.ignorecase = true
-o.mouse = "a"
-o.pumheight = 8
-o.showmode = false
-o.smartcase = true
+-- tab
 o.smartindent = true
-o.splitbelow = true
-o.splitright = true
-o.swapfile = false
-o.termguicolors = true
-o.title = true
-o.undofile = true
-o.updatetime = 1500
-o.writebackup = false
 o.expandtab = true
+o.cursorline = true
 o.shiftwidth = 4
 o.tabstop = 4
-o.cursorline = true
+
+-- serarch
+o.ignorecase = true
+o.smartcase = true
+
 o.number = true
-o.relativenumber = false
+o.termguicolors = true
+o.completeopt = { "menuone", "noselect" }
+o.clipboard = "unnamedplus"
+o.timeoutlen = 250
+o.fileencoding = "utf-8"
+o.mouse = "a"
+o.showmode = false
+o.splitbelow = true
+o.splitright = true
+o.pumheight = 8
 o.numberwidth = 4
-o.signcolumn = "yes"
-o.wrap = false
 o.scrolloff = 8
 o.sidescrolloff = 8
+o.signcolumn = "yes"
+o.title = true
+o.wrap = false
+
+-- swap files
+o.undofile = true
+o.swapfile = false
+o.writebackup = false
