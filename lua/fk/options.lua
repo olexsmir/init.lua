@@ -30,6 +30,7 @@ o.numberwidth = 4
 o.scrolloff = 8
 o.sidescrolloff = 8
 o.signcolumn = "yes"
+o.hidden = true
 o.title = true
 o.wrap = false
 
