@@ -74,7 +74,6 @@ return require("packer").startup(function(use)
   use {
     "hrsh7th/nvim-cmp",
     config = get_config "fk.plugin.cmp",
-    event = "InsertEnter",
     module = "cmp",
     requires = {
       { "hrsh7th/cmp-nvim-lsp", module = "cmp_nvim_lsp" },
