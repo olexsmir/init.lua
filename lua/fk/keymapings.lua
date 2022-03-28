@@ -1,9 +1,9 @@
 local function expr(mode, from, to)
-  vim.api.nvim_set_keymap(mode, from, to, { noremap = true, expr = true })
+  vim.keymap.set(mode, from, to, { noremap = true, expr = true })
 end
 
 local function map(mode, from, to)
-  vim.api.nvim_set_keymap(mode, from, to, { noremap = true, silent = true })
+  vim.keymap.set(mode, from, to, { noremap = true, silent = true })
 end
 
 -- Mappings
