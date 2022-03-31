@@ -12,6 +12,7 @@ null_ls.setup {
     formatting.black,
     formatting.isort,
     diagnostic.flake8,
+    formatting.markdownlint,
     formatting.phpcbf,
   },
 }
