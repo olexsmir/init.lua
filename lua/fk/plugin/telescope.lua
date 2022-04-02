@@ -54,6 +54,3 @@ require("telescope").setup {
     reloader = { theme = "cursor" },
   },
 }
-
--- Extensions
-require("telescope").load_extension "projects"

@@ -16,7 +16,7 @@ return require("packer").startup(function(use)
   -- use "gpanders/editorconfig.nvim"
   use { "tpope/vim-surround", keys = { "c", "d", "y" } }
   use { "windwp/nvim-autopairs", config = get_config "fk.plugin.autopairs" }
-  use { "ahmedkhalf/project.nvim", config = get_config "fk.plugin.project" }
+  -- use { "ahmedkhalf/project.nvim", config = get_config "fk.plugin.project" }
   use { "numToStr/Comment.nvim", keys = { "gc" }, config = get_setup "Comment" }
 
   -- git
