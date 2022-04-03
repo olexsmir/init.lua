@@ -1,12 +1,12 @@
-local function expr(mode, from, to)
-  vim.keymap.set(mode, from, to, { noremap = true, expr = true })
-end
+local function map(mode, from, to, expr)
+  if expr or false then
+    vim.keymap.set(mode, from, to, { noremap = true, expr = true })
+    return
+  end
 
-local function map(mode, from, to)
   vim.keymap.set(mode, from, to, { noremap = true, silent = true })
 end
 
--- Mappings
 map("n", "<C-s>", "<cmd>write!<cr>")
 map("i", "<C-s>", "<cmd>write!<cr>")
 map("i", "jk", "<esc>")
@@ -16,10 +16,10 @@ map("n", "<S-l>", "<cmd>bn!<cr>")
 
 map("n", "<leader>ps", "<cmd>PackerSync<cr>")
 
-expr("i", "<C-j>", 'pumvisible() ? "\\<down>" : "\\<C-j>"')
-expr("i", "<C-k>", 'pumvisible() ? "\\<up>" : "\\<C-k>"')
-expr("c", "<C-j>", 'pumvisible() ? "\\<C-n>" : "\\<C-j>"')
-expr("c", "<C-k>", 'pumvisible() ? "\\<C-p>" : "\\<C-k>"')
+map("i", "<C-j>", 'pumvisible() ? "\\<down>" : "\\<C-j>"', true)
+map("i", "<C-k>", 'pumvisible() ? "\\<up>" : "\\<C-k>"', true)
+map("c", "<C-j>", 'pumvisible() ? "\\<C-n>" : "\\<C-j>"', true)
+map("c", "<C-k>", 'pumvisible() ? "\\<C-p>" : "\\<C-k>"', true)
 
 map("n", "<C-Left>", "<cmd>vertical resize -2<cr>")
 map("n", "<C-Down>", "<cmd>resize +2<cr>")
