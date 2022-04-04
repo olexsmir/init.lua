@@ -3,7 +3,11 @@
 ---@return table
 return function(server, opts)
   if server.name == "sumneko_lua" then
-    return vim.tbl_extend("force", opts, require("lua-dev").setup { lspconfig = server:get_default_options() })
+    return vim.tbl_extend(
+      "force",
+      opts,
+      require("lua-dev").setup { lspconfig = server:get_default_options() }
+    )
   end
 
   if server.name == "pyright" then

@@ -21,7 +21,11 @@ return require("packer").startup(function(use)
 
   -- git
   use { "lewis6991/gitsigns.nvim", config = get_config "fk.plugin.gitsigns" }
-  use { "TimUntersberger/neogit", cmd = "Neogit", config = get_config "fk.plugin.neogit" }
+  use {
+    "TimUntersberger/neogit",
+    cmd = "Neogit",
+    config = get_config "fk.plugin.neogit",
+  }
 
   -- language specific
   use { "~/code/gopher.nvim", ft = "go" }
