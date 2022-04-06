@@ -1,5 +1,7 @@
 local o = vim.opt
 
+vim.g.did_load_filetypes = 1
+
 -- leader
 vim.g.mapleader = " "
 vim.g.maplocalleader = ","
