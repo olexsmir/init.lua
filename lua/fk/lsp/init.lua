@@ -2,6 +2,7 @@ local M = {}
 
 function M.setup()
   require "fk.lsp.diagnostic"()
+  require("fidget").setup()
   require "fk.lsp.null"
   require("nvim-lsp-installer").on_server_ready(function(server)
     server:setup(require "fk.lsp.providers"(server, {
