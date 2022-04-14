@@ -8,34 +8,29 @@ end
 
 return require("packer").startup(function(use)
   use "wbthomason/packer.nvim"
-  use "nvim-lua/plenary.nvim"
   use "folke/tokyonight.nvim" -- theme
+  use "nvim-lua/plenary.nvim"
   use "lewis6991/impatient.nvim"
   use "nathom/filetype.nvim"
-  use { "kyazdani42/nvim-web-devicons", module = "nvim-web-devicons" }
   -- use "gpanders/editorconfig.nvim"
-  use { "tpope/vim-surround", keys = { "c", "d", "y" } }
-  use { "windwp/nvim-autopairs", config = get_config "fk.plugin.autopairs" }
-  -- use { "ahmedkhalf/project.nvim", config = get_config "fk.plugin.project" }
-  use { "numToStr/Comment.nvim", keys = { "gc" }, config = get_setup "Comment" }
 
-  -- git
+  use { "~/code/gopher.nvim", ft = "go" }
+
+  use { "kyazdani42/nvim-web-devicons", module = "nvim-web-devicons" }
+  use { "nvim-lualine/lualine.nvim", config = get_config "fk.plugin.statusline" }
+  use { "folke/todo-comments.nvim", config = get_setup "todo-comments" }
+  use { "folke/which-key.nvim", config = get_config "fk.plugin.whichkey" }
   use { "lewis6991/gitsigns.nvim", config = get_config "fk.plugin.gitsigns" }
+  use { "windwp/nvim-autopairs", config = get_config "fk.plugin.autopairs" }
+  use { "numToStr/Comment.nvim", keys = { "gc" }, config = get_setup "Comment" }
+  use { "tpope/vim-surround", keys = { "c", "d", "y" } }
+
   use {
     "TimUntersberger/neogit",
     cmd = "Neogit",
     config = get_config "fk.plugin.neogit",
   }
 
-  -- language specific
-  use { "~/code/gopher.nvim", ft = "go" }
-
-  -- appearance
-  use { "nvim-lualine/lualine.nvim", config = get_config "fk.plugin.statusline" }
-  use { "folke/todo-comments.nvim", config = get_setup "todo-comments" }
-
-  -- another menus :D
-  use { "folke/which-key.nvim", config = get_config "fk.plugin.whichkey" }
   use {
     "kyazdani42/nvim-tree.lua",
     cmd = "NvimTreeToggle",
@@ -55,7 +50,6 @@ return require("packer").startup(function(use)
     config = get_config "fk.plugin.telescope",
   }
 
-  -- lsp
   use {
     "neovim/nvim-lspconfig",
     config = get_setup "fk.lsp",
@@ -63,10 +57,10 @@ return require("packer").startup(function(use)
       "williamboman/nvim-lsp-installer",
       "jose-elias-alvarez/null-ls.nvim",
       { "folke/lua-dev.nvim", module = "lua-dev" },
+      "j-hui/fidget.nvim",
     },
   }
 
-  -- completion
   use {
     "hrsh7th/nvim-cmp",
     config = get_config "fk.plugin.cmp",
@@ -82,7 +76,6 @@ return require("packer").startup(function(use)
     },
   }
 
-  -- syntax
   use {
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
