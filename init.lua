@@ -3,8 +3,7 @@ require "fk.keymapings"
 require "fk.disable"
 require "fk.globals"
 require "fk.plugin"
-
-vim.cmd [[ autocmd TextYankPost * lua vim.highlight.on_yank() ]]
+require "fk.autocmd"
 
 require("tokyonight").colorscheme()
 require("impatient").enable_profile()
