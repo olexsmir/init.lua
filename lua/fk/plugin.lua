@@ -81,6 +81,7 @@ return require("packer").startup {
       "nvim-treesitter/nvim-treesitter",
       run = ":TSUpdate",
       config = get_config "fk.plugin.treesitter",
+      requires = { "RRethy/nvim-treesitter-endwise" },
     }
   end,
 
