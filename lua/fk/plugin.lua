@@ -9,7 +9,7 @@ end
 return require("packer").startup {
   function(use)
     use "wbthomason/packer.nvim"
-    use "folke/tokyonight.nvim" -- theme
+    use "rmehri01/onenord.nvim"
     use "nvim-lua/plenary.nvim"
     use "lewis6991/impatient.nvim"
     use "nathom/filetype.nvim"
