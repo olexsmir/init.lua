@@ -7,7 +7,7 @@ vim.opt_local.softtabstop = 2
 require("which-key").register({
   [";"] = {
     name = "Coding",
-    t = { "<Plug>PlenaryTestFile", "Run current tests file" },
+    t = { ":w<cr> |  <Plug>PlenaryTestFile", "Run current tests file" },
   },
 }, {
   prefix = "<leader>",
