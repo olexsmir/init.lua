@@ -9,29 +9,30 @@ end
 return require("packer").startup {
   function(use)
     use "wbthomason/packer.nvim"
-    use "rmehri01/onenord.nvim"
     use "nvim-lua/plenary.nvim"
     use "lewis6991/impatient.nvim"
     use "nathom/filetype.nvim"
-    -- use "gpanders/editorconfig.nvim"
+    use "rmehri01/onenord.nvim" -- theme
 
     use { "~/code/gopher.nvim", ft = "go" }
 
-    use { "kyazdani42/nvim-web-devicons", module = "nvim-web-devicons" }
-    use { "nvim-lualine/lualine.nvim", config = get_config "fk.plugin.statusline" }
-    use { "folke/todo-comments.nvim", config = get_setup "todo-comments" }
-    use { "folke/which-key.nvim", config = get_config "fk.plugin.whichkey" }
-    use { "lewis6991/gitsigns.nvim", config = get_config "fk.plugin.gitsigns" }
+    use { "tpope/vim-surround", keys = { "c", "d", "y" } }
     use { "windwp/nvim-autopairs", config = get_config "fk.plugin.autopairs" }
     use { "numToStr/Comment.nvim", keys = { "gc" }, config = get_setup "Comment" }
-    use { "tpope/vim-surround", keys = { "c", "d", "y" } }
+    use { "folke/todo-comments.nvim", config = get_setup "todo-comments" }
+    use { "nvim-lualine/lualine.nvim", config = get_config "fk.plugin.statusline" }
+    use { "kyazdani42/nvim-web-devicons", module = "nvim-web-devicons" }
+    use { "folke/which-key.nvim", config = get_config "fk.plugin.whichkey" }
 
+    -- git
+    use { "lewis6991/gitsigns.nvim", config = get_config "fk.plugin.gitsigns" }
     use {
       "TimUntersberger/neogit",
       cmd = "Neogit",
       config = get_config "fk.plugin.neogit",
     }
 
+    -- menus :D
     use {
       "kyazdani42/nvim-tree.lua",
       cmd = "NvimTreeToggle",
@@ -51,6 +52,7 @@ return require("packer").startup {
       config = get_config "fk.plugin.telescope",
     }
 
+    -- lsp
     use {
       "neovim/nvim-lspconfig",
       config = get_setup "fk.lsp",
@@ -62,6 +64,7 @@ return require("packer").startup {
       },
     }
 
+    -- completion
     use {
       "hrsh7th/nvim-cmp",
       config = get_config "fk.plugin.cmp",
@@ -77,6 +80,7 @@ return require("packer").startup {
       },
     }
 
+    -- treesitter
     use {
       "nvim-treesitter/nvim-treesitter",
       run = ":TSUpdate",
