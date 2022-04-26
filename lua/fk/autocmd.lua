@@ -2,5 +2,7 @@ local cmd = vim.api.nvim_create_autocmd
 
 cmd("TextYankPost", {
   pattern = "*",
-  command = ":lua vim.highlight.on_yank()",
+  callback = function()
+    vim.highlight.on_yank()
+  end,
 })
