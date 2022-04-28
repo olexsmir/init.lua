@@ -7,4 +7,4 @@ require "fk.globals"
 require "fk.plugin"
 require "fk.autocmd"
 
-require('onenord').setup()
+require("onenord").setup()
