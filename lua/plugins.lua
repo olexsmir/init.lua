@@ -79,6 +79,7 @@ return packer.startup(function(use)
       { "hrsh7th/cmp-buffer", after = "nvim-cmp" },
       { "saadparwaiz1/cmp_luasnip", after = "nvim-cmp" },
       { "hrsh7th/cmp-path", after = "nvim-cmp" },
+      { "hrsh7th/cmp-nvim-lsp", module = "cmp_nvim_lsp" },
     },
   }
 
@@ -88,15 +89,13 @@ return packer.startup(function(use)
     requires = { { "rafamadriz/friendly-snippets", after = "nvim-cmp" } },
   }
 
-  --[[
   use {
     "neovim/nvim-lspconfig",
-    config = get_setup "fk.lsp",
+    config = u.get_config "configs.lsp",
     requires = {
       "williamboman/nvim-lsp-installer",
       "jose-elias-alvarez/null-ls.nvim",
       { "folke/lua-dev.nvim", module = "lua-dev" },
-      "j-hui/fidget.nvim",
     },
-  }]]
+  }
 end)
