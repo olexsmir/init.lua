@@ -1,22 +1,22 @@
-local o = vim.opt
+local o, g = vim.opt, vim.g
 
-vim.g.did_load_filetypes = 1
+-- use filetype.lua instead of filetype.vim
+g.did_load_filetypes = 1
+g.do_filetype_lua = 1
 
 -- leader
-vim.g.mapleader = " "
-vim.g.maplocalleader = ","
+g.mapleader = " "
+g.maplocalleader = ","
 
--- tab
+-- indent
 o.smartindent = true
 o.expandtab = true
 o.cursorline = true
 o.shiftwidth = 4
 o.tabstop = 4
 
--- serarch
 o.ignorecase = true
 o.smartcase = true
-
 o.number = true
 o.termguicolors = true
 o.completeopt = { "menuone", "noselect" }
@@ -40,3 +40,29 @@ o.wrap = false
 o.undofile = true
 o.swapfile = false
 o.writebackup = false
+
+-- disable build-in modules
+for _, i in pairs {
+  "netrw",
+  "netrwPlugin",
+  "netrwSettings",
+  "netrwFileHandlers",
+  "gzip",
+  "zip",
+  "tohtml",
+  "man",
+  "zipPlugin",
+  "tar",
+  "tarPlugin",
+  "getscript",
+  "getscriptPlugin",
+  "vimball",
+  "vimballPlugin",
+  "2html_plugin",
+  "logipat",
+  "rrhelper",
+  "spellfile_plugin",
+  "matchit",
+} do
+  vim.g["loaded_" .. i] = 1
+end
