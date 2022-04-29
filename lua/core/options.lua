@@ -23,7 +23,6 @@ o.number = true
 o.termguicolors = true
 o.completeopt = { "menuone", "noselect" }
 o.clipboard = "unnamedplus"
-o.timeoutlen = 250
 o.fileencoding = "utf-8"
 o.mouse = "a"
 o.showmode = false
