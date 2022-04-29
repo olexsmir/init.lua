@@ -2,7 +2,7 @@ return {
   ---@param mode string
   ---@param from string
   ---@param to string
-  ---@param expr boolean
+  ---@param expr boolean|nil
   map = function(mode, from, to, expr)
     if expr then
       vim.keymap.set(mode, from, to, { noremap = true, expr = true })
