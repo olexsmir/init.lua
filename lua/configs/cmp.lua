@@ -1,15 +1,12 @@
 local cmp = require "cmp"
 local luasnip = require "luasnip"
 
--- Snippets
-require("luasnip/loaders/from_vscode").load {
+require("luasnip.loaders.from_vscode").load {
   paths = {
-    "~/.local/share/nvim/site/pack/packer/start/friendly-snippets",
     "~/.local/share/nvim/site/pack/packer/opt/friendly-snippets",
   },
 }
 
--- Autopairs
 cmp.event:on(
   "confirm_done",
   require("nvim-autopairs.completion.cmp").on_confirm_done {

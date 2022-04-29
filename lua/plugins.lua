@@ -71,6 +71,23 @@ return packer.startup(function(use)
     config = u.get_config "configs.nvimtree",
   }
 
+  use {
+    "hrsh7th/nvim-cmp",
+    event = "BufRead",
+    config = u.get_config "configs.cmp",
+    requires = {
+      { "hrsh7th/cmp-buffer", after = "nvim-cmp" },
+      { "saadparwaiz1/cmp_luasnip", after = "nvim-cmp" },
+      { "hrsh7th/cmp-path", after = "nvim-cmp" },
+    },
+  }
+
+  use {
+    "L3MON4D3/LuaSnip",
+    module = "luasnip",
+    requires = { { "rafamadriz/friendly-snippets", after = "nvim-cmp" } },
+  }
+
   --[[
   use {
     "neovim/nvim-lspconfig",
@@ -80,22 +97,6 @@ return packer.startup(function(use)
       "jose-elias-alvarez/null-ls.nvim",
       { "folke/lua-dev.nvim", module = "lua-dev" },
       "j-hui/fidget.nvim",
-    },
-  }
-
-  -- completion
-  use {
-    "hrsh7th/nvim-cmp",
-    config = get_config "fk.plugin.cmp",
-    module = "cmp",
-    requires = {
-      { "hrsh7th/cmp-nvim-lsp", module = "cmp_nvim_lsp" },
-      { "hrsh7th/cmp-buffer", after = "nvim-cmp" },
-      { "hrsh7th/cmp-path", after = "nvim-cmp" },
-      { "saadparwaiz1/cmp_luasnip", after = "nvim-cmp" },
-
-      "L3MON4D3/LuaSnip",
-      "rafamadriz/friendly-snippets",
     },
   }]]
 end)
