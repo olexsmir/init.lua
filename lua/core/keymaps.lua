@@ -1,8 +1,9 @@
-local map = require "core.utils".map
+local map = require("core.utils").map
 
 -- general
 map("n", "<C-s>", "<cmd>write!<cr>")
 map("i", "jk", "<esc>")
+map("n", "<leader>h", "<cmd>nohlsearch<cr>")
 
 --- buffers
 map("n", "<S-h>", "<cmd>bp!<cr>")
@@ -32,3 +33,18 @@ map("v", "K", ":move '<-2<CR>gv-gv")
 map("v", "J", ":move '>+1<CR>gv-gv")
 map("n", "<A-j>", ":m .+1<CR>==")
 map("n", "<A-k>", ":m .-2<CR>==")
+
+-- plugins
+map("n", "<leader>e", "<cmd>NvimTreeToggle<cr>")
+
+-- telescope
+map("n", "<leader>f", "<cmd>Telescope find_files<cr>")
+map("n", "<leader>b", "<cmd>Telescope buffers<cr>")
+map("n", "<leader>sr", "<cmd>Telescope oldfiles<cr>")
+map("n", "<leader>st", "<cmd>Telescope live_grep<cr>")
+
+-- git
+map("n", "<leader>gg", "<cmd>Neogit<cr>")
+map("n", "<leader>gs", "<cmd>lua require[[gitsigns]].stage_hunk()<cr>")
+map("n", "<leader>gr", "<cmd>lua require[[gitsigns]].reset_hunk()<cr>")
+map("n", "<leader>gp", "<cmd>lua require[[gitsigns]].preview_hunk()<cr>")

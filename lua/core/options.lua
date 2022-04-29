@@ -1,5 +1,7 @@
 local o, g = vim.opt, vim.g
 
+vim.cmd [[colo onenord]]
+
 -- use filetype.lua instead of filetype.vim
 g.did_load_filetypes = 1
 g.do_filetype_lua = 1

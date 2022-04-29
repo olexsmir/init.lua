@@ -11,4 +11,16 @@ return {
 
     vim.keymap.set(mode, from, to, { noremap = true, silent = true })
   end,
+
+  ---@param path string
+  ---@return string
+  get_config = function(path)
+    return string.format("require[[%s]]", path)
+  end,
+
+  ---@param path string
+  ---@return string
+  get_setup = function(path)
+    return string.format("require[[%s]].setup()", path)
+  end,
 }

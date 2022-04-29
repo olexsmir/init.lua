@@ -1,8 +1,9 @@
-require "impatient"
+local ok, impatient = pcall(require, "impatient")
+if ok then
+  impatient.enable_profile()
+end
 
 require "core.options"
-require "fk.plugin"
+require "plugins"
 require "core.keymaps"
 require "core.autocmd"
-
-require("onenord").setup()

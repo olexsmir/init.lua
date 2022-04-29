@@ -12,7 +12,7 @@ require("nvim-tree").setup {
   },
   filters = {
     dotfiles = true,
-    custom = { ".git", "node_modules", "__pycache__", "vendor", "env", ".bin" },
+    custom = { ".git", "node_modules", "__pycache__", "vendor" },
   },
   git = { enable = true, ignore = false },
   view = {
