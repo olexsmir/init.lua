@@ -1,6 +1,6 @@
 local o, g = vim.opt, vim.g
 
-vim.cmd [[colo onenord]]
+vim.cmd [[colo kanagawa]]
 
 -- use filetype.lua instead of filetype.vim
 g.did_load_filetypes = 1

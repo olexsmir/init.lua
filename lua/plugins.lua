@@ -15,7 +15,7 @@ return packer.startup(function(use)
   use "nvim-lua/plenary.nvim"
   use "lewis6991/impatient.nvim"
   use "nathom/filetype.nvim"
-  use "rmehri01/onenord.nvim" -- theme
+  use "rebelot/kanagawa.nvim" -- theme
 
   use { "tpope/vim-surround", keys = { "c", "d", "y" } }
   use { "kyazdani42/nvim-web-devicons", module = "nvim-web-devicons" }
@@ -61,7 +61,7 @@ return packer.startup(function(use)
 
   use {
     "nvim-lualine/lualine.nvim",
-    after = "onenord.nvim",
+    after = "kanagawa.nvim",
     config = u.get_config "configs.statusline",
   }
 
