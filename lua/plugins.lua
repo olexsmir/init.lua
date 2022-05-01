@@ -95,7 +95,7 @@ return packer.startup(function(use)
     config = u.get_config "configs.lsp",
     requires = {
       { "williamboman/nvim-lsp-installer", wants = "nvim-lspconfig" },
-      { "jose-elias-alvarez/null-ls.nvim", module = "null-ls" },
+      { "jose-elias-alvarez/null-ls.nvim", wants = "nvim-lspconfig" },
       { "folke/lua-dev.nvim", module = "lua-dev" },
     },
   }

@@ -7,5 +7,10 @@ null_ls.setup {
   sources = {
     formatting.stylua,
     diagnostic.selene,
+    formatting.black,
+    diagnostic.flake8,
+    diagnostic.golangci_lint,
+    formatting.gofumpt,
+    formatting.goimports,
   },
 }

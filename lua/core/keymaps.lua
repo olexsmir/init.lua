@@ -52,7 +52,7 @@ map("n", "<leader>gp", "<cmd>lua require[[gitsigns]].preview_hunk()<cr>")
 -- lsp
 map("n", "<leader>la", "<cmd>Telescope lsp_code_actions<cr>")
 map("n", "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<cr>")
-map("n", "<leader>lf", "<cmd>lua vim.lsp.buf.formatting()<cr>")
+map("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format {async = true}<cr>")
 map("n", "<leader>ls", "<cmd>Telescope lsp_document_symbols<cr>")
 map("n", "<leader>lj", "<cmd>lua vim.diagnostic.goto_next()<cr>")
 map("n", "<leader>lk", "<cmd>lua vim.diagnostic.goto_prev()<cr>")
