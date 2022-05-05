@@ -42,6 +42,7 @@ map("n", "<leader>f", "<cmd>Telescope find_files<cr>")
 map("n", "<leader>b", "<cmd>Telescope buffers<cr>")
 map("n", "<leader>sr", "<cmd>Telescope oldfiles<cr>")
 map("n", "<leader>st", "<cmd>Telescope live_grep<cr>")
+map("n", "<leader>sp", "<cmd>Telescope projects<cr>")
 
 -- git
 map("n", "<leader>gg", "<cmd>Neogit<cr>")

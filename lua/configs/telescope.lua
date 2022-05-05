@@ -1,6 +1,7 @@
 local actions = require "telescope.actions"
+local telescope = require "telescope"
 
-require("telescope").setup {
+telescope.setup {
   defaults = {
     prompt_prefix = " ",
     selection_caret = " ",
@@ -45,3 +46,5 @@ require("telescope").setup {
     lsp_document_symbols = { theme = "ivy" },
   },
 }
+
+telescope.load_extension "projects"

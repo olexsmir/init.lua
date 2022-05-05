@@ -21,6 +21,11 @@ return packer.startup(function(use)
   use { "kyazdani42/nvim-web-devicons", module = "nvim-web-devicons" }
 
   use {
+    "ahmedkhalf/project.nvim",
+    config = u.get_config "configs.project",
+  }
+
+  use {
     "numToStr/Comment.nvim",
     keys = "gc",
     event = "BufRead",
