@@ -99,8 +99,8 @@ return packer.startup(function(use)
     event = "BufRead",
     config = u.get_config "configs.lsp",
     requires = {
-      { "williamboman/nvim-lsp-installer", wants = "nvim-lspconfig" },
-      { "jose-elias-alvarez/null-ls.nvim", wants = "nvim-lspconfig" },
+      { "williamboman/nvim-lsp-installer", module = "nvim-lsp-installer" },
+      { "jose-elias-alvarez/null-ls.nvim", module = "null-ls" },
       { "folke/lua-dev.nvim", module = "lua-dev" },
     },
   }
