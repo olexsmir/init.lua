@@ -30,6 +30,11 @@ telescope.setup {
       },
     },
   },
+  extensions = {
+    ["ui-select"] = {
+      require("telescope.themes").get_ivy {},
+    },
+  },
   pickers = {
     find_files = { theme = "ivy" },
     live_grep = { theme = "ivy", only_sort_text = true },
@@ -42,9 +47,9 @@ telescope.setup {
     lsp_definitions = { theme = "ivy" },
     lsp_references = { theme = "ivy" },
     lsp_implementations = { theme = "ivy" },
-    lsp_code_actions = { theme = "cursor" },
     lsp_document_symbols = { theme = "ivy" },
   },
 }
 
+telescope.load_extension "ui-select"
 telescope.load_extension "projects"
