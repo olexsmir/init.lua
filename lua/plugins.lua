@@ -5,7 +5,7 @@ packer.init {
   profile = { enable = true },
   display = {
     open_fn = function()
-      return require("packer.util").float { border = "" }
+      return require("packer.util").float { border = "single" }
     end,
   },
 }
