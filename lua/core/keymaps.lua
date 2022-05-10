@@ -36,6 +36,7 @@ map("n", "<A-k>", ":m .-2<CR>==")
 
 -- plugins
 map("n", "<leader>e", "<cmd>NvimTreeToggle<cr>")
+map("n", "<leader>ps", "<cmd>PackerSync<cr>")
 
 -- telescope
 map("n", "<leader>f", "<cmd>Telescope find_files<cr>")
