@@ -14,5 +14,6 @@ null_ls.setup {
     formatting.goimports,
     formatting.alejandra,
     diagnostic.statix,
+    formatting.deno_fmt,
   },
 }
