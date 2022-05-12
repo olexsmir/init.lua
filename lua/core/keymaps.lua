@@ -9,6 +9,8 @@ map("n", "<leader>h", "<cmd>nohlsearch<cr>")
 map("n", "<S-h>", "<cmd>bp!<cr>")
 map("n", "<S-l>", "<cmd>bn!<cr>")
 map("n", "<leader>c", "<cmd>bdelete!<cr>")
+map("n", "<leader>q", "<cmd>quit!<cr>")
+map("n", "<leader>w", "<cmd>write!<cr>")
 
 -- select in pupup by C-j & C-k
 map("i", "<C-j>", 'pumvisible() ? "\\<down>" : "\\<C-j>"', true)
