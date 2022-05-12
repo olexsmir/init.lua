@@ -69,7 +69,9 @@ return packer.startup(function(use)
     "nvim-treesitter/nvim-treesitter",
     event = { "BufRead", "BufNewFile" },
     config = u.get_config "configs.treesitter",
-    requires = { { "RRethy/nvim-treesitter-endwise", after = "nvim-treesitter" } },
+    requires = {
+      { "RRethy/nvim-treesitter-endwise", after = "nvim-treesitter" },
+    },
   }
 
   use {
