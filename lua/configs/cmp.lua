@@ -101,6 +101,7 @@ cmp.setup {
   },
   sources = {
     { name = "nvim_lua", max_item_count = 6 },
+    { name = "neorg", max_item_count = 6 },
     { name = "nvim_lsp", max_item_count = 6 },
     { name = "buffer", max_item_count = 4 },
     { name = "luasnip", max_item_count = 4 },

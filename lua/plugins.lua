@@ -77,6 +77,14 @@ return packer.startup(function(use)
   }
 
   use {
+    "nvim-neorg/neorg",
+    ft = "norg",
+    after = "nvim-treesitter",
+    cmd = "Neorg",
+    config = u.get_config "configs.neorg",
+  }
+
+  use {
     "kyazdani42/nvim-tree.lua",
     cmd = "NvimTreeToggle",
     config = u.get_config "configs.nvimtree",
