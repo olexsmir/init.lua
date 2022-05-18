@@ -15,5 +15,6 @@ null_ls.setup {
     formatting.alejandra,
     diagnostic.statix,
     formatting.deno_fmt,
+    formatting.rustfmt,
   },
 }
