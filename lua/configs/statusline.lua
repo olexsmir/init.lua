@@ -4,7 +4,12 @@ require("lualine").setup {
     globalstatus = true,
     component_separators = { left = "", right = "" },
     section_separators = { left = "", right = "" },
-    disabled_filetypes = { "NvimTree", "TelescopePrompt", "NeogitStatus", "packer" },
+    disabled_filetypes = {
+      "NvimTree",
+      "TelescopePrompt",
+      "NeogitStatus",
+      "packer",
+    },
   },
   sections = {
     lualine_a = { "filename" },
