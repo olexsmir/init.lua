@@ -9,6 +9,7 @@ null_ls.setup {
     diagnostic.selene,
     formatting.black,
     diagnostic.flake8,
+    formatting.isort,
     diagnostic.golangci_lint,
     formatting.gofumpt,
     formatting.goimports,
