@@ -1,10 +1,13 @@
 require("neorg").setup {
   load = {
     ["core.defaults"] = {},
-    ["core.norg.journal"] = {},
-    ["core.norg.completion"] = {
+    ["core.norg.concealer"] = {},
+    ["core.norg.completion"] = { config = { engine = "nvim-cmp" } },
+    ["core.norg.journal"] = { config = { workspace = "self" } },
+    ["core.keybinds"] = {
       config = {
-        engine = "nvim-cmp",
+        default_keybinds = true,
+        neorg_leader = ",",
       },
     },
     ["core.norg.dirman"] = {

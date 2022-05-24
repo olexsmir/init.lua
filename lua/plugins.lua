@@ -77,8 +77,8 @@ return packer.startup(function(use)
   use {
     "nvim-neorg/neorg",
     ft = "norg",
-    after = "nvim-treesitter",
     cmd = "Neorg",
+    requires = "nvim-treesitter/nvim-treesitter",
     config = u.get_config "configs.neorg",
   }
 
