@@ -38,7 +38,7 @@ cmd("FileType", {
 })
 
 cmd("FileType", {
-  pattern = "javascript,typescript",
+  pattern = "javascript,typescript,json",
   callback = function()
     opt.tabstop = 2
     opt.shiftwidth = 2
