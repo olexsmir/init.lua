@@ -15,5 +15,5 @@ return function(client, bufnr)
   buf_map("gr", "<cmd>Telescope lsp_references<cr>")
   buf_map("gi", "<cmd>Telescope lsp_implementations<cr>")
   buf_map("gs", "<cmd>lua vim.lsp.buf.signature_help()<cr>")
-  buf_map("gl", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<cr>")
+  buf_map("gl", "<cmd>lua vim.diagnostic.open_float()<cr>")
 end
