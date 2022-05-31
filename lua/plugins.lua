@@ -19,25 +19,28 @@ return packer.startup(function(use)
 
   use { "tpope/vim-surround", keys = { "c", "d", "y" } }
   use { "kyazdani42/nvim-web-devicons", module = "nvim-web-devicons" }
+  use { "ahmedkhalf/project.nvim", config = u.get_config "configs.project" }
 
-  use {
-    "ahmedkhalf/project.nvim",
-    config = u.get_config "configs.project",
-  }
-
-  use {
+  use { -- commenting helper
     "numToStr/Comment.nvim",
     keys = "gc",
     event = "BufRead",
     config = u.get_setup "Comment",
   }
 
-  use {
+  use { -- auto pairs closer
     "windwp/nvim-autopairs",
     event = "InsertEnter",
     config = u.get_config "configs.autopairs",
   }
 
+  use { -- status line
+    "nvim-lualine/lualine.nvim",
+    after = "kanagawa.nvim",
+    config = u.get_config "configs.statusline",
+  }
+
+  -- git
   use {
     "lewis6991/gitsigns.nvim",
     event = "BufRead",
@@ -50,6 +53,7 @@ return packer.startup(function(use)
     config = u.get_config "configs.neogit",
   }
 
+  -- picker & file explorer
   use "nvim-telescope/telescope-ui-select.nvim"
   use {
     "nvim-telescope/telescope.nvim",
@@ -60,6 +64,12 @@ return packer.startup(function(use)
   }
 
   use {
+    "kyazdani42/nvim-tree.lua",
+    cmd = "NvimTreeToggle",
+    config = u.get_config "configs.nvimtree",
+  }
+
+  use { -- syntax
     "nvim-treesitter/nvim-treesitter",
     event = { "BufRead", "BufNewFile" },
     config = u.get_config "configs.treesitter",
@@ -68,13 +78,7 @@ return packer.startup(function(use)
     },
   }
 
-  use {
-    "nvim-lualine/lualine.nvim",
-    after = "kanagawa.nvim",
-    config = u.get_config "configs.statusline",
-  }
-
-  use {
+  use { -- notes
     "nvim-neorg/neorg",
     ft = "norg",
     cmd = "Neorg",
@@ -82,10 +86,16 @@ return packer.startup(function(use)
     config = u.get_config "configs.neorg",
   }
 
+  -- lsp & completion
   use {
-    "kyazdani42/nvim-tree.lua",
-    cmd = "NvimTreeToggle",
-    config = u.get_config "configs.nvimtree",
+    "neovim/nvim-lspconfig",
+    event = "BufRead",
+    config = u.get_config "configs.lsp",
+    requires = {
+      { "williamboman/nvim-lsp-installer", module = "nvim-lsp-installer" },
+      { "jose-elias-alvarez/null-ls.nvim", module = "null-ls" },
+      { "folke/lua-dev.nvim", module = "lua-dev" },
+    },
   }
 
   use {
@@ -104,16 +114,5 @@ return packer.startup(function(use)
     "L3MON4D3/LuaSnip",
     module = "luasnip",
     requires = { { "rafamadriz/friendly-snippets", after = "nvim-cmp" } },
-  }
-
-  use {
-    "neovim/nvim-lspconfig",
-    event = "BufRead",
-    config = u.get_config "configs.lsp",
-    requires = {
-      { "williamboman/nvim-lsp-installer", module = "nvim-lsp-installer" },
-      { "jose-elias-alvarez/null-ls.nvim", module = "null-ls" },
-      { "folke/lua-dev.nvim", module = "lua-dev" },
-    },
   }
 end)
