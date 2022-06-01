@@ -20,13 +20,15 @@ telescope.setup {
     },
     mappings = {
       i = {
-        ["<esc>"] = actions.close,
-        ["<C-j>"] = actions.move_selection_next,
-        ["<C-k>"] = actions.move_selection_previous,
+        ["<esc>"] = "close",
+        ["<C-j>"] = "move_selection_next",
+        ["<C-k>"] = "move_selection_previous",
+        ["<C-d>"] = "delete_buffer",
       },
       n = {
-        ["<C-j>"] = actions.move_selection_next,
-        ["<C-k>"] = actions.move_selection_previous,
+        ["<C-j>"] = "move_selection_next",
+        ["<C-k>"] = "move_selection_previous",
+        ["<C-d>"] = "delete_buffer",
       },
     },
   },
