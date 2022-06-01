@@ -55,11 +55,3 @@ map("n", "<leader>gg", "<cmd>Neogit<cr>")
 map("n", "<leader>gs", "<cmd>lua require[[gitsigns]].stage_hunk()<cr>")
 map("n", "<leader>gr", "<cmd>lua require[[gitsigns]].reset_hunk()<cr>")
 map("n", "<leader>gp", "<cmd>lua require[[gitsigns]].preview_hunk()<cr>")
-
--- lsp
-map("n", "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>")
-map("n", "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<cr>")
-map("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format {async = true}<cr>")
-map("n", "<leader>ls", "<cmd>Telescope lsp_document_symbols<cr>")
-map("n", "<leader>lj", "<cmd>lua vim.diagnostic.goto_next()<cr>")
-map("n", "<leader>lk", "<cmd>lua vim.diagnostic.goto_prev()<cr>")
