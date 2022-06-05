@@ -52,6 +52,8 @@ map("n", "<leader>sp", "<cmd>Telescope projects<cr>")
 
 -- git
 map("n", "<leader>gg", "<cmd>Neogit<cr>")
+map("n", "<leader>gj", "<cmd>lua require[[gitsigns]].next_hunk()<cr>")
+map("n", "<leader>gk", "<cmd>lua require[[gitsigns]].prev_hunk()<cr>")
 map("n", "<leader>gs", "<cmd>lua require[[gitsigns]].stage_hunk()<cr>")
 map("n", "<leader>gr", "<cmd>lua require[[gitsigns]].reset_hunk()<cr>")
 map("n", "<leader>gp", "<cmd>lua require[[gitsigns]].preview_hunk()<cr>")
