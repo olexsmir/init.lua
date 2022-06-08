@@ -16,6 +16,7 @@ return packer.startup(function(use)
   use "lewis6991/impatient.nvim"
   use "nathom/filetype.nvim"
   use "rebelot/kanagawa.nvim" -- theme
+  use "~/code/gopher.nvim"
 
   use { "tpope/vim-surround", keys = { "c", "d", "y" } }
   use { "kyazdani42/nvim-web-devicons", module = "nvim-web-devicons" }
