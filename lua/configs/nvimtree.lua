@@ -1,20 +1,13 @@
 require("nvim-tree").setup {
-  disable_netrw = true,
   update_cwd = true,
-  diagnostics = {
-    enable = true,
-    icons = {
-      hint = "",
-      info = "",
-      warning = "",
-      error = "",
-    },
-  },
+  diagnostics = { enable = true },
   filters = {
     dotfiles = true,
-    custom = { ".git", "node_modules", "__pycache__", "vendor" },
+    custom = { ".git", "node_modules", "__pycache__", "vendor", "target" },
   },
+  renderer = { group_empty = true },
   git = { enable = true, ignore = false },
+  log = { enable = false },
   view = {
     mappings = {
       list = {
