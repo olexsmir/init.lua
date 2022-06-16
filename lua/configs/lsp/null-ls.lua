@@ -13,9 +13,6 @@ null_ls.setup {
     diagnostic.golangci_lint,
     formatting.gofumpt,
     formatting.goimports,
-    formatting.alejandra,
-    diagnostic.statix,
-    formatting.deno_fmt,
-    formatting.rustfmt,
+    formatting.golines,
   },
 }
