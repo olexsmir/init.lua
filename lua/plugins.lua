@@ -21,6 +21,7 @@ return packer.startup(function(use)
   use { "tpope/vim-surround", keys = { "c", "d", "y" } }
   use { "kyazdani42/nvim-web-devicons", module = "nvim-web-devicons" }
   use { "ahmedkhalf/project.nvim", config = u.get_config "configs.project" }
+  use { "gpanders/editorconfig.nvim", event = "BufRead" }
 
   use { -- commenting helper
     "numToStr/Comment.nvim",
