@@ -1,44 +1,36 @@
 local telescope = require "telescope"
+local actions = require "telescope.actions"
 
 telescope.setup {
   defaults = {
     prompt_prefix = " ",
     selection_caret = " ",
-    layout_config = {
-      prompt_position = "top",
-      horizontal = { mirror = false },
-      vertical = { mirror = false },
-    },
     file_ignore_patterns = {
+      ".git",
       "node_modules",
       "__pycache__",
       "target",
       "vendor",
-      ".git",
       ".bin",
     },
+
     mappings = {
       i = {
-        ["<esc>"] = "close",
-        ["<C-j>"] = "move_selection_next",
-        ["<C-k>"] = "move_selection_previous",
-        ["<C-d>"] = "delete_buffer",
+        ["<esc>"] = actions.close,
+        ["<C-j>"] = actions.move_selection_next,
+        ["<C-k>"] = actions.move_selection_previous,
+        ["<C-d>"] = actions.delete_buffer,
       },
       n = {
-        ["<C-j>"] = "move_selection_next",
-        ["<C-k>"] = "move_selection_previous",
-        ["<C-d>"] = "delete_buffer",
+        ["<C-j>"] = actions.move_selection_next,
+        ["<C-k>"] = actions.move_selection_previous,
+        ["<C-d>"] = actions.delete_buffer,
       },
-    },
-  },
-  extensions = {
-    ["ui-select"] = {
-      require("telescope.themes").get_ivy {},
     },
   },
   pickers = {
     find_files = { theme = "ivy" },
-    live_grep = { theme = "ivy", only_sort_text = true },
+    live_grep = { theme = "ivy" },
     buffers = { theme = "ivy" },
     oldfiles = { theme = "ivy" },
     keymaps = { theme = "ivy" },
@@ -50,6 +42,10 @@ telescope.setup {
     lsp_implementations = { theme = "ivy" },
     lsp_document_symbols = { theme = "ivy" },
   },
+  extensions = {
+    ["ui-select"] = { require("telescope.themes").get_ivy {} },
+  },
 }
 
 telescope.load_extension "projects"
+telescope.load_extension "ui-select"

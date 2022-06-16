@@ -59,15 +59,8 @@ return packer.startup(function(use)
   use {
     "nvim-telescope/telescope.nvim",
     cmd = "Telescope",
-    module = "telescope",
     config = u.get_config "configs.telescope",
-    requires = {
-      {
-        "nvim-telescope/telescope-ui-select.nvim",
-        event = "BufRead",
-        config = u.get_config "configs.telescope.ui-select",
-      },
-    },
+    requires = { "nvim-telescope/telescope-ui-select.nvim" },
   }
 
   use {
