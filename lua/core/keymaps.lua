@@ -36,6 +36,8 @@ map("v", "K", ":move '<-2<CR>gv-gv")
 map("v", "J", ":move '>+1<CR>gv-gv")
 map("n", "<A-j>", ":m .+1<CR>==")
 map("n", "<A-k>", ":m .-2<CR>==")
+map("v", "<", "<gv")
+map("v", ">", ">gv")
 
 -- plugins
 map("n", "<leader>e", "<cmd>NvimTreeToggle<cr>")
