@@ -37,6 +37,14 @@ o.hidden = true
 o.title = true
 o.wrap = false
 
+-- listchars
+o.list = true
+o.listchars = {
+  space = "·",
+  trail = "~",
+  tab = "|·",
+}
+
 -- swap files
 o.undofile = true
 o.swapfile = false
