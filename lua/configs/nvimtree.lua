@@ -9,6 +9,7 @@ require("nvim-tree").setup {
   git = { enable = true, ignore = false },
   log = { enable = false },
   view = {
+    side = "right",
     mappings = {
       list = {
         { key = { "l", "<CR>", "o" }, action = "edit" },
