@@ -1,4 +1,5 @@
-local map = require("core.utils").map
+local u = require "core.utils"
+local map, expr = u.map, u.expr
 
 -- general
 map("n", "<C-s>", "<cmd>write!<cr>")
@@ -14,10 +15,10 @@ map("n", "<leader>q", "<cmd>quit!<cr>")
 map("n", "<leader>w", "<cmd>write!<cr>")
 
 -- select in pupup by C-j & C-k
-map("i", "<C-j>", 'pumvisible() ? "\\<down>" : "\\<C-j>"', true)
-map("i", "<C-k>", 'pumvisible() ? "\\<up>" : "\\<C-k>"', true)
-map("c", "<C-j>", 'pumvisible() ? "\\<C-n>" : "\\<C-j>"', true)
-map("c", "<C-k>", 'pumvisible() ? "\\<C-p>" : "\\<C-k>"', true)
+expr("i", "<C-j>", 'pumvisible() ? "\\<down>" : "\\<C-j>"')
+expr("i", "<C-k>", 'pumvisible() ? "\\<up>" : "\\<C-k>"')
+expr("c", "<C-j>", 'pumvisible() ? "\\<C-n>" : "\\<C-j>"')
+expr("c", "<C-k>", 'pumvisible() ? "\\<C-p>" : "\\<C-k>"')
 
 -- window navigation and resize
 map("n", "<C-h>", "<cmd>wincmd h<cr>")
