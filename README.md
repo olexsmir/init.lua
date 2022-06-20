@@ -1,23 +1,17 @@
-# nvim config
+# nvim
 
-## Install 
-- Install a nvim(arch linux)
-```bash
-paru -S neovim-nightly-bin
-```
+![Showcase](https://i.imgur.com/u5W0bdz.png)
+--------------------------------------------
 
-- Install [packer.nvim](https://github.com/wbthomason/packer.nvim)
-```bash
-git clone --depth 1 https://github.com/wbthomason/packer.nvim \
-    ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-```
+## Install
 
-- Backup your config
 ```bash
+# Install nvim
+paru -S neovim-git
+# Install packer.nvim
+git clone https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+# (optiolan) backup your old config
 mv ~/.config/nvim ~/.config/nvim.old
-```
-
-- Install nvim setup 
-```bash
+# clone my setup
 git clone https://github.com/olexsmir/nvim ~/.config/nvim
 ```
