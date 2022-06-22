@@ -71,7 +71,7 @@ return packer.startup(function(use)
 
   use { -- syntax
     "nvim-treesitter/nvim-treesitter",
-    event = { "BufRead", "BufNewFile" },
+    event = "BufRead",
     config = u.get.config "configs.treesitter",
     requires = {
       { "RRethy/nvim-treesitter-endwise", after = "nvim-treesitter" },
@@ -87,7 +87,7 @@ return packer.startup(function(use)
   -- lsp & completion
   use {
     "neovim/nvim-lspconfig",
-    event = { "BufRead", "BufNewFile" },
+    event = "BufRead",
     config = u.get.config "configs.lsp",
     requires = {
       { "williamboman/nvim-lsp-installer", module = "nvim-lsp-installer" },
