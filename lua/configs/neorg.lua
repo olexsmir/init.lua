@@ -13,8 +13,9 @@ require("neorg").setup {
     ["core.norg.dirman"] = {
       config = {
         workspaces = {
-          prog = "~/notes/programing",
-          self = "~/notes/self",
+          prog = "~/Notes/Programing",
+          study = "~/Notes/Study",
+          my = "~/Notes/My",
         },
       },
     },
