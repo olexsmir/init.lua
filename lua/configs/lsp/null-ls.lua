@@ -4,6 +4,7 @@ local formatting = null_ls.builtins.formatting
 local diagnostic = null_ls.builtins.diagnostics
 
 null_ls.setup {
+  on_attach = require("configs.lsp.attach").null_ls,
   sources = {
     formatting.stylua,
     diagnostic.selene,
