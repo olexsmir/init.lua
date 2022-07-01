@@ -17,7 +17,7 @@ return {
     ---@param path string
     ---@return string
     config = function(path)
-      return string.format("require[[%s]]", path)
+      return string.format("require[[configs.%s]]", path)
     end,
 
     ---@param path string

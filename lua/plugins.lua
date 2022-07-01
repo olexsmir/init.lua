@@ -20,7 +20,7 @@ return packer.startup(function(use)
   use { "~/code/gopher.nvim", ft = "go" }
   use { "tpope/vim-surround", keys = { "c", "d", "y" } }
   use { "kyazdani42/nvim-web-devicons", module = "nvim-web-devicons" }
-  use { "ahmedkhalf/project.nvim", config = u.get.config "configs.project" }
+  use { "ahmedkhalf/project.nvim", config = u.get.config "project" }
   use { "gpanders/editorconfig.nvim", event = "BufRead" }
   use { "ggandor/lightspeed.nvim", keys = { "s", "S", "f", "F" } }
 
@@ -34,46 +34,46 @@ return packer.startup(function(use)
   use { -- auto pairs closer
     "windwp/nvim-autopairs",
     event = "InsertEnter",
-    config = u.get.config "configs.autopairs",
+    config = u.get.config "autopairs",
   }
 
   use { -- status line
     "nvim-lualine/lualine.nvim",
     after = "kanagawa.nvim",
-    config = u.get.config "configs.statusline",
+    config = u.get.config "statusline",
   }
 
   -- git
   use {
     "lewis6991/gitsigns.nvim",
     event = "BufRead",
-    config = u.get.config "configs.gitsigns",
+    config = u.get.config "gitsigns",
   }
 
   use {
     "TimUntersberger/neogit",
     cmd = "Neogit",
-    config = u.get.config "configs.neogit",
+    config = u.get.config "neogit",
   }
 
   -- picker & file explorer
   use {
     "nvim-telescope/telescope.nvim",
     cmd = "Telescope",
-    config = u.get.config "configs.telescope",
+    config = u.get.config "telescope",
     requires = { "nvim-telescope/telescope-ui-select.nvim" },
   }
 
   use {
     "kyazdani42/nvim-tree.lua",
     cmd = "NvimTreeToggle",
-    config = u.get.config "configs.nvimtree",
+    config = u.get.config "nvimtree",
   }
 
   use { -- syntax
     "nvim-treesitter/nvim-treesitter",
     event = "BufRead",
-    config = u.get.config "configs.treesitter",
+    config = u.get.config "treesitter",
     requires = {
       { "RRethy/nvim-treesitter-endwise", after = "nvim-treesitter" },
     },
@@ -82,14 +82,14 @@ return packer.startup(function(use)
   use { -- notes
     "nvim-neorg/neorg",
     requires = "nvim-treesitter/nvim-treesitter",
-    config = u.get.config "configs.neorg",
+    config = u.get.config "neorg",
   }
 
   -- lsp & completion
   use {
     "neovim/nvim-lspconfig",
     event = "BufRead",
-    config = u.get.config "configs.lsp",
+    config = u.get.config "lsp",
     requires = {
       { "williamboman/nvim-lsp-installer", module = "nvim-lsp-installer" },
       { "jose-elias-alvarez/null-ls.nvim", module = "null-ls" },
@@ -100,7 +100,7 @@ return packer.startup(function(use)
   use {
     "hrsh7th/nvim-cmp",
     event = "BufRead",
-    config = u.get.config "configs.cmp",
+    config = u.get.config "cmp",
     requires = {
       { "hrsh7th/cmp-buffer", after = "nvim-cmp" },
       { "saadparwaiz1/cmp_luasnip", after = "nvim-cmp" },
