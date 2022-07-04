@@ -43,6 +43,12 @@ return packer.startup(function(use)
     config = u.get.config "statusline",
   }
 
+  use { -- higlight todo, note, fix comments
+    "folke/todo-comments.nvim",
+    event = "BufRead",
+    config = u.get.setup "todo-comments",
+  }
+
   -- git
   use {
     "lewis6991/gitsigns.nvim",
