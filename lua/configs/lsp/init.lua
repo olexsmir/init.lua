@@ -6,7 +6,7 @@ require("nvim-lsp-installer").setup {
 
 local lspconfig = require "lspconfig"
 local options = {
-  on_attach = require "configs.lsp.attach".common,
+  on_attach = require("configs.lsp.attach").common,
   flags = { debounce_text_changes = 150 },
   capabilities = require("cmp_nvim_lsp").update_capabilities(
     vim.lsp.protocol.make_client_capabilities()
