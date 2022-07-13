@@ -99,6 +99,7 @@ return packer.startup(function(use)
     requires = {
       { "williamboman/nvim-lsp-installer", module = "nvim-lsp-installer" },
       { "jose-elias-alvarez/null-ls.nvim", module = "null-ls" },
+      { "b0o/schemastore.nvim", modules = "schemastore" },
       { "folke/lua-dev.nvim", module = "lua-dev" },
     },
   }

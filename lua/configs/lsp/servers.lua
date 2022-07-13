@@ -1,6 +1,22 @@
 return {
-  denols = {},
+  tsserver = {},
   vimls = {},
+  gopls = {
+    settings = {
+      gopls = {
+        linksInHover = false,
+        staticcheck = true,
+        analyses = { unusedparams = true, unreachable = true },
+      },
+    },
+  },
+  pyright = {
+    python = {
+      disableOrganizeImports = true,
+      autoSearchPaths = true,
+      analysis = { useLibraryCodeForTypes = false },
+    },
+  },
   yamlls = {
     settings = {
       yaml = {
@@ -11,35 +27,11 @@ return {
       },
     },
   },
-  rust_analyzer = {
+  jsonls = {
     settings = {
-      ["rust-analyzer"] = {
-        cargo = { allFeatures = true },
-        checkOnSave = {
-          command = "clippy",
-          extraArgs = { "--no-deps" },
-        },
+      json = {
+        schemas = require("schemastore").json.schemas(),
       },
-    },
-  },
-  gopls = {
-    settings = {
-      gopls = {
-        linksInHover = false,
-        staticcheck = true,
-        memoryMode = "Normal",
-        analyses = {
-          unusedparams = true,
-          unreachable = true,
-        },
-      },
-    },
-  },
-  pyright = {
-    python = {
-      disableOrganizeImports = true,
-      autoSearchPaths = true,
-      analysis = { useLibraryCodeForTypes = false },
     },
   },
 }
