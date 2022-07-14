@@ -5,7 +5,6 @@ local map, expr = u.map, u.expr
 map("n", "<C-s>", "<cmd>write!<cr>")
 map("i", "jk", "<esc>")
 map("n", "<leader>h", "<cmd>nohlsearch<cr>")
-map("n", "<leader>/", "<Plug>(comment_toggle_current_linewise)")
 
 --- buffers
 map("n", "<S-h>", "<cmd>bp!<cr>")
