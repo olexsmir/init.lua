@@ -2,9 +2,8 @@ local neotest = require "neotest"
 local map = require("core.utils").map
 
 neotest.setup {
-
   adapters = {
-    require "neotest-go",
+    require "neotest-go" { experimental = { test_table = true } },
   },
   icons = {
     expanded = "",
@@ -17,6 +16,12 @@ neotest.setup {
     running = "",
     failed = "",
     unknown = "",
+  },
+  summary = {
+    mappings = {
+      expand = { "l", "h", "<CR>" },
+      stop = "s",
+    },
   },
 }
 
