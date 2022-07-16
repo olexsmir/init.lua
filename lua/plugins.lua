@@ -85,6 +85,15 @@ return packer.startup(function(use)
     },
   }
 
+  use { -- test runner
+    "nvim-neotest/neotest",
+    config = u.get.config "neotest",
+    keys = { "<leader>t", "[t", "]t" },
+    requires = {
+      { "nvim-neotest/neotest-go", module = "neotest-go" },
+    },
+  }
+
   use { -- notes
     "nvim-neorg/neorg",
     requires = "nvim-treesitter/nvim-treesitter",
