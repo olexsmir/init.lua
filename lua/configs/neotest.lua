@@ -4,6 +4,8 @@ local map = require("core.utils").map
 neotest.setup {
   adapters = {
     require "neotest-go" { experimental = { test_table = true } },
+    require "neotest-plenary",
+    require "neotest-python",
   },
   icons = {
     expanded = "",

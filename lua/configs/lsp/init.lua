@@ -19,6 +19,5 @@ end
 lspconfig.sumneko_lua.setup(
   require("lua-dev").setup {
     lspconfig = options,
-    library = { plugins = { "neotest" }, types = true },
   }
 )
