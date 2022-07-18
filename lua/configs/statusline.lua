@@ -45,7 +45,7 @@ require("lualine").setup {
     lualine_b = { "filename" },
     lualine_c = { "branch", c.diagnostic },
     lualine_x = { c.lsp, "diff" },
-    lualine_y = {},
-    lualine_z = { c.location },
+    lualine_y = { c.location },
+    lualine_z = {},
   },
 }
