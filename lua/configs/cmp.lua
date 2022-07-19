@@ -108,15 +108,11 @@ cmp.setup {
     end,
   },
   sources = {
-    { name = "conjure", max_item_count = 6 },
-    { name = "neorg", max_item_count = 6 },
-    { name = "nvim_lsp", max_item_count = 6 },
-    { name = "buffer", max_item_count = 4 },
-    { name = "luasnip", max_item_count = 4 },
-    { name = "path", max_item_count = 2 },
+    { name = "neorg", group_index = 1 },
+    { name = "nvim_lsp", group_index = 2, max_item_count = 8 },
+    { name = "buffer", group_index = 2, max_item_count = 4 },
+    { name = "luasnip", group_index = 2, max_item_count = 3 },
+    { name = "path", group_index = 2, max_item_count = 2 },
   },
-  experimental = {
-    native_menu = false,
-    ghost_text = true,
-  },
+  experimental = { ghost_text = true },
 }
