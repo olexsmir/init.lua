@@ -8,12 +8,15 @@ null_ls.setup {
   sources = {
     formatting.stylua,
     diagnostic.selene,
-    formatting.black,
+    formatting.black.with { extra_args = { "--fast" } },
+    formatting.djhtml.with { extra_filetypes = { "html" } },
     diagnostic.flake8,
     formatting.isort,
     diagnostic.golangci_lint,
     formatting.gofumpt,
     formatting.goimports,
     formatting.golines,
+    diagnostic.eslint_d,
+    formatting.prettierd,
   },
 }
