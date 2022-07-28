@@ -6,7 +6,7 @@ telescope.setup {
     prompt_prefix = " ",
     selection_caret = " ",
     file_ignore_patterns = {
-      ".git",
+      "^\\.git$",
       "node_modules",
       "__pycache__",
       "target",

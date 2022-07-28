@@ -3,7 +3,7 @@ require("nvim-tree").setup {
   diagnostics = { enable = true },
   filters = {
     dotfiles = true,
-    custom = { ".git", "node_modules", "__pycache__", "vendor", "target" },
+    custom = { "^\\.git$", "node_modules", "__pycache__", "vendor", "target" },
   },
   renderer = { group_empty = true },
   git = { enable = true, ignore = false },
