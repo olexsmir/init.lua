@@ -13,7 +13,6 @@ telescope.setup {
       "vendor",
       ".bin",
     },
-
     mappings = {
       i = {
         ["<esc>"] = actions.close,

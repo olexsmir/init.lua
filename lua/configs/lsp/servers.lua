@@ -29,9 +29,7 @@ return {
   },
   jsonls = {
     settings = {
-      json = {
-        schemas = require("schemastore").json.schemas(),
-      },
+      json = { schemas = require("schemastore").json.schemas() },
     },
   },
 }

@@ -16,8 +16,4 @@ for name, conf in pairs(require "configs.lsp.servers") do
   lspconfig[name].setup(vim.tbl_extend("force", options, conf))
 end
 
-lspconfig.sumneko_lua.setup(
-  require("lua-dev").setup {
-    lspconfig = options,
-  }
-)
+lspconfig.sumneko_lua.setup(require("lua-dev").setup { lspconfig = options })
