@@ -25,5 +25,11 @@ return {
     setup = function(path)
       return string.format("require[[%s]].setup()", path)
     end,
+
+    ---@param plug string
+    ---@return string
+    other = function(plug)
+      return string.format("require[[configs.other]].%s()", plug)
+    end,
   },
 }
