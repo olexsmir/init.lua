@@ -1,6 +1,8 @@
 return {
   tsserver = {},
   vimls = {},
+  -- stylua: ignore
+  emmet_ls = { filetypes = { "html", "htmldjango", "typescriptreact", "javascriptreact", "css", "scss", "less", }, },
   gopls = {
     settings = {
       gopls = {
