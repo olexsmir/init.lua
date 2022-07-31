@@ -15,5 +15,6 @@ vim.filetype.add {
   pattern = {
     [".env.*"] = "sh",
     ["*.Dockerfile.*"] = "dockerfile",
+    ["*/templates/**/*.html"] = "htmldjango",
   },
 }
