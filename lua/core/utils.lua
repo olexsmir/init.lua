@@ -1,14 +1,14 @@
 return {
   ---@param mode string
   ---@param from string
-  ---@param to string
+  ---@param to string|function
   map = function(mode, from, to)
     vim.keymap.set(mode, from, to, { noremap = true, silent = true })
   end,
 
   ---@param mode string
   ---@param from string
-  ---@param to string
+  ---@param to string|function
   expr = function(mode, from, to)
     vim.keymap.set(mode, from, to, { noremap = true, expr = true })
   end,
