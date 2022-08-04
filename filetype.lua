@@ -11,6 +11,7 @@ vim.filetype.add {
     [".eslintrc"] = "jsonc",
     [".prettierrc"] = "jsonc",
     [".babelrc"] = "jsonc",
+    [".flake8"] = "dosini",
   },
   pattern = {
     [".env.*"] = "sh",
