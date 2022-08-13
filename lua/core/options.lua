@@ -1,6 +1,6 @@
 local o, g = vim.opt, vim.g
 
-vim.cmd [[colo kanagawa]]
+pcall(vim.cmd, [[colo kanagawa]])
 
 -- leader
 g.mapleader = " "
