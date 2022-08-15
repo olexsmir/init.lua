@@ -95,12 +95,6 @@ return packer.startup(function(use)
     },
   }
 
-  use { -- notes
-    "nvim-neorg/neorg",
-    requires = "nvim-treesitter/nvim-treesitter",
-    config = u.get.config "neorg",
-  }
-
   -- lsp & completion
   use {
     "neovim/nvim-lspconfig",

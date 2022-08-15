@@ -108,11 +108,10 @@ cmp.setup {
     end,
   },
   sources = {
-    { name = "neorg", group_index = 1 },
-    { name = "nvim_lsp", group_index = 2, max_item_count = 8 },
-    { name = "buffer", group_index = 2, max_item_count = 4 },
-    { name = "luasnip", group_index = 2, max_item_count = 3 },
-    { name = "path", group_index = 2, max_item_count = 2 },
+    { name = "nvim_lsp", max_item_count = 8 },
+    { name = "buffer", max_item_count = 4 },
+    { name = "luasnip", max_item_count = 3 },
+    { name = "path", max_item_count = 2 },
   },
   experimental = { ghost_text = true },
 }

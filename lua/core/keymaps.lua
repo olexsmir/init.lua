@@ -42,7 +42,6 @@ map("v", ">", ">gv")
 -- plugins
 map("n", "<leader>e", "<cmd>NvimTreeToggle<cr>")
 map("n", "<leader>ps", "<cmd>PackerSync<cr>")
-map("n", "<leader>n", "<cmd>Neorg<cr>")
 map("n", "<leader>gg", "<cmd>Neogit<cr>")
 
 -- telescope
