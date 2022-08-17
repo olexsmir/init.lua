@@ -81,6 +81,7 @@ return packer.startup(function(use)
     config = u.get.other "treesitter",
     requires = {
       { "RRethy/nvim-treesitter-endwise", after = "nvim-treesitter" },
+      { "p00f/nvim-ts-rainbow", after = "nvim-treesitter" },
     },
   }
 

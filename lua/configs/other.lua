@@ -14,6 +14,7 @@ function M.treesitter()
     context_commentstring = { enable = true, enable_autocmd = false },
     autopairs = { enable = true },
     endwise = { enable = true },
+    rainbow = { enable = true },
   }
 end
 
