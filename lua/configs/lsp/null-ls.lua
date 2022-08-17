@@ -9,7 +9,7 @@ null_ls.setup {
     formatting.stylua,
     diagnostic.selene,
     formatting.black.with { extra_args = { "--fast" } },
-    formatting.djhtml.with { extra_filetypes = { "html" } },
+    formatting.djhtml,
     diagnostic.flake8,
     formatting.isort,
     diagnostic.golangci_lint,
