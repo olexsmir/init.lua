@@ -3,6 +3,7 @@ return {
   vimls = {},
   -- stylua: ignore
   emmet_ls = { filetypes = { "html", "htmldjango", "typescriptreact", "javascriptreact", "css", "scss", "less", }, },
+  clojure_lsp = {},
   gopls = {
     settings = {
       gopls = {

@@ -108,6 +108,7 @@ cmp.setup {
     end,
   },
   sources = {
+    { name = "conjure", max_item_count = 4 },
     { name = "nvim_lsp", max_item_count = 8 },
     { name = "buffer", max_item_count = 4 },
     { name = "luasnip", max_item_count = 3 },
