@@ -19,7 +19,7 @@ return packer.startup(function(use)
   use { "~/code/gopher.nvim", ft = "go" }
   use { "tpope/vim-surround", keys = { "c", "d", "y" } }
   use { "kyazdani42/nvim-web-devicons", module = "nvim-web-devicons" }
-  use { "ahmedkhalf/project.nvim", config = u.get.other "project" }
+  use { "ahmedkhalf/project.nvim", config = u.get.config "project" }
   use { "gpanders/editorconfig.nvim", event = "BufRead" }
   use { "ggandor/lightspeed.nvim", keys = { "s", "S", "f", "F" } }
 
@@ -33,7 +33,7 @@ return packer.startup(function(use)
   use { -- auto pairs closer
     "windwp/nvim-autopairs",
     event = "InsertEnter",
-    config = u.get.other "autopairs",
+    config = u.get.config "autopairs",
   }
 
   use { -- status line
@@ -78,7 +78,7 @@ return packer.startup(function(use)
   use { -- syntax
     "nvim-treesitter/nvim-treesitter",
     event = "BufRead",
-    config = u.get.other "treesitter",
+    config = u.get.config "treesitter",
     requires = {
       { "RRethy/nvim-treesitter-endwise", after = "nvim-treesitter" },
       { "p00f/nvim-ts-rainbow", after = "nvim-treesitter" },
