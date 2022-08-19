@@ -9,7 +9,9 @@ end
 return {
   common = function(client, bufnr)
     vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
-    client.server_capabilities.documentFormattingProvider = false
+    if client.name ~= "clojure_lsp" then
+      client.server_capabilities.documentFormattingProvider = false
+    end
 
     map("K", vim.lsp.buf.hover)
     map("gd", "<cmd>Telescope lsp_definitions<cr>")

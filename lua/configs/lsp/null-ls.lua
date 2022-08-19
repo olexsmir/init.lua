@@ -18,6 +18,5 @@ null_ls.setup {
     formatting.golines,
     diagnostic.eslint_d,
     formatting.prettierd,
-    formatting.cljstyle,
   },
 }

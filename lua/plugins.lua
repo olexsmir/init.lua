@@ -89,6 +89,7 @@ return packer.startup(function(use)
   use {
     "Olical/conjure",
     ft = { "clojure", "fennel" },
+    config = u.get.config "conjure",
     branch = "develop",
   }
 
