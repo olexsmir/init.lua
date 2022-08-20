@@ -49,6 +49,7 @@ o.writebackup = false
 -- disable build-in modules
 g.loaded_perl_provider = 0
 g.loaded_ruby_provider = 0
+g.loaded_node_provider = 0
 for _, i in pairs {
   "netrw",
   "netrwPlugin",
