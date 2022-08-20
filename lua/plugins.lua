@@ -85,7 +85,7 @@ return packer.startup(function(use)
     },
   }
 
-  -- lisp'
+  -- '(lisp)
   use {
     "Olical/conjure",
     ft = { "clojure", "fennel" },
