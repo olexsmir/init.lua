@@ -8,6 +8,7 @@ require("project_nvim").setup {
     "go.mod",
     "pyproject.toml",
     "Cargo.toml",
+    "deps.edn",
   },
   exclude_dirs = {
     "~/.cargo",
