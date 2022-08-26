@@ -64,7 +64,6 @@ return packer.startup(function(use)
   -- picker & file explorer
   use {
     "nvim-telescope/telescope.nvim",
-    cmd = "Telescope",
     config = u.get.config "telescope",
     requires = { "nvim-telescope/telescope-ui-select.nvim" },
   }
