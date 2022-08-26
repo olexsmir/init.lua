@@ -113,13 +113,20 @@ return packer.startup(function(use)
     },
   }
 
+  -- meason
+  use {
+    "williamboman/mason.nvim",
+    event = "VimEnter",
+    config = u.get.setup "mason",
+  }
+
   -- lsp & completion
   use {
     "neovim/nvim-lspconfig",
     event = "BufRead",
     config = u.get.config "lsp",
     requires = {
-      { "williamboman/nvim-lsp-installer", module = "nvim-lsp-installer" },
+      { "williamboman/mason-lspconfig.nvim", module = "mason-lspconfig" },
       { "jose-elias-alvarez/null-ls.nvim", module = "null-ls" },
       { "b0o/schemastore.nvim", modules = "schemastore" },
       { "folke/lua-dev.nvim", module = "lua-dev" },

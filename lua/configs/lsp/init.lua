@@ -1,6 +1,6 @@
 require "configs.lsp.diagnostic"()
 require "configs.lsp.null-ls"
-require("nvim-lsp-installer").setup {
+require("mason-lspconfig").setup {
   ensure_installed = { "sumneko_lua" },
 }
 
