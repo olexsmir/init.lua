@@ -93,14 +93,8 @@ return packer.startup(function(use)
     branch = "develop",
   }
 
-  use {
-    "guns/vim-sexp",
-    after = "conjure",
-    requires = {
-      "tpope/vim-sexp-mappings-for-regular-people",
-      after = "vim-sexp",
-    },
-  }
+  use { "guns/vim-sexp", after = "conjure" }
+  use { "tpope/vim-sexp-mappings-for-regular-people", after = "conjure" }
 
   use { -- test runner
     "nvim-neotest/neotest",
