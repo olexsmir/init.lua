@@ -34,5 +34,5 @@ map("n", "<leader>to", neotest.output.open)
 map("n", "]t", neotest.jump.next)
 map("n", "[t", neotest.jump.prev)
 map("n", "<leader>tt", function()
-  neotest.run.run(vim.fn.expand "%")
+  neotest.run.run(vim.fn.expand "%") ---@diagnostic disable-line: missing-parameter
 end)
