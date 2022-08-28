@@ -113,6 +113,18 @@ return packer.startup(function(use)
     config = u.get.setup "mason",
   }
 
+  -- deubugger
+  use {
+    "mfussenegger/nvim-dap",
+    module = "dap",
+    config = u.get.config "dap",
+    requires = {
+      { "rcarriga/nvim-dap-ui", module = "dapui" },
+      { "leoluz/nvim-dap-go", module = "dap-go" },
+      { "theHamsta/nvim-dap-virtual-text", module = "nvim-dap-virtual-text" },
+    },
+  }
+
   -- lsp & completion
   use {
     "neovim/nvim-lspconfig",

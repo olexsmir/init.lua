@@ -27,6 +27,7 @@ cmd("FileType", {
     opt.shiftwidth = 4
     opt.softtabstop = 4
 
+    map("n", "<leader>;dt", "<cmd>lua require('dap-go').debug_test()<cr>")
     map("n", "<leader>;to", "<cmd>GoTestAdd<cr>")
     map("n", "<leader>;ta", "<cmd>GoTestsAll<cr>")
     map("n", "<leader>;te", "<cmd>GoTestsExpr<cr>")
