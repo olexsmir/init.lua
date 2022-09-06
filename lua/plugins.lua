@@ -155,6 +155,6 @@ return packer.startup(function(use)
   use {
     "L3MON4D3/LuaSnip",
     module = "luasnip",
-    requires = { { "rafamadriz/friendly-snippets", after = "nvim-cmp" } },
+    config = u.get.config "luasnip",
   }
 end)

@@ -1,12 +1,6 @@
 local cmp = require "cmp"
 local luasnip = require "luasnip"
 
-require("luasnip.loaders.from_vscode").load {
-  paths = {
-    "~/.local/share/nvim/site/pack/packer/opt/friendly-snippets",
-  },
-}
-
 cmp.event:on(
   "confirm_done",
   require("nvim-autopairs.completion.cmp").on_confirm_done {
@@ -66,7 +60,7 @@ cmp.setup {
     ["<C-k>"] = cmp.mapping.select_prev_item(),
     ["<C-d>"] = cmp.mapping.scroll_docs(-4),
     ["<C-f>"] = cmp.mapping.scroll_docs(4),
-    ["<C-Space>"] = cmp.mapping.complete(),
+    ["<C-Space>"] = cmp.mapping.complete {},
     ["<C-e>"] = cmp.mapping.close(),
     ["<CR>"] = cmp.mapping.confirm {
       behavior = cmp.ConfirmBehavior.Replace,
