@@ -84,6 +84,15 @@ return packer.startup(function(use)
     },
   }
 
+  -- fast movment
+  use {
+    "phaazon/hop.nvim",
+    branch = "v2",
+    module = "hop",
+    keys = { "f", "F", ",f" },
+    config = u.get.config "hop",
+  }
+
   -- '(lisp)
   use {
     "Olical/conjure",
