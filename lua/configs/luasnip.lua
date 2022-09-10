@@ -37,6 +37,7 @@ ls.config.set_config {
 }
 
 require("luasnip.loaders.from_lua").lazy_load()
+require("luasnip.loaders.from_vscode").lazy_load()
 
 map({ "s", "i" }, "<c-l>", function()
   if ls.choice_active() then

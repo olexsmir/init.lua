@@ -165,5 +165,6 @@ return packer.startup(function(use)
     "L3MON4D3/LuaSnip",
     module = "luasnip",
     config = u.get.config "luasnip",
+    requires = "rafamadriz/friendly-snippets",
   }
 end)
