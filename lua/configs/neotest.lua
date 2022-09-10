@@ -6,6 +6,7 @@ neotest.setup {
     require "neotest-go" { experimental = { test_table = true } },
     require "neotest-plenary",
     require "neotest-python",
+    require "neotest-jest",
   },
   icons = {
     expanded = "",
