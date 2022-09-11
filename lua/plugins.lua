@@ -89,7 +89,7 @@ return packer.startup(function(use)
     "phaazon/hop.nvim",
     branch = "v2",
     module = "hop",
-    keys = { "f", "F", ",f" },
+    keys = { "f", "F", ",f", ",F" },
     config = u.get.config "hop",
   }
 
