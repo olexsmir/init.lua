@@ -37,3 +37,6 @@ map("n", "[t", neotest.jump.prev)
 map("n", "<leader>tt", function()
   neotest.run.run(vim.fn.expand "%") ---@diagnostic disable-line: missing-parameter
 end)
+map("n", "<leader>td", function()
+  neotest.run.run { strategy = "dap" }
+end)
