@@ -136,7 +136,6 @@ return packer.startup(function(use)
     config = u.get.config "dap",
     requires = {
       { "rcarriga/nvim-dap-ui", module = "dapui" },
-      { "leoluz/nvim-dap-go", module = "dap-go" },
       { "theHamsta/nvim-dap-virtual-text", module = "nvim-dap-virtual-text" },
     },
   }
