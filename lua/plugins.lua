@@ -47,6 +47,11 @@ return packer.startup(function(use)
     config = u.get.setup "todo-comments",
   }
 
+  use { -- smooth scroll
+    "karb94/neoscroll.nvim",
+    config = u.get.setup "neoscroll",
+    keys = { "<C-u>", "<C-d>", "<C-b>", "<C-f>", "<C-y>", "<C-e>" },
+  }
   -- git
   use {
     "lewis6991/gitsigns.nvim",
