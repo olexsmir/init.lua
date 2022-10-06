@@ -121,6 +121,7 @@ return packer.startup(function(use)
     keys = { "<leader>t", "[t", "]t" },
     requires = {
       { "nvim-neotest/neotest-go", module = "neotest-go" },
+      { "haydenmeade/neotest-jest", module = "neotest-jest" },
     },
   }
 
