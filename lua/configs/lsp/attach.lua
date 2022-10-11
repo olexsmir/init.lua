@@ -25,16 +25,12 @@ return {
     map("<leader>lr", vim.lsp.buf.rename)
     map("<leader>lf", "<cmd>lua vim.lsp.buf.format {async = true}<cr>")
     map("<leader>ls", "<cmd>Telescope lsp_document_symbols<cr>")
-    map("<leader>lj", vim.diagnostic.goto_next)
-    map("<leader>lk", vim.diagnostic.goto_prev)
     map("]d", vim.diagnostic.goto_next)
     map("[d", vim.diagnostic.goto_prev)
   end,
   null_ls = function(_, _)
     map("<leader>li", "<cmd>LspInfo<cr>")
     map("<leader>lf", "<cmd>lua vim.lsp.buf.format {async = true}<cr>")
-    map("<leader>lj", vim.diagnostic.goto_next)
-    map("<leader>lk", vim.diagnostic.goto_prev)
     map("]d", vim.diagnostic.goto_next)
     map("[d", vim.diagnostic.goto_prev)
   end,

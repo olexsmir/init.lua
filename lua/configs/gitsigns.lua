@@ -15,8 +15,6 @@ require("gitsigns").setup {
       })
     end
 
-    map("<leader>gj", g.next_hunk)
-    map("<leader>gk", g.prev_hunk)
     map("]g", g.next_hunk)
     map("[g", g.prev_hunk)
     map("<leader>gs", g.stage_hunk)
