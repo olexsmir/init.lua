@@ -41,6 +41,12 @@ return packer.startup(function(use)
     config = u.get.config "statusline",
   }
 
+  use { -- higlight same words under cursor
+    "RRethy/vim-illuminate",
+    event = "BufRead",
+    config = u.get.config "illuminate",
+  }
+
   use { -- higlight todo, note, fix comments
     "folke/todo-comments.nvim",
     event = "BufRead",

@@ -1,6 +1,12 @@
 local o, g = vim.opt, vim.g
+local hl = vim.api.nvim_set_hl
 
 pcall(vim.cmd.colorscheme, "kanagawa")
+
+-- higlight
+hl(0, "IlluminatedWordRead", { link = "LspReferenceRead" })
+hl(0, "IlluminatedWordText", { link = "LspReferenceText" })
+hl(0, "IlluminatedWordWrite", { link = "LspReferenceWrite" })
 
 -- leader
 g.mapleader = " "
