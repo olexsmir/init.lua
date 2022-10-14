@@ -14,7 +14,7 @@ local options = {
   ),
 }
 
-require("lua-dev").setup {}
+require("neodev").setup {}
 for name, conf in pairs(require "configs.lsp.servers") do
   lspconfig[name].setup(vim.tbl_extend("force", options, conf))
 end

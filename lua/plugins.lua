@@ -158,7 +158,7 @@ return packer.startup(function(use)
       { "williamboman/mason-lspconfig.nvim", module = "mason-lspconfig" },
       { "jose-elias-alvarez/null-ls.nvim", module = "null-ls" },
       { "b0o/schemastore.nvim", modules = "schemastore" },
-      { "folke/lua-dev.nvim", module = "lua-dev" },
+      { "folke/neodev.nvim", module = "neodev" },
       { "lvimuser/lsp-inlayhints.nvim", module = "lsp-inlayhints" },
     },
   }
