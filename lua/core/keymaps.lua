@@ -51,6 +51,8 @@ map("n", "<leader>sr", "<cmd>Telescope oldfiles<cr>")
 map("n", "<leader>sb", "<cmd>Telescope git_branches<cr>")
 map("n", "<leader>st", "<cmd>Telescope live_grep<cr>")
 map("n", "<leader>sp", "<cmd>Telescope projects<cr>")
+map("n", "<leader>sf", "<cmd>Telescope git_bcommits<cr>")
+map("n", "<leader>sc", "<cmd>Telescope git_commits<cr>")
 
 -- dap
 map("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<cr>")
