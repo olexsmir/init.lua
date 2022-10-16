@@ -6,7 +6,7 @@ local c = {
     padding = 0,
   },
   diagnostic = { "diagnostics", sources = { "nvim_diagnostic" } },
-  location = { "location", padding = 0, colored = false },
+  location = { "location", padding = 1, colored = false },
   lsp = {
     function()
       local clients = vim.lsp.get_active_clients { bufnr = 0 }
@@ -29,7 +29,7 @@ local c = {
 
 require("lualine").setup {
   options = {
-    theme = "kanagawa",
+    theme = "tokyonight",
     globalstatus = true,
     component_separators = { left = "", right = "" },
     section_separators = { left = "", right = "" },

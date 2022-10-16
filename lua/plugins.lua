@@ -14,7 +14,7 @@ return packer.startup(function(use)
   use "wbthomason/packer.nvim"
   use "nvim-lua/plenary.nvim"
   use "lewis6991/impatient.nvim"
-  use "rebelot/kanagawa.nvim" -- theme
+  use "folke/tokyonight.nvim" -- theme
 
   use { "~/code/gopher.nvim", ft = "go", module = "gopher" }
   use { "tpope/vim-surround", keys = { "c", "d", "y" } }
@@ -37,7 +37,7 @@ return packer.startup(function(use)
 
   use { -- status line
     "nvim-lualine/lualine.nvim",
-    after = "kanagawa.nvim",
+    after = "tokyonight.nvim",
     config = u.get.config "statusline",
   }
 
