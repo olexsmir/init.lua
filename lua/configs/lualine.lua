@@ -42,10 +42,10 @@ require("lualine").setup {
   },
   sections = {
     lualine_a = { c.mode },
-    lualine_b = { "filename" },
+    lualine_b = {},
     lualine_c = { "branch", c.diagnostic },
     lualine_x = { c.lsp, "diff" },
-    lualine_y = { c.location },
-    lualine_z = {},
+    lualine_y = {},
+    lualine_z = { c.location },
   },
 }

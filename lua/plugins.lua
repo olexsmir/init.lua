@@ -38,7 +38,7 @@ return packer.startup(function(use)
   use { -- status line
     "nvim-lualine/lualine.nvim",
     after = "tokyonight.nvim",
-    config = u.get.config "statusline",
+    config = u.get.config "lualine",
   }
 
   use { -- higlight same words under cursor
