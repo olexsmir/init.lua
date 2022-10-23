@@ -12,7 +12,10 @@ local options = {
   capabilities = require("cmp_nvim_lsp").default_capabilities(),
 }
 
-require("neodev").setup {}
+require("neodev").setup {
+  library = { plugins = { "neotest" }, types = true },
+}
+
 for name, conf in pairs(require "configs.lsp.servers") do
   lspconfig[name].setup(vim.tbl_extend("force", options, conf))
 end

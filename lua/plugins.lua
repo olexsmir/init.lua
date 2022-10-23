@@ -41,12 +41,6 @@ return packer.startup(function(use)
     config = u.get.config "lualine",
   }
 
-  use { -- higlight same words under cursor
-    "RRethy/vim-illuminate",
-    event = "BufRead",
-    config = u.get.config "illuminate",
-  }
-
   use { -- higlight todo, note, fix comments
     "folke/todo-comments.nvim",
     event = "BufRead",
@@ -160,6 +154,11 @@ return packer.startup(function(use)
       { "b0o/schemastore.nvim", modules = "schemastore" },
       { "folke/neodev.nvim", module = "neodev" },
       { "lvimuser/lsp-inlayhints.nvim", module = "lsp-inlayhints" },
+      {
+        "RRethy/vim-illuminate",
+        after = "nvim-lspconfig",
+        config = u.get.config "illuminate",
+      },
     },
   }
 
