@@ -118,7 +118,8 @@ return packer.startup(function(use)
   use { -- test runner
     "nvim-neotest/neotest",
     config = u.get.config "neotest",
-    keys = { "<leader>t", "[t", "]t" },
+    keys = { "<leader>t", "[t", "]t", "]T", "[T" },
+    module = "neotest",
     requires = {
       { "nvim-neotest/neotest-go", module = "neotest-go" },
       { "haydenmeade/neotest-jest", module = "neotest-jest" },
