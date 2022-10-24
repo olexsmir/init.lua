@@ -1,55 +1,53 @@
-local o, g = vim.opt, vim.g
-
 pcall(vim.cmd.colorscheme, "tokyonight-night")
 
 -- leader
-g.mapleader = " "
-g.maplocalleader = ","
+vim.g.mapleader = " "
+vim.g.maplocalleader = ","
 
 -- indent
-o.smartindent = true
-o.expandtab = true
-o.cursorline = true
-o.shiftwidth = 4
-o.tabstop = 4
+vim.o.smartindent = true
+vim.o.expandtab = true
+vim.o.cursorline = true
+vim.o.shiftwidth = 4
+vim.o.tabstop = 4
 
-o.ignorecase = true
-o.smartcase = true
-o.number = true
-o.termguicolors = true
-o.completeopt = { "menuone", "noselect" }
-o.clipboard = "unnamedplus"
-o.fileencoding = "utf-8"
-o.mouse = "a"
-o.showmode = false
-o.splitbelow = true
-o.splitright = true
-o.pumheight = 8
-o.numberwidth = 4
-o.scrolloff = 8
-o.sidescrolloff = 8
-o.signcolumn = "yes"
-o.hidden = true
-o.title = true
-o.wrap = false
+vim.o.ignorecase = true
+vim.o.smartcase = true
+vim.o.number = true
+vim.o.termguicolors = true
+vim.o.completeopt = "menuone,noselect"
+vim.o.clipboard = "unnamedplus"
+vim.o.fileencoding = "utf-8"
+vim.o.mouse = "a"
+vim.o.showmode = false
+vim.o.splitbelow = true
+vim.o.splitright = true
+vim.o.pumheight = 8
+vim.o.numberwidth = 4
+vim.o.scrolloff = 8
+vim.o.sidescrolloff = 8
+vim.o.signcolumn = "yes"
+vim.o.hidden = true
+vim.o.title = true
+vim.o.wrap = false
 
 -- listchars
-o.list = true
-o.listchars = {
+vim.o.list = true
+vim.opt.listchars:append {
   space = "·",
   trail = "~",
   tab = "|·",
 }
 
 -- swap files
-o.undofile = true
-o.swapfile = false
-o.writebackup = false
+vim.o.undofile = true
+vim.o.swapfile = false
+vim.o.writebackup = false
 
 -- disable build-in modules
-g.loaded_perl_provider = 0
-g.loaded_ruby_provider = 0
-g.loaded_node_provider = 0
+vim.g.loaded_perl_provider = 0
+vim.g.loaded_ruby_provider = 0
+vim.g.loaded_node_provider = 0
 for _, i in pairs {
   "netrw",
   "netrwPlugin",

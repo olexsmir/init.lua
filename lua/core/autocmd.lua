@@ -1,4 +1,4 @@
-local cmd, opt = vim.api.nvim_create_autocmd, vim.opt_local
+local cmd = vim.api.nvim_create_autocmd
 
 cmd("TextYankPost", {
   pattern = "*",
@@ -10,8 +10,8 @@ cmd("TextYankPost", {
 cmd("FileType", {
   pattern = "javascript,typescript,json",
   callback = function()
-    opt.tabstop = 2
-    opt.shiftwidth = 2
-    opt.softtabstop = 2
+    vim.bo.tabstop = 2
+    vim.bo.shiftwidth = 2
+    vim.bo.softtabstop = 2
   end,
 })
