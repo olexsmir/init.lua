@@ -5,11 +5,13 @@ return function(dap)
     args = { "-m", "debugpy.adapter" },
   }
 
-  dap.configurations.python = { {
-    type = "python",
-    request = "launch",
-    name = "Launch file",
-    program = "${file}",
-    pythonPath = "python",
-  } }
+  dap.configurations.python = {
+    {
+      type = "python",
+      request = "launch",
+      name = "Launch file",
+      program = "${file}",
+      pythonPath = "python",
+    },
+  }
 end
