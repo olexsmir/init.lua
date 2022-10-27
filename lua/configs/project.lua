@@ -8,6 +8,5 @@ require("project_nvim").setup {
     "pyproject.toml",
     "Cargo.toml",
     "deps.edn",
-    "bb.edn",
   },
 }

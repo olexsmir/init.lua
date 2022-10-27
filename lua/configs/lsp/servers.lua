@@ -1,6 +1,5 @@
 return {
   tsserver = {},
-  clojure_lsp = {},
   gopls = {
     settings = {
       gopls = {

@@ -98,23 +98,6 @@ return packer.startup(function(use)
     config = u.get.config "hop",
   }
 
-  -- '(lisp)
-  use {
-    "Olical/conjure",
-    ft = { "clojure", "fennel" },
-    config = u.get.config "conjure",
-    branch = "develop",
-  }
-
-  use {
-    "guns/vim-sexp",
-    after = "conjure",
-    requires = {
-      "tpope/vim-sexp-mappings-for-regular-people",
-      after = "vim-sexp",
-    },
-  }
-
   use { -- test runner
     "nvim-neotest/neotest",
     config = u.get.config "neotest",
@@ -172,7 +155,6 @@ return packer.startup(function(use)
       { "saadparwaiz1/cmp_luasnip", after = "nvim-cmp" },
       { "hrsh7th/cmp-emoji", after = "nvim-cmp" },
       { "hrsh7th/cmp-path", after = "nvim-cmp" },
-      { "PaterJason/cmp-conjure", after = "conjure" },
       { "hrsh7th/cmp-nvim-lsp", module = "cmp_nvim_lsp" },
     },
   }
