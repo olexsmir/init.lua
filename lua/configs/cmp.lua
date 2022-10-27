@@ -11,7 +11,6 @@ cmp.event:on(
 cmp.setup.filetype({ "gitcommit", "NeogitCommitMessage" }, {
   sources = {
     { name = "buffer" },
-    { name = "emoji" },
     { name = "luasnip" },
   },
 })
