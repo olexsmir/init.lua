@@ -11,6 +11,10 @@ return {
     vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
     client.server_capabilities.documentFormattingProvider = false
 
+    if client.name == "gopls" then
+      vim.lsp.codelens.refresh()
+    end
+
     map("K", vim.lsp.buf.hover)
     map("gd", "<cmd>Telescope lsp_definitions<cr>")
     map("gD", vim.lsp.buf.declaration)
@@ -23,6 +27,7 @@ return {
     map("<leader>lr", vim.lsp.buf.rename)
     map("<leader>lf", "<cmd>lua vim.lsp.buf.format {async = true}<cr>")
     map("<leader>ls", "<cmd>Telescope lsp_document_symbols<cr>")
+    map("<leader>ll", vim.lsp.codelens.run)
     map("]d", vim.diagnostic.goto_next)
     map("[d", vim.diagnostic.goto_prev)
   end,

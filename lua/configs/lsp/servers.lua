@@ -5,6 +5,8 @@ return {
       gopls = {
         linksInHover = false,
         staticcheck = true,
+        gofumpt = true,
+        usePlaceholders = true,
         analyses = { unusedparams = true, unreachable = true },
         hints = {
           assignVariableTypes = true,
@@ -13,6 +15,12 @@ return {
           functionTypeParameters = true,
           parameterNames = true,
           rangeVariableTypes = true,
+        },
+        codelenses = {
+          generate = false,
+          gc_details = true,
+          test = true,
+          tidy = true,
         },
       },
     },
