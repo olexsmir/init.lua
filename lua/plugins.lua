@@ -84,15 +84,6 @@ return packer.startup(function(use)
     },
   }
 
-  -- fast movment
-  use {
-    "phaazon/hop.nvim",
-    branch = "v2",
-    module = "hop",
-    keys = { "f", "F", ",f", ",F" },
-    config = u.get.config "hop",
-  }
-
   use { -- test runner
     "nvim-neotest/neotest",
     config = u.get.config "neotest",
