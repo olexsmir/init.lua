@@ -6,7 +6,6 @@ return {
         linksInHover = false,
         staticcheck = true,
         gofumpt = true,
-        usePlaceholders = true,
         analyses = { unusedparams = true, unreachable = true },
         hints = {
           assignVariableTypes = true,
