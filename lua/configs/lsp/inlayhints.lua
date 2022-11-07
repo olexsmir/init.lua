@@ -14,8 +14,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
 })
 
 hints.setup {
-  debug_mode = false,
   inlay_hints = {
+    highlight = "Comment",
     parameter_hints = {
       show = false,
       prefix = "<- ",
@@ -28,11 +28,5 @@ hints.setup {
       remove_colon_end = false,
       remove_colon_start = false,
     },
-    labels_separator = "  ",
-    max_len_align = false,
-    max_len_align_padding = 1,
-    right_align = false,
-    right_align_padding = 7,
-    highlight = "Comment",
   },
 }
