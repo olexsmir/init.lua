@@ -1,5 +1,6 @@
 return {
   tsserver = {},
+  dockerls = {},
   gopls = {
     settings = {
       gopls = {
