@@ -21,7 +21,9 @@ require("gitsigns").setup {
     map("<leader>gu", g.undo_stage_hunk)
     map("<leader>gr", g.reset_hunk)
     map("<leader>gp", g.preview_hunk)
-    map("<leader>gb", g.blame_line)
+    map("<leader>gb", function()
+      g.blame_line { full = true }
+    end)
     map("<leader>gd", g.diffthis)
   end,
 }
