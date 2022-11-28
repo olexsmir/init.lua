@@ -7,6 +7,12 @@ local c = {
   },
   diagnostic = { "diagnostics", sources = { "nvim_diagnostic" } },
   location = { "location", padding = 1, colored = false },
+  sep = {
+    function()
+      return "|"
+    end,
+    padding = 0,
+  },
   lsp = {
     function()
       local clients = vim.lsp.get_active_clients { bufnr = 0 }
@@ -43,7 +49,7 @@ require("lualine").setup {
   sections = {
     lualine_a = { c.mode },
     lualine_b = {},
-    lualine_c = { "branch", c.diagnostic },
+    lualine_c = { "filename", c.sep, "branch", c.diagnostic },
     lualine_x = { c.lsp, "diff" },
     lualine_y = {},
     lualine_z = { c.location },
