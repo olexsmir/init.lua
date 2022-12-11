@@ -41,9 +41,10 @@ map("v", "<", "<gv")
 map("v", ">", ">gv")
 
 -- plugins
-map("n", "<leader>e", "<cmd>NvimTreeToggle<cr>")
-map("n", "<leader>ps", "<cmd>PackerSync<cr>")
-map("n", "<leader>gg", "<cmd>Neogit<cr>")
+map("n", "<leader>e", vim.cmd.NvimTreeToggle)
+map("n", "<leader>ps", vim.cmd.PackerSync)
+map("n", "<leader>pc", vim.cmd.PackerCompile)
+map("n", "<leader>gg", vim.cmd.Neogit)
 
 -- telescope
 map("n", "<leader>f", "<cmd>Telescope find_files<cr>")
