@@ -89,6 +89,7 @@ return packer.startup(function(use)
     module = "neotest",
     requires = {
       { "nvim-neotest/neotest-go", module = "neotest-go" },
+      { "nvim-neotest/neotest-plenary", module = "neotest-plenary" },
       { "haydenmeade/neotest-jest", module = "neotest-jest" },
     },
   }
