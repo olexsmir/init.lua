@@ -1,4 +1,4 @@
-require "configs.lsp.diagnostic"()
+require("configs.lsp.diagnostic").setup()
 require "configs.lsp.inlayhints"
 require "configs.lsp.null-ls"
 require("mason-lspconfig").setup {

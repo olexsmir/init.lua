@@ -3,8 +3,7 @@ require("illuminate").configure {
   filetypes_denylist = {
     "NvimTree",
     "packer",
-    "neogitstatus",
-    "Trouble",
+    "NeogitStatus",
     "TelescopePrompt",
   },
 }

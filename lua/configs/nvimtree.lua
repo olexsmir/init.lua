@@ -4,7 +4,14 @@ require("nvim-tree").setup {
   git = { enable = true },
   filters = {
     dotfiles = true,
-    custom = { "^\\.git$", "node_modules", "__pycache__", "vendor", "target" },
+    custom = {
+      "^\\.git$",
+      "^\\.bin$",
+      "node_modules",
+      "__pycache__",
+      "vendor",
+      "target",
+    },
   },
   view = {
     side = "right",
@@ -13,6 +20,7 @@ require("nvim-tree").setup {
         { key = { "l", "<CR>", "o" }, action = "edit" },
         { key = "h", action = "close_node" },
         { key = "v", action = "vsplit" },
+        { key = "s", action = "split" },
       },
     },
   },

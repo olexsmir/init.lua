@@ -10,7 +10,6 @@ return {
         c(1, {
           t(with_cmt "TODO: "),
           t(with_cmt "FIXME: "),
-          t(with_cmt "HACK: "),
           t(with_cmt "BUG: "),
         }),
       })

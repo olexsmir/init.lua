@@ -3,8 +3,7 @@ local lspconfig = require "lspconfig"
 return {
   denols = { root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc") },
   tsserver = { root_dir = lspconfig.util.root_pattern "package.json" },
-  -- stylua: ignore
-  emmet_ls = { filetypes = { "css", "html", "htmldjango", "less", "scss", "javascriptreact", "typescriptreact" } },
+  emmet_ls = {},
   dockerls = {},
   gopls = {
     settings = {
@@ -23,8 +22,8 @@ return {
         },
         codelenses = {
           generate = false,
-          gc_details = true,
-          test = true,
+          gc_details = false,
+          test = false,
           tidy = true,
         },
       },

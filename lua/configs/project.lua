@@ -3,8 +3,10 @@ require("project_nvim").setup {
   patterns = {
     "^\\.git$",
     "Makefile",
+    "Justfile",
     "package.json",
     "go.mod",
+    "go.work",
     "pyproject.toml",
     "Cargo.toml",
     "deps.edn",

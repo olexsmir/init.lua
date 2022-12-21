@@ -7,11 +7,11 @@ telescope.setup {
     selection_caret = " ",
     file_ignore_patterns = {
       "^\\.git$",
+      "^\\.bin$",
       "node_modules",
       "__pycache__",
       "target",
       "vendor",
-      ".bin",
     },
     mappings = {
       i = {
