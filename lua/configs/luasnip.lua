@@ -11,6 +11,7 @@ ls.config.set_config {
   delete_check_events = "InsertLeave",
   snip_env = {
     fmt = fmt,
+    rep = extras.rep,
     m = extras.match,
     l = extras.lamda,
     s = ls.snippet,
