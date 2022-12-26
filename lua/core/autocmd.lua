@@ -3,7 +3,7 @@ local cmd = vim.api.nvim_create_autocmd
 cmd("TextYankPost", {
   pattern = "*",
   callback = function()
-    vim.highlight.on_yank()
+    vim.highlight.on_yank { timeout = 60 }
   end,
 })
 
