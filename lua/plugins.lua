@@ -32,6 +32,7 @@ return packer.startup(function(use)
   use { -- auto pairs closer
     "windwp/nvim-autopairs",
     event = "InsertEnter",
+    module = "nvim-autopairs",
     config = u.get.config "autopairs",
   }
 
