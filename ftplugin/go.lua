@@ -10,9 +10,9 @@ vim.opt_local.shiftwidth = 4
 vim.opt_local.softtabstop = 4
 
 -- mapping
-map("n", "<leader>;f", vim.cmd.GoIfErr)
-map("n", "<leader>;c", vim.cmd.GoCmt)
-map("n", "<leader>;g", vim.cmd.GoGenerate)
-map("n", "<leader>;o", vim.cmd.GoTestAdd)
-map("n", "<leader>;a", vim.cmd.GoTestsAll)
-map("n", "<leader>;e", vim.cmd.GoTestsExpr)
+map("n", "<leader>;f", "<cmd>GoIfErr<cr>")
+map("n", "<leader>;c", "<cmd>GoCmt<cr>")
+map("n", "<leader>;g", "<cmd>GoGenerate<cr>")
+map("n", "<leader>;o", "<cmd>GoTestAdd<cr>")
+map("n", "<leader>;a", "<cmd>GoTestsAll<cr>")
+map("n", "<leader>;e", "<cmd>GoTestsExpr<cr>")
