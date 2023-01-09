@@ -42,8 +42,8 @@ map("v", ">", ">gv")
 
 -- plugins
 map("n", "<leader>e", vim.cmd.NvimTreeToggle)
-map("n", "<leader>ps", vim.cmd.PackerSync)
-map("n", "<leader>pc", vim.cmd.PackerCompile)
+map("n", "<leader>Ps", vim.cmd.PackerSync)
+map("n", "<leader>Pc", vim.cmd.PackerCompile)
 map("n", "<leader>gg", vim.cmd.Neogit)
 
 -- telescope

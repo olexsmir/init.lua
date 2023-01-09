@@ -112,6 +112,12 @@ return packer.startup(function(use)
     },
   }
 
+  use {
+    "rareitems/printer.nvim",
+    config = u.get.config "printer",
+    keys = { "<leader>p", "gp" },
+  }
+
   -- lsp & completion
   use {
     "neovim/nvim-lspconfig",
