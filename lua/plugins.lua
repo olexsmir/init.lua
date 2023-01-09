@@ -20,6 +20,7 @@ return packer.startup(function(use)
   use { "tpope/vim-surround", keys = { "c", "d", "y" } }
   use { "kyazdani42/nvim-web-devicons", module = "nvim-web-devicons" }
   use { "ahmedkhalf/project.nvim", config = u.get.config "project" }
+  use { "mbbill/undotree", cmd = "UndotreeToggle" }
   -- use { "gpanders/editorconfig.nvim", event = "BufRead" }
 
   use { -- commenting helper

@@ -42,6 +42,7 @@ map("v", ">", ">gv")
 
 -- plugins
 map("n", "<leader>e", vim.cmd.NvimTreeToggle)
+map("n", "<leader>u", vim.cmd.UndotreeToggle)
 map("n", "<leader>Ps", vim.cmd.PackerSync)
 map("n", "<leader>Pc", vim.cmd.PackerCompile)
 map("n", "<leader>gg", vim.cmd.Neogit)
