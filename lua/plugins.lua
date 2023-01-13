@@ -114,9 +114,9 @@ return packer.startup(function(use)
   }
 
   use {
-    "rareitems/printer.nvim",
-    config = u.get.config "printer",
-    keys = { "<leader>p", "gp" },
+    "andrewferrier/debugprint.nvim",
+    config = u.get.config "debugprint",
+    keys = { "<leader>P", "g?" },
   }
 
   -- lsp & completion
