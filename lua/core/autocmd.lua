@@ -15,3 +15,9 @@ cmd("FileType", {
     vim.bo.softtabstop = 2
   end,
 })
+
+cmd("FileType", {
+  callback = function()
+    vim.cmd "set formatoptions-=cro"
+  end,
+})
