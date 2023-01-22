@@ -84,6 +84,13 @@ return packer.startup(function(use)
     },
   }
 
+  use { -- AI completion
+    "Exafunction/codeium.vim",
+    config = u.get.config "codeium",
+    cmd = "Codeium",
+    event = "InsertEnter",
+  }
+
   use { -- test runner
     "nvim-neotest/neotest",
     config = u.get.config "neotest",
