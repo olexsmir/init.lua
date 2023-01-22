@@ -15,6 +15,6 @@ null_ls.setup {
     formatting.goimports,
     formatting.golines,
     diagnostic.eslint_d,
-    formatting.prettierd,
+    formatting.prettierd.with { extra_filetypes = { "astro" } },
   },
 }
