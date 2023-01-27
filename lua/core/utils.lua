@@ -19,6 +19,11 @@ return {
   ---@return string
   smap = function(module, method, args)
     args = args or ""
-    return string.format("<cmd>lua require'%s'.%s(%s)<cr>", module, method, args)
+    return string.format(
+      "<cmd>lua require'%s'.%s(%s)<cr>",
+      module,
+      method,
+      args
+    )
   end,
 }

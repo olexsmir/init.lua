@@ -1,5 +1,5 @@
 return {
-  "nvim-lua/plenary.nvim", 
+  "nvim-lua/plenary.nvim",
   "kyazdani42/nvim-web-devicons",
   { "olexsmir/gopher.nvim", ft = "go", dev = true },
   { "mbbill/undotree", cmd = "UndotreeToggle" },
