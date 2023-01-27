@@ -1,6 +1,9 @@
 return {
   "kyazdani42/nvim-tree.lua",
   cmd = "NvimTreeToggle",
+  keys = {
+    { "<leader>e", vim.cmd.NvimTreeToggle },
+  },
   opts = {
     diagnostics = { enable = true },
     renderer = { group_empty = true },

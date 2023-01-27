@@ -15,7 +15,7 @@ return {
 
   ---@param module string
   ---@param method string
-  ---@param args string
+  ---@param args string|nil
   ---@return string
   smap = function(module, method, args)
     args = args or ""
