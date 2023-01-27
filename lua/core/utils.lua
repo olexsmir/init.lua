@@ -13,17 +13,7 @@ return {
     vim.keymap.set(mode, from, to, { noremap = true, expr = true })
   end,
 
-  get = {
-    ---@param path string
-    ---@return string
-    config = function(path)
-      return string.format("require[[configs.%s]]", path)
-    end,
-
-    ---@param path string
-    ---@return string
-    setup = function(path)
-      return string.format("require[[%s]].setup()", path)
-    end,
-  },
+  smap = function(module, method)
+    return string.format("<cmd>lua require'%s'.%s()<cr>", module, method)
+  end
 }

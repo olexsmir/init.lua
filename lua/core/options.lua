@@ -1,5 +1,3 @@
-pcall(vim.cmd.colorscheme, "tokyonight-night")
-
 vim.g.undotree_DiffAutoOpen = 0
 
 -- leader
