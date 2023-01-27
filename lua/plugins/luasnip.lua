@@ -1,6 +1,5 @@
 return {
   "L3MON4D3/LuaSnip",
-  module = true,
   dependencies = { "rafamadriz/friendly-snippets" },
   config = function()
     local map = require("core.utils").map

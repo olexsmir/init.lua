@@ -1,35 +1,17 @@
-local function map(method)
-  return string.format("<cmd>lua require[[neotest]].%s()<cr>", method)
-end
-
+local map = require("core.utils").smap
 return {
   "nvim-neotest/neotest",
   keys = {
-    { "<leader>tn", map "run.run" },
-    { "<leader>ta", map "run.attach" },
-    { "<leader>ts", map "summary.toggle" },
-    { "<leader>tS", map "run.stop" },
-    { "<leader>to", map "output.open" },
-    { "]t", map "jump.next" },
-    { "[t", map "jump.prev" },
-    {
-      "]T",
-      function()
-        require("neotest").jump.next { status = "failed" }
-      end,
-    },
-    {
-      "[T",
-      function()
-        require("neotest").jump.prev { status = "failed" }
-      end,
-    },
-    {
-      "<leader>td",
-      function()
-        require("neotest").run.run { strategy = "dap" }
-      end,
-    },
+    { "<leader>tn", map("neotest", "run.run") },
+    { "<leader>ta", map("neotest", "run.attach") },
+    { "<leader>ts", map("neotest", "summary.toggle") },
+    { "<leader>tS", map("neotest", "run.stop") },
+    { "<leader>to", map("neotest", "output.open") },
+    { "]t", map("neotest", "jump.next") },
+    { "[t", map("neotest", "jump.prev") },
+    { "]T", map("neotest", "jump.next", " { status = 'failed' }") },
+    { "]T", map("neotest", "jump.next", " { status = 'failed' }") },
+    { "<leader>td", map("neotest", "run.run", " { strategy = 'dap' }") },
     {
       "<leader>tt",
       function()

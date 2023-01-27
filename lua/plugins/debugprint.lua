@@ -9,5 +9,6 @@ return {
       end,
       expr = true,
     },
+    "g?",
   },
 }
