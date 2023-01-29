@@ -1,15 +1,14 @@
-local map = require("core.utils").smap
 return {
   "lewis6991/gitsigns.nvim",
   event = "BufRead",
   keys = {
-    { "]g", map("gitsigns", "next_hunk"), buffer = 0 },
-    { "[g", map("gitsigns", "prev_hunk"), buffer = 0 },
-    { "<leader>gs", map("gitsigns", "stage_hunk"), buffer = 0 },
-    { "<leader>gu", map("gitsigns", "undo_stage_hunk"), buffer = 0 },
-    { "<leader>gr", map("gitsigns", "reset_hunk"), buffer = 0 },
-    { "<leader>gp", map("gitsigns", "preview_hunk"), buffer = 0 },
-    { "<leader>gd", map("gitsigns", "diffthis"), buffer = 0 },
+    "]g",
+    "[g",
+    "<leader>gs",
+    "<leader>gu",
+    "<leader>gr",
+    "<leader>gp",
+    "<leader>gd",
   },
   opts = {
     max_file_length = 1000,
@@ -18,5 +17,23 @@ return {
       virt_text_pos = "eol",
       delay = 300,
     },
+    on_attach = function(bufnr)
+      local g = package.loaded.gitsigns
+      local map = function(from, to)
+        vim.keymap.set("n", from, to, {
+          buffer = bufnr,
+          noremap = true,
+          silent = true,
+        })
+      end
+
+      map("]g", g.next_hunk)
+      map("[g", g.prev_hunk)
+      map("<leader>gs", g.stage_hunk)
+      map("<leader>gu", g.undo_stage_hunk)
+      map("<leader>gr", g.reset_hunk)
+      map("<leader>gp", g.preview_hunk)
+      map("<leader>gd", g.diffthis)
+    end,
   },
 }
