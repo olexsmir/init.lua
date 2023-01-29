@@ -9,9 +9,9 @@ return {
     { "<leader>to", map("neotest", "output.open") },
     { "]t", map("neotest", "jump.next") },
     { "[t", map("neotest", "jump.prev") },
-    { "]T", map("neotest", "jump.next", " { status = 'failed' }") },
-    { "]T", map("neotest", "jump.next", " { status = 'failed' }") },
-    { "<leader>td", map("neotest", "run.run", " { strategy = 'dap' }") },
+    { "]T", map("neotest", "jump.next", "{status = 'failed'}") },
+    { "]T", map("neotest", "jump.next", "{status = 'failed'}") },
+    { "<leader>td", map("neotest", "run.run", "{strategy = 'dap'}") },
     {
       "<leader>tt",
       function()
