@@ -27,25 +27,29 @@ local c = {
   },
 }
 
-require("lualine").setup {
-  options = {
-    theme = "tokyonight",
-    globalstatus = true,
-    component_separators = { left = "", right = "" },
-    section_separators = { left = "", right = "" },
-    disabled_filetypes = {
-      "NvimTree",
-      "TelescopePrompt",
-      "NeogitStatus",
-      "packer",
+return {
+  "nvim-lualine/lualine.nvim",
+  lazy = false,
+  opts = {
+    options = {
+      theme = "tokyonight",
+      globalstatus = true,
+      component_separators = { left = "", right = "" },
+      section_separators = { left = "", right = "" },
+      disabled_filetypes = {
+        "NvimTree",
+        "TelescopePrompt",
+        "NeogitStatus",
+        "packer",
+      },
     },
-  },
-  sections = {
-    lualine_a = { c.mode },
-    lualine_b = {},
-    lualine_c = { "filename", "branch", c.diagnostic },
-    lualine_x = { c.lsp, "diff" },
-    lualine_y = {},
-    lualine_z = { c.location },
+    sections = {
+      lualine_a = { c.mode },
+      lualine_b = {},
+      lualine_c = { "filename", "branch", c.diagnostic },
+      lualine_x = { c.lsp, "diff" },
+      lualine_y = {},
+      lualine_z = { c.location },
+    },
   },
 }
