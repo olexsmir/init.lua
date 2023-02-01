@@ -41,4 +41,5 @@ map("v", "<", "<gv")
 map("v", ">", ">gv")
 
 -- plugins
+map("n", "<leader>L", vim.cmd.Lazy)
 map("n", "<leader>u", vim.cmd.UndotreeToggle)
