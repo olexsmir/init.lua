@@ -7,6 +7,7 @@ return {
     "b0o/schemastore.nvim",
     "folke/neodev.nvim",
     "lvimuser/lsp-inlayhints.nvim",
+    { "j-hui/fidget.nvim", config = true },
     {
       "RRethy/vim-illuminate",
       config = function()
