@@ -40,7 +40,7 @@ return {
         "NvimTree",
         "TelescopePrompt",
         "NeogitStatus",
-        "packer",
+        "lazy",
       },
     },
     sections = {
