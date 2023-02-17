@@ -28,7 +28,7 @@ return {
     require("plugins.lsp.diagnostic").setup()
     require "plugins.lsp.inlayhints"
     require "plugins.lsp.null-ls"
-    require("mason-lspconfig").setup { ensure_installed = { "sumneko_lua" } }
+    require("mason-lspconfig").setup()
     require("neodev").setup {}
 
     for name, conf in pairs(require "plugins.lsp.servers") do
