@@ -21,7 +21,7 @@ return {
       expr = true,
     },
   },
-  config = function()
+  init = function()
     vim.g.codeium_disable_bindings = 1
   end,
 }
