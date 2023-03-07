@@ -5,7 +5,7 @@ local map, expr = u.map, u.expr
 map("n", "<C-s>", "<cmd>write!<cr>")
 map("i", "jk", "<esc>")
 map("n", "<leader>h", "<cmd>nohlsearch<cr>")
-map("n", "<leader>n", "<cmd>e ~/Documents/Syncthing/Notes<cr>")
+map("n", "<leader>n", "<cmd>e /tmp/note.md<cr>")
 
 --- buffers
 map("n", "<S-h>", "<cmd>bp!<cr>")
