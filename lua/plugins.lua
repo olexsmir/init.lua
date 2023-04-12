@@ -4,7 +4,6 @@ return {
   { "olexsmir/gopher.nvim", ft = "go", dev = true },
   { "mbbill/undotree", cmd = "UndotreeToggle" },
   { "tpope/vim-surround", keys = { "c", "d", "y" } },
-  { "gpanders/editorconfig.nvim", event = "BufRead" },
   { "tpope/vim-repeat", event = "VeryLazy" },
   {
     "numToStr/Comment.nvim",
