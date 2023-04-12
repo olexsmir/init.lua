@@ -22,12 +22,14 @@ return {
   dependencies = {
     "nvim-neotest/neotest-go",
     "nvim-neotest/neotest-plenary",
+    "rouge8/neotest-rust",
   },
   config = function()
     require("neotest").setup {
       adapters = {
         require "neotest-go" { experimental = { test_table = true } },
         require "neotest-plenary",
+        require "neotest-rust",
       },
       icons = {
         expanded = "",
