@@ -44,13 +44,14 @@ return {
     settings = {
       Lua = {
         format = { enable = false },
+        completion = { callSnippet = "Replace" },
         hint = {
           enable = true,
-          arrayIndex = "Disable", -- "Enable", "Auto", "Disable"
+          arrayIndex = "Disable",
           await = true,
-          paramName = "Disable", -- "All", "Literal", "Disable"
+          paramName = "Disable",
           paramType = false,
-          semicolon = "Disable", -- "All", "SameLine", "Disable"
+          semicolon = "Disable",
           setType = true,
         },
       },
