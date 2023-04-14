@@ -6,10 +6,25 @@ return {
   { "tpope/vim-surround", keys = { "c", "d", "y" } },
   { "tpope/vim-repeat", event = "VeryLazy" },
   {
+    "folke/tokyonight.nvim",
+    lazy = false,
+    config = function()
+      vim.cmd.colorscheme "tokyonight-night"
+    end,
+  },
+  {
     "numToStr/Comment.nvim",
-    keys = "gc",
     event = "BufRead",
+    keys = "gc",
     config = true,
+  },
+  {
+    "windwp/nvim-autopairs",
+    event = "InsertEnter",
+    opts = {
+      check_ts = true,
+      disable_filetype = { "TelescopePrompt", "clojure" },
+    },
   },
   {
     "folke/todo-comments.nvim",

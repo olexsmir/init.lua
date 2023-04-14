@@ -1,27 +1,42 @@
+local map = require "core.utils".smap
 return {
-  "mfussenegger/nvim-dap",
-  keys = {
-    { "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<cr>" },
-    { "<leader>dc", "<cmd>lua require'dap'.continue()<cr>" },
-    { "<leader>di", "<cmd>lua require'dap'.step_into()<cr>" },
-    { "<leader>do", "<cmd>lua require'dap'.step_over()<cr>" },
-    { "<leader>dO", "<cmd>lua require'dap'.step_out()<cr>" },
-    { "<leader>dr", "<cmd>lua require'dap'.repl.toggle()<cr>" },
-    { "<leader>dl", "<cmd>lua require'dap'.run_last()<cr>" },
-    { "<leader>du", "<cmd>lua require'dapui'.toggle()<cr>" },
-    { "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>" },
+  {
+    "mfussenegger/nvim-dap",
+    keys = {
+      { "<leader>db", map("dap", "toggle_breakpoint") },
+      { "<leader>dc", map("dap", "continue") },
+      { "<leader>di", map("dap", "step_into") },
+      { "<leader>do", map("dap", "step_over") },
+      { "<leader>dO", map("dap", "step_out") },
+      { "<leader>dr", map("dap", "repl.toggle") },
+      { "<leader>dl", map("dap", "run_to_cursor") },
+      { "<leader>du", map("dap", "disconnect") },
+      { "<leader>dt", map("dap", "terminate") },
+    },
+    dependencies = {
+      "rcarriga/nvim-dap-ui",
+      { "theHamsta/nvim-dap-virtual-text", config = true },
+    },
+    config = function()
+      require "plugins.dap.ui"
+      vim.fn.sign_define("DapBreakpoint", {
+        text = "",
+        texthl = "DiagnosticSignError",
+        linehl = "",
+        numhl = "",
+      })
+    end,
   },
-  dependencies = {
-    "rcarriga/nvim-dap-ui",
-    { "theHamsta/nvim-dap-virtual-text", config = true },
+  {
+    "andrewferrier/debugprint.nvim",
+    config = true,
+    keys = {
+      "g?",
+      {
+        "<leader>P",
+        map("debugprint", "debugprint", "{ variable = true }"),
+        expr = true,
+      },
+    },
   },
-  config = function()
-    require "plugins.dap.ui"
-    vim.fn.sign_define("DapBreakpoint", {
-      text = "",
-      texthl = "DiagnosticSignError",
-      linehl = "",
-      numhl = "",
-    })
-  end,
 }
