@@ -10,7 +10,7 @@ return {
     { "]t", map("neotest", "jump.next") },
     { "[t", map("neotest", "jump.prev") },
     { "]T", map("neotest", "jump.next", "{status = 'failed'}") },
-    { "]T", map("neotest", "jump.next", "{status = 'failed'}") },
+    { "[T", map("neotest", "jump.prev", "{status = 'failed'}") },
     { "<leader>td", map("neotest", "run.run", "{strategy = 'dap'}") },
     {
       "<leader>tt",
