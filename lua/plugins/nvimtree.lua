@@ -1,3 +1,14 @@
+local function on_attach(bufnr)
+  local api = require "nvim-tree.api"
+  api.config.mappings.default_on_attach(bufnr)
+
+  vim.keymap.set("n", "l", api.node.open.edit, { buffer = bufnr })
+  vim.keymap.set("n", "<CR>", api.node.open.edit, { buffer = bufnr })
+  vim.keymap.set("n", "h", api.node.navigate.parent_close, { buffer = bufnr })
+  vim.keymap.set("n", "v", api.node.open.vertical, { buffer = bufnr })
+  vim.keymap.set("n", "s", api.node.open.horizontal, { buffer = bufnr })
+end
+
 return {
   "kyazdani42/nvim-tree.lua",
   cmd = "NvimTreeToggle",
@@ -5,6 +16,7 @@ return {
     { "<leader>e", vim.cmd.NvimTreeToggle },
   },
   opts = {
+    on_attach = on_attach,
     diagnostics = { enable = true },
     renderer = { group_empty = true },
     git = { enable = true },
@@ -19,16 +31,6 @@ return {
         "target",
       },
     },
-    view = {
-      side = "right",
-      mappings = {
-        list = {
-          { key = { "l", "<CR>", "o" }, action = "edit" },
-          { key = "h", action = "close_node" },
-          { key = "v", action = "vsplit" },
-          { key = "s", action = "split" },
-        },
-      },
-    },
+    view = { side = "right" },
   },
 }
