@@ -1,6 +1,6 @@
 return {
   "nvim-telescope/telescope.nvim",
-  lazy = false,
+  event = "VeryLazy",
   dependencies = { "nvim-telescope/telescope-ui-select.nvim" },
   keys = {
     { "<leader>f", "<cmd>Telescope find_files<cr>" },
