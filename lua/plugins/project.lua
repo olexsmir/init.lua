@@ -1,6 +1,6 @@
 return {
   "ahmedkhalf/project.nvim",
-  lazy = false,
+  event = "VeryLazy",
   config = function()
     require("project_nvim").setup {
       show_hidden = true,
