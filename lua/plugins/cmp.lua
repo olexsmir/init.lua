@@ -9,20 +9,12 @@ return {
   },
   config = function()
     local cmp = require "cmp"
+    local cmp_autopairs = require "nvim-autopairs.completion.cmp"
     local luasnip = require "luasnip"
 
-    cmp.event:on(
-      "confirm_done",
-      require("nvim-autopairs.completion.cmp").on_confirm_done {
-        map_char = { tex = "" },
-      }
-    )
-
+    cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
     cmp.setup.filetype({ "gitcommit", "NeogitCommitMessage" }, {
-      sources = {
-        { name = "buffer" },
-        { name = "luasnip" },
-      },
+      sources = { { name = "buffer" }, { name = "luasnip" } },
     })
 
     cmp.setup {
@@ -31,6 +23,7 @@ return {
           luasnip.lsp_expand(args.body)
         end,
       },
+      window = {},
       formatting = {
         format = function(_, vim_item)
           vim_item.kind = ({
@@ -64,13 +57,12 @@ return {
           return vim_item
         end,
       },
-      mapping = {
+      mapping = cmp.mapping.preset.insert {
         ["<C-j>"] = cmp.mapping.select_next_item(),
         ["<C-k>"] = cmp.mapping.select_prev_item(),
         ["<C-d>"] = cmp.mapping.scroll_docs(-4),
         ["<C-f>"] = cmp.mapping.scroll_docs(4),
         ["<C-Space>"] = cmp.mapping.complete {},
-        ["<C-e>"] = cmp.mapping.close(),
         ["<CR>"] = cmp.mapping.confirm {
           behavior = cmp.ConfirmBehavior.Replace,
           select = false,
@@ -79,15 +71,8 @@ return {
           if cmp.visible() then
             cmp.select_next_item()
           elseif luasnip.expand_or_jumpable() then
-            vim.fn.feedkeys(
-              vim.api.nvim_replace_termcodes(
-                "<Plug>luasnip-expand-or-jump",
-                true,
-                true,
-                true
-              ),
-              ""
-            )
+            -- stylua: ignore
+            vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Plug>luasnip-expand-or-jump", true, true, true), "")
           else
             fallback()
           end
@@ -96,27 +81,19 @@ return {
           if cmp.visible() then
             cmp.select_prev_item()
           elseif luasnip.jumpable(-1) then
-            vim.fn.feedkeys(
-              vim.api.nvim_replace_termcodes(
-                "<Plug>luasnip-jump-prev",
-                true,
-                true,
-                true
-              ),
-              ""
-            )
+            -- stylua: ignore
+            vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Plug>luasnip-jump-prev", true, true, true), "")
           else
             fallback()
           end
         end,
       },
-      sources = {
+      sources = cmp.config.sources {
         { name = "nvim_lsp", max_item_count = 8 },
         { name = "buffer", max_item_count = 4 },
         { name = "luasnip", max_item_count = 3 },
         { name = "path", max_item_count = 2 },
       },
-      experimental = { ghost_text = true },
     }
   end,
 }
