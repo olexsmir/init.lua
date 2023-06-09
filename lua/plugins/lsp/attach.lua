@@ -15,6 +15,10 @@ return {
       vim.lsp.codelens.refresh()
     end
 
+    if client.name == "clojure_lsp" then
+      client.server_capabilities.documentFormattingProvider = true
+    end
+
     map("K", vim.lsp.buf.hover)
     map("gd", "<cmd>Telescope lsp_definitions<cr>")
     map("gD", vim.lsp.buf.declaration)
