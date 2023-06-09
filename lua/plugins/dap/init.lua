@@ -1,4 +1,4 @@
-local map = require "core.utils".smap
+local map = require("core.utils").smap
 return {
   {
     "mfussenegger/nvim-dap",
