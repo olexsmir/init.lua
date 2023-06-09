@@ -2,12 +2,22 @@ return {
   "neovim/nvim-lspconfig",
   event = "BufRead",
   dependencies = {
-    "williamboman/mason-lspconfig.nvim",
-    "jose-elias-alvarez/null-ls.nvim",
     "b0o/schemastore.nvim",
-    "folke/neodev.nvim",
-    "lvimuser/lsp-inlayhints.nvim",
+    { "williamboman/mason-lspconfig.nvim", config = true },
     { "j-hui/fidget.nvim", config = true },
+    { "folke/neodev.nvim", config = true },
+    {
+      "jose-elias-alvarez/null-ls.nvim",
+      config = function()
+        require "plugins.lsp.null-ls"
+      end,
+    },
+    {
+      "lvimuser/lsp-inlayhints.nvim",
+      config = function()
+        require "plugins.lsp.inlayhints"
+      end,
+    },
     {
       "RRethy/vim-illuminate",
       config = function()
@@ -24,15 +34,9 @@ return {
     },
   },
   config = function()
-    local lspconfig = require "lspconfig"
     require("plugins.lsp.diagnostic").setup()
-    require "plugins.lsp.inlayhints"
-    require "plugins.lsp.null-ls"
-    require("mason-lspconfig").setup()
-    require("neodev").setup {}
-
     for name, conf in pairs(require "plugins.lsp.servers") do
-      lspconfig[name].setup(vim.tbl_extend("force", {
+      require("lspconfig")[name].setup(vim.tbl_extend("force", {
         on_attach = require("plugins.lsp.attach").common,
         flags = { debounce_text_changes = 150 },
         capabilities = require("cmp_nvim_lsp").default_capabilities(),
