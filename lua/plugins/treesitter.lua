@@ -4,6 +4,7 @@ return {
   dependencies = {
     "RRethy/nvim-treesitter-endwise",
     "p00f/nvim-ts-rainbow",
+    { "nvim-treesitter/nvim-treesitter-context", config = true },
   },
   config = function()
     require("nvim-treesitter.configs").setup {
