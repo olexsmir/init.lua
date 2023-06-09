@@ -7,10 +7,8 @@ local function map(from, to)
 end
 
 return {
-  common = function(client, bufnr)
-    vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
+  common = function(client, _)
     client.server_capabilities.documentFormattingProvider = false
-
     if client.name == "gopls" then
       vim.lsp.codelens.refresh()
     end
