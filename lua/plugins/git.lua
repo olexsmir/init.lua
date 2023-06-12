@@ -1,5 +1,6 @@
 local map = require("core.utils").smap
 return {
+  { "akinsho/git-conflict.nvim", config = true },
   {
     "lewis6991/gitsigns.nvim",
     event = "BufRead",
