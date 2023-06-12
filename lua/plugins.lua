@@ -32,6 +32,11 @@ return {
     config = true,
   },
   {
+    "folke/trouble.nvim",
+    config = true,
+    cmd = { "Trouble", "TroubleToggle" },
+  },
+  {
     "williamboman/mason.nvim",
     event = "VimEnter",
     config = true,
