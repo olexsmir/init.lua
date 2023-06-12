@@ -5,6 +5,7 @@ return {
   { "mbbill/undotree", cmd = "UndotreeToggle" },
   { "tpope/vim-surround", keys = { "c", "d", "y" } },
   { "tpope/vim-repeat", event = "VeryLazy" },
+  { "tpope/vim-sleuth", event = "VeryLazy" },
   {
     "folke/tokyonight.nvim",
     lazy = false,
