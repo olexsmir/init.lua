@@ -14,11 +14,15 @@ return {
       { "<leader>dt", map("dap", "terminate") },
     },
     dependencies = {
-      "rcarriga/nvim-dap-ui",
+      {
+        "rcarriga/nvim-dap-ui",
+        opts = function()
+          require "plugins.dap.ui"
+        end,
+      },
       { "theHamsta/nvim-dap-virtual-text", config = true },
     },
     config = function()
-      require "plugins.dap.ui"
       vim.fn.sign_define("DapBreakpoint", {
         text = "",
         texthl = "DiagnosticSignError",
