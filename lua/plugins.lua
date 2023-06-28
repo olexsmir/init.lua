@@ -2,7 +2,6 @@ return {
   "nvim-lua/plenary.nvim",
   "kyazdani42/nvim-web-devicons",
   { "olexsmir/gopher.nvim", ft = "go", dev = true },
-  { "mbbill/undotree", cmd = "UndotreeToggle" },
   { "tpope/vim-surround", keys = { "c", "d", "y" } },
   { "tpope/vim-repeat", event = "VeryLazy" },
   { "tpope/vim-sleuth", event = "VeryLazy" },
@@ -14,28 +13,9 @@ return {
     end,
   },
   {
-    "numToStr/Comment.nvim",
-    event = "BufRead",
-    keys = "gc",
-    config = true,
-  },
-  {
-    "windwp/nvim-autopairs",
-    event = "InsertEnter",
-    opts = {
-      check_ts = true,
-      disable_filetype = { "TelescopePrompt", "clojure" },
-    },
-  },
-  {
     "folke/todo-comments.nvim",
     event = "BufRead",
     config = true,
-  },
-  {
-    "folke/trouble.nvim",
-    config = true,
-    cmd = { "Trouble", "TroubleToggle" },
   },
   {
     "williamboman/mason.nvim",
