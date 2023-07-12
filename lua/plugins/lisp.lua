@@ -4,8 +4,8 @@ return {
   ft = ft,
   branch = "develop",
   dependencies = {
-    "gpanders/nvim-parinfer",
     "PaterJason/cmp-conjure",
+    { "eraserhd/parinfer-rust", build = "cargo build --release" },
   },
   config = function()
     vim.g["conjure#mapping#doc_word"] = false
