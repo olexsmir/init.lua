@@ -17,9 +17,4 @@ return {
     event = "BufRead",
     config = true,
   },
-  {
-    "williamboman/mason.nvim",
-    event = "VimEnter",
-    config = true,
-  },
 }

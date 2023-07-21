@@ -26,6 +26,15 @@ return {
         }
       end,
     },
+    {
+      "williamboman/mason.nvim",
+      config = true,
+      build = function()
+        pcall(function()
+          vim.cmd "MasonUpdate"
+        end)
+      end,
+    },
   },
   config = function()
     require("plugins.lsp.diagnostic").setup()
