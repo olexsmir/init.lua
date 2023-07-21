@@ -1,6 +1,6 @@
-local M = {}
+local diagnistic = {}
 
-M.border = {
+diagnistic.border = {
   { "", "FloatBorder" },
   { "", "FloatBorder" },
   { "", "FloatBorder" },
@@ -11,7 +11,7 @@ M.border = {
   { "", "FloatBorder" },
 }
 
-M.diagnostic = {
+diagnistic.diagnostic = {
   virtual_text = true,
   update_in_insert = false,
   underline = true,
@@ -27,21 +27,21 @@ M.diagnostic = {
   float = {
     focusable = true,
     style = "minimal",
-    border = M.border,
+    border = diagnistic.border,
     source = "always",
     header = "",
     prefix = "",
   },
 }
 
-function M.setup()
+function diagnistic.setup()
   vim.lsp.handlers["textDocument/hover"] =
     vim.lsp.with(vim.lsp.handlers.hover, {
-      border = M.border,
+      border = diagnistic.border,
     })
 
-  vim.diagnostic.config(M.diagnostic)
-  for _, sign in ipairs(M.diagnostic.signs.active) do
+  vim.diagnostic.config(diagnistic.diagnostic)
+  for _, sign in ipairs(diagnistic.diagnostic.signs.active) do
     vim.fn.sign_define(sign.name, {
       texthl = sign.name,
       text = sign.text,
@@ -50,4 +50,4 @@ function M.setup()
   end
 end
 
-return M
+return diagnistic
