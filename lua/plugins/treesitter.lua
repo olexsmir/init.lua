@@ -6,6 +6,11 @@ return {
     "p00f/nvim-ts-rainbow",
     { "nvim-treesitter/nvim-treesitter-context", config = true },
   },
+  build = function()
+    pcall(function()
+      vim.cmd "TSUpdate"
+    end)
+  end,
   config = function()
     require("nvim-treesitter.configs").setup {
       ensure_installed = {
