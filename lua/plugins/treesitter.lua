@@ -8,7 +8,16 @@ return {
   },
   config = function()
     require("nvim-treesitter.configs").setup {
-      ensure_installed = { "lua", "go", "gomod", "gowork", "make" },
+      ensure_installed = {
+        "lua",
+        "go",
+        "gomod",
+        "gowork",
+        "gosum",
+        "fish",
+        "gitignore",
+        "gitcommit",
+      },
       indent = { enable = true, disable = { "python" } },
       highlight = { enable = true, additional_vim_regex_highlighting = false },
       autopairs = { enable = true },
