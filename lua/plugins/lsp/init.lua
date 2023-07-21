@@ -13,12 +13,6 @@ return {
       end,
     },
     {
-      "lvimuser/lsp-inlayhints.nvim",
-      config = function()
-        require "plugins.lsp.inlayhints"
-      end,
-    },
-    {
       "RRethy/vim-illuminate",
       config = function()
         require("illuminate").configure {

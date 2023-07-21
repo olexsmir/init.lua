@@ -7,7 +7,7 @@ local function map(from, to)
 end
 
 return {
-  common = function(client, _)
+  common = function(client, bufnr)
     client.server_capabilities.documentFormattingProvider = false
     if client.name == "gopls" then
       vim.lsp.codelens.refresh()
@@ -15,6 +15,10 @@ return {
 
     if client.name == "clojure_lsp" then
       client.server_capabilities.documentFormattingProvider = true
+    end
+
+    if client.server_capabilities.inlayHintProvider then
+      vim.lsp.inlay_hint(bufnr, true)
     end
 
     map("K", vim.lsp.buf.hover)
