@@ -5,6 +5,7 @@ return {
     "RRethy/nvim-treesitter-endwise",
     "p00f/nvim-ts-rainbow",
     { "nvim-treesitter/nvim-treesitter-context", config = true },
+    { "nvim-treesitter/playground" },
   },
   build = function()
     pcall(function()
@@ -22,6 +23,7 @@ return {
         "fish",
         "gitignore",
         "gitcommit",
+        "query",
       },
       indent = { enable = true, disable = { "python" } },
       highlight = { enable = true, additional_vim_regex_highlighting = false },
