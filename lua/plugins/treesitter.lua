@@ -13,6 +13,15 @@ return {
     end)
   end,
   config = function()
+    require("nvim-treesitter.parsers").get_parser_configs().gotmpl = {
+      install_info = {
+        url = "https://github.com/ngalaiko/tree-sitter-go-template",
+        files = { "src/parser.c" },
+      },
+      filetype = "gotmpl",
+      used_by = { "gohtmltmpl", "gotexttmpl", "gotmpl", "yaml" },
+    }
+
     require("nvim-treesitter.configs").setup {
       ensure_installed = {
         "lua",
@@ -20,6 +29,7 @@ return {
         "gomod",
         "gowork",
         "gosum",
+        "gotmpl",
         "fish",
         "gitignore",
         "gitcommit",
