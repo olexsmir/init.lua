@@ -14,12 +14,11 @@ return {
   end,
   config = function()
     require("nvim-treesitter.parsers").get_parser_configs().gotmpl = {
+      filetype = "gotmpl",
       install_info = {
         url = "https://github.com/ngalaiko/tree-sitter-go-template",
         files = { "src/parser.c" },
       },
-      filetype = "gotmpl",
-      used_by = { "gohtmltmpl", "gotexttmpl", "gotmpl", "yaml" },
     }
 
     require("nvim-treesitter.configs").setup {
@@ -34,6 +33,9 @@ return {
         "gitignore",
         "gitcommit",
         "query",
+        "sql",
+        "html",
+        "json",
       },
       indent = { enable = true, disable = { "python" } },
       highlight = { enable = true, additional_vim_regex_highlighting = false },

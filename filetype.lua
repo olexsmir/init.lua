@@ -5,6 +5,7 @@ end
 vim.filetype.add {
   extension = {
     lock = "yaml",
+    gotmpl = "gotmpl",
   },
   filename = {
     [".gitignore"] = "conf",
