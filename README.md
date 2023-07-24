@@ -8,7 +8,7 @@
 ```bash
 # Install nvim
 paru -S neovim-git
-# (optiolan) backup your old config
+# (optional) backup your old config
 mv ~/.config/nvim ~/.config/nvim.old
 # clone my setup
 git clone https://github.com/olexsmir/nvim ~/.config/nvim
