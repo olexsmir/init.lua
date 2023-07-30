@@ -36,7 +36,7 @@ return {
         ["<tab>"] = "actions.select",
 
         ["<C-v>"] = "actions.select_vsplit",
-        ["<C-s>"] = "actions.select_split",
+        ["<C-x>"] = "actions.select_split",
         ["<A-p>"] = "actions.preview",
         ["<C-r>"] = "actions.refresh",
         ["<C-c>"] = "actions.close",
