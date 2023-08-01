@@ -27,7 +27,9 @@ return {
       vim.g.codeium_filetypes = {
         ["markdown"] = false,
         ["gitcommit"] = false,
+        ["gitignore"] = false,
         ["NeogitCommitMessage"] = false,
+        ["TelescopePrompt"] = false,
       }
     end,
   },
