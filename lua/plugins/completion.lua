@@ -126,6 +126,7 @@ return {
         },
         sources = cmp.config.sources {
           { name = "nvim_lsp", max_item_count = 8 },
+          { name = "conjure", max_item_count = 4 },
           { name = "buffer", max_item_count = 4 },
           { name = "luasnip", max_item_count = 3 },
           { name = "path", max_item_count = 2 },
