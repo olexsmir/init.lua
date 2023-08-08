@@ -5,6 +5,7 @@ return {
   { "tpope/vim-surround", keys = { "c", "d", "y" } },
   { "tpope/vim-repeat", event = "VeryLazy" },
   { "tpope/vim-sleuth", event = "VeryLazy" },
+  { "tweekmonster/helpful.vim", cmd = "HelpfulVersion" },
   {
     "folke/tokyonight.nvim",
     lazy = false,
