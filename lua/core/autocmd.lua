@@ -8,7 +8,7 @@ cmd("TextYankPost", {
 })
 
 cmd("FileType", {
-  pattern = "javascript,typescript,json,html,htmldjango,css,astro",
+  pattern = "javascript,typescript,json,html,htmldjango,gotmpl,css,astro",
   callback = function()
     vim.bo.tabstop = 2
     vim.bo.shiftwidth = 2
