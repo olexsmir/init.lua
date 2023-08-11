@@ -1,3 +1,4 @@
+local map = require("core.utils").smap
 return {
   {
     "ahmedkhalf/project.nvim",
@@ -34,6 +35,14 @@ return {
     opts = {
       check_ts = true,
       disable_filetype = { "TelescopePrompt", "clojure", "markdown" },
+    },
+  },
+  {
+    "folke/persistence.nvim",
+    event = "BufReadPre",
+    config = {};
+    keys = {
+      { "<leader>pp", map("persistence", "load") },
     },
   },
 }
