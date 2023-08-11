@@ -40,7 +40,7 @@ return {
   {
     "folke/persistence.nvim",
     event = "BufReadPre",
-    config = {};
+    config = {},
     keys = {
       { "<leader>pp", map("persistence", "load") },
     },
