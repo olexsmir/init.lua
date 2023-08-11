@@ -11,6 +11,7 @@ return {
     { "<leader>sp", "<cmd>Telescope projects<cr>" },
     { "<leader>sf", "<cmd>Telescope git_bcommits<cr>" },
     { "<leader>sc", "<cmd>Telescope git_commits<cr>" },
+    { "<leader>sk", "<cmd>Telescope keymaps<cr>" },
   },
   config = function()
     local telescope = require "telescope"
