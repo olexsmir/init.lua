@@ -18,33 +18,16 @@ return {
       {
         "rcarriga/nvim-dap-ui",
         config = function()
-          local dap = require "dap"
-          local dapui = require "dapui"
-
-          dapui.setup {
+          require("dapui").setup {
             layouts = {
-              {
-                elements = {
-                  { id = "scopes", size = 0.25 },
-                  { id = "breakpoints", size = 0.25 },
-                },
-                size = 40,
-                position = "left",
+              elements = {
+                { id = "scopes", size = 0.25 },
+                { id = "breakpoints", size = 0.25 },
               },
+              size = 40,
+              position = "left",
             },
           }
-
-          dap.listeners.after.event_initialized["dapui_config"] = function()
-            dapui.open {}
-          end
-
-          dap.listeners.before.event_terminated["dapui_config"] = function()
-            dapui.close {}
-          end
-
-          dap.listeners.before.event_exited["dapui_config"] = function()
-            dapui.close {}
-          end
         end,
       },
     },
@@ -55,6 +38,20 @@ return {
         linehl = "",
         numhl = "",
       })
+
+      local dap = require "dap"
+      local dapui = require "dapui"
+      dap.listeners.after.event_initialized["dapui_config"] = function()
+        dapui.open {}
+      end
+
+      dap.listeners.before.event_terminated["dapui_config"] = function()
+        dapui.close {}
+      end
+
+      dap.listeners.before.event_exited["dapui_config"] = function()
+        dapui.close {}
+      end
     end,
   },
 
