@@ -7,6 +7,12 @@ return {
     { "j-hui/fidget.nvim", config = true },
     { "folke/neodev.nvim", config = true },
     {
+      "folke/neoconf.nvim",
+      cmd = "Neoconf",
+      config = true,
+      dependencies = { "nvim-lspconfig" },
+    },
+    {
       "jose-elias-alvarez/null-ls.nvim",
       config = function()
         require "plugins.lsp.null-ls"
