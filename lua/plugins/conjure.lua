@@ -1,10 +1,12 @@
-local lisp_ft = { "clojure", "fennel", "scheme", "lisp" }
-local ft = vim.tbl_deep_extend("keep", { "lua" }, lisp_ft)
 return {
-  { "eraserhd/parinfer-rust", ft = lisp_ft, build = "cargo build --release" },
+  {
+    "eraserhd/parinfer-rust",
+    ft = { "clojure", "fennel", "scheme", "lisp" },
+    build = "cargo build --release",
+  },
   {
     "Olical/conjure",
-    ft = ft,
+    ft = { "lua", "clojure", "fennel", "scheme", "lisp" },
     branch = "develop",
     dependencies = { "PaterJason/cmp-conjure" },
     init = function()

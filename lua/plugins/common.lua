@@ -34,7 +34,7 @@ return {
     event = "InsertEnter",
     opts = {
       check_ts = true,
-      disable_filetype = { "TelescopePrompt", "clojure", "markdown" },
+      disable_filetype = { "TelescopePrompt", "markdown" },
     },
   },
   {
