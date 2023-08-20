@@ -40,7 +40,7 @@ vim.o.list = true
 vim.opt.listchars:append {
   space = "·",
   trail = "~",
-  tab = "|·",
+  tab = "│·",
 }
 
 -- swap files
