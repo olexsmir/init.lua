@@ -13,10 +13,6 @@ return {
       vim.lsp.codelens.refresh()
     end
 
-    if client.name == "clojure_lsp" then
-      client.server_capabilities.documentFormattingProvider = true
-    end
-
     if client.server_capabilities.inlayHintProvider then
       vim.lsp.inlay_hint(bufnr, true)
     end
