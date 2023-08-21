@@ -15,12 +15,6 @@ return {
   },
 
   {
-    "folke/trouble.nvim",
-    config = true,
-    cmd = { "Trouble", "TroubleToggle" },
-  },
-
-  {
     "stevearc/oil.nvim",
     lazy = false,
     keys = { { "<leader>e", map("oil", "open") } },
