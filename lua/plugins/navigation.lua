@@ -1,6 +1,12 @@
 local map = require("core.utils").smap
 return {
-  { "mbbill/undotree", cmd = "UndotreeToggle" },
+  {
+    "mbbill/undotree",
+    cmd = "UndotreeToggle",
+    init = function()
+      vim.g.undotree_DiffAutoOpen = 0
+    end,
+  },
   {
     "ThePrimeagen/harpoon",
     config = true,
