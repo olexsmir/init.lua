@@ -7,16 +7,17 @@ return {
       vim.g.undotree_DiffAutoOpen = 0
     end,
   },
+
   {
     "ThePrimeagen/harpoon",
     config = true,
     keys = {
       { "<leader>a", map("harpoon.mark", "add_file") },
-      { "<leader>1", map("harpoon.ui", "toggle_quick_menu") },
-      { "<leader>2", map("harpoon.ui", "nav_file", "1") },
-      { "<leader>3", map("harpoon.ui", "nav_file", "2") },
-      { "<leader>4", map("harpoon.ui", "nav_file", "3") },
-      { "<leader>5", map("harpoon.ui", "nav_file", "4") },
+      { "<leader><tab>", map("harpoon.ui", "toggle_quick_menu") },
+      { "<M-j>", map("harpoon.ui", "nav_file", "1") },
+      { "<M-k>", map("harpoon.ui", "nav_file", "2") },
+      { "<M-l>", map("harpoon.ui", "nav_file", "3") },
+      { "<M-;>", map("harpoon.ui", "nav_file", "4") },
     },
   },
 
