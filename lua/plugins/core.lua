@@ -1,3 +1,4 @@
+local map = require("core.utils").smap
 return {
   "nvim-lua/plenary.nvim",
   "kyazdani42/nvim-web-devicons",
@@ -54,5 +55,9 @@ return {
         },
       }
     end,
+  },
+  {
+    "echasnovski/mini.bufremove",
+    keys = { { "<leader>c", map("mini.bufremove", "delete", "0, false") } },
   },
 }
