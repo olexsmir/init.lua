@@ -1,21 +1,7 @@
-local lspconfig = require "lspconfig"
-local html_ft = {
-  "html",
-  "typescriptreact",
-  "javascriptreact",
-  "css",
-  "scss",
-  "astro",
-  "gotmpl",
-}
-
 return {
-  denols = { root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc") },
-  tsserver = { root_dir = lspconfig.util.root_pattern "package.json" },
-  rust_analyzer = {},
-  html = { filetypes = html_ft },
-  emmet_language_server = { filetypes = html_ft },
-  astro = {},
+  tsserver = {},
+  html = {},
+  emmet_language_server = {},
   dockerls = {},
   gopls = {
     settings = {
@@ -76,8 +62,6 @@ return {
     },
   },
   jsonls = {
-    settings = {
-      json = { schemas = require("schemastore").json.schemas() },
-    },
+    settings = { json = { schemas = require("schemastore").json.schemas() } },
   },
 }
