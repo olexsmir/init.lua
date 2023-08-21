@@ -37,12 +37,4 @@ return {
       disable_filetype = { "TelescopePrompt", "markdown" },
     },
   },
-  {
-    "folke/persistence.nvim",
-    event = "BufReadPre",
-    config = {},
-    keys = {
-      { "<leader>pp", map("persistence", "load") },
-    },
-  },
 }
