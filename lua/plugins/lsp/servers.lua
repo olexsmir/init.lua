@@ -46,8 +46,6 @@ return {
       Lua = {
         format = { enable = false },
         completion = { callSnippet = "Replace" },
-        diagnostics = { globals = { "vim", "it", "describe" } },
-        workspace = { checkThirdParty = false },
         hint = {
           enable = true,
           arrayIndex = "Disable",
