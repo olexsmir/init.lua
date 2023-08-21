@@ -10,7 +10,6 @@ map("n", "<leader>n", "<cmd>e /tmp/note.md<cr>")
 --- buffers
 map("n", "<S-h>", "<cmd>bp!<cr>")
 map("n", "<S-l>", "<cmd>bn!<cr>")
-map("n", "<leader>c", "<cmd>bdelete!<cr>")
 map("n", "<leader>q", "<cmd>quit!<cr>")
 map("n", "<leader>w", "<cmd>write!<cr>")
 
