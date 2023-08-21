@@ -54,17 +54,9 @@ return {
       end
     end,
   },
-
   {
     "andrewferrier/debugprint.nvim",
     config = true,
-    keys = {
-      "g?",
-      {
-        "<leader>P",
-        map("debugprint", "debugprint", "{ variable = true }"),
-        expr = true,
-      },
-    },
+    keys = { "g?" },
   },
 }
