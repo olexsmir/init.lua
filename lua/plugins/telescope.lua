@@ -42,6 +42,7 @@ return {
       pickers = {
         find_files = { theme = "ivy" },
         live_grep = { theme = "ivy" },
+        filetypes = { theme = "ivy" },
         buffers = { theme = "ivy" },
         oldfiles = { theme = "ivy" },
         keymaps = { theme = "ivy" },
