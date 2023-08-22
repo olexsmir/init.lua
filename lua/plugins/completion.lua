@@ -3,24 +3,11 @@ return {
     "Exafunction/codeium.vim",
     cmd = "Codeium",
     event = "InsertEnter",
+    -- stylua: ignore
     keys = {
       { "<C-;>", vim.fn["codeium#Accept"], mode = "i", expr = true },
-      {
-        "<C-,>",
-        function()
-          return vim.fn["codeium#CycleCompletions"](1)
-        end,
-        mode = "i",
-        expr = true,
-      },
-      {
-        "<C-.>",
-        function()
-          return vim.fn["codeium#CycleCompletions"](-1)
-        end,
-        mode = "i",
-        expr = true,
-      },
+      { "<C-,>", function() return vim.fn["codeium#CycleCompletions"](1) end, mode = "i", expr = true },
+      { "<C-.>", function() return vim.fn["codeium#CycleCompletions"](-1) end, mode = "i", expr = true },
     },
     init = function()
       vim.g.codeium_disable_bindings = 1
@@ -126,7 +113,6 @@ return {
         },
         sources = cmp.config.sources {
           { name = "nvim_lsp", max_item_count = 8 },
-          { name = "conjure", max_item_count = 4 },
           { name = "buffer", max_item_count = 4 },
           { name = "luasnip", max_item_count = 3 },
           { name = "path", max_item_count = 2 },

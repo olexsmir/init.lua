@@ -1,6 +1,5 @@
 local map = require("core.utils").smap
 return {
-  { "akinsho/git-conflict.nvim", config = true },
   {
     "lewis6991/gitsigns.nvim",
     event = "BufRead",
@@ -11,7 +10,6 @@ return {
       { "<leader>gu", map("gitsigns", "undo_stage_hunk") },
       { "<leader>gr", map("gitsigns", "reset_hunk") },
       { "<leader>gp", map("gitsigns", "preview_hunk") },
-      { "<leader>gd", map("gitsigns", "diffthis") },
     },
     opts = {
       max_file_length = 1000,
@@ -22,6 +20,7 @@ return {
       },
     },
   },
+
   {
     "TimUntersberger/neogit",
     cmd = "Neogit",

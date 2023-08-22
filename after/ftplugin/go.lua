@@ -1,8 +1,5 @@
 local map = require("core.utils").map
 
--- setup debugger
-require("gopher.dap").setup()
-
 -- options
 vim.opt_local.expandtab = false
 vim.opt_local.tabstop = 4

@@ -5,12 +5,14 @@ local map, expr = u.map, u.expr
 map("n", "<C-s>", "<cmd>write!<cr>")
 map("i", "jk", "<esc>")
 map("n", "<leader>h", "<cmd>nohlsearch<cr>")
-map("n", "<leader>n", "<cmd>e /tmp/note.md<cr>")
+
+-- quickfix
+map("n", "<leader>n", "<cmd>cnext<cr>")
+map("n", "<leader>p", "<cmd>cprev<cr>")
 
 --- buffers
 map("n", "<S-h>", "<cmd>bp!<cr>")
 map("n", "<S-l>", "<cmd>bn!<cr>")
-map("n", "<leader>c", "<cmd>bdelete!<cr>")
 map("n", "<leader>q", "<cmd>quit!<cr>")
 map("n", "<leader>w", "<cmd>write!<cr>")
 
@@ -42,4 +44,3 @@ map("v", ">", ">gv")
 
 -- plugins
 map("n", "<leader>L", vim.cmd.Lazy)
-map("n", "<leader>u", vim.cmd.UndotreeToggle)

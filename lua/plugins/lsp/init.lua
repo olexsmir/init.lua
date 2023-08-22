@@ -5,10 +5,8 @@ return {
     "b0o/schemastore.nvim",
     { "williamboman/mason-lspconfig.nvim", config = true },
     { "j-hui/fidget.nvim", config = true },
-    { "folke/neodev.nvim", config = true },
     {
-      "folke/neoconf.nvim",
-      cmd = "Neoconf",
+      "folke/neodev.nvim",
       config = true,
       dependencies = { "nvim-lspconfig" },
     },

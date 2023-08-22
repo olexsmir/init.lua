@@ -1,23 +1,25 @@
 local map = require("core.utils").smap
 return {
-  { "mbbill/undotree", cmd = "UndotreeToggle" },
+  {
+    "mbbill/undotree",
+    cmd = "UndotreeToggle",
+    keys = { { "<leader>u", vim.cmd.UndotreeToggle } },
+    init = function()
+      vim.g.undotree_DiffAutoOpen = 0
+    end,
+  },
+
   {
     "ThePrimeagen/harpoon",
     config = true,
     keys = {
       { "<leader>a", map("harpoon.mark", "add_file") },
       { "<leader>1", map("harpoon.ui", "toggle_quick_menu") },
-      { "<leader>2", map("harpoon.ui", "nav_file", "1") },
-      { "<leader>3", map("harpoon.ui", "nav_file", "2") },
-      { "<leader>4", map("harpoon.ui", "nav_file", "3") },
-      { "<leader>5", map("harpoon.ui", "nav_file", "4") },
+      { "<M-j>", map("harpoon.ui", "nav_file", "1") },
+      { "<M-k>", map("harpoon.ui", "nav_file", "2") },
+      { "<M-l>", map("harpoon.ui", "nav_file", "3") },
+      { "<M-;>", map("harpoon.ui", "nav_file", "4") },
     },
-  },
-
-  {
-    "folke/trouble.nvim",
-    config = true,
-    cmd = { "Trouble", "TroubleToggle" },
   },
 
   {

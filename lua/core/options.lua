@@ -1,4 +1,3 @@
-vim.g.undotree_DiffAutoOpen = 0
 vim.g.editorconfig = true
 
 -- leader
