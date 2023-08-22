@@ -12,7 +12,7 @@ return {
       require "hover.providers.gh_user"
       -- require "hover.providers.jira"
       require "hover.providers.man"
-      require "hover.providers.dictionary"
+      -- require "hover.providers.dictionary"
     end,
     preview_window = false,
     preview_opts = { border = require("plugins.lsp.diagnostic").border },
