@@ -28,9 +28,8 @@ return {
   },
   {
     "numToStr/Comment.nvim",
-    event = "BufRead",
-    keys = "gc",
     config = true,
+    keys = "gc",
   },
   {
     "ahmedkhalf/project.nvim",

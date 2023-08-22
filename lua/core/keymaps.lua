@@ -5,7 +5,8 @@ local map, expr = u.map, u.expr
 map("n", "<C-s>", "<cmd>write!<cr>")
 map("i", "jk", "<esc>")
 map("n", "<leader>h", "<cmd>nohlsearch<cr>")
-map("n", "<leader>n", "<cmd>e /tmp/note.md<cr>")
+map("n", "<leader>N", "<cmd>cnext<cr>")
+map("n", "<leader>P", "<cmd>cprev<cr>")
 
 --- buffers
 map("n", "<S-h>", "<cmd>bp!<cr>")
@@ -41,4 +42,3 @@ map("v", ">", ">gv")
 
 -- plugins
 map("n", "<leader>L", vim.cmd.Lazy)
-map("n", "<leader>u", vim.cmd.UndotreeToggle)
