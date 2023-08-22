@@ -5,8 +5,10 @@ local map, expr = u.map, u.expr
 map("n", "<C-s>", "<cmd>write!<cr>")
 map("i", "jk", "<esc>")
 map("n", "<leader>h", "<cmd>nohlsearch<cr>")
-map("n", "<leader>N", "<cmd>cnext<cr>")
-map("n", "<leader>P", "<cmd>cprev<cr>")
+
+-- quickfix
+map("n", "<leader>n", "<cmd>cnext<cr>")
+map("n", "<leader>p", "<cmd>cprev<cr>")
 
 --- buffers
 map("n", "<S-h>", "<cmd>bp!<cr>")
