@@ -8,11 +8,9 @@ map("n", "<leader>h", "<cmd>nohlsearch<cr>")
 
 -- quickfix
 map("n", "<leader>n", "<cmd>cnext<cr>")
-map("n", "<leader>p", "<cmd>cprev<cr>")
+map("n", "<leader>N", "<cmd>cprev<cr>")
 
 --- buffers
-map("n", "<S-h>", "<cmd>bp!<cr>")
-map("n", "<S-l>", "<cmd>bn!<cr>")
 map("n", "<leader>q", "<cmd>quit!<cr>")
 map("n", "<leader>w", "<cmd>write!<cr>")
 
@@ -33,14 +31,9 @@ map("n", "<C-Up", "<cmd>resize -1<cr>")
 map("n", "<C-Right>", "<cmd>vertical resize +2<CR>")
 
 -- move strings
-map("i", "<A-j>", "<Esc>:m .+1<CR>==gi")
-map("i", "<A-k>", "<Esc>:m .-2<CR>==gi")
 map("v", "K", ":move '<-2<CR>gv-gv")
 map("v", "J", ":move '>+1<CR>gv-gv")
 map("n", "<A-j>", ":m .+1<CR>==")
 map("n", "<A-k>", ":m .-2<CR>==")
 map("v", "<", "<gv")
 map("v", ">", ">gv")
-
--- plugins
-map("n", "<leader>L", vim.cmd.Lazy)
