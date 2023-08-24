@@ -15,10 +15,10 @@ return {
     keys = {
       { "<leader>a", map("harpoon.mark", "add_file") },
       { "<leader>1", map("harpoon.ui", "toggle_quick_menu") },
-      { "<M-j>", map("harpoon.ui", "nav_file", "1") },
-      { "<M-k>", map("harpoon.ui", "nav_file", "2") },
-      { "<M-l>", map("harpoon.ui", "nav_file", "3") },
-      { "<M-;>", map("harpoon.ui", "nav_file", "4") },
+      { "<localleader>a", map("harpoon.ui", "nav_file", "1") },
+      { "<localleader>s", map("harpoon.ui", "nav_file", "2") },
+      { "<localleader>d", map("harpoon.ui", "nav_file", "3") },
+      { "<localleader>f", map("harpoon.ui", "nav_file", "4") },
     },
   },
 
