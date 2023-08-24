@@ -29,7 +29,7 @@ local c = {
 
 return {
   "nvim-lualine/lualine.nvim",
-  lazy = false,
+  event = "VeryLazy";
   opts = {
     options = {
       theme = "tokyonight",
