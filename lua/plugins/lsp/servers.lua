@@ -44,13 +44,6 @@ return {
       },
     },
   },
-  pyright = {
-    python = {
-      disableOrganizeImports = true,
-      autoSearchPaths = true,
-      analysis = { useLibraryCodeForTypes = false },
-    },
-  },
   yamlls = {
     settings = {
       yaml = {

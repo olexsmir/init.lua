@@ -8,8 +8,6 @@ null_ls.setup {
   sources = {
     formatting.stylua,
     diagnostic.selene,
-    formatting.black.with { extra_args = { "--fast" } },
-    diagnostic.flake8,
     diagnostic.golangci_lint,
     formatting.gofumpt,
     formatting.goimports,
