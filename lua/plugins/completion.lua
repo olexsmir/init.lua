@@ -1,24 +1,15 @@
 return {
   {
-    "Exafunction/codeium.vim",
-    cmd = "Codeium",
-    event = "InsertEnter",
-    -- stylua: ignore
-    keys = {
-      { "<C-;>", vim.fn["codeium#Accept"], mode = "i", expr = true },
-      { "<C-,>", function() return vim.fn["codeium#CycleCompletions"](1) end, mode = "i", expr = true },
-      { "<C-.>", function() return vim.fn["codeium#CycleCompletions"](-1) end, mode = "i", expr = true },
+    "zbirenbaum/copilot.lua",
+    opts = {
+      filetypes = {
+        markdown = false,
+        gitcommit = false,
+        gitignore = false,
+        NeogitCommitMessage = false,
+        TelescopePrompt = false,
+      },
     },
-    init = function()
-      vim.g.codeium_disable_bindings = 1
-      vim.g.codeium_filetypes = {
-        ["markdown"] = false,
-        ["gitcommit"] = false,
-        ["gitignore"] = false,
-        ["NeogitCommitMessage"] = false,
-        ["TelescopePrompt"] = false,
-      }
-    end,
   },
 
   {
@@ -29,6 +20,7 @@ return {
       "saadparwaiz1/cmp_luasnip",
       "hrsh7th/cmp-path",
       "hrsh7th/cmp-nvim-lsp",
+      { "zbirenbaum/copilot-cmp", dependencies = "copilot.lua" },
     },
     config = function()
       local cmp = require "cmp"
@@ -39,6 +31,8 @@ return {
       cmp.setup.filetype({ "gitcommit", "NeogitCommitMessage" }, {
         sources = { { name = "buffer" }, { name = "luasnip" } },
       })
+
+      require("copilot_cmp").setup()
 
       cmp.setup {
         snippet = {
@@ -75,6 +69,7 @@ return {
               Event = "",
               Operator = "",
               TypeParameter = "",
+              Copilot = "",
             })[vim_item.kind]
 
             return vim_item
@@ -112,6 +107,7 @@ return {
           end,
         },
         sources = cmp.config.sources {
+          { name = "copilot", group_index = 2, max_item_count = 3 },
           { name = "nvim_lsp", max_item_count = 8 },
           { name = "buffer", max_item_count = 4 },
           { name = "luasnip", max_item_count = 3 },
