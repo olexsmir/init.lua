@@ -29,7 +29,10 @@ return {
   {
     "numToStr/Comment.nvim",
     config = true,
-    keys = "gc",
+    keys = {
+      { "gc", mode = "n" },
+      { "gc", mode = "v" },
+    },
   },
   {
     "ahmedkhalf/project.nvim",
