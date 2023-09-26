@@ -4,7 +4,11 @@ return {
   dependencies = {
     "b0o/schemastore.nvim",
     { "williamboman/mason-lspconfig.nvim", config = true },
-    { "j-hui/fidget.nvim", config = true },
+    {
+      "j-hui/fidget.nvim",
+      config = true,
+      dependencies = { "nvim-lspconfig" },
+    },
     {
       "folke/neodev.nvim",
       config = true,
@@ -12,12 +16,14 @@ return {
     },
     {
       "jose-elias-alvarez/null-ls.nvim",
+      dependencies = { "nvim-lspconfig" },
       config = function()
         require "plugins.lsp.null-ls"
       end,
     },
     {
       "RRethy/vim-illuminate",
+      dependencies = { "nvim-lspconfig" },
       config = function()
         require("illuminate").configure {
           providers = { "lsp", "treesitter" },
