@@ -5,6 +5,8 @@ local map, expr = u.map, u.expr
 map("n", "<C-s>", "<cmd>write!<cr>")
 map("i", "jk", "<esc>")
 map("n", "<leader>h", "<cmd>nohlsearch<cr>")
+map("n", "<C-d>", "<C-d>zz")
+map("n", "<C-u>", "<C-u>zz")
 
 -- quickfix
 map("n", "<leader>n", "<cmd>cnext<cr>")
