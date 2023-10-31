@@ -1,3 +1,4 @@
+local u = require("core.utils")
 local c = {
   mode = {
     function()
@@ -25,11 +26,19 @@ local c = {
       end
     end,
   },
+  qf_status = {
+    function()
+      if u.get_qf_status() then
+        return "●"
+      end
+      return ""
+    end,
+  },
 }
 
 return {
   "nvim-lualine/lualine.nvim",
-  event = "VeryLazy";
+  event = "VeryLazy",
   opts = {
     options = {
       theme = "tokyonight",
@@ -47,7 +56,7 @@ return {
       lualine_a = { c.mode },
       lualine_b = {},
       lualine_c = { "filename", "branch", c.diagnostic },
-      lualine_x = { c.lsp, "diff" },
+      lualine_x = { c.qf_status, c.lsp, "diff" },
       lualine_y = {},
       lualine_z = { c.location },
     },

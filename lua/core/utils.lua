@@ -1,3 +1,4 @@
+local is_qf_exists = false
 return {
   ---@param mode string|table
   ---@param from string
@@ -25,5 +26,26 @@ return {
       method,
       args
     )
+  end,
+
+  qf_toggle = function()
+    is_qf_exists = false
+    for _, win in pairs(vim.fn.getwininfo()) do
+      if win["quickfix"] == 1 then
+        is_qf_exists = true
+      end
+    end
+    if is_qf_exists == true then
+      vim.cmd "cclose"
+      return
+    end
+    if not vim.tbl_isempty(vim.fn.getqflist()) then
+      vim.cmd "copen"
+    end
+  end,
+
+  ---@return boolean
+  get_qf_status = function()
+    return is_qf_exists
   end,
 }

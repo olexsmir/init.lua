@@ -9,8 +9,9 @@ map("n", "<C-d>", "<C-d>zz")
 map("n", "<C-u>", "<C-u>zz")
 
 -- quickfix
-map("n", "<leader>n", "<cmd>cnext<cr>")
-map("n", "<leader>N", "<cmd>cprev<cr>")
+map("n", "<localleader>j", "<cmd>cnext<cr>")
+map("n", "<localleader>k", "<cmd>cprev<cr>")
+map("n", "<localleader>;", u.qf_toggle)
 
 --- buffers
 map("n", "<leader>q", "<cmd>quit!<cr>")
