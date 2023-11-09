@@ -15,7 +15,7 @@ return {
       dependencies = { "nvim-lspconfig" },
     },
     {
-      "jose-elias-alvarez/null-ls.nvim",
+      "nvimtools/none-ls.nvim",
       dependencies = { "nvim-lspconfig" },
       config = function()
         require "plugins.lsp.null-ls"
