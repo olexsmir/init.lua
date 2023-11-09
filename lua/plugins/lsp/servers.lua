@@ -3,6 +3,8 @@ return {
   html = {},
   emmet_language_server = {},
   dockerls = {},
+  htmx = {},
+  bashls = {},
   gopls = {
     settings = {
       gopls = {
