@@ -14,5 +14,7 @@ null_ls.setup {
     formatting.golines,
     diagnostic.eslint_d,
     formatting.prettierd.with { extra_filetypes = { "astro" } },
+    diagnostic.shellcheck,
+    formatting.shfmt,
   },
 }
