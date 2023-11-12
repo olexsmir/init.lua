@@ -7,7 +7,6 @@ return {
     { "<leader>b", "<cmd>Telescope buffers<cr>" },
     { "<leader>sr", "<cmd>Telescope oldfiles<cr>" },
     { "<leader>st", "<cmd>Telescope live_grep<cr>" },
-    { "<leader>sp", "<cmd>Telescope projects<cr>" },
   },
   config = function()
     local telescope = require "telescope"

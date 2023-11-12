@@ -7,6 +7,8 @@ map("i", "jk", "<esc>")
 map("n", "<leader>h", "<cmd>nohlsearch<cr>")
 map("n", "<C-d>", "<C-d>zz")
 map("n", "<C-u>", "<C-u>zz")
+map("x", "<leader>p", [["_dP]])
+map("n", "Q", "<nop>") -- Q is the worth thing ever
 
 -- quickfix
 map("n", "<localleader>j", "<cmd>cnext<cr>")
@@ -33,7 +35,7 @@ map("n", "<C-Down>", "<cmd>resize +2<cr>")
 map("n", "<C-Up", "<cmd>resize -1<cr>")
 map("n", "<C-Right>", "<cmd>vertical resize +2<CR>")
 
--- move strings
+-- move lines
 map("v", "K", ":move '<-2<CR>gv-gv")
 map("v", "J", ":move '>+1<CR>gv-gv")
 map("n", "<A-j>", ":m .+1<CR>==")
