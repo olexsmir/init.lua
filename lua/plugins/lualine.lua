@@ -1,4 +1,4 @@
-local u = require("core.utils")
+local u = require "core.utils"
 local c = {
   mode = {
     function()
@@ -49,6 +49,7 @@ return {
         "NvimTree",
         "TelescopePrompt",
         "NeogitStatus",
+        "harpoon",
         "lazy",
       },
     },
