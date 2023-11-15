@@ -14,11 +14,11 @@ return {
     config = true,
     keys = {
       { "<leader>a", map("harpoon.mark", "add_file") },
-      { "<leader>1", map("harpoon.ui", "toggle_quick_menu") },
-      { "<localleader>a", map("harpoon.ui", "nav_file", "1") },
-      { "<localleader>s", map("harpoon.ui", "nav_file", "2") },
-      { "<localleader>d", map("harpoon.ui", "nav_file", "3") },
-      { "<localleader>f", map("harpoon.ui", "nav_file", "4") },
+      { "<C-f>", map("harpoon.ui", "toggle_quick_menu") },
+      { "<A-f>", map("harpoon.ui", "nav_file", "1") },
+      { "<A-d>", map("harpoon.ui", "nav_file", "2") },
+      { "<A-s>", map("harpoon.ui", "nav_file", "3") },
+      { "<A-a>", map("harpoon.ui", "nav_file", "4") },
     },
   },
 

@@ -3,19 +3,15 @@ return {
   "nvim-neotest/neotest",
   keys = {
     { "<leader>tn", map("neotest", "run.run") },
-    { "<leader>ta", map("neotest", "run.attach") },
     { "<leader>ts", map("neotest", "summary.toggle") },
     { "<leader>tS", map("neotest", "run.stop") },
     { "<leader>to", map("neotest", "output.open") },
     { "<leader>tO", map("neotest", "output_panel.toggle") },
-    { "<leader>tww", map("neotest", "watch.watch") },
-    { "<leader>tws", map("neotest", "watch.stop") },
-    { "<leader>twt", map("neotest", "watch.toggle") },
     { "]t", map("neotest", "jump.next") },
     { "[t", map("neotest", "jump.prev") },
     { "]T", map("neotest", "jump.next", "{status = 'failed'}") },
     { "[T", map("neotest", "jump.prev", "{status = 'failed'}") },
-    { "<leader>td", map("neotest", "run.run", "{strategy = 'dap'}") },
+    { "<leader>tw", map("neotest", "watch.toggle") },
     {
       "<leader>tt",
       function()
