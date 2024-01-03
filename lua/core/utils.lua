@@ -30,7 +30,9 @@ return {
 
   qf_toggle = function()
     is_qf_exists = false
-    for _, win in pairs(vim.fn.getwininfo()) do
+    for _, win in
+      pairs(vim.fn.getwininfo() --[[@as table]])
+    do
       if win["quickfix"] == 1 then
         is_qf_exists = true
       end
