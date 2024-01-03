@@ -17,6 +17,7 @@ return {
       vim.lsp.inlay_hint(bufnr, true)
     end
 
+    map("K", vim.lsp.buf.hover)
     map("gd", "<cmd>Telescope lsp_definitions<cr>")
     map("gr", "<cmd>Telescope lsp_references<cr>")
     map("gi", "<cmd>Telescope lsp_implementations<cr>")
