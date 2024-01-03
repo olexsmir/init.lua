@@ -14,7 +14,7 @@ return {
     end
 
     if client.server_capabilities.inlayHintProvider then
-      vim.lsp.inlay_hint(bufnr, true)
+      vim.lsp.inlay_hint.enable(bufnr, true)
     end
 
     map("K", vim.lsp.buf.hover)
@@ -29,6 +29,14 @@ return {
     map("<leader>ll", vim.lsp.codelens.run)
     map("]d", vim.diagnostic.goto_next)
     map("[d", vim.diagnostic.goto_prev)
+
+    map("<leader>li", function()
+      if vim.lsp.inlay_hint.is_enabled(bufnr) then
+        vim.lsp.inlay_hint.enable(bufnr, false)
+      else
+        vim.lsp.inlay_hint.enable(bufnr, true)
+      end
+    end)
   end,
   null_ls = function(_, _)
     map("<leader>lf", "<cmd>lua vim.lsp.buf.format {async = true}<cr>")
