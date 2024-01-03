@@ -8,9 +8,7 @@ return {
     { "nvim-treesitter/playground", name = "nvim-treesitter-playground" },
   },
   build = function()
-    pcall(function()
-      vim.cmd "TSUpdate"
-    end)
+    pcall(vim.cmd.TSUpdate)
   end,
   config = function()
     require("nvim-treesitter.configs").setup {
@@ -25,7 +23,6 @@ return {
         "gitcommit",
         "query",
         "sql",
-        "json",
       },
       indent = { enable = true, disable = { "python" } },
       highlight = { enable = true, additional_vim_regex_highlighting = false },

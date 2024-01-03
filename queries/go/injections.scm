@@ -1,10 +1,11 @@
 ;; sql
 ([(interpreted_string_literal)
- (raw_string_literal)] @sql
- (#contains? @sql
+  (raw_string_literal)] @injection.content
+ (#contains? @injection.content
    "--sql" "-- sql" "select" "insert" "update" "delete" "from" "into" "values" "set" "where" "group by"
    "--SQL" "-- SQL" "SELECT" "INSERT" "UPDATE" "DELETE" "FROM" "INTO" "VALUES" "SET" "WHERE" "GROUP BY")
- (#offset! @sql 0 1 0 -1))
+ (#offset! @injection.content 0 1 0 -1)
+ (#set! injection.language "sql"))
 
 ;; json
 ((const_spec
