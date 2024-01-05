@@ -33,7 +33,7 @@ return {
 
   {
     "stevearc/oil.nvim",
-    lazy = false,
+    event = "VeryLazy";
     keys = { { "<leader>e", map("oil", "open") } },
     opts = {
       columns = { "icon" },
