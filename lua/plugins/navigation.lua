@@ -11,15 +11,24 @@ return {
 
   {
     "ThePrimeagen/harpoon",
-    config = true,
-    keys = {
-      { "<leader>a", map("harpoon.mark", "add_file") },
-      { "<C-f>", map("harpoon.ui", "toggle_quick_menu") },
-      { "<A-f>", map("harpoon.ui", "nav_file", "1") },
-      { "<A-d>", map("harpoon.ui", "nav_file", "2") },
-      { "<A-s>", map("harpoon.ui", "nav_file", "3") },
-      { "<A-a>", map("harpoon.ui", "nav_file", "4") },
+    branch = "harpoon2",
+    -- selene: allow(multiple_statements)
+    -- stylua: ignore start
+    keys = { 
+      { "<leader>a", function() require"harpoon":list():append() end },
+      { "<C-f>", function() require"harpoon".ui:toggle_quick_menu(require"harpoon":list()) end },
+      { "<A-f>", function() require"harpoon":list():select(1) end },
+      { "<A-d>", function() require"harpoon":list():select(2) end },
+      { "<A-s>", function() require"harpoon":list():select(3) end },
+      { "<A-a>", function() require"harpoon":list():select(4) end },
     },
+    -- style: ignore end
+    config = function()
+      require"harpoon":setup { settings = {
+        save_on_toggle = true,
+        sync_on_close = true,
+      } }
+    end,
   },
 
   {
