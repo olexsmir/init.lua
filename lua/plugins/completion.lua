@@ -113,6 +113,7 @@ return {
           { name = "luasnip", max_item_count = 3 },
           { name = "path", max_item_count = 2 },
         },
+        experimental = { ghost_text = true },
       }
     end,
   },
