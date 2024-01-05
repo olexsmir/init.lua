@@ -4,7 +4,6 @@ return {
   emmet_language_server = {},
   dockerls = {},
   htmx = {},
-  bashls = {},
   gopls = {
     settings = {
       gopls = {
@@ -21,9 +20,9 @@ return {
           rangeVariableTypes = true,
         },
         codelenses = {
-          generate = false,
+          generate = true,
           gc_details = false,
-          test = false,
+          test = true,
           tidy = true,
         },
       },
@@ -57,6 +56,10 @@ return {
     },
   },
   jsonls = {
-    settings = { json = { schemas = require("schemastore").json.schemas() } },
+    settings = {
+      json = {
+        schemas = require("schemastore").json.schemas(),
+      },
+    },
   },
 }
