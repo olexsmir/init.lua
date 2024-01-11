@@ -14,6 +14,7 @@ require("lazy").setup("plugins", {
   defaults = { lazy = true },
   dev = { path = "~/code" },
   install = { colorscheme = { "tokyonight-night" } },
+  change_detection = { notify = false },
   performance = {
     rtp = {
       disabled_plugins = {
