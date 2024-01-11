@@ -4,9 +4,7 @@ return {
     opts = {
       filetypes = {
         markdown = false,
-        gitcommit = false,
         gitignore = false,
-        NeogitCommitMessage = false,
         TelescopePrompt = false,
       },
     },
@@ -108,7 +106,7 @@ return {
         },
         sources = cmp.config.sources {
           { name = "copilot", group_index = 2, max_item_count = 3 },
-          { name = "nvim_lsp", max_item_count = 8 },
+          { name = "nvim_lsp", max_item_count = 12 },
           { name = "buffer", max_item_count = 4 },
           { name = "luasnip", max_item_count = 3 },
           { name = "path", max_item_count = 2 },
