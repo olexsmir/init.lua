@@ -18,6 +18,7 @@ vim.o.smartcase = true
 vim.o.number = true
 vim.o.relativenumber = true
 vim.o.termguicolors = true
+vim.o.mousemodel = "extend"
 vim.o.completeopt = "menuone,noselect"
 vim.o.clipboard = "unnamedplus"
 vim.o.fileencoding = "utf-8"
@@ -32,6 +33,7 @@ vim.o.sidescrolloff = 8
 vim.o.signcolumn = "yes"
 vim.o.hidden = true
 vim.o.title = true
+vim.o.linebreak = true
 vim.o.wrap = false
 
 -- listchars
