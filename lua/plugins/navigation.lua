@@ -33,7 +33,7 @@ return {
 
   {
     "stevearc/oil.nvim",
-    event = "VeryLazy";
+    event = "VeryLazy",
     keys = { { "<leader>e", map("oil", "open") } },
     opts = {
       columns = { "icon" },
@@ -51,11 +51,11 @@ return {
         ["<A-p>"] = "actions.preview",
         ["<C-r>"] = "actions.refresh",
         ["<C-c>"] = "actions.close",
+        ["<C-[>"] = "actions.close",
 
         ["-"] = "actions.parent",
         ["_"] = "actions.open_cwd",
         [","] = "actions.parent",
-        ["<"] = "actions.open_cwd",
 
         ["\\"] = "actions.cd",
         ["C-\\"] = "actions.tcd",
@@ -68,7 +68,9 @@ return {
           if
             ({
               [".git"] = {},
+              [".bin"] = {},
               [".vscode"] = {},
+              [".docker"] = {},
               ["dist"] = {},
               ["node_modules"] = {},
               ["__pycache__"] = {},
