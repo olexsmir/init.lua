@@ -8,12 +8,10 @@ null_ls.setup {
   sources = {
     formatting.stylua,
     diagnostic.selene,
-    diagnostic.golangci_lint,
     formatting.gofumpt,
     formatting.goimports,
     formatting.golines,
-    diagnostic.eslint_d,
-    formatting.prettierd.with { extra_filetypes = { "astro" } },
+    formatting.prettierd,
     diagnostic.shellcheck,
     formatting.shfmt,
   },

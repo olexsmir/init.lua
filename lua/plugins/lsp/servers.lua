@@ -4,6 +4,18 @@ return {
   emmet_language_server = {},
   dockerls = {},
   htmx = {},
+  golangci_lint_ls = {
+    init_options = {
+      command = {
+        "golangci-lint",
+        "run",
+        "--fast",
+        "--out-format",
+        "json",
+        "--issues-exit-code=1",
+      },
+    },
+  },
   gopls = {
     settings = {
       gopls = {
