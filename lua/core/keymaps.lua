@@ -9,6 +9,8 @@ map("n", "<C-d>", "<C-d>zz")
 map("n", "<C-u>", "<C-u>zz")
 map("x", "<leader>p", [["_dP]])
 map("n", "Q", "<nop>") -- Q is the worth thing ever
+map("n", "H", ":bp<cr>")
+map("n", "L", ":bn<cr>")
 
 -- quickfix
 map("n", "<localleader>j", "<cmd>cnext<cr>")
