@@ -1,7 +1,24 @@
 return {
   {
     "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    build = ":Copilot auth",
+    keys = {
+      { "<leader>lc", ":Copilot panel<cr>" },
+    },
     opts = {
+      suggestion = { enabled = false },
+      panel = {
+        enabled = true,
+        auto_refresh = true,
+        keymap = {
+          refresh = "<C-r>",
+        },
+        layout = {
+          position = "right",
+          ratio = 0.3,
+        },
+      },
       filetypes = {
         markdown = false,
         gitignore = false,
