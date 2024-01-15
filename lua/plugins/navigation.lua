@@ -37,8 +37,10 @@ return {
     keys = { { "<leader>e", map("oil", "open") } },
     opts = {
       columns = { "icon" },
-      use_default_keymaps = false,
       delete_to_trash = true,
+      skip_confirm_for_simple_edits = true,
+      lsp_rename_autosave = true,
+      use_default_keymaps = false,
       keymaps = {
         ["?"] = "actions.show_help",
         ["."] = "actions.toggle_hidden",
