@@ -65,24 +65,36 @@ return {
         ["~"] = "actions.tcd",
       },
       view_options = {
-        show_hidden = true,
+        show_hidden = false,
         is_always_hidden = function(name, _)
           if
             ({
+              [".."] = {}, -- annoying as hell
               [".git"] = {},
-              [".bin"] = {},
-              [".vscode"] = {},
               [".docker"] = {},
+              ["tmp"] = {},
+              ["build"] = {},
               ["dist"] = {},
               ["node_modules"] = {},
               ["__pycache__"] = {},
-              ["vendor"] = {},
               ["target"] = {},
             })[name]
           then
             return true
           end
           return false
+        end,
+        is_hidden_file = function(name, _)
+          if
+            ({
+              ["vendor"] = {},
+              [".vscode"] = {},
+              [".bin"] = {},
+            })[name]
+          then
+            return true
+          end
+          return vim.startswith(name, ".")
         end,
       },
     },

@@ -19,6 +19,7 @@ return {
         file_ignore_patterns = {
           "^\\.git$",
           "^\\.bin$",
+          "^\\tmp$",
           "node_modules",
           "__pycache__",
           "target",
