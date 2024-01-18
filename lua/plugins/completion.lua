@@ -32,6 +32,7 @@ return {
     event = "InsertEnter",
     dependencies = {
       "hrsh7th/cmp-buffer",
+      "saadparwaiz1/cmp_luasnip",
       "hrsh7th/cmp-path",
       "hrsh7th/cmp-nvim-lsp",
       { "zbirenbaum/copilot-cmp", dependencies = "copilot.lua" },
@@ -39,10 +40,11 @@ return {
     config = function()
       local cmp = require "cmp"
       local cmp_autopairs = require "nvim-autopairs.completion.cmp"
+      local luasnip = require "luasnip"
 
       cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
       cmp.setup.filetype({ "gitcommit", "NeogitCommitMessage" }, {
-        sources = { { name = "buffer" } },
+        sources = { { name = "buffer" }, { name = "luasnip" } },
       })
 
       require("copilot_cmp").setup()
@@ -50,7 +52,7 @@ return {
       cmp.setup {
         snippet = {
           expand = function(args)
-            vim.snippet.expand(args.body)
+            luasnip.lsp_expand(args.body)
           end,
         },
         window = {},
@@ -101,6 +103,9 @@ return {
           ["<Tab>"] = function(fallback)
             if cmp.visible() then
               cmp.select_next_item()
+            elseif luasnip.expand_or_jumpable() then
+            -- stylua: ignore
+            vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Plug>luasnip-expand-or-jump", true, true, true), "")
             else
               fallback()
             end
@@ -108,6 +113,9 @@ return {
           ["<S-Tab>"] = function(fallback)
             if cmp.visible() then
               cmp.select_prev_item()
+            elseif luasnip.jumpable(-1) then
+            -- stylua: ignore
+            vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Plug>luasnip-jump-prev", true, true, true), "")
             else
               fallback()
             end
@@ -117,6 +125,7 @@ return {
           { name = "copilot", group_index = 2, max_item_count = 3 },
           { name = "nvim_lsp", max_item_count = 12 },
           { name = "buffer", max_item_count = 4 },
+          { name = "luasnip", max_item_count = 3 },
           { name = "path", max_item_count = 2 },
         },
         experimental = { ghost_text = true },
