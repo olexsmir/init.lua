@@ -31,7 +31,7 @@ return {
       disable_commit_confirmation = true,
       disable_hint = true,
       signs = {
-        section = { "", "" },
+        section = { "", "" },
         item = { "", "" },
         hunk = { "", "" },
       },
