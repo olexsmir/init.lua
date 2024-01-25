@@ -33,8 +33,10 @@ return {
     map("<leader>li", function()
       if vim.lsp.inlay_hint.is_enabled(bufnr) then
         vim.lsp.inlay_hint.enable(bufnr, false)
+        vim.print "Inlay hints disabled"
       else
         vim.lsp.inlay_hint.enable(bufnr, true)
+        vim.print "Inlay hints enabled"
       end
     end)
   end,
