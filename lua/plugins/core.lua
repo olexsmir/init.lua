@@ -27,14 +27,6 @@ return {
     },
   },
   {
-    "numToStr/Comment.nvim",
-    config = true,
-    keys = {
-      { "gc", mode = "n" },
-      { "gc", mode = "v" },
-    },
-  },
-  {
     "ahmedkhalf/project.nvim",
     event = "VeryLazy",
     config = function()
@@ -56,9 +48,5 @@ return {
         },
       }
     end,
-  },
-  {
-    "echasnovski/mini.bufremove",
-    keys = { { "<leader>c", map("mini.bufremove", "delete", "0, false") } },
   },
 }
