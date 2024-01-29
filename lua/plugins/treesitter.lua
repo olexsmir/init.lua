@@ -5,7 +5,6 @@ return {
     "RRethy/nvim-treesitter-endwise",
     "p00f/nvim-ts-rainbow",
     { "nvim-treesitter/nvim-treesitter-context", config = true },
-    { "nvim-treesitter/playground", name = "nvim-treesitter-playground" },
   },
   build = function()
     pcall(vim.cmd.TSUpdate)
