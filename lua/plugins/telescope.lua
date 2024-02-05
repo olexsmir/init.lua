@@ -52,7 +52,12 @@ return {
         lsp_definitions = { theme = "ivy" },
         lsp_references = { theme = "ivy" },
         lsp_implementations = { theme = "ivy" },
-        lsp_document_symbols = { theme = "ivy" },
+        lsp_document_symbols = {
+          theme = "ivy",
+          fname_width = 0.1,
+          symbol_width = 0.8,
+          symbol_type_width = 0.1,
+        },
       },
       extensions = {
         ["ui-select"] = { require("telescope.themes").get_ivy {} },
