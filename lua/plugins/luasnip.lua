@@ -22,9 +22,6 @@ return {
     local extras = require "luasnip.extras"
 
     ls.config.set_config {
-      history = false,
-      region_check_events = "CursorMoved,CursorHold,InsertEnter",
-      delete_check_events = "InsertLeave",
       snip_env = {
         fmt = fmt,
         rep = extras.rep,
