@@ -1,7 +1,10 @@
 return {
   "nvim-telescope/telescope.nvim",
   event = "VeryLazy",
-  dependencies = { "nvim-telescope/telescope-ui-select.nvim" },
+  dependencies = {
+    "nvim-telescope/telescope-ui-select.nvim",
+    { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+  },
   keys = {
     { "<leader>f", "<cmd>Telescope find_files<cr>" },
     { "<leader>b", "<cmd>Telescope buffers<cr>" },
@@ -66,5 +69,6 @@ return {
 
     telescope.load_extension "projects"
     telescope.load_extension "ui-select"
+    telescope.load_extension "fzf"
   end,
 }
