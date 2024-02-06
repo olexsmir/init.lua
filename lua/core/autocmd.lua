@@ -1,22 +1,25 @@
-local cmd = vim.api.nvim_create_autocmd
+local aucmd = vim.api.nvim_create_autocmd
+local function augroup(name)
+  return vim.api.nvim_create_augroup("olexsmir_" .. name, { clear = true })
+end
 
-cmd("TextYankPost", {
-  pattern = "*",
+aucmd("TextYankPost", {
+  group = augroup "highlight_yank",
   callback = function()
-    vim.highlight.on_yank { timeout = 60 }
+    vim.highlight.on_yank()
   end,
 })
 
-cmd("FileType", {
-  pattern = "javascript,typescript,json,html,htmldjango,css",
+aucmd("VimResized", {
+  group = augroup "resize_splits",
   callback = function()
-    vim.bo.tabstop = 2
-    vim.bo.shiftwidth = 2
-    vim.bo.softtabstop = 2
+    vim.cmd "tabdo wincmd ="
+    vim.cmd("tabnext " .. vim.fn.tabpagenr())
   end,
 })
 
-cmd("FileType", {
+aucmd("FileType", {
+  group = augroup "comments",
   callback = function()
     vim.cmd "set formatoptions-=cro"
   end,
