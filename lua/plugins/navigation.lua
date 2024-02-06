@@ -12,22 +12,26 @@ return {
   {
     "ThePrimeagen/harpoon",
     branch = "harpoon2",
-    -- selene: allow(multiple_statements)
-    -- stylua: ignore start
-    keys = { 
-      { "<leader>a", function() require"harpoon":list():append() end },
-      { "<C-f>", function() require"harpoon".ui:toggle_quick_menu(require"harpoon":list()) end },
-      { "<A-f>", function() require"harpoon":list():select(1) end },
-      { "<A-d>", function() require"harpoon":list():select(2) end },
-      { "<A-s>", function() require"harpoon":list():select(3) end },
-      { "<A-a>", function() require"harpoon":list():select(4) end },
-    },
-    -- style: ignore end
+    keys = function()
+      local h = require "harpoon"
+
+      -- stylua: ignore
+      return {
+        { "<leader>a", function() h:list():append() end },
+        { "<C-f>", function() h.ui:toggle_quick_menu(h:list()) end },
+        { "<A-f>", function() h:list():select(1) end },
+        { "<A-d>", function() h:list():select(2) end },
+        { "<A-s>", function() h:list():select(3) end },
+        { "<A-a>", function() h:list():select(4) end },
+      }
+    end,
     config = function()
-      require"harpoon":setup { settings = {
-        save_on_toggle = true,
-        sync_on_close = true,
-      } }
+      require("harpoon"):setup {
+        settings = {
+          save_on_toggle = true,
+          sync_on_close = true,
+        },
+      }
     end,
   },
 
