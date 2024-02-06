@@ -13,9 +13,13 @@ map("n", "H", ":bp<cr>")
 map("n", "L", ":bn<cr>")
 
 -- quickfix
-map("n", "<localleader>j", "<cmd>cnext<cr>")
-map("n", "<localleader>k", "<cmd>cprev<cr>")
-map("n", "<localleader>;", u.qf_toggle)
+map("n", "]q", "<cmd>cnext<cr>")
+map("n", "[q", "<cmd>cprev<cr>")
+-- map("n", "<leader>F", u.qf_toggle)
+
+-- macros
+map("n", "Q", "@qj")
+map("x", "Q", ":norm @qj<cr>")
 
 --- buffers
 map("n", "<leader>q", "<cmd>quit!<cr>")
