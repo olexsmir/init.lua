@@ -29,14 +29,8 @@ return {
     event = "VeryLazy",
     config = function()
       require("project_nvim").setup {
-        show_hidden = true,
         patterns = {
           "^\\.git$",
-          "Makefile",
-          "Justfile",
-          [[Taskfile\.ya?ml]],
-          [[docker-compose\.ya?ml]],
-          "*.Dockerfile.*",
           "package.json",
           "go.mod",
           "go.work",
