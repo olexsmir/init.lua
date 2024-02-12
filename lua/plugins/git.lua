@@ -1,16 +1,19 @@
-local map = require("core.utils").smap
 return {
   {
     "lewis6991/gitsigns.nvim",
     event = "BufRead",
-    keys = {
-      { "]g", map("gitsigns", "next_hunk") },
-      { "[g", map("gitsigns", "prev_hunk") },
-      { "<leader>gs", map("gitsigns", "stage_hunk") },
-      { "<leader>gu", map("gitsigns", "undo_stage_hunk") },
-      { "<leader>gr", map("gitsigns", "reset_hunk") },
-      { "<leader>gp", map("gitsigns", "preview_hunk") },
-    },
+    keys = function()
+      local g = require "gitsigns"
+      return {
+        { "]g", g.next_hunk },
+        { "[g", g.prev_hunk },
+        { "<leader>gs", g.stage_hunk },
+        { "<leader>gu", g.undo_stage_hunk },
+        { "<leader>gr", g.reset_hunk },
+        { "<leader>gb", g.preview_hunk },
+        { "<leader>gB", g.blame_line },
+      }
+    end,
     opts = {
       max_file_length = 1000,
       current_line_blame = true,

@@ -1,10 +1,14 @@
-local map = require("core.utils").smap
 return {
   {
     "echasnovski/mini.bufremove",
     config = true,
     keys = {
-      { "<leader>c", map("mini.bufremove", "delete", "0, false") },
+      {
+        "<leader>c",
+        function()
+          require("mini.bufremove").delete(0, false)
+        end,
+      },
     },
   },
   {

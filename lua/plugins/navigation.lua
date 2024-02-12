@@ -1,4 +1,3 @@
-local map = require("core.utils").smap
 return {
   {
     "mbbill/undotree",
@@ -38,7 +37,14 @@ return {
   {
     "stevearc/oil.nvim",
     event = "VeryLazy",
-    keys = { { "<leader>e", map("oil", "open") } },
+    keys = {
+      {
+        "<leader>e",
+        function()
+          require("oil").open()
+        end,
+      },
+    },
     opts = {
       columns = { "icon" },
       delete_to_trash = true,

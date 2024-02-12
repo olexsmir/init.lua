@@ -3,9 +3,6 @@ return {
     "zbirenbaum/copilot.lua",
     cmd = "Copilot",
     build = ":Copilot auth",
-    keys = {
-      { "<leader>lc", ":Copilot panel<cr>" },
-    },
     opts = {
       suggestion = { enabled = false },
       panel = {

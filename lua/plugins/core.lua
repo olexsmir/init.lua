@@ -1,8 +1,6 @@
-local map = require("core.utils").smap
 return {
   "nvim-lua/plenary.nvim",
   "kyazdani42/nvim-web-devicons",
-  { "olexsmir/gopher.nvim", ft = "go", dev = true },
   { "tpope/vim-surround", keys = { "c", "d", "y" } },
   { "tpope/vim-repeat", event = "VeryLazy" },
   { "tweekmonster/helpful.vim", cmd = "HelpfulVersion" },

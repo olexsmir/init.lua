@@ -7,15 +7,14 @@ map("i", "jk", "<esc>")
 map("n", "<leader>h", "<cmd>nohlsearch<cr>")
 map("n", "<C-d>", "<C-d>zz")
 map("n", "<C-u>", "<C-u>zz")
-map("x", "<leader>p", [["_dP]])
 map("n", "Q", "<nop>") -- Q is the worth thing ever
-map("n", "H", ":bp<cr>")
-map("n", "L", ":bn<cr>")
+map("n", "[b", ":bp<cr>")
+map("n", "]b", ":bn<cr>")
 
 -- quickfix
 map("n", "]q", "<cmd>cnext<cr>")
 map("n", "[q", "<cmd>cprev<cr>")
--- map("n", "<leader>F", u.qf_toggle)
+map("n", "<lader>x", u.qf_toggle)
 
 -- macros
 map("n", "Q", "@qj")

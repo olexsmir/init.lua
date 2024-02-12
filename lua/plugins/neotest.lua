@@ -1,44 +1,42 @@
-local map = require("core.utils").smap
 return {
   "nvim-neotest/neotest",
-  keys = {
-    { "<leader>tn", map("neotest", "run.run") },
-    { "<leader>ts", map("neotest", "summary.toggle") },
-    { "<leader>tS", map("neotest", "run.stop") },
-    { "<leader>to", map("neotest", "output.open") },
-    { "<leader>tO", map("neotest", "output_panel.toggle") },
-    { "]t", map("neotest", "jump.next") },
-    { "[t", map("neotest", "jump.prev") },
-    { "]T", map("neotest", "jump.next", "{status = 'failed'}") },
-    { "[T", map("neotest", "jump.prev", "{status = 'failed'}") },
-    { "<leader>tw", map("neotest", "watch.toggle") },
-    {
-      "<leader>tt",
-      function()
-        require("neotest").run.run(vim.fn.expand "%")
-      end,
-    },
-  },
+  keys = function()
+    local n = require "neotest"
+
+    -- stylua: ignore
+    return {
+      { "<leader>tn", function() n.run.run() end },
+      { "<leader>ts", function() n.summary.toggle() end },
+      { "<leader>tS", function() n.run.stop() end },
+      { "<leader>to", function() n.output.open() end },
+      { "<leader>tO", function() n.output_panel.toggle() end },
+      { "<leader>tw", function() n.watch.toggle() end },
+      { "<leader>tt", function() n.run.run(vim.fn.expand "%") end },
+      { "]t", function() n.jump.next() end },
+      { "[t", function() n.jump.prev() end },
+      { "]T", function() n.jump.next {status = "failed"} end },
+      { "[T", function() n.jump.prev {status = "failed"} end },
+    }
+  end,
   dependencies = {
     { "roveo/neotest-go", branch = "feat/testify-suite" },
     "nvim-neotest/neotest-plenary",
     "nvim-treesitter",
   },
-  config = function()
-    local neotest_ns = vim.api.nvim_create_namespace "neotest"
+  init = function()
     vim.diagnostic.config({
       virtual_text = {
         format = function(diagnostic)
-          local message = diagnostic.message
+          return diagnostic.message
             :gsub("\n", " ")
             :gsub("\t", " ")
             :gsub("%s+", " ")
             :gsub("^%s+", "")
-          return message
         end,
       },
-    }, neotest_ns)
-
+    }, vim.api.nvim_create_namespace "neotest")
+  end,
+  config = function()
     require("neotest").setup {
       adapters = {
         require "neotest-plenary",
