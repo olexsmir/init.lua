@@ -40,9 +40,7 @@ return {
       "williamboman/mason.nvim",
       config = true,
       build = function()
-        pcall(function()
-          vim.cmd "MasonUpdate"
-        end)
+        pcall(vim.cmd.MasonUpdate())
       end,
     },
   },
