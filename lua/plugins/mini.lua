@@ -25,22 +25,4 @@ return {
       { "gS", mode = { "n", "v" } },
     },
   },
-  {
-    "echasnovski/mini.files",
-    event = "VeryLazy",
-    init = function()
-      vim.api.nvim_create_user_command("MiniFiles", function()
-        -- selene: allow(undefined_variable)
-        MiniFiles.open()
-      end, {})
-    end,
-    opts = {
-      mappings = {
-        synchronize = "<leader>w",
-      },
-      options = {
-        permanent_delete = false,
-      },
-    },
-  },
 }
