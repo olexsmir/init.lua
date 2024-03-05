@@ -9,8 +9,8 @@ return {
     { "<leader>f", "<cmd>Telescope find_files<cr>" },
     { "<leader>b", "<cmd>Telescope buffers<cr>" },
     { "<leader>sr", "<cmd>Telescope oldfiles<cr>" },
+    { "<leader>sg", "<cmd>Telescope live_grep<cr>" },
     { "<leader>sd", "<cmd>Telescope diagnostics<cr>" },
-    { "<leader>st", "<cmd>Telescope live_grep<cr>" },
     { "<leader>sh", "<cmd>Telescope help_tags<cr>" },
   },
   config = function()
