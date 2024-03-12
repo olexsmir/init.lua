@@ -1,5 +1,6 @@
 return {
   tsserver = {},
+  eslint = {},
   html = {},
   emmet_language_server = {},
   dockerls = {},
