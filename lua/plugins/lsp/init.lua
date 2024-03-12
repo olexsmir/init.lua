@@ -46,7 +46,6 @@ return {
     },
   },
   config = function()
-    require("plugins.lsp.diagnostic").setup()
     for name, conf in pairs(require "plugins.lsp.servers") do
       require("lspconfig")[name].setup(vim.tbl_extend("force", {
         on_attach = require("plugins.lsp.attach").common,

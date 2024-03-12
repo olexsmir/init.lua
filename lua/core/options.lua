@@ -1,3 +1,5 @@
+require("core.diagnostic").setup()
+
 vim.g.editorconfig = true
 
 vim.opt.shell = "/bin/sh" -- fixex issues with fish shell
