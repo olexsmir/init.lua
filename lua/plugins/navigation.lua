@@ -66,7 +66,7 @@ return {
         ["<C-[>"] = "actions.close",
 
         ["-"] = "actions.open_cwd",
-        [","] = "actions.parent",
+        [";"] = "actions.parent",
 
         ["\\"] = "actions.cd",
         ["C-\\"] = "actions.tcd",
