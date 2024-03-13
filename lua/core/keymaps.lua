@@ -1,49 +1,42 @@
 local u = require "core.utils"
-local map, expr = u.map, u.expr
 
 -- general
-map("n", "<C-s>", "<cmd>write!<cr>")
-map("i", "jk", "<esc>")
-map("n", "<leader>h", "<cmd>nohlsearch<cr>")
-map("n", "<C-d>", "<C-d>zz")
-map("n", "<C-u>", "<C-u>zz")
-map("n", "Q", "<nop>") -- Q is the worth thing ever
-map("n", "[b", ":bp<cr>")
-map("n", "]b", ":bn<cr>")
+u.map("n", "<C-s>", "<cmd>write!<cr>")
+u.map("i", "jk", "<esc>")
+u.map("n", "<leader>h", "<cmd>nohlsearch<cr>")
+u.map("n", "<C-d>", "<C-d>zz")
+u.map("n", "<C-u>", "<C-u>zz")
+u.map("n", "Q", "<nop>") -- Q is the worth thing ever
+u.map("n", "[b", ":bp<cr>")
+u.map("n", "]b", ":bn<cr>")
 
 -- quickfix
-map("n", "]q", "<cmd>cnext<cr>")
-map("n", "[q", "<cmd>cprev<cr>")
-map("n", "<lader>x", u.qf_toggle)
+u.map("n", "]q", "<cmd>cnext<cr>")
+u.map("n", "[q", "<cmd>cprev<cr>")
+u.map("n", "<leader>j", u.qf_toggle)
 
 -- macros
-map("n", "Q", "@qj")
-map("x", "Q", ":norm @qj<cr>")
+u.map("n", "Q", "@qj")
+u.map("x", "Q", ":norm @qj<cr>")
 
 --- buffers
-map("n", "<leader>q", "<cmd>quit!<cr>")
-map("n", "<leader>w", "<cmd>write!<cr>")
-
--- select in pupup by C-j & C-k
-expr("i", "<C-j>", 'pumvisible() ? "\\<down>" : "\\<C-j>"')
-expr("i", "<C-k>", 'pumvisible() ? "\\<up>" : "\\<C-k>"')
-expr("c", "<C-j>", 'pumvisible() ? "\\<C-n>" : "\\<C-j>"')
-expr("c", "<C-k>", 'pumvisible() ? "\\<C-p>" : "\\<C-k>"')
+u.map("n", "<leader>q", "<cmd>quit!<cr>")
+u.map("n", "<leader>w", "<cmd>write!<cr>")
 
 -- window navigation and resize
-map("n", "<C-h>", "<cmd>wincmd h<cr>")
-map("n", "<C-j>", "<cmd>wincmd j<cr>")
-map("n", "<C-k>", "<cmd>wincmd k<cr>")
-map("n", "<C-l>", "<cmd>wincmd l<cr>")
-map("n", "<C-Left>", "<cmd>vertical resize -2<cr>")
-map("n", "<C-Down>", "<cmd>resize +2<cr>")
-map("n", "<C-Up", "<cmd>resize -1<cr>")
-map("n", "<C-Right>", "<cmd>vertical resize +2<CR>")
+u.map("n", "<C-h>", "<cmd>wincmd h<cr>")
+u.map("n", "<C-j>", "<cmd>wincmd j<cr>")
+u.map("n", "<C-k>", "<cmd>wincmd k<cr>")
+u.map("n", "<C-l>", "<cmd>wincmd l<cr>")
+u.map("n", "<C-Left>", "<cmd>vertical resize -2<cr>")
+u.map("n", "<C-Down>", "<cmd>resize +2<cr>")
+u.map("n", "<C-Up", "<cmd>resize -1<cr>")
+u.map("n", "<C-Right>", "<cmd>vertical resize +2<CR>")
 
 -- move lines
-map("v", "K", ":move '<-2<CR>gv-gv")
-map("v", "J", ":move '>+1<CR>gv-gv")
-map("n", "<A-j>", ":m .+1<CR>==")
-map("n", "<A-k>", ":m .-2<CR>==")
-map("v", "<", "<gv")
-map("v", ">", ">gv")
+u.map("v", "K", ":move '<-2<CR>gv-gv")
+u.map("v", "J", ":move '>+1<CR>gv-gv")
+u.map("n", "<A-j>", ":m .+1<CR>==")
+u.map("n", "<A-k>", ":m .-2<CR>==")
+u.map("v", "<", "<gv")
+u.map("v", ">", ">gv")
