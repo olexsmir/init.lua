@@ -6,7 +6,7 @@ return {
       {
         "<leader>c",
         function()
-          require("mini.bufremove").delete(0, false)
+          require("mini.bufremove").delete()
         end,
       },
     },
