@@ -51,6 +51,7 @@ return {
         buffers = { theme = "ivy" },
         oldfiles = { theme = "ivy" },
         keymaps = { theme = "ivy" },
+        help_tags = { theme = "ivy" },
         git_branches = { theme = "ivy" },
         diagnostics = { theme = "ivy" },
         git_commits = { theme = "ivy" },
