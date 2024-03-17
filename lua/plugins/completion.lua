@@ -1,30 +1,5 @@
 return {
   {
-    "zbirenbaum/copilot.lua",
-    cmd = "Copilot",
-    build = ":Copilot auth",
-    opts = {
-      suggestion = { enabled = false },
-      panel = {
-        enabled = true,
-        auto_refresh = true,
-        keymap = {
-          refresh = "<C-r>",
-        },
-        layout = {
-          position = "right",
-          ratio = 0.3,
-        },
-      },
-      filetypes = {
-        markdown = false,
-        gitignore = false,
-        TelescopePrompt = false,
-      },
-    },
-  },
-
-  {
     "hrsh7th/nvim-cmp",
     event = "InsertEnter",
     dependencies = {
