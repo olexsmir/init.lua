@@ -1,6 +1,8 @@
 local u = require "core.utils"
 
 -- general
+u.map("n", "<leader>q", "<cmd>quit!<cr>")
+u.map("n", "<leader>w", "<cmd>write!<cr>")
 u.map("n", "<C-s>", "<cmd>write!<cr>")
 u.map("i", "jk", "<esc>")
 u.map("n", "<leader>h", "<cmd>nohlsearch<cr>")
@@ -13,15 +15,10 @@ u.map("n", "]b", ":bn<cr>")
 -- quickfix
 u.map("n", "]q", "<cmd>cnext<cr>")
 u.map("n", "[q", "<cmd>cprev<cr>")
-u.map("n", "<leader>j", u.qf_toggle)
 
 -- macros
 u.map("n", "Q", "@qj")
 u.map("x", "Q", ":norm @qj<cr>")
-
---- buffers
-u.map("n", "<leader>q", "<cmd>quit!<cr>")
-u.map("n", "<leader>w", "<cmd>write!<cr>")
 
 -- window navigation and resize
 u.map("n", "<C-h>", "<cmd>wincmd h<cr>")
