@@ -2,7 +2,7 @@ require("core.diagnostic").setup()
 
 vim.g.editorconfig = true
 
-vim.opt.shell = "/bin/sh" -- fixex issues with fish shell
+vim.opt.shell = "/bin/bash" -- fixes issues with fish shell
 
 -- leader
 vim.g.mapleader = " "
