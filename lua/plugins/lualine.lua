@@ -34,6 +34,11 @@ local c = {
       return ""
     end,
   },
+  harpoon_status = {
+    function()
+      return require("scratch.harpoon_status").lualine()
+    end,
+  },
 }
 
 return {
@@ -56,7 +61,7 @@ return {
     sections = {
       lualine_a = { c.mode },
       lualine_b = {},
-      lualine_c = { "filename", "branch", c.diagnostic },
+      lualine_c = { c.harpoon_status, "filename", "branch", c.diagnostic },
       lualine_x = { c.qf_status, c.lsp, "diff" },
       lualine_y = {},
       lualine_z = { c.location },
