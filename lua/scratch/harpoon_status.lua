@@ -1,11 +1,14 @@
-local h = require "harpoon"
 local M = {}
 
+---@param v number
+---@return string
 local function get_active_indicator(v)
   return string.format("|%d|", v)
 end
 
+---@return string
 function M.status()
+  local h = require "harpoon"
   local list = h:list()
   local rdir = list.config:get_root_dir()
   local cfpath = vim.api.nvim_buf_get_name(0)
@@ -26,9 +29,11 @@ function M.status()
   return table.concat(status, " ")
 end
 
+---@return string
 function M.lualine()
-  if not package.loaded["harpoon"] ~= nil then
-    return
+  local harpoon_loaded = package.loaded["harpoon"] ~= nil
+  if not harpoon_loaded then
+    return ""
   end
   return M.status():reverse()
 end
