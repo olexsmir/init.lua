@@ -61,10 +61,8 @@ return {
   yamlls = {
     settings = {
       yaml = {
-        schemaStore = {
-          enable = true,
-          url = "https://www.schemastore.org/api/json/catalog.json",
-        },
+        schemaStore = { enable = false },
+        schemas = require("schemastore").yaml.schemas(),
       },
     },
   },
@@ -72,6 +70,7 @@ return {
     settings = {
       json = {
         schemas = require("schemastore").json.schemas(),
+        validate = { enable = true },
       },
     },
   },
