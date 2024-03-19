@@ -36,8 +36,9 @@ local c = {
   },
   harpoon_status = {
     function()
-      return require("scratch.harpoon_status").lualine()
+      return require("scratch.harpoon_status").status():reverse()
     end,
+    cond = require("scratch.harpoon_status").exists,
   },
 }
 

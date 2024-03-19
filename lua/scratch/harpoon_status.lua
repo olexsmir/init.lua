@@ -8,8 +8,7 @@ end
 
 ---@return string
 function M.status()
-  local h = require "harpoon"
-  local list = h:list()
+  local list = require("harpoon"):list()
   local rdir = list.config:get_root_dir()
   local cfpath = vim.api.nvim_buf_get_name(0)
   local len = list:length()
@@ -29,13 +28,9 @@ function M.status()
   return table.concat(status, " ")
 end
 
----@return string
-function M.lualine()
-  local harpoon_loaded = package.loaded["harpoon"] ~= nil
-  if not harpoon_loaded then
-    return ""
-  end
-  return M.status():reverse()
+---@return boolean
+function M.exists()
+  return package.loaded["harpoon"] ~= nil
 end
 
 function M.debug()
