@@ -8,7 +8,6 @@ null_ls.setup {
   sources = {
     formatting.stylua,
     diagnostic.selene,
-    formatting.gofumpt,
     formatting.goimports,
     formatting.golines,
     formatting.prettierd,

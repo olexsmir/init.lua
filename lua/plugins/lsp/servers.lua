@@ -23,13 +23,17 @@ return {
         linksInHover = false,
         staticcheck = true,
         gofumpt = true,
-        analyses = { unusedparams = true, unreachable = true },
+        analyses = {
+          unusedparams = true,
+          unreachable = true,
+          shadow = true,
+        },
         hints = {
           assignVariableTypes = true,
           compositeLiteralFields = true,
           constantValues = true,
           functionTypeParameters = false,
-          parameterNames = false,
+          parameterNames = true,
           rangeVariableTypes = true,
         },
         codelenses = {

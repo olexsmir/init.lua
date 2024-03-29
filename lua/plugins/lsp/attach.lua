@@ -17,7 +17,6 @@ function attach.basic(_, _)
 end
 
 function attach.common(client, bufnr)
-  client.server_capabilities.documentFormattingProvider = false
   if client.name == "gopls" then
     vim.lsp.codelens.refresh()
   end
