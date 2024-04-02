@@ -28,6 +28,12 @@ return {
           end,
         },
         window = {},
+        view = {
+          entries = {
+            follow_cursor = true,
+          },
+        },
+        experimental = { ghost_text = true },
         formatting = {
           format = function(_, vim_item)
             vim_item.kind = ({
@@ -92,7 +98,6 @@ return {
           { name = "luasnip", max_item_count = 3 },
           { name = "path", max_item_count = 2 },
         },
-        experimental = { ghost_text = true },
       }
     end,
   },
