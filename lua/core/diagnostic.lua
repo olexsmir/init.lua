@@ -13,7 +13,7 @@ diagnistic.border = {
 
 diagnistic.diagnostic = {
   virtual_text = true,
-  update_in_insert = false,
+  update_in_insert = true,
   underline = true,
   severity_sort = false,
   signs = {
@@ -35,11 +35,6 @@ diagnistic.diagnostic = {
 }
 
 function diagnistic.setup()
-  vim.lsp.handlers["textDocument/hover"] =
-    vim.lsp.with(vim.lsp.handlers.hover, {
-      border = diagnistic.border,
-    })
-
   vim.diagnostic.config(diagnistic.diagnostic)
   for _, sign in ipairs(diagnistic.diagnostic.signs.active) do
     vim.fn.sign_define(sign.name, {
