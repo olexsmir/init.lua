@@ -34,7 +34,13 @@ return {
     },
     opts = {
       mappings = {
-        reset = "<C-r>",
+        reset = {
+          insert = "<C-r>",
+          normal = "<C-r>",
+        },
+        submit_prompt = {
+          insert = "<C-CR>",
+        },
       },
     },
   },
