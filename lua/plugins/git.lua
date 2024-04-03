@@ -8,10 +8,9 @@ return {
         { "]g", g.next_hunk },
         { "[g", g.prev_hunk },
         { "<leader>gs", g.stage_hunk },
-        { "<leader>gu", g.undo_stage_hunk },
+        { "<leader>gS", g.undo_stage_hunk },
         { "<leader>gr", g.reset_hunk },
-        { "<leader>gb", g.preview_hunk },
-        { "<leader>gB", g.blame_line },
+        { "<leader>gh", g.preview_hunk },
       }
     end,
     opts = {
