@@ -21,10 +21,6 @@ function attach.common(client, bufnr)
     vim.lsp.codelens.refresh()
   end
 
-  if client.server_capabilities.inlayHintProvider then
-    vim.lsp.inlay_hint.enable(bufnr, true)
-  end
-
   attach.basic(client, bufnr)
 
   u.map("n", "K", vim.lsp.buf.hover, true)
