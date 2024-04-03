@@ -19,6 +19,7 @@ return {
     }
   end,
   dependencies = {
+    "nvim-neotest/nvim-nio";
     { "roveo/neotest-go", branch = "feat/testify-suite" },
     "nvim-neotest/neotest-plenary",
     "nvim-treesitter",
