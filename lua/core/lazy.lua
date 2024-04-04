@@ -13,7 +13,10 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins", {
-  defaults = { lazy = true },
+  defaults = {
+    lazy = true,
+    -- version = "*",-- use only stable releases
+  },
   dev = { path = "~/code" },
   install = { colorscheme = { "tokyonight-night" } },
   change_detection = { notify = false },
