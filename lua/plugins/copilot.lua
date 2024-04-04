@@ -7,20 +7,17 @@ return {
     opts = {
       suggestion = { enabled = false },
       panel = {
-        enabled = true,
+        enabled = false,
         auto_refresh = true,
-        keymap = {
-          refresh = "<C-r>",
-        },
+        keymap = { refresh = "<C-r>" },
         layout = {
           position = "right",
           ratio = 0.3,
         },
       },
       filetypes = {
-        markdown = false,
-        gitignore = false,
         TelescopePrompt = false,
+        ["."] = false,
       },
     },
   },
