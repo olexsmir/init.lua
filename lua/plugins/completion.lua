@@ -7,24 +7,26 @@ return {
       "saadparwaiz1/cmp_luasnip",
       "hrsh7th/cmp-path",
       "hrsh7th/cmp-nvim-lsp",
-      { "zbirenbaum/copilot-cmp", dependencies = "copilot.lua" },
+      {
+        "zbirenbaum/copilot-cmp",
+        dependencies = "copilot.lua",
+        enabled = true,
+        opts = {},
+      },
     },
     config = function()
       local cmp = require "cmp"
       local cmp_autopairs = require "nvim-autopairs.completion.cmp"
-      local luasnip = require "luasnip"
 
       cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
       cmp.setup.filetype({ "gitcommit", "NeogitCommitMessage" }, {
         sources = { { name = "buffer" }, { name = "luasnip" } },
       })
 
-      require("copilot_cmp").setup()
-
       cmp.setup {
         snippet = {
           expand = function(args)
-            luasnip.lsp_expand(args.body)
+            require("luasnip").lsp_expand(args.body)
           end,
         },
         window = {},
