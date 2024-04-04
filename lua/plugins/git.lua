@@ -26,6 +26,7 @@ return {
   {
     "TimUntersberger/neogit",
     cmd = "Neogit",
+    branch = "nightly",
     keys = { { "<leader>gg", vim.cmd.Neogit } },
     opts = {
       kind = "vsplit",
