@@ -3,8 +3,8 @@ return {
   eslint = {},
   html = {},
   emmet_language_server = {},
-  dockerls = {},
   htmx = {},
+  templ = {},
   golangci_lint_ls = {
     init_options = {
       command = {
