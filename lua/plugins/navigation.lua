@@ -16,7 +16,7 @@ return {
 
       -- stylua: ignore
       return {
-        { "<leader>a", function() h:list():append() end },
+        { "<leader>a", function() h:list():add() end },
         { "<C-f>", function() h.ui:toggle_quick_menu(h:list()) end },
         { "<A-f>", function() h:list():select(1) end },
         { "<A-d>", function() h:list():select(2) end },
