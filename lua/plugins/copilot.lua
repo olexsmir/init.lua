@@ -16,6 +16,7 @@ return {
         },
       },
       filetypes = {
+        yaml = true,
         TelescopePrompt = false,
         ["."] = false,
       },
