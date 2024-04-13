@@ -30,7 +30,7 @@ function attach.common(client, bufnr)
   u.map("n", "gl", vim.diagnostic.open_float, true)
   u.map("n", "<leader>la", vim.lsp.buf.code_action, true)
   u.map("n", "<leader>lr", vim.lsp.buf.rename, true)
-  u.map("n", "<leader>ls", "<cmd>Telescope lsp_document_symbols<cr>", true)
+  u.map("n", "<leader>ss", "<cmd>Telescope lsp_document_symbols<cr>", true)
   u.map("n", "<leader>ll", vim.lsp.codelens.run, true)
   u.map("n", "<leader>li", function()
     if vim.lsp.inlay_hint.is_enabled(bufnr) then
