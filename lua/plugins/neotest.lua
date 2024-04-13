@@ -19,7 +19,7 @@ return {
     }
   end,
   dependencies = {
-    "nvim-neotest/nvim-nio";
+    "nvim-neotest/nvim-nio",
     { "roveo/neotest-go", branch = "feat/testify-suite" },
     "nvim-neotest/neotest-plenary",
     "nvim-treesitter",
@@ -28,11 +28,12 @@ return {
     vim.diagnostic.config({
       virtual_text = {
         format = function(diagnostic)
-          return diagnostic.message
+          local r, _ = diagnostic.message
             :gsub("\n", " ")
             :gsub("\t", " ")
             :gsub("%s+", " ")
             :gsub("^%s+", "")
+          return r
         end,
       },
     }, vim.api.nvim_create_namespace "neotest")
