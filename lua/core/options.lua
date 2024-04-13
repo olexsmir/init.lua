@@ -6,7 +6,7 @@ vim.opt.shell = "/bin/bash" -- fixes issues with fish shell
 
 -- leader
 vim.g.mapleader = " "
-vim.g.maplocalleader = ","
+vim.g.maplocalleader = "\\"
 
 -- indenting
 vim.o.smartindent = true
@@ -33,7 +33,7 @@ vim.o.splitright = true
 vim.o.pumheight = 8
 vim.o.numberwidth = 4
 vim.o.scrolloff = 8
-vim.o.sidescrolloff = 8
+vim.o.sidescrolloff = 12
 vim.o.signcolumn = "yes"
 vim.o.hidden = true
 vim.o.title = true
