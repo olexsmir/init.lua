@@ -40,6 +40,7 @@ local c = {
   },
 }
 
+---@type LazySpec
 return {
   "nvim-lualine/lualine.nvim",
   event = "VeryLazy",
