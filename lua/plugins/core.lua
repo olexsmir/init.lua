@@ -9,7 +9,7 @@ return {
   {
     "folke/tokyonight.nvim",
     lazy = false,
-    config = function()
+    init = function()
       vim.cmd.colorscheme "tokyonight-night"
     end,
   },
