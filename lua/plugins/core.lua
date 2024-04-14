@@ -29,17 +29,19 @@ return {
   {
     "ahmedkhalf/project.nvim",
     event = "VeryLazy",
-    config = function()
-      require("project_nvim").setup {
-        patterns = {
-          "^\\.git$",
-          "package.json",
-          "go.mod",
-          "go.work",
-          "Cargo.toml",
-          "deps.edn",
-        },
-      }
+    ---@type ProjectOptions
+    opts = {
+      patterns = {
+        "^\\.git$",
+        "package.json",
+        "go.mod",
+        "go.work",
+        "Cargo.toml",
+        "deps.edn",
+      },
+    },
+    config = function(_, opts)
+      require("project_nvim").setup(opts)
     end,
   },
 }

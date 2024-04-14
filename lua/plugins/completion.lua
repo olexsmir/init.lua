@@ -31,12 +31,10 @@ return {
           end,
         },
         window = {},
-        view = {
-          entries = {
-            follow_cursor = true,
-          },
-        },
+        ---@diagnostic disable-next-line: missing-fields
+        view = { entries = { follow_cursor = true } },
         experimental = { ghost_text = true },
+        ---@diagnostic disable-next-line: missing-fields
         formatting = {
           format = function(_, vim_item)
             vim_item.kind = ({

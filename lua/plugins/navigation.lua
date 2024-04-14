@@ -25,13 +25,15 @@ return {
         { "<A-a>", function() h:list():select(4) end },
       }
     end,
-    config = function()
-      require("harpoon"):setup {
-        settings = {
-          save_on_toggle = true,
-          sync_on_close = true,
-        },
-      }
+    ---@type HarpoonPartialConfig
+    opts = {
+      settings = {
+        save_on_toggle = true,
+        sync_on_close = true,
+      },
+    },
+    config = function(_, opts)
+      require("harpoon"):setup(opts)
     end,
   },
 
