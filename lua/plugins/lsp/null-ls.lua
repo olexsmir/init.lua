@@ -11,5 +11,6 @@ null_ls.setup {
     formatting.goimports,
     formatting.golines,
     formatting.prettierd,
+    formatting.clang_format,
   },
 }

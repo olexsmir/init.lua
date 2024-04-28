@@ -1,4 +1,5 @@
 return {
+  clangd = {},
   tsserver = {},
   eslint = {},
   html = {},
