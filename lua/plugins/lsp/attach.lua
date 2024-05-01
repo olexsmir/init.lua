@@ -19,7 +19,7 @@ function attach.basic(_, _)
 end
 
 ---@param client vim.lsp.Client
----@param bufnr vim.lsp.inlay_hint.enable.Filter
+---@param bufnr number
 function attach.common(client, bufnr)
   if client.supports_method "textDocument/codeLens" then
     vim.lsp.codelens.run()
@@ -37,13 +37,11 @@ function attach.common(client, bufnr)
   u.map("n", "<leader>ss", "<cmd>Telescope lsp_document_symbols<cr>", true)
   u.map("n", "<leader>ll", vim.lsp.codelens.run, true)
   u.map("n", "<leader>li", function()
-    if
-      vim.lsp.inlay_hint.is_enabled(bufnr --[[@as number]])
-    then
-      vim.lsp.inlay_hint.enable(false, bufnr)
+    if vim.lsp.inlay_hint.is_enabled { bufnr = bufnr } then
+      vim.lsp.inlay_hint.enable(false, { bufnr = bufnr })
       vim.print "Inlay hints disabled"
     else
-      vim.lsp.inlay_hint.enable(true, bufnr)
+      vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
       vim.print "Inlay hints enabled"
     end
   end, true)
