@@ -1,3 +1,5 @@
+-- TODO: migrate to `:h LspAttach`
+
 local u = require "core.utils"
 local attach = {}
 
@@ -16,9 +18,11 @@ function attach.basic(_, _)
   u.map("n", "[D", vim.diagnostic.goto_prev, true)
 end
 
+---@param client vim.lsp.Client
+---@param bufnr vim.lsp.inlay_hint.enable.Filter
 function attach.common(client, bufnr)
-  if client.name == "gopls" then
-    vim.lsp.codelens.refresh()
+  if client.supports_method "textDocument/codeLens" then
+    vim.lsp.codelens.run()
   end
 
   attach.basic(client, bufnr)
@@ -33,11 +37,13 @@ function attach.common(client, bufnr)
   u.map("n", "<leader>ss", "<cmd>Telescope lsp_document_symbols<cr>", true)
   u.map("n", "<leader>ll", vim.lsp.codelens.run, true)
   u.map("n", "<leader>li", function()
-    if vim.lsp.inlay_hint.is_enabled(bufnr) then
-      vim.lsp.inlay_hint.enable(bufnr, false)
+    if
+      vim.lsp.inlay_hint.is_enabled(bufnr --[[@as number]])
+    then
+      vim.lsp.inlay_hint.enable(false, bufnr)
       vim.print "Inlay hints disabled"
     else
-      vim.lsp.inlay_hint.enable(bufnr, true)
+      vim.lsp.inlay_hint.enable(true, bufnr)
       vim.print "Inlay hints enabled"
     end
   end, true)

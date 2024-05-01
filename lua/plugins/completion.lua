@@ -3,11 +3,13 @@ return {
   {
     "hrsh7th/nvim-cmp",
     event = "InsertEnter",
+    keys = { ":" },
     dependencies = {
       "hrsh7th/cmp-buffer",
       "saadparwaiz1/cmp_luasnip",
       "hrsh7th/cmp-path",
       "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-cmdline",
       {
         "zbirenbaum/copilot-cmp",
         dependencies = "copilot.lua",
@@ -20,8 +22,15 @@ return {
       local cmp_autopairs = require "nvim-autopairs.completion.cmp"
 
       cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+      ---@diagnostic disable-next-line: missing-fields
       cmp.setup.filetype({ "gitcommit", "NeogitCommitMessage" }, {
         sources = { { name = "buffer" }, { name = "luasnip" } },
+      })
+
+      ---@diagnostic disable-next-line: missing-fields
+      cmp.setup.cmdline(":", {
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = { { name = "path" }, { name = "cmdline" } },
       })
 
       cmp.setup {
