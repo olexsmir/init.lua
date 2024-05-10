@@ -75,7 +75,7 @@ function notes.project()
   git.aucmd(vim.fn.bufnr())
 end
 
-function notes.open()
+function notes.global()
   vim.cmd[config.open_cmd] {
     args = { config.data_path .. "/notes.md" },
     bang = true,
