@@ -24,24 +24,17 @@ return {
     {
       "RRethy/vim-illuminate",
       dependencies = { "nvim-lspconfig" },
-      config = function()
-        require("illuminate").configure {
-          providers = { "lsp", "treesitter" },
-          filetypes_denylist = {
-            "NvimTree",
-            "packer",
-            "NeogitStatus",
-            "TelescopePrompt",
-          },
-        }
-      end,
-    },
-    {
-      "williamboman/mason.nvim",
-      config = true,
-      cmd = "MasonUpdate",
-      build = function()
-        pcall(vim.cmd.MasonUpdate())
+      opts = {
+        providers = { "lsp", "treesitter" },
+        filetypes_denylist = {
+          "NvimTree",
+          "packer",
+          "NeogitStatus",
+          "TelescopePrompt",
+        },
+      },
+      config = function(_, opts)
+        require("illuminate").configure(opts)
       end,
     },
   },
