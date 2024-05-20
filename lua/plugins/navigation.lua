@@ -55,15 +55,13 @@ return {
       lsp_file_methods = { autosave_changes = true },
       use_default_keymaps = false,
       keymaps = {
-        ["?"] = "actions.show_help",
         ["."] = "actions.toggle_hidden",
-
         ["<CR>"] = "actions.select",
         ["<tab>"] = "actions.select",
 
         ["<C-v>"] = "actions.select_vsplit",
         ["<C-x>"] = "actions.select_split",
-        ["<A-p>"] = "actions.preview",
+        ["<C-p>"] = "actions.preview",
         ["<C-r>"] = "actions.refresh",
         ["<C-c>"] = "actions.close",
         ["<C-[>"] = "actions.close",
