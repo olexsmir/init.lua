@@ -3,7 +3,6 @@ return {
   event = "BufRead",
   dependencies = {
     "b0o/schemastore.nvim",
-    { "williamboman/mason-lspconfig.nvim", config = true },
     {
       "j-hui/fidget.nvim",
       config = true,
@@ -42,7 +41,6 @@ return {
     for name, conf in pairs(require "plugins.lsp.servers") do
       require "plugins.lsp.attach"
       require("lspconfig")[name].setup(vim.tbl_extend("force", {
-        on_attach = require("plugins.lsp.attach").common,
         flags = { debounce_text_changes = 150 },
         capabilities = require("cmp_nvim_lsp").default_capabilities(),
       }, conf))
