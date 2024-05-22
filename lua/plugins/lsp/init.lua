@@ -40,6 +40,7 @@ return {
   },
   config = function()
     for name, conf in pairs(require "plugins.lsp.servers") do
+      require "plugins.lsp.attach"
       require("lspconfig")[name].setup(vim.tbl_extend("force", {
         on_attach = require("plugins.lsp.attach").common,
         flags = { debounce_text_changes = 150 },
