@@ -20,21 +20,12 @@ return {
   config = function()
     local ls = require "luasnip"
     local types = require "luasnip.util.types"
-    local fmt = require("luasnip.extras.fmt").fmt
-    local extras = require "luasnip.extras"
 
     ls.config.set_config {
       snip_env = {
-        fmt = fmt,
-        rep = extras.rep,
-        m = extras.match,
-        l = extras.lamda,
-        s = ls.snippet,
-        t = ls.text_node,
-        f = ls.function_node,
-        c = ls.choice_node,
-        d = ls.dynamic_node,
-        i = ls.insert_node,
+        fmt = require("luasnip.extras.fmt").fmt,
+        e = require "luasnip.extras",
+        ls = ls,
       },
       -- stylua: ignore
       ext_opts = {
