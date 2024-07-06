@@ -21,7 +21,7 @@ return {
   end,
   dependencies = {
     "nvim-neotest/nvim-nio",
-    { "roveo/neotest-go", branch = "feat/testify-suite" },
+    "fredrikaverpil/neotest-golang",
     "nvim-neotest/neotest-plenary",
     "nvim-treesitter",
   },
@@ -30,7 +30,7 @@ return {
     adapters = function()
       return {
         require "neotest-plenary",
-        require "neotest-go" {
+        require "neotest-golang" {
           experimental = { test_table = true },
           args = { "-count=1", "-timeout=60s" },
         },
