@@ -14,6 +14,11 @@ return {
     end,
   },
   {
+    "oysandvik94/curl.nvim",
+    opts = { default_flags = { "-i" } },
+    cmd = { "CurlOpen", "CurlClose" },
+  },
+  {
     "folke/todo-comments.nvim",
     event = "BufRead",
     config = true,
