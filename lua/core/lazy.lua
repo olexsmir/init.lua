@@ -18,7 +18,7 @@ require("lazy").setup("plugins", {
     -- version = "*",-- use only stable releases
   },
   dev = { path = "~/code" },
-  install = { colorscheme = { "tokyonight-night" } },
+  install = { colorscheme = { "tokyonight" } },
   change_detection = { notify = false },
   performance = {
     rtp = {
