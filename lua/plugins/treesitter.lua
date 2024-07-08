@@ -4,7 +4,6 @@ return {
   event = "BufReadPost",
   dependencies = {
     "RRethy/nvim-treesitter-endwise",
-    "p00f/nvim-ts-rainbow",
     { "nvim-treesitter/nvim-treesitter-context", config = true },
   },
   build = function()
@@ -19,7 +18,6 @@ return {
     highlight = { enable = true, additional_vim_regex_highlighting = false },
     autopairs = { enable = true },
     endwise = { enable = true },
-    rainbow = { enable = true },
   },
   config = function(_, opts)
     require("nvim-treesitter.configs").setup(opts)
