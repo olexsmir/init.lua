@@ -26,6 +26,7 @@ return {
     "nvim-treesitter",
   },
   ---@type neotest.Config
+  ---@diagnostic disable-next-line: missing-fields
   opts = {
     adapters = function()
       return {

@@ -40,14 +40,9 @@ return {
   {
     "stevearc/oil.nvim",
     event = "VeryLazy",
-    keys = {
-      {
-        "<leader>e",
-        function()
-          require("oil").open()
-        end,
-      },
-    },
+    cmd = "Oil",
+    keys = { { "<leader>e", vim.cmd.Oil } },
+    ---@type oil.setupOpts
     opts = {
       columns = { "icon" },
       delete_to_trash = true,

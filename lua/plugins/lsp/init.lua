@@ -9,9 +9,16 @@ return {
       dependencies = { "nvim-lspconfig" },
     },
     {
-      "folke/neodev.nvim",
-      config = true,
-      dependencies = { "nvim-lspconfig" },
+      "folke/lazydev.nvim",
+      ft = "lua",
+      cmd = "LazyDev",
+      dependencies = { "nvim-lspconfig", "Bilal2453/luvit-meta" },
+      opts = {
+        library = {
+          { path = "luvit-meta/library", words = { "vim%.uv" } },
+          { path = "lazy.nvim" },
+        },
+      },
     },
     {
       "nvimtools/none-ls.nvim",

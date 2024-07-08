@@ -1,4 +1,4 @@
----@type LazySpec[]
+---@type LazySpec
 return {
   {
     "echasnovski/mini.bufremove",
@@ -15,8 +15,6 @@ return {
   {
     "echasnovski/mini.splitjoin",
     config = true,
-    keys = {
-      { "gS", mode = { "n", "v" } },
-    },
+    keys = { { "gS", mode = { "n", "v" } } },
   },
 }
