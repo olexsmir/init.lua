@@ -3,7 +3,7 @@ local notes = {}
 local config = {
   file_extenson = ".md",
   data_path = ("%s/ol_notes/"):format(vim.fn.stdpath "data"),
-  open_cmd = "e",
+  open_cmd = "70vs",
 }
 
 ---@return string
@@ -25,17 +25,13 @@ function notes.get_note_path(prj_path)
 end
 
 function notes.project()
-  vim.cmd[config.open_cmd] {
-    args = { notes.get_note_path(notes.get_project_path()) },
-    bang = true,
-  }
+  vim.cmd(
+    config.open_cmd .. "! " .. notes.get_note_path(notes.get_project_path())
+  )
 end
 
 function notes.global()
-  vim.cmd[config.open_cmd] {
-    args = { config.data_path .. "/notes.md" },
-    bang = true,
-  }
+  vim.cmd(config.open_cmd .. "! " .. config.data_path .. "/notes.md")
 end
 
 return notes
