@@ -32,8 +32,8 @@ return {
       return {
         require "neotest-plenary",
         require "neotest-golang" {
-          experimental = { test_table = true },
-          args = { "-count=1", "-timeout=60s" },
+          -- go_test_args = { "-count=1", "-timeout=60s" },
+          testify_enabled = true,
         },
       }
     end,
