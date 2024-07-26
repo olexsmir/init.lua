@@ -2,7 +2,6 @@
 return {
   {
     "zbirenbaum/copilot.lua",
-    dependencies = { "CopilotChat.nvim" },
     cmd = "Copilot",
     build = ":Copilot auth",
     opts = {
@@ -26,6 +25,7 @@ return {
 
   {
     "CopilotC-Nvim/CopilotChat.nvim",
+    dependencies = { "copilot.lua" },
     branch = "canary",
     cmd = { "CopilotChat" },
     keys = {

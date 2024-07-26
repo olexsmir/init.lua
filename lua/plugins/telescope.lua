@@ -2,26 +2,26 @@
 return {
   "nvim-telescope/telescope.nvim",
   event = "VeryLazy",
+  cmd = "Telescope",
   dependencies = {
     "nvim-telescope/telescope-ui-select.nvim",
     { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
   },
   keys = function()
-    local builtin = require "telescope.builtin"
     local function grep_string()
       vim.ui.input({ prompt = "Grep: " }, function(input)
-        builtin.grep_string { search = input }
+        require("telescope.builtin").grep_string { search = input }
       end)
     end
 
     return {
-      { "<leader>f", builtin.find_files },
-      { "<leader>b", builtin.buffers },
-      { "<leader>sr", builtin.oldfiles },
-      { "<leader>sg", builtin.live_grep },
+      { "<leader>f", ":Telescope find_files<cr>" },
+      { "<leader>b", ":Telescope buffers<cr>" },
+      { "<leader>sr", ":Telescope oldfiles<cr>" },
+      { "<leader>sg", ":Telescope live_grep<cr>" },
       { "<leader>st", grep_string },
-      { "<leader>sd", builtin.diagnostics },
-      { "<leader>sh", builtin.help_tags },
+      { "<leader>sd", ":Telescope diagnostics<cr>" },
+      { "<leader>sh", ":Telescope help_tags<cr>" },
     }
   end,
   config = function()

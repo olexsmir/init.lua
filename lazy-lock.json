@@ -22,6 +22,7 @@
   "mini.splitjoin": { "branch": "main", "commit": "3e92f6764e770ba392325cad3a4497adcada695f" },
   "mini.test": { "branch": "main", "commit": "1c4882f339e563d35316d67bb9201bf052d36dfb" },
   "neogit": { "branch": "master", "commit": "2b74a777b963dfdeeabfabf84d5ba611666adab4" },
+  "neotest": { "branch": "master", "commit": "32ff2ac21135a372a42b38ae131e531e64833bd3" },
   "neotest-golang": { "branch": "main", "commit": "41cf5e59ca132a5cad599867de3f154429e5c148" },
   "neotest-plenary": { "branch": "master", "commit": "dcaf5ed67a9e28a246e9783319e5aa6c9ea1c584" },
   "none-ls.nvim": { "branch": "main", "commit": "a8594ef3dabb484adabc0ebbf5800be1b807c9e7" },

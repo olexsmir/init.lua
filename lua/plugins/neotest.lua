@@ -1,22 +1,19 @@
 ---@type LazySpec
 return {
   "nvim-neotest/neotest",
-  dev = true,
   keys = function()
-    local n = require "neotest"
-
     -- stylua: ignore
     return {
-      { "<leader>tn", function() n.run.run() end },
-      { "<leader>tt", function() n.run.run(vim.fn.expand "%") end },
-      { "<leader>tS", function() n.run.stop() end },
-      { "<leader>to", function() n.output.open() end },
-      { "<leader>ts", function() n.summary.toggle() end },
-      { "<leader>tw", function() n.watch.toggle() end },
-      { "]t", function() n.jump.next() end },
-      { "[t", function() n.jump.prev() end },
-      { "]T", function() n.jump.next {status = "failed"} end },
-      { "[T", function() n.jump.prev {status = "failed"} end },
+      { "<leader>tn", function() require"neotest".run.run() end },
+      { "<leader>tt", function() require"neotest".run.run(vim.fn.expand "%") end },
+      { "<leader>tS", function() require"neotest".run.stop() end },
+      { "<leader>to", function() require"neotest".output.open() end },
+      { "<leader>ts", function() require"neotest".summary.toggle() end },
+      { "<leader>tw", function() require"neotest".watch.toggle() end },
+      { "]t", function() require"neotest".jump.next() end },
+      { "[t", function() require"neotest".jump.prev() end },
+      { "]T", function() require"neotest".jump.next { status = "failed" } end },
+      { "[T", function() require"neotest".jump.prev { status = "failed" } end },
     }
   end,
   dependencies = {
@@ -25,38 +22,7 @@ return {
     "nvim-neotest/neotest-plenary",
     "nvim-treesitter",
   },
-  ---@type neotest.Config
-  ---@diagnostic disable-next-line: missing-fields
-  opts = {
-    adapters = function()
-      return {
-        require "neotest-plenary",
-        require "neotest-golang" {
-          -- go_test_args = { "-count=1", "-timeout=60s" },
-          testify_enabled = true,
-        },
-      }
-    end,
-    icons = {
-      expanded = "",
-      child_prefix = "",
-      child_indent = "",
-      final_child_prefix = "",
-      non_collapsible = "",
-      collapsed = "",
-      passed = "",
-      running = "",
-      failed = "",
-      unknown = "",
-    },
-    summary = {
-      mappings = {
-        expand = { "l", "h", "<CR>" },
-        stop = "s",
-      },
-    },
-  },
-  init = function()
+  config = function()
     vim.diagnostic.config({
       virtual_text = {
         format = function(diagnostic)
@@ -69,5 +35,37 @@ return {
         end,
       },
     }, vim.api.nvim_create_namespace "neotest")
+
+    ---@type neotest.Config
+    ---@diagnostic disable-next-line: missing-fields
+    require("neotest").setup {
+      adapters = {
+        require "neotest-plenary",
+        require "neotest-golang" {
+          -- go_test_args = { "-count=1", "-timeout=60s" },
+          testify_enabled = true,
+        },
+      },
+      icons = {
+        expanded = "",
+        child_prefix = "",
+        child_indent = "",
+        final_child_prefix = "",
+        non_collapsible = "",
+        collapsed = "",
+        passed = "",
+        running = "",
+        failed = "",
+        unknown = "",
+      },
+      ---@diagnostic disable-next-line: missing-fields
+      summary = {
+        ---@diagnostic disable-next-line: missing-fields
+        mappings = {
+          expand = { "l", "h", "<CR>" },
+          stop = "s",
+        },
+      },
+    }
   end,
 }
