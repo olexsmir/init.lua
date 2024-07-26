@@ -1,5 +1,12 @@
 require("core.diagnostic").setup()
 
+-- stylua: ignore
+vim.o.langmap = table.concat({'№;#',
+  'йЙ;qQ', 'цЦ;wW', 'уУ;eE', 'кК;rR', 'еЕ;tT', 'нН;yY', 'гГ;uU', 'шШ;iI', 'щЩ;oO', 'зЗ;pP', 'хХ;[{', 'їЇ;]}',
+  'фФ;aA', 'іІ;sS', 'вВ;dD', 'аА;fF', 'пП;gG', 'рР;hH', 'оО;jJ', 'лЛ;kK', 'дД;lL', [[жЖ;\;:]], [[єЄ;'\"]],
+  'яЯ;zZ', 'чЧ;xX', 'сС;cC', 'мМ;vV', 'иИ;bB', 'тТ;nN', 'ьЬ;mM', [[бБ;\,<]], 'юЮ;.>',
+}, ",")
+
 vim.g.editorconfig = true
 
 vim.opt.shell = "/bin/bash" -- fixes issues with fish shell
