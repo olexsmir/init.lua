@@ -17,14 +17,18 @@ vim.api.nvim_create_autocmd("LspAttach", {
       vim.lsp.buf.format { async = true }
     end, bufnr)
     u.map("n", "]d", function()
-      vim.diagnostic.goto_next { float = false }
+      vim.diagnostic.jump { count = 1, float = false }
     end, bufnr)
     u.map("n", "[d", function()
-      vim.diagnostic.goto_prev { float = false }
+      vim.diagnostic.jump { count = -1, float = false }
     end, bufnr)
 
-    u.map("n", "]D", vim.diagnostic.goto_next, bufnr)
-    u.map("n", "[D", vim.diagnostic.goto_prev, bufnr)
+    u.map("n", "]D", function()
+      vim.diagnostic.jump { count = 1 }
+    end, bufnr)
+    u.map("n", "[D", function()
+      vim.diagnostic.jump { count = -1 }
+    end, bufnr)
 
     u.map("n", "K", vim.lsp.buf.hover, bufnr)
     u.map("n", "gd", "<cmd>Telescope lsp_definitions<cr>", bufnr)
