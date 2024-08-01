@@ -13,16 +13,14 @@ return {
     "ThePrimeagen/harpoon",
     branch = "harpoon2",
     keys = function()
-      local h = require "harpoon"
-
       -- stylua: ignore
       return {
-        { "<leader>a", function() h:list():add() end },
-        { "<C-f>", function() h.ui:toggle_quick_menu(h:list()) end },
-        { "<A-f>", function() h:list():select(1) end },
-        { "<A-d>", function() h:list():select(2) end },
-        { "<A-s>", function() h:list():select(3) end },
-        { "<A-a>", function() h:list():select(4) end },
+        { "<leader>a", function() require("harpoon"):list():add() end },
+        { "<C-f>", function() require("harpoon").ui:toggle_quick_menu(require("harpoon"):list()) end },
+        { "<A-f>", function() require("harpoon"):list():select(1) end },
+        { "<A-d>", function() require("harpoon"):list():select(2) end },
+        { "<A-s>", function() require("harpoon"):list():select(3) end },
+        { "<A-a>", function() require("harpoon"):list():select(4) end },
       }
     end,
     ---@type HarpoonPartialConfig

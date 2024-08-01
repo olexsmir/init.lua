@@ -14,14 +14,20 @@ return {
       end)
     end
 
+    local function wrap(fn)
+      return function()
+        return require("telescope.builtin")[fn]()
+      end
+    end
+
     return {
-      { "<leader>f", ":Telescope find_files<cr>" },
-      { "<leader>b", ":Telescope buffers<cr>" },
-      { "<leader>sr", ":Telescope oldfiles<cr>" },
-      { "<leader>sg", ":Telescope live_grep<cr>" },
+      { "<leader>f", wrap "find_files" },
+      { "<leader>b", wrap "buffers" },
+      { "<leader>sr", wrap "oldfiles" },
+      { "<leader>sg", wrap "live_grep" },
       { "<leader>st", grep_string },
-      { "<leader>sd", ":Telescope diagnostics<cr>" },
-      { "<leader>sh", ":Telescope help_tags<cr>" },
+      { "<leader>sd", wrap "diagnostics" },
+      { "<leader>sh", wrap "help_tags" },
     }
   end,
   config = function()

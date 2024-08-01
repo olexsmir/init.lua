@@ -4,14 +4,14 @@ return {
     "lewis6991/gitsigns.nvim",
     event = "BufRead",
     keys = function()
-      local g = require "gitsigns"
+      --stylua: ignore
       return {
-        { "]g", g.next_hunk },
-        { "[g", g.prev_hunk },
-        { "<leader>gs", g.stage_hunk },
-        { "<leader>gS", g.undo_stage_hunk },
-        { "<leader>gr", g.reset_hunk },
-        { "<leader>gh", g.preview_hunk },
+        { "]g", function() require("gitsigns").next_hunk() end },
+        { "[g", function() require("gitsigns").prev_hunk() end},
+        { "<leader>gs", function() require("gitsigns").stage_hunk() end},
+        { "<leader>gS", function() require("gitsigns").undo_stage_hunk() end },
+        { "<leader>gr", function() require("gitsigns").reset_hunk() end },
+        { "<leader>gh", function() require("gitsigns").preview_hunk() end },
       }
     end,
     opts = {
