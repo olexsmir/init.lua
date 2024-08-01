@@ -1,7 +1,6 @@
 ---@type LazySpec
 return {
   "nvim-telescope/telescope.nvim",
-  event = "VeryLazy",
   cmd = "Telescope",
   dependencies = {
     "nvim-telescope/telescope-ui-select.nvim",
