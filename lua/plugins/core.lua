@@ -32,22 +32,4 @@ return {
       disable_filetype = { "TelescopePrompt", "markdown" },
     },
   },
-  {
-    "ahmedkhalf/project.nvim",
-    event = "VeryLazy",
-    ---@type ProjectOptions
-    opts = {
-      patterns = {
-        "^\\.git$",
-        "package.json",
-        "go.mod",
-        "go.work",
-        "Cargo.toml",
-        "deps.edn",
-      },
-    },
-    config = function(_, opts)
-      require("project_nvim").setup(opts)
-    end,
-  },
 }
