@@ -17,7 +17,7 @@ return {
   {
     "oysandvik94/curl.nvim",
     opts = { default_flags = { "-i" } },
-    cmd = { "CurlOpen", "CurlClose" },
+    cmd = { "CurlOpen" },
   },
   {
     "folke/todo-comments.nvim",
