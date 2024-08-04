@@ -10,7 +10,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end
 
     if client.supports_method "textDocument/codeLens" then
-      vim.lsp.codelens.run()
+      vim.lsp.codelens.refresh { bufnr = bufnr }
     end
 
     u.map("n", "<leader>lf", function()
