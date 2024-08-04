@@ -4,16 +4,16 @@ return {
   keys = function()
     -- stylua: ignore
     return {
-      { "<leader>tn", function() require"neotest".run.run() end },
-      { "<leader>tt", function() require"neotest".run.run(vim.fn.expand "%") end },
-      { "<leader>tS", function() require"neotest".run.stop() end },
-      { "<leader>to", function() require"neotest".output.open() end },
-      { "<leader>ts", function() require"neotest".summary.toggle() end },
-      { "<leader>tw", function() require"neotest".watch.toggle() end },
-      { "]t", function() require"neotest".jump.next() end },
-      { "[t", function() require"neotest".jump.prev() end },
-      { "]T", function() require"neotest".jump.next { status = "failed" } end },
-      { "[T", function() require"neotest".jump.prev { status = "failed" } end },
+      { "<leader>tn", function() require("neotest").run.run() end },
+      { "<leader>tt", function() require("neotest").run.run(vim.fn.expand "%") end },
+      { "<leader>tS", function() require("neotest").run.stop() end },
+      { "<leader>to", function() require("neotest").output.open() end },
+      { "<leader>ts", function() require("neotest").summary.toggle() end },
+      { "<leader>tw", function() require("neotest").watch.toggle() end },
+      { "]t", function() require("neotest").jump.next() end },
+      { "[t", function() require("neotest").jump.prev() end },
+      { "]T", function() require("neotest").jump.next { status = "failed" } end },
+      { "[T", function() require("neotest").jump.prev { status = "failed" } end },
     }
   end,
   dependencies = {
