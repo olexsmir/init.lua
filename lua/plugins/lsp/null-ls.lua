@@ -11,5 +11,6 @@ null_ls.setup {
     formatting.golines,
     formatting.prettierd,
     formatting.clang_format,
+    formatting.pg_format,
   },
 }
