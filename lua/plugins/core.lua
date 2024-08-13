@@ -22,7 +22,10 @@ return {
   {
     "folke/todo-comments.nvim",
     event = "BufRead",
-    config = true,
+    config = function()
+      require("todo-comments").setup {}
+      require("telescope").load_extension "todo-comments"
+    end,
   },
   {
     "windwp/nvim-autopairs",
