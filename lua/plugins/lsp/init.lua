@@ -16,6 +16,7 @@ return {
       opts = {
         library = {
           { path = "luvit-meta/library", words = { "vim%.uv" } },
+          { path = "mini.test", words = { "MiniTest" } },
           "lazy.nvim",
           "gopher.nvim",
         },
