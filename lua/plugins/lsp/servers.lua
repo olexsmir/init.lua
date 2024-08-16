@@ -6,6 +6,7 @@ return {
   emmet_language_server = {},
   htmx = {},
   templ = {},
+  gleam = {},
   golangci_lint_ls = {
     init_options = {
       command = {
