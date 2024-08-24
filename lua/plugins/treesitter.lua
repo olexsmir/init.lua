@@ -19,6 +19,17 @@ return {
                 (#offset! @codeblock 0 0 1 0))]]
             ),
           },
+          gleam = {
+            codeblock_highlight = "ColorColumn",
+            query = vim.treesitter.query.parse(
+              "gleam",
+              [[((let
+                 pattern: (identifier) @_identifier
+                 (#any-of? @_identifier "sql" "q" "query")
+                 value: (string (quoted_content) @codeblock))
+                (#offset! @codeblock 0 0 1 0))]]
+            ),
+          },
         }
       end,
     },
