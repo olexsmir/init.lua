@@ -4,9 +4,7 @@ return {
   ft = "go",
   dev = true,
   cmd = "GoInstallDeps",
-  build = function()
-    vim.cmd.GoInstallDeps()
-  end,
+  build = vim.cmd.GoInstallDeps,
   ---@type gopher.Config
   opts = {
     log_level = vim.log.levels.TRACE,
