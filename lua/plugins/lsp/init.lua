@@ -19,6 +19,7 @@ return {
           { path = "mini.test", words = { "MiniTest" } },
           "lazy.nvim",
           "gopher.nvim",
+          "neogit",
         },
       },
     },
