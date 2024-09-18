@@ -21,3 +21,8 @@ u.aucmd("FileType", {
     vim.cmd "set formatoptions-=cro"
   end,
 })
+
+u.aucmd("FileType", {
+  pattern = { "help", "man" },
+  command = "wincmd L",
+})
