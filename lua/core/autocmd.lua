@@ -23,6 +23,16 @@ u.aucmd("FileType", {
 })
 
 u.aucmd("FileType", {
+  group = u.augroup "help",
   pattern = { "help", "man" },
   command = "wincmd L",
+})
+
+u.aucmd("FileType", {
+  group = u.augroup "quickfix",
+  pattern = "qf",
+  callback = function()
+    u.map("n", "<C-n>", "<cmd>cnext<CR>", true)
+    u.map("n", "<C-p>", "<cmd>cprev<CR>", true)
+  end,
 })
