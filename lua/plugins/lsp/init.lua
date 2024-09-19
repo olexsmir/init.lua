@@ -20,6 +20,7 @@ return {
           "lazy.nvim",
           "gopher.nvim",
           "neogit",
+          "oil.nvim",
         },
       },
     },
