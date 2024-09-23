@@ -24,6 +24,7 @@ vim.o.softtabstop = 4
 vim.o.tabstop = 4
 
 -- other cool stuff
+vim.o.spell = true
 vim.o.ignorecase = true
 vim.o.smartcase = true
 vim.o.number = true
