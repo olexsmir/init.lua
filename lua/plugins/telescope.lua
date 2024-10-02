@@ -27,6 +27,7 @@ return {
       { "<leader>st", grep_string },
       { "<leader>sd", wrap "diagnostics" },
       { "<leader>sh", wrap "help_tags" },
+      { "z=", wrap "spell_suggest" },
     }
   end,
   config = function()
@@ -66,6 +67,7 @@ return {
         keymaps = { theme = "ivy" },
         help_tags = { theme = "ivy" },
         diagnostics = { theme = "ivy" },
+        spell_suggest = { theme = "ivy" },
         git_branches = { theme = "ivy" },
         git_commits = { theme = "ivy" },
         git_status = { theme = "ivy" },
