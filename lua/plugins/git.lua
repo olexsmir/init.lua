@@ -17,6 +17,7 @@ return {
         { "<leader>gS", gitsigns "undo_stage_hunk" },
         { "<leader>gr", gitsigns "reset_hunk" },
         { "<leader>gh", gitsigns "preview_hunk" },
+        { "<leader>gb", gitsigns "blame" },
       }
     end,
     opts = {
