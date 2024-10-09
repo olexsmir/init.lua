@@ -4,6 +4,7 @@ return {
   eslint = {},
   html = {},
   emmet_language_server = {},
+  elmls = {},
   htmx = {},
   templ = {},
   gleam = {},
@@ -73,7 +74,7 @@ return {
   yamlls = {
     settings = {
       yaml = {
-        schemaStore = { enable = false },
+        schemaStore = { enable = false, url = "" },
         schemas = require("schemastore").yaml.schemas(),
       },
     },
