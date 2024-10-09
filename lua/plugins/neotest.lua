@@ -42,10 +42,15 @@ return {
       adapters = {
         require "neotest-plenary",
         require "neotest-golang" {
-          -- go_test_args = { "-count=1", "-timeout=60s" },
+          go_test_args = { "-count=1", "-timeout=60s" },
           testify_enabled = true,
         },
       },
+      discovery = {
+        enabled = true,
+        concurrent = 0,
+      },
+      running = { concurrent = true },
       icons = {
         expanded = "",
         child_prefix = "",
@@ -60,6 +65,7 @@ return {
       },
       ---@diagnostic disable-next-line: missing-fields
       summary = {
+        animated = false,
         ---@diagnostic disable-next-line: missing-fields
         mappings = {
           expand = { "l", "h", "<CR>" },
