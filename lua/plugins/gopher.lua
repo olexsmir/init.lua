@@ -1,4 +1,4 @@
-local dev_deps = true
+local dev_deps = false
 
 ---@type LazySpec
 return {
@@ -11,6 +11,7 @@ return {
     { "williamboman/mason.nvim", cond = dev_deps, config = true },
   },
   ---@type gopher.Config
+  ---@diagnostic disable-next-line: missing-fields
   opts = {
     use_mason = dev_deps,
     log_level = vim.log.levels.TRACE,
