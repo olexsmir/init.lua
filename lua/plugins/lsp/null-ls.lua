@@ -12,5 +12,6 @@ null_ls.setup {
     formatting.prettierd,
     formatting.clang_format,
     formatting.pg_format,
+    diagnostic.codespell,
   },
 }
