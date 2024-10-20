@@ -1,6 +1,6 @@
-local diagnistic = {}
+local diagnostic = {}
 
-diagnistic.border = {
+diagnostic.border = {
   { "", "FloatBorder" },
   { "", "FloatBorder" },
   { "", "FloatBorder" },
@@ -11,7 +11,7 @@ diagnistic.border = {
   { "", "FloatBorder" },
 }
 
-diagnistic.diagnostic = {
+diagnostic.diagnostic = {
   virtual_text = true,
   update_in_insert = true,
   underline = true,
@@ -27,16 +27,16 @@ diagnistic.diagnostic = {
   float = {
     focusable = true,
     style = "minimal",
-    border = diagnistic.border,
+    border = diagnostic.border,
     source = "always",
     header = "",
     prefix = "",
   },
 }
 
-function diagnistic.setup()
-  vim.diagnostic.config(diagnistic.diagnostic)
-  for _, sign in ipairs(diagnistic.diagnostic.signs.active) do
+function diagnostic.setup()
+  vim.diagnostic.config(diagnostic.diagnostic)
+  for _, sign in ipairs(diagnostic.diagnostic.signs.active) do
     vim.fn.sign_define(sign.name, {
       texthl = sign.name,
       text = sign.text,
@@ -45,4 +45,4 @@ function diagnistic.setup()
   end
 end
 
-return diagnistic
+return diagnostic
