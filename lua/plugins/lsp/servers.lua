@@ -3,23 +3,8 @@ return {
   ts_ls = {},
   eslint = {},
   html = {},
-  emmet_language_server = {},
-  elmls = {},
-  htmx = {},
-  templ = {},
   gleam = {},
-  golangci_lint_ls = {
-    init_options = {
-      command = {
-        "golangci-lint",
-        "run",
-        "--fast",
-        "--out-format",
-        "json",
-        "--issues-exit-code=1",
-      },
-    },
-  },
+  templ = {},
   gopls = {
     settings = {
       gopls = {
@@ -51,6 +36,18 @@ return {
           run_govulncheck = true,
           upgrade_dependency = true,
         },
+      },
+    },
+  },
+  golangci_lint_ls = {
+    init_options = {
+      command = {
+        "golangci-lint",
+        "run",
+        "--fast",
+        "--out-format",
+        "json",
+        "--issues-exit-code=1",
       },
     },
   },
