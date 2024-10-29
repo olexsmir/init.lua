@@ -35,17 +35,4 @@ return {
       disable_filetype = { "TelescopePrompt", "markdown" },
     },
   },
-  {
-    "JoosepAlviste/nvim-ts-context-commentstring",
-    lazy = false,
-    init = function()
-      local get_option = vim.filetype.get_option
-      vim.filetype.get_option = function(filetype, option) ---@diagnostic disable-line: duplicate-set-field
-        -- stylua: ignore
-        return option == "commentstring"
-          and require("ts_context_commentstring.internal").calculate_commentstring()
-          or get_option(filetype, option)
-      end
-    end,
-  },
 }
