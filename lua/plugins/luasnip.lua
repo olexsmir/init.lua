@@ -22,19 +22,22 @@ return {
     local types = require "luasnip.util.types"
 
     ls.config.set_config {
-      snip_env = {
-        fmt = require("luasnip.extras.fmt").fmt,
-        e = require "luasnip.extras",
-        ls = ls,
-      },
-      -- stylua: ignore
       ext_opts = {
-        [types.choiceNode] = { passive = { virt_text = { { "●", "Operator" } }, hl_group = "LuaSnipChoiceNode", }, },
-        [types.insertNode] = { active = { virt_text = { { "●", "Type" } }, hl_group = "LuaSnipInsertNode", }, },
+        [types.choiceNode] = {
+          passive = {
+            virt_text = { { "●", "Operator" } },
+            hl_group = "LuaSnipChoiceNode",
+          },
+        },
+        [types.insertNode] = {
+          active = {
+            virt_text = { { "●", "Type" } },
+            hl_group = "LuaSnipInsertNode",
+          },
+        },
       },
     }
 
-    require("luasnip.loaders.from_lua").lazy_load()
     require("luasnip.loaders.from_vscode").lazy_load()
   end,
 }
