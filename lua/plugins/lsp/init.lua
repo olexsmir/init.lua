@@ -24,13 +24,7 @@ return {
         },
       },
     },
-    {
-      "nvimtools/none-ls.nvim",
-      dependencies = { "nvim-lspconfig" },
-      config = function()
-        require "plugins.lsp.null-ls"
-      end,
-    },
+    { import = "plugins.lsp.null-ls" },
     {
       "RRethy/vim-illuminate",
       dependencies = { "nvim-lspconfig" },
