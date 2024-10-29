@@ -16,13 +16,6 @@ u.aucmd("VimResized", {
 })
 
 u.aucmd("FileType", {
-  group = u.augroup "comments",
-  callback = function()
-    vim.cmd "set formatoptions-=cro"
-  end,
-})
-
-u.aucmd("FileType", {
   group = u.augroup "help",
   pattern = { "help", "man" },
   command = "wincmd L",

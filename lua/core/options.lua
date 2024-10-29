@@ -1,3 +1,4 @@
+local u = require "core.utils"
 require("core.diagnostic").setup()
 
 -- stylua: ignore
@@ -27,8 +28,8 @@ vim.o.tabstop = 4
 vim.o.spell = true
 vim.o.ignorecase = true
 vim.o.smartcase = true
-vim.o.number = true
-vim.o.relativenumber = true
+vim.o.number = false
+vim.o.relativenumber = false
 vim.o.termguicolors = true
 vim.o.mousemodel = "extend"
 vim.o.completeopt = "menuone,noselect"
@@ -61,8 +62,28 @@ vim.o.undofile = true
 vim.o.swapfile = false
 vim.o.writebackup = false
 
--- disable build-in modules
+-- disable builtin modules
 vim.g.loaded_perl_provider = 0
 vim.g.loaded_ruby_provider = 0
 vim.g.loaded_node_provider = 0
 vim.g.loaded_python3_provider = 0
+
+-- format options
+--
+u.aucmd("FileType", {
+  group = u.augroup "formatoptions",
+  callback = function()
+    vim.opt.formatoptions:remove {
+      "c", -- autowrap comments using textwidth with leader
+      "r", -- don't auto-insert comment leader on enter in insert
+      "o", -- don't auto-insert comment leader on o/O in normal
+      "n", -- don't recognized numbered lists
+      "2", -- don't use the indent of second paragraph line
+    }
+
+    vim.opt.formatoptions:append {
+      "l", -- long lines not broken in insert mode
+      "1", -- don't break a line after a one-letter word
+    }
+  end,
+})
