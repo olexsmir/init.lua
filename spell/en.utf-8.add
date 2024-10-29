@@ -25,7 +25,7 @@ and
 nvim
 tawa
 pona
-pona
+pana
 li
 ni
 toki
@@ -101,7 +101,6 @@ e2e
 apiv1
 usersrv
 notesrv
-notesrv
 httpserver
 userepo
 psql
@@ -129,9 +128,7 @@ ttl
 RATELIMITER
 MiddlewareWithConfig
 gopher
-gopher
 eval
-minidoc
 MiniDoc
 gsub
 lua
@@ -140,3 +137,16 @@ async
 neovim
 echohl
 doesnt
+dotfiles
+dir
+shellcheck
+ADDR
+REDIS
+exhaustruct
+nolint
+usercache
+redis
+dbs
+ig
+NeogitConfig
+setupOpts
