@@ -5,8 +5,13 @@ return {
     "b0o/schemastore.nvim",
     {
       "j-hui/fidget.nvim",
-      config = true,
       dependencies = { "nvim-lspconfig" },
+      opts = {
+        progress = { display = {
+          render_limit = 2,
+          done_ttl = 2,
+        } },
+      },
     },
     {
       "folke/lazydev.nvim",
