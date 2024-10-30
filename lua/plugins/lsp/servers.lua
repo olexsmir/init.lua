@@ -5,6 +5,7 @@ return {
   html = {},
   gleam = {},
   templ = {},
+  bashls = {},
   gopls = {
     settings = {
       gopls = {
