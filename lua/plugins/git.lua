@@ -4,20 +4,20 @@ return {
     "lewis6991/gitsigns.nvim",
     event = "BufRead",
     keys = function()
-      local function gitsigns(fn)
+      local function wrap(fn)
         return function()
-          require("gitsigns")[fn]()
+          return require("gitsigns")[fn]()
         end
       end
 
       return {
-        { "]g", gitsigns "next_hunk" },
-        { "[g", gitsigns "prev_hunk" },
-        { "<leader>gs", gitsigns "stage_hunk" },
-        { "<leader>gS", gitsigns "undo_stage_hunk" },
-        { "<leader>gr", gitsigns "reset_hunk" },
-        { "<leader>gh", gitsigns "preview_hunk" },
-        { "<leader>gb", gitsigns "blame" },
+        { "]g", wrap "next_hunk" },
+        { "[g", wrap "prev_hunk" },
+        { "<leader>gs", wrap "stage_hunk" },
+        { "<leader>gS", wrap "undo_stage_hunk" },
+        { "<leader>gr", wrap "reset_hunk" },
+        { "<leader>gh", wrap "preview_hunk" },
+        { "<leader>gb", wrap "blame" },
       }
     end,
     opts = {
