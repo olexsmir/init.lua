@@ -1,15 +1,6 @@
 local u = require "core.utils"
 require("core.diagnostic").setup()
 
--- stylua: ignore
-vim.o.langmap = table.concat({'№;#',
-  'йЙ;qQ', 'цЦ;wW', 'уУ;eE', 'кК;rR', 'еЕ;tT', 'нН;yY', 'гГ;uU', 'шШ;iI', 'щЩ;oO', 'зЗ;pP', 'хХ;[{', 'їЇ;]}',
-  'фФ;aA', 'іІ;sS', 'вВ;dD', 'аА;fF', 'пП;gG', 'рР;hH', 'оО;jJ', 'лЛ;kK', 'дД;lL', [[жЖ;\;:]], [[єЄ;'\"]],
-  'яЯ;zZ', 'чЧ;xX', 'сС;cC', 'мМ;vV', 'иИ;bB', 'тТ;nN', 'ьЬ;mM', [[бБ;\,<]], 'юЮ;.>',
-}, ",")
-
-vim.g.editorconfig = true
-
 vim.opt.shell = "/bin/bash" -- fixes issues with fish shell
 
 -- leader
@@ -25,6 +16,7 @@ vim.o.softtabstop = 4
 vim.o.tabstop = 4
 
 -- other cool stuff
+vim.g.editorconfig = true
 vim.o.spell = true
 vim.o.ignorecase = true
 vim.o.smartcase = true
@@ -69,7 +61,6 @@ vim.g.loaded_node_provider = 0
 vim.g.loaded_python3_provider = 0
 
 -- format options
---
 u.aucmd("FileType", {
   group = u.augroup "formatoptions",
   callback = function()
