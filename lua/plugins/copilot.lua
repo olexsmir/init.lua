@@ -28,6 +28,7 @@ return {
     dependencies = { "copilot.lua" },
     branch = "canary",
     cmd = { "CopilotChat" },
+    build = "make tiktoken",
     keys = {
       { "<leader>C", ":CopilotChat ", mode = { "n", "v" } },
     },
