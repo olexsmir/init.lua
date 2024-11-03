@@ -12,12 +12,6 @@ u.map("n", "Q", "<nop>") -- Q is the worth thing ever
 u.map("n", "[b", ":bp<cr>")
 u.map("n", "]b", ":bn<cr>")
 u.map("n", "J", "mzJ`z")
-u.map("n", "<leader>N", function()
-  require("scratch.notes").global()
-end)
-u.map("n", "<leader>n", function()
-  require("scratch.notes").project()
-end)
 
 -- quickfix
 u.map("n", "]q", "<cmd>cnext<cr>")
