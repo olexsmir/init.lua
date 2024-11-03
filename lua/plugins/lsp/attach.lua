@@ -6,7 +6,7 @@ u.aucmd("LspAttach", {
     local bufnr = args.buf
     local client = vim.lsp.get_client_by_id(args.data.client_id)
     if not client then
-      error "couldnt get an lsp server"
+      error "couldn't get an lsp server"
     end
 
     if client.supports_method "textDocument/codeLens" then
