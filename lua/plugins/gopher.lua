@@ -6,7 +6,9 @@ return {
   ft = "go",
   dev = true,
   cmd = "GoInstallDeps",
-  build = vim.cmd.GoInstallDeps,
+  build = function()
+    pcall(vim.cmd.GoInstallDeps)
+  end,
   dependencies = {
     { "williamboman/mason.nvim", cond = dev_deps, config = true },
   },
