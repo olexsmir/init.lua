@@ -6,34 +6,6 @@ return {
     dependencies = {
       "RRethy/nvim-treesitter-endwise",
       { "nvim-treesitter/nvim-treesitter-context", config = true },
-      {
-        "lukas-reineke/headlines.nvim",
-        config = function()
-          require("headlines").setup {
-            go = {
-              codeblock_highlight = "ColorColumn",
-              query = vim.treesitter.query.parse(
-                "go",
-                [[([(raw_string_literal)
-                    (interpreted_string_literal)] @codeblock
-                   (#match? @codeblock "--sql" "-- sql" "--SQL" "-- SQL")
-                   (#offset! @codeblock 0 0 1 0))]]
-              ),
-            },
-            gleam = {
-              codeblock_highlight = "ColorColumn",
-              query = vim.treesitter.query.parse(
-                "gleam",
-                [[((let
-                    pattern: (identifier) @_identifier
-                              (#any-of? @_identifier "sql" "q" "query")
-                    value: (string (quoted_content) @codeblock))
-                   (#offset! @codeblock 0 0 1 0))]]
-              ),
-            },
-          }
-        end,
-      },
     },
     build = function()
       pcall(vim.cmd.TSUpdate)
