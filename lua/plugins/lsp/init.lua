@@ -7,10 +7,12 @@ return {
       "j-hui/fidget.nvim",
       dependencies = { "nvim-lspconfig" },
       opts = {
-        progress = { display = {
-          render_limit = 2,
-          done_ttl = 2,
-        } },
+        progress = {
+          display = {
+            render_limit = 2,
+            done_ttl = 2,
+          },
+        },
       },
     },
     {
@@ -23,9 +25,6 @@ return {
           { path = "luvit-meta/library", words = { "vim%.uv" } },
           { path = "mini.test", words = { "MiniTest" } },
           "lazy.nvim",
-          "gopher.nvim",
-          "neogit",
-          "oil.nvim",
         },
       },
     },

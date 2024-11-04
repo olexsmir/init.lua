@@ -42,6 +42,7 @@ return {
     "TimUntersberger/neogit",
     cmd = "Neogit",
     keys = { { "<leader>gg", vim.cmd.Neogit } },
+    ---@module "neogit"
     ---@type NeogitConfig
     opts = {
       kind = "vsplit",

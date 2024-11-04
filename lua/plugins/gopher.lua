@@ -1,5 +1,6 @@
 local dev_deps = false
 
+---@module "gopher"
 ---@type LazySpec
 return {
   "olexsmir/gopher.nvim",

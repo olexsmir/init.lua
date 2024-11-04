@@ -40,6 +40,7 @@ return {
     event = "VeryLazy",
     cmd = "Oil",
     keys = { { "<leader>e", vim.cmd.Oil } },
+    ---@module "oil"
     ---@type oil.setupOpts
     opts = {
       columns = { "icon" },
