@@ -2,18 +2,29 @@
 return {
   "nvim-neotest/neotest",
   keys = function()
-    -- stylua: ignore
+    local function wrap(first, second, args)
+      args = args or nil
+      return function()
+        return require("neotest")[first][second](args)
+      end
+    end
+
     return {
-      { "<leader>tn", function() require("neotest").run.run() end },
-      { "<leader>tt", function() require("neotest").run.run(vim.fn.expand "%") end },
-      { "<leader>tS", function() require("neotest").run.stop() end },
-      { "<leader>to", function() require("neotest").output.open() end },
-      { "<leader>ts", function() require("neotest").summary.toggle() end },
-      { "<leader>tw", function() require("neotest").watch.toggle() end },
-      { "]t", function() require("neotest").jump.next() end },
-      { "[t", function() require("neotest").jump.prev() end },
-      { "]T", function() require("neotest").jump.next { status = "failed" } end },
-      { "[T", function() require("neotest").jump.prev { status = "failed" } end },
+      { "<leader>tn", wrap("run", "run") },
+      {
+        "<leader>tt",
+        function()
+          require("neotest").run.run(vim.fn.expand "%")
+        end,
+      },
+      { "<leader>tS", wrap("run", "stop") },
+      { "<leader>to", wrap("output", "open") },
+      { "<leader>ts", wrap("summary", "toggle") },
+      { "<leader>tw", wrap("watch", "toggle") },
+      { "]t", wrap("jump", "next") },
+      { "[t", wrap("jump", "prev") },
+      { "]T", wrap("jump", "next", { status = "failed" }) },
+      { "[T", wrap("jump", "prev", { status = "failed" }) },
     }
   end,
   dependencies = {
