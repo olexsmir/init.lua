@@ -11,7 +11,6 @@ u.map("n", "<C-u>", "<C-u>zz")
 u.map("n", "Q", "<nop>") -- Q is the worth thing ever
 u.map("n", "[b", ":bp<cr>")
 u.map("n", "]b", ":bn<cr>")
-u.map("n", "J", "mzJ`z")
 
 -- quickfix
 u.map("n", "]q", "<cmd>cnext<cr>")
