@@ -102,6 +102,7 @@ return {
       },
       sources = cmp.config.sources {
         { name = "copilot", group_index = 2, max_item_count = 3 },
+        { name = "lazydev", group_index = 0 },
         { name = "nvim_lsp", max_item_count = 12 },
         { name = "buffer", max_item_count = 4 },
         { name = "luasnip", max_item_count = 3 },
