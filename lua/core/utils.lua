@@ -2,7 +2,7 @@ return {
   ---@param mode string|table
   ---@param from string
   ---@param to string|function
-  ---@param buffer? number|boolean
+  ---@param buffer? integer|boolean
   map = function(mode, from, to, buffer)
     vim.keymap.set(mode, from, to, {
       noremap = true,
