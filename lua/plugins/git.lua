@@ -50,6 +50,8 @@ return {
       disable_commit_confirmation = true,
       disable_context_highlighting = true,
       disable_hint = true,
+      auto_show_console = false,
+      graph_style = "kitty",
       signs = {
         section = { "", "" },
         item = { "", "" },
