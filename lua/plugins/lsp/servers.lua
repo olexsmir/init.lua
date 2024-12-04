@@ -1,6 +1,5 @@
 return {
   clangd = {},
-  ts_ls = {},
   eslint = {},
   html = {},
   gleam = {},

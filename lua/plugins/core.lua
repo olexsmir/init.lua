@@ -35,4 +35,9 @@ return {
       disable_filetype = { "TelescopePrompt", "markdown" },
     },
   },
+  {
+    "pmizio/typescript-tools.nvim",
+    ft = { "typescript" },
+    opts = {},
+  },
 }
