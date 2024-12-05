@@ -167,3 +167,12 @@ LMB
 sep
 env
 GetBySlugAndRemoveIfNeeded
+autowrap
+textwidth
+quickfix
+listchars
+number
+TSConfig
+Andriy
+ZenOptions
+HarpoonPartialConfig
