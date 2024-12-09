@@ -27,9 +27,4 @@ return {
       { "i", mode = { "o", "x" } },
     },
   },
-  {
-    "echasnovski/mini.test",
-    config = true,
-    ft = "lua",
-  },
 }
