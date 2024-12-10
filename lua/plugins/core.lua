@@ -16,8 +16,14 @@ return {
   },
   {
     "oysandvik94/curl.nvim",
-    opts = { default_flags = { "-i" } },
-    cmd = { "CurlOpen" },
+    dev = true,
+    cmd = { "CurlOpen", "CurlCollection" },
+    ---@module "curl"
+    ---@type curl_config
+    opts = {
+      default_flags = { "-i" },
+      open_with = "vsplit",
+    },
   },
   {
     "folke/todo-comments.nvim",
