@@ -9,13 +9,20 @@ return {
 
     null_ls.setup {
       sources = {
+        diagnostic.codespell,
+
         formatting.stylua,
-        diagnostic.selene,
+        diagnostic.selene.with {
+          condition = function(utils)
+            return utils.root_has_file "selene.toml"
+          end,
+        },
+
         formatting.goimports,
         formatting.golines,
+
         formatting.clang_format,
         formatting.pg_format,
-        diagnostic.codespell,
       },
     }
   end,
