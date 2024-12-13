@@ -23,6 +23,7 @@ return {
 
         formatting.clang_format,
         formatting.pg_format,
+        formatting.prettierd,
       },
     }
   end,
