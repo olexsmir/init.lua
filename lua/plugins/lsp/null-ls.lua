@@ -23,7 +23,10 @@ return {
 
         formatting.clang_format,
         formatting.pg_format,
-        formatting.prettierd,
+        formatting.prettierd.with {
+          -- stylua: ignore
+          filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "html", "json", "jsonc", "svelte", "astro" },
+        },
       },
     }
   end,
