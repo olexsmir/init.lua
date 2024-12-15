@@ -101,6 +101,8 @@ return {
         end,
       },
       sources = cmp.config.sources {
+        { name = "orgmode", group_index = 0, max_item_count = 3 },
+        { name = "copilot", group_index = 1, max_item_count = 3 },
         { name = "copilot", group_index = 2, max_item_count = 3 },
         { name = "lazydev", group_index = 0 },
         { name = "nvim_lsp", max_item_count = 12 },
