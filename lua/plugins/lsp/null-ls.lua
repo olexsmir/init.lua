@@ -9,7 +9,13 @@ return {
 
     null_ls.setup {
       sources = {
-        diagnostic.codespell,
+        diagnostic.codespell.with {
+          args = {
+            "--ignore-words",
+            vim.fn.expand "$HOME" .. "/.config/codespell-ignore.txt",
+            "-",
+          },
+        },
 
         formatting.stylua,
         diagnostic.selene.with {
