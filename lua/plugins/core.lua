@@ -46,4 +46,17 @@ return {
     ft = { "typescript" },
     opts = {},
   },
+  {
+    "3rd/image.nvim",
+    ft = { "markdown" },
+    opts = {
+      max_height_window_percentage = 65,
+      integrations = {
+        markdown = {
+          only_render_image_at_cursor = true,
+          clear_in_insert_mode = true,
+        },
+      },
+    },
+  },
 }

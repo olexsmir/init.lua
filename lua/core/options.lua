@@ -39,8 +39,6 @@ vim.o.hidden = true
 vim.o.title = true
 vim.o.linebreak = true
 vim.o.wrap = false
-vim.o.conceallevel = 2
-vim.o.concealcursor = 'cv'
 
 -- listchars
 vim.o.list = true
