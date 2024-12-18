@@ -39,6 +39,10 @@ return {
         org_return = false,
         org_export = false,
       },
+      global = {
+        org_agenda = false,
+        org_capture = false,
+      },
     },
     org_capture_templates = {
       t = {
