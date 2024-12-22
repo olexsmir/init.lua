@@ -4,6 +4,7 @@ return {
   "kyazdani42/nvim-web-devicons",
   { "tpope/vim-surround", keys = { "c", "d", "y" } },
   { "tpope/vim-repeat", event = "VeryLazy" },
+  { "tpope/vim-speeddating", keys = { "<C-a>", "<C-x>" } },
   { "tweekmonster/helpful.vim", cmd = "HelpfulVersion" },
   { "wakatime/vim-wakatime", event = "VeryLazy" },
   {
