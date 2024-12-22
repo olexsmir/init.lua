@@ -68,6 +68,15 @@ return {
       },
     },
   },
+  markdown_oxide = {
+    capabilities = {
+      workspace = {
+        didChangeWatchedFiles = {
+          dynamicRegistration = true,
+        },
+      },
+    },
+  },
   yamlls = {
     settings = {
       yaml = {
