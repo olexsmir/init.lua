@@ -1,4 +1,3 @@
-local prefix = "<leader>;"
 local dir = "~/org"
 
 local function wrap(fn)
@@ -12,12 +11,14 @@ return {
   "nvim-orgmode/orgmode",
   ft = { "org" },
   keys = {
-    { "<leader>;a", wrap "agenda.prompt" },
-    { "<leader>;c", wrap "capture.prompt" },
-    { "<leader>;o", ("<cmd>e %s/refile.org<cr>"):format(dir) },
+    "<leader>r",
+    "<leader>o",
+    { "<leader>oc", wrap "capture.prompt" },
+    { "<leader>oa", wrap "agenda.prompt" },
+    { "<leader>oo", ("<cmd>e %s/refile.org<cr>"):format(dir) },
   },
   dependencies = {
-    { "akinsho/org-bullets.nvim", config = true },
+    { "akinsho/org-bullets.nvim", config = true, enabled = true },
     {
       "nvim-orgmode/telescope-orgmode.nvim",
       ft = { "org" },
@@ -26,6 +27,19 @@ return {
         require("telescope").load_extension "orgmode"
       end,
     },
+    {
+      "chipsenkbeil/org-roam.nvim",
+      dependencies = { "orgmode" },
+      ---@module "org-roam"
+      ---@type org-roam.config.Data
+      opts = {
+        directory = dir .. "/roam",
+        org_files = { dir .. "/refile.org" },
+        bindings = {
+          prefix = "<leader>r",
+        },
+      },
+    },
   },
   ---@module "orgmode"
   ---@type OrgDefaultConfig
@@ -33,7 +47,7 @@ return {
     org_default_notes_file = dir .. "/refile.org",
     org_agenda_files = dir .. "/**/*",
     mappings = {
-      prefix = prefix,
+      prefix = "<leader>o",
       org = {
         org_open_at_point = "<CR>",
         org_return = false,
