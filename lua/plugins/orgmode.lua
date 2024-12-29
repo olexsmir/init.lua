@@ -46,6 +46,7 @@ return {
   opts = {
     org_default_notes_file = dir .. "/refile.org",
     org_agenda_files = dir .. "/**/*",
+    org_todo_keywords = { "TODO", "DOING", "|", "DONE" },
     mappings = {
       prefix = "<leader>o",
       org = {
