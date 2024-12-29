@@ -21,6 +21,7 @@ return {
     cmd = { "CurlOpen", "CurlCollection" },
     ---@module "curl"
     ---@type curl_config
+    ---@diagnostic disable-next-line: missing-fields
     opts = {
       default_flags = { "-i" },
       open_with = "vsplit",

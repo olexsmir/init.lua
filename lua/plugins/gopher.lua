@@ -13,6 +13,7 @@ return {
   dependencies = {
     { "williamboman/mason.nvim", cond = dev_deps, config = true },
   },
+  ---@module "gopher"
   ---@type gopher.Config
   ---@diagnostic disable-next-line: missing-fields
   opts = {
