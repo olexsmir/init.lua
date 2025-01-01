@@ -7,9 +7,10 @@ return {
   { "tpope/vim-speeddating", keys = { "<C-a>", "<C-x>" } },
   { "tweekmonster/helpful.vim", cmd = "HelpfulVersion" },
   { "wakatime/vim-wakatime", event = "VeryLazy" },
+  { "pmizio/typescript-tools.nvim", ft = { "typescript" }, config = true },
+  { "OXY2DEV/markview.nvim", ft = { "markdown" } },
   {
     "folke/tokyonight.nvim",
-    lazy = false,
     opts = { style = "night" },
     init = function()
       vim.cmd.colorscheme "tokyonight"
@@ -42,11 +43,6 @@ return {
       check_ts = true,
       disable_filetype = { "TelescopePrompt", "markdown" },
     },
-  },
-  {
-    "pmizio/typescript-tools.nvim",
-    ft = { "typescript" },
-    opts = {},
   },
   {
     "3rd/image.nvim",
