@@ -63,7 +63,12 @@ return {
       t = {
         description = "Task",
         template = "* TODO %?",
-        target = "~/org/todolist.org",
+        target = dir .. "/todolist.org",
+      },
+      i = {
+        description = "Inbox",
+        template = "* %?",
+        target = dir .. "/refile.org",
       },
     },
   },
