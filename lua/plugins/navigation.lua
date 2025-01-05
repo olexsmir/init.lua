@@ -52,21 +52,11 @@ return {
         ["."] = "actions.toggle_hidden",
         ["<CR>"] = "actions.select",
         ["<tab>"] = "actions.select",
-
-        ["<C-v>"] = "actions.select_vsplit",
-        ["<C-x>"] = "actions.select_split",
         ["<C-p>"] = "actions.preview",
         ["<C-r>"] = "actions.refresh",
-        ["<C-c>"] = "actions.close",
-        ["<C-[>"] = "actions.close",
-
         ["-"] = "actions.open_cwd",
         [";"] = "actions.parent",
-
         ["\\"] = "actions.cd",
-        ["C-\\"] = "actions.tcd",
-        ["`"] = "actions.cd",
-        ["~"] = "actions.tcd",
       },
       view_options = {
         show_hidden = false,
@@ -76,7 +66,6 @@ return {
               [".."] = {}, -- annoying as hell
               [".git"] = {},
               [".docker"] = {},
-              ["tmp"] = {},
               ["build"] = {},
               ["dist"] = {},
               ["node_modules"] = {},
@@ -94,6 +83,7 @@ return {
               ["vendor"] = {},
               [".vscode"] = {},
               [".bin"] = {},
+              ["tmp"] = {},
             })[name]
           then
             return true
