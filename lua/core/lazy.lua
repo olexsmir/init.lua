@@ -17,7 +17,11 @@ require("lazy").setup("plugins", {
     lazy = true,
     -- version = "*",-- use only stable releases
   },
-  dev = { path = "~/code" },
+  dev = {
+    path = "~/code",
+    patterns = { "olexsmir" },
+    fallback = true,
+  },
   install = { colorscheme = { "tokyonight" } },
   change_detection = { notify = false },
   performance = {
