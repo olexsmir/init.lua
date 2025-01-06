@@ -16,7 +16,6 @@ vim.o.tabstop = 4
 
 -- other cool stuff
 vim.g.editorconfig = true
-vim.o.spell = true
 vim.o.ignorecase = true
 vim.o.smartcase = true
 vim.o.number = true
@@ -39,6 +38,10 @@ vim.o.hidden = true
 vim.o.title = true
 vim.o.linebreak = true
 vim.o.wrap = false
+
+-- spelling
+vim.o.spell = true
+vim.o.spelllang = "en_us,uk"
 
 -- listchars
 vim.o.list = true
