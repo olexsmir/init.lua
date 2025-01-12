@@ -1,52 +1,41 @@
 local dir = "~/org"
+local function orgpath(path, not_a_file)
+  not_a_file = not_a_file or false
+  if not_a_file then
+    return dir .. "/" .. path
+  end
+  return dir .. "/" .. path .. ".org"
+end
 
-local function wrap(fn)
+local function wrap(action, opts)
+  opts = opts or {}
   return function()
-    require("orgmode").action(fn)
+    return require("orgmode").action(action, opts)
   end
 end
 
 ---@type LazySpec
 return {
   "nvim-orgmode/orgmode",
-  ft = { "org" },
+  ft = "org",
   keys = {
-    "<leader>r",
     "<leader>o",
+    { "<leader>oo", ("<cmd>e " .. orgpath "refile" .. "<CR>") },
     { "<leader>oc", wrap "capture.prompt" },
     { "<leader>oa", wrap "agenda.prompt" },
-    { "<leader>oo", ("<cmd>e %s/refile.org<cr>"):format(dir) },
   },
   dependencies = {
-    { "akinsho/org-bullets.nvim", config = true, enabled = true },
-    {
-      "nvim-orgmode/telescope-orgmode.nvim",
-      ft = { "org" },
-      dependencies = { "telescope.nvim" },
-      config = function()
-        require("telescope").load_extension "orgmode"
-      end,
-    },
-    {
-      "chipsenkbeil/org-roam.nvim",
-      dependencies = { "orgmode" },
-      ---@module "org-roam"
-      ---@type org-roam.config.Data
-      opts = {
-        directory = dir .. "/roam",
-        org_files = { dir .. "/refile.org" },
-        bindings = {
-          prefix = "<leader>r",
-        },
-      },
-    },
+    { "akinsho/org-bullets.nvim", config = true },
   },
   ---@module "orgmode"
   ---@type OrgDefaultConfig
   opts = {
-    org_default_notes_file = dir .. "/refile.org",
-    org_agenda_files = dir .. "/**/*",
-    org_todo_keywords = { "TODO", "DOING", "|", "DONE" },
+    org_default_notes_file = orgpath "refile",
+    org_agenda_files = orgpath("**/*", true),
+    org_todo_keywords = { "TODO(t)", "|", "DONE(d)" },
+    org_hide_emphasis_markers = true,
+    org_startup_indented = true,
+    org_startup_folded = "content", -- "showeverything"
     mappings = {
       prefix = "<leader>o",
       org = {
@@ -62,13 +51,14 @@ return {
     org_capture_templates = {
       t = {
         description = "Task",
-        template = "* TODO %?",
-        target = dir .. "/todolist.org",
+        template = "* TODO %? :in:",
+        target = orgpath "todo",
       },
-      i = {
-        description = "Inbox",
-        template = "* %?",
-        target = dir .. "/refile.org",
+      i = { description = "Inbox", template = "* %? :in:" },
+      w = {
+        description = "New vocab",
+        template = "* %? :vocab:",
+        headline = "new vocab",
       },
     },
   },
