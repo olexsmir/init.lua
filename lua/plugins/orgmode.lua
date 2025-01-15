@@ -29,10 +29,11 @@ return {
   },
   ---@module "orgmode"
   ---@type OrgDefaultConfig
+  ---@diagnostic disable-next-line: missing-fields
   opts = {
     org_default_notes_file = orgpath "refile",
     org_agenda_files = orgpath("**/*", true),
-    org_todo_keywords = { "TODO(t)", "|", "DONE(d)" },
+    org_todo_keywords = { "TODO(t)", "INB(i)", "|", "DONE(d)" },
     org_hide_emphasis_markers = true,
     org_startup_indented = true,
     org_startup_folded = "content", -- "showeverything"
@@ -51,10 +52,10 @@ return {
     org_capture_templates = {
       t = {
         description = "Task",
-        template = "* TODO %? :in:",
+        template = "* INB %?",
         target = orgpath "todo",
       },
-      i = { description = "Inbox", template = "* %? :in:" },
+      i = { description = "Inbox", template = "* INB %?" },
       w = {
         description = "New vocab",
         template = "* %? :vocab:",
