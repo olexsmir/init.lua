@@ -22,7 +22,7 @@ return {
     end,
     opts = {
       max_file_length = 1000,
-      current_line_blame = false,
+      current_line_blame = true,
       signs = {
         add = { text = "" },
         change = { text = "" },
