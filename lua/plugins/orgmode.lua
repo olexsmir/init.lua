@@ -28,12 +28,13 @@ return {
     { "akinsho/org-bullets.nvim", config = true },
   },
   ---@module "orgmode"
-  ---@type OrgDefaultConfig
+  ---@type OrgConfigOpts
   ---@diagnostic disable-next-line: missing-fields
   opts = {
     org_default_notes_file = orgpath "refile",
     org_agenda_files = orgpath("**/*", true),
-    org_todo_keywords = { "TODO(t)", "INB(i)", "|", "DONE(d)" },
+    -- stylua: ignore
+    org_todo_keywords = { "TODO(t)", "INB(i)", "DOING(I)", "|", "DONE(d)", "CANCEL(c)",},
     org_hide_emphasis_markers = true,
     org_startup_indented = true,
     org_startup_folded = "content", -- "showeverything"
@@ -41,12 +42,12 @@ return {
       prefix = "<leader>o",
       org = {
         org_open_at_point = "<CR>",
-        org_return = false,
-        org_export = false,
+        org_return = nil,
+        org_export = nil,
       },
       global = {
-        org_agenda = false,
-        org_capture = false,
+        org_agenda = nil,
+        org_capture = nil,
       },
     },
     org_capture_templates = {
