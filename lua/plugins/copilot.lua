@@ -1,7 +1,11 @@
+local enabled = false
+
 ---@type LazySpec
 return {
+  enabled = enabled,
   {
     "zbirenbaum/copilot.lua",
+    enabled = enabled,
     cmd = "Copilot",
     build = ":Copilot auth",
     opts = {
@@ -26,6 +30,7 @@ return {
   {
     "CopilotC-Nvim/CopilotChat.nvim",
     dependencies = { "copilot.lua" },
+    enabled = enabled,
     branch = "canary",
     cmd = { "CopilotChat" },
     build = "make tiktoken",
@@ -43,5 +48,11 @@ return {
         },
       },
     },
+  },
+  {
+    "zbirenbaum/copilot-cmp",
+    dependencies = { "copilot.lua", "nvim-cmp" },
+    enabled = enabled,
+    opts = {},
   },
 }

@@ -9,18 +9,15 @@ return {
     "hrsh7th/cmp-nvim-lsp",
     { "hrsh7th/cmp-cmdline", keys = { ":" } },
     { "kirasok/cmp-hledger", ft = "ledger" },
-    {
-      "zbirenbaum/copilot-cmp",
-      dependencies = "copilot.lua",
-      enabled = true,
-      opts = {},
-    },
   },
   config = function()
     local cmp = require "cmp"
-    local cmp_autopairs = require "nvim-autopairs.completion.cmp"
 
-    cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+    cmp.event:on(
+      "confirm_done",
+      require("nvim-autopairs.completion.cmp").on_confirm_done()
+    )
+
     ---@diagnostic disable-next-line: missing-fields
     cmp.setup.filetype({ "gitcommit", "NeogitCommitMessage" }, {
       sources = { { name = "buffer" }, { name = "luasnip" } },
@@ -73,7 +70,6 @@ return {
             TypeParameter = "",
             Copilot = "",
           })[vim_item.kind]
-
           return vim_item
         end,
       },
@@ -102,7 +98,7 @@ return {
       },
       sources = cmp.config.sources {
         { name = "orgmode", group_index = 0, max_item_count = 3 },
-        { name = "hledger" },
+        { name = "hledger", group_index = 0 },
         { name = "copilot", group_index = 2, max_item_count = 3 },
         { name = "lazydev", group_index = 0 },
         { name = "nvim_lsp", max_item_count = 12 },
