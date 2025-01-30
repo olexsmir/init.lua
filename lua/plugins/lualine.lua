@@ -55,7 +55,7 @@ return {
       lualine_c = { c.harpoon_status, "filename", "branch", c.diagnostic },
       lualine_x = { c.lsp, "diff" },
       lualine_y = {},
-      lualine_z = { c.location },
+      lualine_z = {},
     },
   },
 }
