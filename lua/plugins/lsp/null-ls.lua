@@ -12,7 +12,7 @@ return {
         diagnostic.codespell.with {
           args = {
             "--ignore-words",
-            vim.fn.expand "$HOME" .. "/.config/codespell-ignore.txt",
+            vim.env.HOME .. "/.config/codespell-ignore.txt",
             "-",
           },
         },
