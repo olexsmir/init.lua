@@ -1,16 +1,10 @@
-local dir = "~/org"
-local function orgpath(path, not_a_file)
-  not_a_file = not_a_file or false
-  if not_a_file then
-    return dir .. "/" .. path
-  end
-  return dir .. "/" .. path .. ".org"
+local function orgpath(p, not_file)
+  return "~/org" .. "/" .. p .. (not not_file and ".org" or "")
 end
 
-local function wrap(action, opts)
-  opts = opts or {}
+local function action(act, opts)
   return function()
-    return require("orgmode").action(action, opts)
+    return require("orgmode").action(act, opts or {})
   end
 end
 
@@ -21,8 +15,8 @@ return {
   keys = {
     "<leader>o",
     { "<leader>oo", ("<cmd>e " .. orgpath "refile" .. "<CR>") },
-    { "<leader>oc", wrap "capture.prompt" },
-    { "<leader>oa", wrap "agenda.prompt" },
+    { "<leader>oc", action "capture.prompt" },
+    { "<leader>oa", action "agenda.prompt" },
   },
   dependencies = {
     { "akinsho/org-bullets.nvim", config = true },
@@ -59,7 +53,7 @@ return {
       i = { description = "Inbox", template = "* INB %?" },
       w = {
         description = "New vocab",
-        template = "* %? :vocab:",
+        template = "* %?",
         headline = "new vocab",
       },
     },
