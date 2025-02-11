@@ -1,3 +1,4 @@
+---@type LazySpec
 return {
   "neovim/nvim-lspconfig",
   event = "BufRead",
@@ -15,19 +16,7 @@ return {
         },
       },
     },
-    {
-      "folke/lazydev.nvim",
-      ft = "lua",
-      cmd = "LazyDev",
-      dependencies = { "nvim-lspconfig", "Bilal2453/luvit-meta" },
-      opts = {
-        library = {
-          { path = "luvit-meta/library", words = { "vim%.uv" } },
-          { path = "mini.test", words = { "MiniTest" } },
-          "lazy.nvim",
-        },
-      },
-    },
+    { import = "plugins.lsp.lazydev" },
     { import = "plugins.lsp.null-ls" },
     {
       "RRethy/vim-illuminate",
