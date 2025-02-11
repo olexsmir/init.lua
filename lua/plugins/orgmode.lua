@@ -38,6 +38,12 @@ return {
   },
   dependencies = {
     { "akinsho/org-bullets.nvim", config = true },
+    {
+      "nvim-cmp",
+      opts = function(_, opts)
+        table.insert(opts.sources, 1, { name = "orgmode" })
+      end,
+    },
   },
   ---@module "orgmode"
   ---@type OrgConfigOpts

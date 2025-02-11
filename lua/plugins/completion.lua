@@ -10,13 +10,8 @@ return {
     { "hrsh7th/cmp-cmdline", keys = { ":" } },
     { "kirasok/cmp-hledger", ft = "ledger" },
   },
-  config = function()
+  config = function(_, opts)
     local cmp = require "cmp"
-
-    cmp.event:on(
-      "confirm_done",
-      require("nvim-autopairs.completion.cmp").on_confirm_done()
-    )
 
     ---@diagnostic disable-next-line: missing-fields
     cmp.setup.filetype({ "gitcommit", "NeogitCommitMessage" }, {
@@ -29,7 +24,15 @@ return {
       sources = { { name = "path" }, { name = "cmdline" } },
     })
 
-    cmp.setup {
+    cmp.setup(opts)
+  end,
+
+  opts = function()
+    local cmp = require "cmp"
+
+    ---@type cmp.Config
+    ---@diagnostic disable-next-line: missing-fields
+    return {
       snippet = {
         expand = function(args)
           require("luasnip").lsp_expand(args.body)
@@ -97,10 +100,7 @@ return {
         end,
       },
       sources = cmp.config.sources {
-        { name = "orgmode", group_index = 0, max_item_count = 3 },
         { name = "hledger", group_index = 0 },
-        { name = "copilot", group_index = 2, max_item_count = 3 },
-        { name = "lazydev", group_index = 0 },
         { name = "nvim_lsp", max_item_count = 12 },
         { name = "buffer", max_item_count = 4 },
         { name = "luasnip", max_item_count = 3 },

@@ -39,10 +39,18 @@ return {
   {
     "windwp/nvim-autopairs",
     event = "InsertEnter",
-    opts = {
-      check_ts = true,
-      disable_filetype = { "TelescopePrompt", "markdown" },
-    },
+    dependencies = { "nvim-cmp" },
+    config = function()
+      require("nvim-autopairs").setup {
+        check_ts = true,
+        disable_filetype = { "TelescopePrompt", "markdown" },
+      }
+
+      require("cmp").event:on(
+        "confirm_done",
+        require("nvim-autopairs.completion.cmp").on_confirm_done()
+      )
+    end,
   },
   {
     "3rd/image.nvim",
