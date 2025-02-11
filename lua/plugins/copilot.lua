@@ -1,4 +1,4 @@
-local enabled = false
+local enabled = true
 
 ---@type LazySpec
 return {
@@ -31,28 +31,44 @@ return {
     "CopilotC-Nvim/CopilotChat.nvim",
     dependencies = { "copilot.lua" },
     enabled = enabled,
-    branch = "canary",
     cmd = { "CopilotChat" },
     build = "make tiktoken",
     keys = {
       { "<leader>C", ":CopilotChat ", mode = { "n", "v" } },
     },
+    ---@module "CopilotChat"
+    ---@type CopilotChat.config
     opts = {
+      auto_insert_mode = true,
       mappings = {
+        ---@diagnostic disable-next-line: missing-fields
         reset = {
           insert = "<C-r>",
           normal = "<C-r>",
         },
+        ---@diagnostic disable-next-line: missing-fields
         submit_prompt = {
           insert = "<C-CR>",
         },
+        ---@diagnostic disable-next-line: missing-fields
+        show_help = { normal = "?" },
       },
     },
   },
   {
-    "zbirenbaum/copilot-cmp",
-    dependencies = { "copilot.lua", "nvim-cmp" },
-    enabled = enabled,
-    opts = {},
+    "nvim-cmp",
+    cond = enabled,
+    dependencies = {
+      { "zbirenbaum/copilot-cmp", config = true },
+      "copilot.lua",
+    },
+    ---@param opts cmp.ConfigSchema
+    opts = function(_, opts)
+      table.insert(opts.sources, 1, {
+        name = "copilot",
+        group_index = 2,
+        max_item_count = 3,
+      })
+    end,
   },
 }
