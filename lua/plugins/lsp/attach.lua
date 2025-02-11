@@ -18,14 +18,7 @@ u.aucmd("LspAttach", {
     u.map("n", "<leader>lf", function()
       vim.lsp.buf.format { async = true }
     end, bufnr)
-    u.map("n", "]d", function()
-      vim.diagnostic.jump { count = 1, float = false }
-    end, bufnr)
-    u.map("n", "[d", function()
-      vim.diagnostic.jump { count = -1, float = false }
-    end, bufnr)
 
-    u.map("n", "K", vim.lsp.buf.hover, bufnr)
     u.map("n", "gd", "<cmd>Telescope lsp_definitions<cr>", bufnr)
     u.map("n", "gr", "<cmd>Telescope lsp_references<cr>", bufnr)
     u.map("n", "gi", "<cmd>Telescope lsp_implementations<cr>", bufnr)

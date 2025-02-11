@@ -1,5 +1,15 @@
 local u = require "core.utils"
 
+-- i dont want any builtin keymap for my lsp
+if vim.fn.has "nvim-0.11" == 1 then
+  vim.keymap.del("n", "grn")
+  vim.keymap.del({ "n", "x" }, "gra")
+  vim.keymap.del("n", "grr")
+  vim.keymap.del("n", "gri")
+  vim.keymap.del("n", "gO")
+  vim.keymap.del({ "i", "s" }, "<C-s>")
+end
+
 -- general
 u.map("n", "<leader>q", "<cmd>quit!<cr>")
 u.map("n", "<leader>w", "<cmd>write!<cr>")
