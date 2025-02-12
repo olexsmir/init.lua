@@ -21,6 +21,7 @@ return {
       filetypes = {
         yaml = true,
         TelescopePrompt = false,
+        org = false,
         ["."] = false,
       },
     },
@@ -61,6 +62,7 @@ return {
       { "zbirenbaum/copilot-cmp", config = true },
       "copilot.lua",
     },
+    ---@module "cmp"
     ---@param opts cmp.ConfigSchema
     opts = function(_, opts)
       table.insert(opts.sources, 1, {
