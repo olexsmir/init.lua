@@ -57,8 +57,19 @@ return {
         item = { "", "" },
         hunk = { "", "" },
       },
-      commit_editor = { kind = "split", staged_diff_split_kind = "split_above" },
-      integrations = { telescope = true },
+      commit_editor = {
+        kind = "split",
+        staged_diff_split_kind = "split_above",
+      },
+      integrations = {
+        telescope = true,
+      },
+      sections = {
+        recent = {
+          folded = false,
+          hidden = false,
+        },
+      },
     },
   },
 }
