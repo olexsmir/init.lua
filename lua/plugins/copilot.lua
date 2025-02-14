@@ -22,6 +22,7 @@ return {
         yaml = true,
         TelescopePrompt = false,
         org = false,
+        ledger = false,
         ["."] = false,
       },
     },
