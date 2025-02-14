@@ -1,6 +1,16 @@
-require("core.diagnostic").setup()
-
 vim.opt.shell = "/bin/bash" -- fixes issues with fish shell
+
+vim.diagnostic.config {
+  update_in_insert = true,
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = "",
+      [vim.diagnostic.severity.WARN] = "",
+      [vim.diagnostic.severity.HINT] = "",
+      [vim.diagnostic.severity.INFO] = "",
+    },
+  },
+}
 
 -- leader
 vim.g.mapleader = " "
