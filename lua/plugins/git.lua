@@ -72,4 +72,17 @@ return {
       },
     },
   },
+
+  {
+    "nvim-cmp",
+    ---@module "cmp"
+    ---@param opts cmp.ConfigSchema
+    opts = function(_, opts)
+      table.insert(opts.custom_setups, function(cmp)
+        cmp.setup.filetype({ "gitcommit", "NeogitCommitMessage" }, {
+          sources = { { name = "buffer" }, { name = "luasnip" } },
+        })
+      end)
+    end,
+  },
 }

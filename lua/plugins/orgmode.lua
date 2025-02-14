@@ -47,6 +47,9 @@ return {
           name = "orgmode",
           group_index = 0,
         })
+        table.insert(opts.custom_setups, function(cmp)
+          cmp.setup.filetype("org-roam-select", { sources = {} })
+        end)
       end,
     },
   },

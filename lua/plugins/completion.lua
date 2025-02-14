@@ -4,21 +4,17 @@ return {
   event = "InsertEnter",
   dependencies = {
     "hrsh7th/cmp-buffer",
-    "saadparwaiz1/cmp_luasnip",
     "hrsh7th/cmp-path",
-    "hrsh7th/cmp-nvim-lsp",
     { "hrsh7th/cmp-cmdline", keys = { ":" } },
     { "kirasok/cmp-hledger", ft = "ledger" },
   },
   config = function(_, opts)
     local cmp = require "cmp"
 
-    ---@diagnostic disable-next-line: missing-fields
-    cmp.setup.filetype({ "gitcommit", "NeogitCommitMessage" }, {
-      sources = { { name = "buffer" }, { name = "luasnip" } },
-    })
+    for _, setup_fn in ipairs(opts.custom_setups) do
+      setup_fn(cmp)
+    end
 
-    ---@diagnostic disable-next-line: missing-fields
     cmp.setup.cmdline(":", {
       mapping = cmp.mapping.preset.cmdline(),
       sources = { { name = "path" }, { name = "cmdline" } },
@@ -32,6 +28,17 @@ return {
     ---@type cmp.Config
     ---@diagnostic disable-next-line: missing-fields
     return {
+      custom_setups = {
+        function(c)
+          c.setup.filetype("ledger", {
+            sources = {
+              { name = "hledger", group_index = 0 },
+              { name = "buffer", group_index = 0 },
+            },
+          })
+        end,
+      },
+
       -- snippets are set up in [luasnip.lua]
 
       ---@diagnostic disable-next-line: missing-fields
@@ -94,10 +101,9 @@ return {
           end
         end,
       },
-      sources = cmp.config.sources {
-        { name = "hledger", group_index = 0 },
-        { name = "buffer", group_index = 3, max_item_count = 4 },
-        { name = "path", group_index = 4, max_item_count = 2 },
+      sources = {
+        { name = "buffer", group_index = 2, max_item_count = 4 },
+        { name = "path", group_index = 2, max_item_count = 2 },
       },
     }
   end,

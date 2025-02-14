@@ -5,6 +5,7 @@ return {
     "rafamadriz/friendly-snippets",
     {
       "nvim-cmp",
+      dependencies = { "saadparwaiz1/cmp_luasnip" },
       ---@module "cmp"
       ---@param opts cmp.ConfigSchema
       opts = function(_, opts)
@@ -13,9 +14,9 @@ return {
             require("luasnip").lsp_expand(args.body)
           end,
         }
-        table.insert(opts.sources, {
+        table.insert(opts.sources, 1, {
           name = "luasnip",
-          group_index = 2,
+          group_index = 1,
           max_item_count = 3,
         })
       end,
