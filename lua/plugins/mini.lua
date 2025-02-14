@@ -32,4 +32,9 @@ return {
     config = true,
     ft = { "lua" },
   },
+  {
+    "echasnovski/mini.pairs",
+    event = "InsertEnter",
+    config = true,
+  },
 }
