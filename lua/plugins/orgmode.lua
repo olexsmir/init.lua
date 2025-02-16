@@ -44,6 +44,45 @@ return {
   dependencies = {
     { "akinsho/org-bullets.nvim", config = true },
     {
+      "chipsenkbeil/org-roam.nvim",
+      keys = { "<leader>r" },
+      ---@module "org-roam"
+      ---@type org-roam.config.Data
+      opts = {
+        directory = orgpath("roam", true),
+        org_files = { orgpath "refile" },
+        bindings = {
+          prefix = "<leader>r",
+          find_node = "<prefix>s",
+        },
+        templates = {
+          n = {
+            description = "Note",
+            template = "%?",
+            target = "%<%Y%m%d%H%M%S>-%[slug].org",
+          },
+          w = {
+            description = "Weekly",
+            template = "%?",
+            target = "%r/weekly/%<%Y-%m-%d %W>.org",
+          },
+          d = {
+            description = "Daily",
+            template = "%?",
+            target = "%r/daily/%<%Y-%m-%d>.org",
+          },
+        },
+        ---@class org-roam.config.Extensions
+        extensions = {
+          dailies = {
+            bindings = {
+              goto_today = "<prefix>t",
+            },
+          },
+        },
+      },
+    },
+    {
       "nvim-cmp",
       ---@module "cmp"
       ---@param opts cmp.ConfigSchema
@@ -65,7 +104,7 @@ return {
     org_default_notes_file = orgpath "refile",
     org_agenda_files = orgpath("**/*", true),
     -- stylua: ignore
-    org_todo_keywords = { "TODO(t)", "INB(i)", "DOING(I)", "SCHEDULED(s)", "|", "DONE(d)", "CANCEL(c)",},
+    org_todo_keywords = { "INB(i)", "TODO(t)", "WAIT(w)", "DOING(p)" , "|", "DONE(d)", "KILL(k)",},
     org_hide_emphasis_markers = true,
     org_startup_indented = true,
     org_startup_folded = "content", -- "showeverything"
@@ -84,10 +123,10 @@ return {
     org_capture_templates = {
       t = {
         description = "Task",
-        template = "* INB %?",
+        template = "* TODO %? :in:",
         target = orgpath "todo",
       },
-      i = { description = "Inbox", template = "* INB %?" },
+      i = { description = "Inbox", template = "* %? :in:" },
       w = {
         description = "New vocab",
         template = "* %?",
