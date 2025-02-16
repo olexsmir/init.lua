@@ -4,7 +4,7 @@ local orgdir = "~/org/"
 ---@param not_file? boolean
 ---@return string
 local function orgpath(p, not_file)
-  return orgdir .. p .. (not not_file and ".org" or "")
+  return vim.fs.joinpath(orgdir, p) .. (not not_file and ".org" or "")
 end
 
 ---@param act string
@@ -15,21 +15,6 @@ local function action(act, opts)
   end
 end
 
-local function find_orgfiles()
-  require("telescope.builtin").find_files {
-    cwd = orgdir,
-    -- stylua: ignore
-    find_command = {
-      "fd",
-      "--type", "f",
-      "--exclude", "finance", -- idk why i store my ledger files in the same repo
-      "--exclude", "notes",   -- i also store notes here now
-      "--exclude", "*.org_archive",
-      ".org",
-    },
-  }
-end
-
 ---@type LazySpec
 return {
   "nvim-orgmode/orgmode",
@@ -37,7 +22,6 @@ return {
   keys = {
     "<leader>o",
     { "<leader>oo", ("<cmd>e " .. orgpath "refile" .. "<CR>") },
-    { "<leader>so", find_orgfiles },
     { "<leader>oc", action "capture.prompt" },
     { "<leader>oa", action "agenda.prompt" },
   },
@@ -45,6 +29,7 @@ return {
     { "akinsho/org-bullets.nvim", config = true },
     {
       "chipsenkbeil/org-roam.nvim",
+      version = false,
       keys = { "<leader>r" },
       ---@module "org-roam"
       ---@type org-roam.config.Data

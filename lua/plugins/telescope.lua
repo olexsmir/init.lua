@@ -70,6 +70,7 @@ return {
         spell_suggest = { theme = "ivy" },
         git_branches = { theme = "ivy" },
         git_commits = { theme = "ivy" },
+        git_bcommits = { theme = "ivy" },
         git_status = { theme = "ivy" },
         lsp_definitions = { theme = "ivy" },
         lsp_references = { theme = "ivy" },
