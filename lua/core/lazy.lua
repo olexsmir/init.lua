@@ -15,7 +15,7 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup("plugins", {
   defaults = {
     lazy = true,
-    -- version = "*",-- use only stable releases
+    version = "*",-- use only stable releases
   },
   dev = {
     path = "~/code",

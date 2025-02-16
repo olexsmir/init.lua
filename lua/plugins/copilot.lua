@@ -32,6 +32,7 @@ return {
     "CopilotC-Nvim/CopilotChat.nvim",
     dependencies = { "copilot.lua" },
     enabled = enabled,
+    version = false,
     cmd = { "CopilotChat" },
     build = "make tiktoken",
     keys = {
