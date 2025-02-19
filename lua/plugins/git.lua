@@ -46,6 +46,7 @@ return {
     ---@type NeogitConfig
     opts = {
       kind = "vsplit",
+      auto_close_console = false,
       disable_builtin_notifications = true,
       disable_commit_confirmation = true,
       disable_context_highlighting = true,
