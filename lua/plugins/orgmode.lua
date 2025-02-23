@@ -1,3 +1,4 @@
+local h = require "hidden"
 local orgdir = "~/org/"
 
 ---@param p string
@@ -48,12 +49,12 @@ return {
           },
           w = {
             description = "Weekly",
-            template = "%?",
-            target = "%r/weekly/%<%Y-%m-%d %W>.org",
+            template = h.org.weekly_template,
+            target = "%r/weekly/%<%Y %V>.org",
           },
           d = {
             description = "Daily",
-            template = "%?",
+            template = h.org.daily_template,
             target = "%r/daily/%<%Y-%m-%d>.org",
           },
         },
