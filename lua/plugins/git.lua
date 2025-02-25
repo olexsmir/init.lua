@@ -1,3 +1,5 @@
+---@diagnostic disable: missing-fields
+
 ---@type LazySpec
 return {
   {
@@ -20,9 +22,11 @@ return {
         { "<leader>gb", wrap "blame" },
       }
     end,
+    ---@type Gitsigns.Config
     opts = {
       max_file_length = 1000,
       current_line_blame = true,
+      numhl = true,
       signs = {
         add = { text = "" },
         change = { text = "" },
