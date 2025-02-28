@@ -37,30 +37,4 @@ return {
       require("telescope").load_extension "todo-comments"
     end,
   },
-  {
-    "3rd/image.nvim",
-    version = false,
-    ft = { "markdown" },
-    opts = {
-      max_height_window_percentage = 65,
-      integrations = {
-        markdown = {
-          only_render_image_at_cursor = true,
-          clear_in_insert_mode = true,
-          -- TODO: refactor me daddy
-          resolve_image_path = function(document_path, image_path, fallback)
-            if document_path:find(vim.env.OBI_PATH) then
-              if image_path:match "^[x/]" then
-                return vim.fs.joinpath(vim.env.OBI_PATH, image_path)
-              end
-
-              return vim.fs.joinpath(vim.env.OBI_PATH, "assets", image_path)
-            end
-
-            return fallback(document_path, image_path)
-          end,
-        },
-      },
-    },
-  },
 }
