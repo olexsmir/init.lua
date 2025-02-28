@@ -32,14 +32,19 @@ return {
         function(c)
           c.setup.filetype("ledger", {
             sources = {
-              { name = "hledger", group_index = 0 },
-              { name = "buffer", group_index = 0 },
+              { name = "hledger" },
+              { name = "buffer" },
             },
           })
         end,
       },
 
       -- snippets are set up in [luasnip.lua]
+
+      enabled = function()
+        local bt = vim.api.nvim_get_option_value("buftype", { buf = 0 })
+        return not (bt == "nofile" or bt == "prompt")
+      end,
 
       ---@diagnostic disable-next-line: missing-fields
       view = { entries = { follow_cursor = true } },
@@ -102,8 +107,8 @@ return {
         end,
       },
       sources = {
-        { name = "buffer", group_index = 2, max_item_count = 4 },
-        { name = "path", group_index = 2, max_item_count = 2 },
+        { name = "buffer", group_index = 1, max_item_count = 4 },
+        { name = "path", group_index = 1, max_item_count = 2 },
       },
     }
   end,
