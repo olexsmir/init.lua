@@ -22,15 +22,6 @@ u.aucmd("FileType", {
 })
 
 u.aucmd("FileType", {
-  group = u.augroup "quickfix",
-  pattern = "qf",
-  callback = function()
-    u.map("n", "<C-n>", "<cmd>cnext<CR>", true)
-    u.map("n", "<C-p>", "<cmd>cprev<CR>", true)
-  end,
-})
-
-u.aucmd("FileType", {
   group = u.augroup "formatoptions",
   callback = function()
     vim.opt.formatoptions:remove {
