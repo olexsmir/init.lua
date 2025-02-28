@@ -50,6 +50,7 @@ return {
     ---@type NeogitConfig
     opts = {
       kind = "vsplit",
+      console_timeout = 4000,
       auto_close_console = false,
       disable_builtin_notifications = true,
       disable_commit_confirmation = true,
