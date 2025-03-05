@@ -1,4 +1,4 @@
-local h = require "hidden"
+local h = require("hidden").org
 local orgdir = "~/org/"
 
 ---@param p string
@@ -36,7 +36,7 @@ return {
       ---@type org-roam.config.Data
       opts = {
         directory = orgpath("roam", true),
-        org_files = { orgpath "refile" },
+        org_files = { orgpath "refile", orgpath "life" },
         bindings = {
           prefix = "<leader>r",
           find_node = "<prefix>s",
@@ -49,12 +49,12 @@ return {
           },
           w = {
             description = "Weekly",
-            template = h.org.weekly_template,
+            template = h.weekly_template,
             target = "%r/weekly/%<%Y %V>.org",
           },
           d = {
             description = "Daily",
-            template = h.org.daily_template,
+            template = h.daily_template,
             target = "%r/daily/%<%Y-%m-%d>.org",
           },
         },
@@ -77,9 +77,6 @@ return {
           name = "orgmode",
           group_index = 0,
         })
-        table.insert(opts.custom_setups, function(cmp)
-          cmp.setup.filetype("org-roam-select", { sources = {} })
-        end)
       end,
     },
   },
@@ -90,7 +87,7 @@ return {
     org_default_notes_file = orgpath "refile",
     org_agenda_files = orgpath("**/*", true),
     -- stylua: ignore
-    org_todo_keywords = { "INB(i)", "TODO(t)", "WAIT(w)", "DOING(p)" , "|", "DONE(d)", "KILL(k)",},
+    org_todo_keywords = { "TODO(t)", "WAIT(w)", "DOING(p)" , "|", "DONE(d)", "KILL(k)",},
     org_hide_emphasis_markers = true,
     org_startup_indented = true,
     org_startup_folded = "content", -- "showeverything"
