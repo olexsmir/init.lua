@@ -30,7 +30,6 @@ return {
   dependencies = {
     "nvim-neotest/nvim-nio",
     "fredrikaverpil/neotest-golang",
-    "nvim-neotest/neotest-plenary",
     "nvim-treesitter",
   },
   config = function()
@@ -51,7 +50,6 @@ return {
     ---@diagnostic disable-next-line: missing-fields
     require("neotest").setup {
       adapters = {
-        require "neotest-plenary",
         require "neotest-golang" {
           go_test_args = { "-count=1", "-timeout=60s" },
           testify_enabled = true,
