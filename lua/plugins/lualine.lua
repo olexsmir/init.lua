@@ -25,10 +25,7 @@ local c = {
       end
     end,
   },
-  harpoon_status = {
-    require("scratch.harpoon_status").status,
-    -- cond = require("scratch.harpoon_status").exists,
-  },
+  harpoon_status = { require("scratch.harpoon_status").status },
 }
 
 ---@type LazySpec

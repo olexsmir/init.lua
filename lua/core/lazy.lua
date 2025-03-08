@@ -12,10 +12,13 @@ if not vim.uv.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup("plugins", {
+require("lazy").setup {
+  spec = {
+    { import = "plugins" },
+  },
   defaults = {
     lazy = true,
-    version = "*",-- use only stable releases
+    version = "*", -- use only stable releases
   },
   dev = {
     path = "~/code",
@@ -50,4 +53,4 @@ require("lazy").setup("plugins", {
       },
     },
   },
-})
+}
