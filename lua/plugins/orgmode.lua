@@ -1,3 +1,4 @@
+local u = require "core.utils"
 local h = require("hidden").org
 local orgdir = "~/org/"
 
@@ -15,6 +16,21 @@ local function action(act, opts)
     return require("orgmode").action(act, opts or {})
   end
 end
+
+-- remove ugly background for folded text
+local group = u.augroup "orgmode"
+local pattern = { "*.org", "*.org_archive" }
+u.aucmd({ "BufEnter", "BufWinEnter" }, {
+  command = "highlight Folded guibg=NONE",
+  pattern = pattern,
+  group = group,
+})
+
+u.aucmd({ "BufLeave", "BufWinLeave" }, {
+  command = "highlight Folded guibg=#3b4261", -- the color from tokyonight
+  pattern = pattern,
+  group = group,
+})
 
 ---@type LazySpec
 return {
@@ -36,7 +52,7 @@ return {
       ---@type org-roam.config.Data
       opts = {
         directory = orgpath("roam", true),
-        org_files = { orgpath "refile", orgpath "life" },
+        org_files = { orgpath "refile", orgpath "personal" },
         bindings = {
           prefix = "<leader>r",
           find_node = "<prefix>s",
@@ -91,6 +107,7 @@ return {
     org_hide_emphasis_markers = true,
     org_startup_indented = true,
     org_startup_folded = "content", -- "showeverything"
+    org_ellipsis = "\t\t[···]",
     mappings = {
       prefix = "<leader>o",
       org = {
