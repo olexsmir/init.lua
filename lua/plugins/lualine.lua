@@ -25,7 +25,24 @@ local c = {
       end
     end,
   },
-  harpoon_status = { require("scratch.harpoon_status").status },
+  harpoon_status = {
+    function()
+      local list = require("harpoon"):list()
+      local rdir = list.config:get_root_dir()
+      local cfpath = vim.api.nvim_buf_get_name(0)
+      local status = {}
+      for i = 1, list:length() do
+        local value = list:get(i).value:gsub("^%./", "")
+        if cfpath == rdir .. "/" .. value then
+          table.insert(status, string.format("]%d[", i))
+        else
+          table.insert(status, i)
+        end
+      end
+
+      return table.concat(status, " "):reverse()
+    end,
+  },
 }
 
 ---@type LazySpec
