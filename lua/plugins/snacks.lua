@@ -1,7 +1,7 @@
 ---@type LazySpec
 return {
   "folke/snacks.nvim",
-  event = "VeryLazy",
+  lazy = false,
   ---@module "snacks"
   ---@type snacks.Config
   opts = {
