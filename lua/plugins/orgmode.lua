@@ -103,13 +103,16 @@ return {
     org_default_notes_file = orgpath "refile",
     org_agenda_files = orgpath("**/*", true),
     -- stylua: ignore
-    org_todo_keywords = { "TODO(t)", "WAIT(w)", "DOING(p)" , "|", "DONE(d)", "KILL(k)",},
+    org_todo_keywords = { "TODO(t)", "INB", "WAIT(w)", "DOING(p)" , "|", "DONE(d)", "KILL(k)",},
     org_hide_emphasis_markers = true,
     org_startup_indented = true,
     org_startup_folded = "content", -- "showeverything"
     org_ellipsis = "\t\t[···]",
     mappings = {
       prefix = "<leader>o",
+      agenda = {
+        org_agenda_filter = "<leader>/",
+      },
       org = {
         org_open_at_point = "<CR>",
         org_return = nil,
@@ -123,14 +126,28 @@ return {
     org_capture_templates = {
       t = {
         description = "Task",
-        template = "* TODO %? :in:",
+        template = "* TODO %?",
         target = orgpath "todo",
       },
-      i = { description = "Inbox", template = "* %? :in:" },
+      i = { description = "Inbox", template = "* %?" },
       w = {
         description = "New vocab",
         template = "* %?",
         headline = "new vocab",
+      },
+    },
+    org_agenda_custom_commands = {
+      p = {
+        description = "Personal",
+        types = {
+          {
+            type = "tags_todo",
+            match = "-sp1-sp2-sp3-sp4-sp5",
+            org_agenda_overriding_header = "Personal todos",
+            org_agenda_files = { orgpath "todo", orgpath "personal" },
+            org_agenda_sorting_strategy = { "todo-state-down", "category-down" },
+          },
+        },
       },
     },
   },
