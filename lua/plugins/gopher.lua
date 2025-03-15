@@ -4,7 +4,7 @@ local dev_deps = false
 return {
   "olexsmir/gopher.nvim",
   ft = "go",
-  cmd = "GoInstallDeps",
+  cmd = { "GoInstallDepsSync", "GoInstallDeps" },
   build = function()
     pcall(vim.cmd.GoInstallDeps)
   end,

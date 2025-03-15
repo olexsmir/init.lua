@@ -1,5 +1,3 @@
----@diagnostic disable: missing-fields
-
 ---@type LazySpec
 return {
   {
@@ -23,6 +21,7 @@ return {
       }
     end,
     ---@type Gitsigns.Config
+    ---@diagnostic disable: missing-fields
     opts = {
       max_file_length = 1000,
       current_line_blame = true,
