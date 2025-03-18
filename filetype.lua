@@ -15,6 +15,7 @@ vim.filetype.add {
     [".babelrc"] = "jsonc",
     [".flake8"] = "dosini",
     [".stignore"] = "gitignore",
+    ["todo.txt"] = "todotxt",
   },
   pattern = {
     [".env.*"] = "sh",
