@@ -36,6 +36,7 @@ u.aucmd({ "BufLeave", "BufWinLeave" }, {
 return {
   "nvim-orgmode/orgmode",
   ft = "org",
+  cmd = "Org",
   keys = {
     "<leader>o",
     { "<leader>oo", ("<cmd>e " .. orgpath "refile" .. "<CR>") },
@@ -108,6 +109,9 @@ return {
     org_startup_indented = true,
     org_startup_folded = "content", -- "showeverything"
     org_ellipsis = "\t\t[···]",
+    org_priority_highest = "A",
+    org_priority_lowest = "D",
+    org_priority_default = "D",
     mappings = {
       prefix = "<leader>o",
       agenda = {
@@ -142,10 +146,20 @@ return {
         types = {
           {
             type = "tags_todo",
-            match = "-sp1-sp2-sp3-sp4-sp5",
+            match = "-goals",
             org_agenda_overriding_header = "Personal todos",
             org_agenda_files = { orgpath "todo", orgpath "personal" },
-            org_agenda_sorting_strategy = { "todo-state-down", "category-down" },
+            org_agenda_sorting_strategy = { "priority-down", "todo-state-down" },
+          },
+        },
+      },
+      n = {
+        description = "Next action",
+        types = {
+          {
+            type = "tags",
+            match = "next",
+            org_agenda_overriding_header = "Next action",
           },
         },
       },
