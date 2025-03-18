@@ -1,3 +1,5 @@
+;; extends
+
 ((let
    pattern: (identifier) @_identifier
    (#any-of? @_identifier "sql" "q" "query")

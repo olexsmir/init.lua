@@ -1,3 +1,5 @@
+;; extends
+
 ;; MiniTest
 ((function_call
   name: (_) @_vimcmd_identifier

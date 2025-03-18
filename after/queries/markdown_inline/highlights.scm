@@ -1,3 +1,5 @@
+;; extends
+
 (image
   ["!"] @markup.link
   (#set! conceal "🖼️ "))
