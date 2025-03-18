@@ -157,7 +157,7 @@ return {
         description = "Next action",
         types = {
           {
-            type = "tags",
+            type = "tags_todo",
             match = "next",
             org_agenda_overriding_header = "Next action",
           },
