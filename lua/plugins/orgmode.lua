@@ -104,7 +104,7 @@ return {
     org_default_notes_file = orgpath "refile",
     org_agenda_files = orgpath("**/*", true),
     -- stylua: ignore
-    org_todo_keywords = { "TODO(t)", "INB", "WAIT(w)", "DOING(p)" , "|", "DONE(d)", "KILL(k)",},
+    org_todo_keywords = { "TODO(t)", "INB", "DOING(p)" , "|", "DONE(d)", "KILL(k)",},
     org_hide_emphasis_markers = true,
     org_startup_indented = true,
     org_startup_folded = "content", -- "showeverything"
