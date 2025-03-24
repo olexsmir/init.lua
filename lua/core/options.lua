@@ -5,7 +5,7 @@ vim.diagnostic.config {
   signs = {
     text = {
       [vim.diagnostic.severity.ERROR] = "",
-      [vim.diagnostic.severity.WARN] = "",
+      [vim.diagnostic.severity.WARN] = "",
       [vim.diagnostic.severity.HINT] = "",
       [vim.diagnostic.severity.INFO] = "",
     },
@@ -41,8 +41,8 @@ vim.o.splitbelow = true
 vim.o.splitright = true
 vim.o.pumheight = 8
 vim.o.numberwidth = 4
-vim.o.scrolloff = 8
-vim.o.sidescrolloff = 12
+vim.o.scrolloff = 14
+vim.o.sidescrolloff = 16
 vim.o.signcolumn = "yes"
 vim.o.hidden = true
 vim.o.title = true

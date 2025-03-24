@@ -12,6 +12,7 @@ end
 
 -- general
 u.map("n", "<leader>q", "<cmd>quit!<cr>")
+u.map("n", "<leader>Q", "<cmd>tabclose!<cr>")
 u.map("n", "<leader>w", "<cmd>write!<cr>")
 u.map("n", "<C-s>", "<cmd>write!<cr>")
 u.map("i", "jk", "<esc>")
@@ -20,10 +21,6 @@ u.map("n", "<C-d>", "<C-d>zz")
 u.map("n", "<C-u>", "<C-u>zz")
 u.map("n", "[b", ":bp<cr>")
 u.map("n", "]b", ":bn<cr>")
-
--- quickfix
-u.map("n", "]q", "<cmd>cnext<cr>")
-u.map("n", "[q", "<cmd>cprev<cr>")
 
 -- macros
 u.map("n", "Q", "@qj")

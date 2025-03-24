@@ -20,7 +20,7 @@ require("lazy").setup {
     lazy = true,
     version = "*", -- use only stable releases
   },
-  dev = {
+  dev = { ---@diagnostic disable-line:assign-type-mismatch
     path = "~/code",
     patterns = { "olexsmir" },
     fallback = true,

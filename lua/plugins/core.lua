@@ -19,7 +19,6 @@ return {
   {
     "oysandvik94/curl.nvim",
     version = false,
-    dev = true,
     cmd = { "CurlOpen", "CurlCollection" },
     ---@module "curl"
     ---@type curl_config

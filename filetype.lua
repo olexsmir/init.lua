@@ -9,7 +9,6 @@ vim.filetype.add {
     org_archive = "org",
   },
   filename = {
-    [".gitignore"] = "conf",
     [".eslintrc"] = "jsonc",
     [".prettierrc"] = "jsonc",
     [".babelrc"] = "jsonc",

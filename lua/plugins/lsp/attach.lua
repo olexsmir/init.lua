@@ -10,7 +10,7 @@ u.aucmd("LspAttach", {
     end
 
     if
-      client.supports_method(vim.lsp.protocol.Methods.textDocument_codeLens)
+      client:supports_method(vim.lsp.protocol.Methods.textDocument_codeLens)
     then
       vim.lsp.codelens.refresh { bufnr = bufnr }
     end

@@ -15,11 +15,6 @@ return {
       setup_fn(cmp)
     end
 
-    cmp.setup.cmdline(":", {
-      mapping = cmp.mapping.preset.cmdline(),
-      sources = { { name = "path" }, { name = "cmdline" } },
-    })
-
     cmp.setup(opts)
   end,
   opts = function()
@@ -34,6 +29,15 @@ return {
             sources = {
               { name = "hledger" },
               { name = "buffer" },
+            },
+          })
+        end,
+        function(c)
+          c.setup.cmdline(":", {
+            mapping = c.mapping.preset.cmdline(),
+            sources = {
+              { name = "path" },
+              { name = "cmdline" },
             },
           })
         end,

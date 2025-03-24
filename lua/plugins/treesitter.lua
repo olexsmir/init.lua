@@ -18,7 +18,6 @@ return {
         "sql",
         "markdown",
         "markdown_inline",
-        "vim",
         "query",
       },
       ignore_install = { "org" },

@@ -83,6 +83,7 @@ return {
     ---@module "cmp"
     ---@param opts cmp.ConfigSchema
     opts = function(_, opts)
+      ---@diagnostic disable-next-line:undefined-field
       table.insert(opts.custom_setups, function(cmp)
         cmp.setup.filetype({ "gitcommit", "NeogitCommitMessage" }, {
           sources = { { name = "buffer" }, { name = "luasnip" } },

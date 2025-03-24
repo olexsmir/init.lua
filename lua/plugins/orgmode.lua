@@ -107,7 +107,7 @@ return {
     org_todo_keywords = { "TODO(t)", "INB", "DOING(p)" , "|", "DONE(d)", "KILL(k)",},
     org_hide_emphasis_markers = true,
     org_startup_indented = true,
-    org_startup_folded = "content", -- "showeverything"
+    org_startup_folded = "overview",
     org_ellipsis = "\t\t[···]",
     org_priority_highest = "A",
     org_priority_lowest = "D",
@@ -131,7 +131,7 @@ return {
       t = {
         description = "Task",
         template = "* TODO %?",
-        target = orgpath "todo",
+        target = orgpath "personal",
       },
       i = { description = "Inbox", template = "* %?" },
       w = {
@@ -146,7 +146,7 @@ return {
         types = {
           {
             type = "tags_todo",
-            match = "-goals",
+            match = "-goals-prj",
             org_agenda_overriding_header = "Personal todos",
             org_agenda_files = { orgpath "todo", orgpath "personal" },
             org_agenda_sorting_strategy = { "priority-down", "todo-state-down" },
