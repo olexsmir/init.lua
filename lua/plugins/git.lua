@@ -47,6 +47,7 @@ return {
     keys = { { "<leader>gg", vim.cmd.Neogit } },
     ---@module "neogit"
     ---@type NeogitConfig
+    dependencies = { "sindrets/diffview.nvim" },
     opts = {
       kind = "vsplit",
       console_timeout = 4000,
@@ -68,6 +69,7 @@ return {
       },
       integrations = {
         telescope = true,
+        diffview = true,
       },
       sections = {
         recent = {
