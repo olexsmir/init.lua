@@ -15,7 +15,6 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup {
   spec = {
     { import = "plugins" },
-    { require("hidden").plugins() },
   },
   defaults = {
     lazy = true,
