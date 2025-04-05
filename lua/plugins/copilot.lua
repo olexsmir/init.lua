@@ -1,4 +1,4 @@
-local enabled = true
+local enabled = false
 
 ---@type LazySpec
 return {
@@ -58,20 +58,23 @@ return {
     },
   },
   {
-    "nvim-cmp",
-    cond = enabled,
+    "zbirenbaum/copilot-cmp",
+    enabled = enabled,
+    config = true,
     dependencies = {
-      { "zbirenbaum/copilot-cmp", config = true },
       "copilot.lua",
+      {
+        "nvim-cmp",
+        ---@module "cmp"
+        ---@param opts cmp.ConfigSchema
+        opts = function(_, opts)
+          table.insert(opts.sources, 1, {
+            name = "copilot",
+            group_index = 0,
+            max_item_count = 3,
+          })
+        end,
+      },
     },
-    ---@module "cmp"
-    ---@param opts cmp.ConfigSchema
-    opts = function(_, opts)
-      table.insert(opts.sources, 1, {
-        name = "copilot",
-        group_index = 0,
-        max_item_count = 3,
-      })
-    end,
   },
 }
