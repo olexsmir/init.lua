@@ -19,8 +19,6 @@ u.map("i", "jk", "<esc>")
 u.map("n", "<leader>h", "<cmd>nohlsearch<cr>")
 u.map("n", "<C-d>", "<C-d>zz")
 u.map("n", "<C-u>", "<C-u>zz")
-u.map("n", "[b", ":bp<cr>")
-u.map("n", "]b", ":bn<cr>")
 
 -- macros
 u.map("n", "Q", "@qj")
