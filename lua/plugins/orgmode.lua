@@ -64,11 +64,6 @@ return {
             template = "%?",
             target = "%<%Y%m%d%H%M%S>-%[slug].org",
           },
-          w = {
-            description = "Weekly",
-            template = h.weekly_template,
-            target = "%r/weekly/%<%Y %V>.org",
-          },
           d = {
             description = "Daily",
             template = h.daily_template,
@@ -107,7 +102,7 @@ return {
     org_todo_keywords = { "TODO(t)", "INB", "DOING(p)" , "|", "DONE(d)", "KILL(k)",},
     org_hide_emphasis_markers = true,
     org_startup_indented = true,
-    org_startup_folded = "overview",
+    org_startup_folded = "content",
     org_ellipsis = "\t\t[···]",
     org_priority_highest = "A",
     org_priority_lowest = "D",
