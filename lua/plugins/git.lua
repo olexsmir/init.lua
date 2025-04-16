@@ -50,7 +50,7 @@ return {
     dependencies = { "sindrets/diffview.nvim" },
     opts = {
       kind = "vsplit",
-      console_timeout = 4000,
+      console_timeout = 8000,
       auto_close_console = false,
       disable_builtin_notifications = true,
       disable_commit_confirmation = true,
