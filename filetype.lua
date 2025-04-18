@@ -18,8 +18,10 @@ vim.filetype.add {
     ["todo.txt"] = "todotxt",
   },
   pattern = {
-    [".env.*"] = "sh",
+    ["%.env%.[%w_.-]+"] = "sh",
     ["*.Dockerfile.*"] = "dockerfile",
     ["*/templates/**/*.html"] = "htmldjango",
+    [".*/hypr/.+%.conf"] = "hyprlang",
+    [".*/kitty/.+%.conf"] = "kitty",
   },
 }
