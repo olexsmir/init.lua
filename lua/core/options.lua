@@ -62,6 +62,17 @@ vim.opt.listchars:append {
   tab = "│·",
 }
 
+vim.opt.diffopt = {
+  "internal",
+  "filler",
+  "closeoff",
+  "context:12",
+  "algorithm:histogram",
+  "linematch:200",
+  "indent-heuristic",
+  "inline:word",
+}
+
 -- swap files
 vim.o.undofile = true
 vim.o.swapfile = false
