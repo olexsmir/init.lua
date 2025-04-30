@@ -17,12 +17,4 @@ end
 ---@field daily_template string
 hidden.org = wrap "hidden.org"
 
-hidden.plugins = function()
-  local ok, plugins = pcall(require, "hidden.plugins")
-  if not ok then
-    return {}
-  end
-  return plugins
-end
-
 return hidden
