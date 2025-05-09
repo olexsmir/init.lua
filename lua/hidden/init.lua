@@ -13,8 +13,7 @@ local function wrap(mod)
 end
 
 ---@class hidden.org
----@field weekly_template string
----@field daily_template string
+---@field templates fun(merge: table): table
 hidden.org = wrap "hidden.org"
 
 return hidden

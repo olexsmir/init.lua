@@ -58,16 +58,11 @@ return {
           prefix = "<leader>r",
           find_node = "<prefix>s",
         },
-        templates = {
+        templates = h.templates {
           n = {
             description = "Note",
             template = "%?",
             target = "%<%Y%m%d%H%M%S>-%[slug].org",
-          },
-          d = {
-            description = "Daily",
-            template = h.daily_template,
-            target = "%r/daily/%<%Y-%m-%d>.org",
           },
         },
         ---@class org-roam.config.Extensions
