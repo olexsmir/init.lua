@@ -18,6 +18,21 @@ return {
   },
 
   {
+    "RRethy/vim-illuminate",
+    event = { "BufReadPre", "BufNewFile" },
+    opts = {
+      providers = { "lsp", "treesitter" },
+      filetypes_denylist = {
+        "NeogitStatus",
+        "TelescopePrompt",
+      },
+    },
+    config = function(_, opts)
+      require("illuminate").configure(opts)
+    end,
+  },
+
+  {
     "nvim-cmp",
     dependencies = {
       {
@@ -37,23 +52,6 @@ return {
         group_index = 0,
         max_item_count = 12,
       })
-    end,
-  },
-
-  {
-    "RRethy/vim-illuminate",
-    dependencies = { "nvim-lspconfig" },
-    opts = {
-      providers = { "lsp", "treesitter" },
-      filetypes_denylist = {
-        "NvimTree",
-        "packer",
-        "NeogitStatus",
-        "TelescopePrompt",
-      },
-    },
-    config = function(_, opts)
-      require("illuminate").configure(opts)
     end,
   },
 }

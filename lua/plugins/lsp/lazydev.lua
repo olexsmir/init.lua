@@ -4,7 +4,6 @@ return {
   ft = "lua",
   cmd = "LazyDev",
   dependencies = {
-    "nvim-lspconfig",
     {
       "nvim-cmp",
       ---@module "cmp"
