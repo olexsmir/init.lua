@@ -6,11 +6,11 @@ vim.lsp.config("*", {
 })
 
 vim.lsp.enable {
-  "gopls",
   "golangci_lint_ls",
+  "gopls",
+  "jsonls",
   "lua_ls",
   "markdown_oxide",
-  "jsonls",
   "yamlls",
 }
 
