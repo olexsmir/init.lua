@@ -1,7 +1,13 @@
+local u = require("core.utils").lsp
+
 ---@return vim.lsp.Config
 return {
   cmd = { "gopls" },
   filetypes = { "go", "gomod", "gowork", "gotmpl" },
+  root_markers = u.default_markers {
+    "go.mod",
+    "go.work",
+  },
   settings = {
     gopls = {
       linksInHover = false,

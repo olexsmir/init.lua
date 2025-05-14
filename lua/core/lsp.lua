@@ -1,7 +1,7 @@
-require "plugins.lsp.attach"
+local u = require "core.utils"
 
 vim.lsp.config("*", {
-  root_markers = { ".git" },
+  root_markers = u.lsp.default_markers,
   flags = { debounce_text_changes = 150 },
 })
 
