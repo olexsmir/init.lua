@@ -4,7 +4,7 @@ local u = require("core.utils").lsp
 return {
   cmd = { "gopls" },
   filetypes = { "go", "gomod", "gowork", "gotmpl" },
-  root_markers = u.default_markers {
+  root_markers = u.root_marker {
     "go.mod",
     "go.work",
   },
