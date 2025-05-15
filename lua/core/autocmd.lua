@@ -38,3 +38,15 @@ u.aucmd("FileType", {
     }
   end,
 })
+
+u.aucmd("User", {
+  pattern = "OilActionsPost",
+  callback = function(ev)
+    if ev.data.actions.type == "move" then
+      Snacks.rename.on_rename_file(
+        ev.data.actions.src_url,
+        ev.data.actions.dest_url
+      )
+    end
+  end,
+})

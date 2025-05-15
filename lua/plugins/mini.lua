@@ -48,5 +48,12 @@ return {
         doc = { inline = false },
       },
     },
+    config = function(_, opts)
+      require("snacks").setup(opts)
+
+      vim.api.nvim_create_user_command("SnacksScratch", function()
+        Snacks.scratch()
+      end, { nargs = 0 })
+    end,
   },
 }
