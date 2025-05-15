@@ -1,5 +1,19 @@
 local u = require "core.utils"
 
+vim.lsp.config("*", {
+  root_markers = u.lsp.default_markers,
+  flags = { debounce_text_changes = 150 },
+})
+
+vim.lsp.enable {
+  "golangci_lint_ls",
+  "gopls",
+  "jsonls",
+  "lua_ls",
+  "markdown_oxide",
+  "yamlls",
+}
+
 u.aucmd("LspAttach", {
   group = u.augroup "lsp",
   callback = function(args)

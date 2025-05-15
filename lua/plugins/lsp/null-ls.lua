@@ -1,7 +1,7 @@
 ---@type LazySpec
 return {
   "nvimtools/none-ls.nvim",
-  dependencies = { "nvim-lspconfig" },
+  event = { "BufReadPre", "BufNewFile" },
   config = function()
     local null_ls = require "null-ls"
     local formatting = null_ls.builtins.formatting
@@ -9,6 +9,7 @@ return {
 
     null_ls.setup {
       sources = {
+        formatting.pg_format,
         diagnostic.codespell.with {
           args = {
             "--ignore-words",
@@ -26,13 +27,6 @@ return {
 
         formatting.goimports,
         formatting.golines,
-
-        formatting.clang_format,
-        formatting.pg_format,
-        formatting.prettierd.with {
-          -- stylua: ignore
-          filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "html", "json", "jsonc", "svelte", "astro" },
-        },
       },
     }
   end,
