@@ -47,7 +47,9 @@ return {
     keys = { { "<leader>gg", vim.cmd.Neogit } },
     ---@module "neogit"
     ---@type NeogitConfig
-    dependencies = { "sindrets/diffview.nvim" },
+    dependencies = {
+      { "sindrets/diffview.nvim", cmd = "DiffviewOpen" },
+    },
     opts = {
       kind = "vsplit",
       console_timeout = 8000,
