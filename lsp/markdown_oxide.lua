@@ -1,10 +1,11 @@
+local u = require("core.utils").lsp
+
 ---@return vim.lsp.Config
 return {
   cmd = { "markdown-oxide" },
   filetypes = { "markdown" },
   root_markers = { ".git", ".obsidian", ".moxide.toml" },
-  --- TODO: extend capabilities
-  capabilities = {
+  capabilities = u.capabilities {
     workspace = {
       didChangeWatchedFiles = {
         dynamicRegistration = true,
