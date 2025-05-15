@@ -26,7 +26,15 @@ return {
 
     ---@param extend? string[]
     root_marker = function(extend)
-      return vim.tbl_extend("force", lsp_root_markers, extend or {})
+      if extend == nil then
+        return lsp_root_markers
+      end
+
+      local r = vim.deepcopy(lsp_root_markers)
+      for _, v in ipairs(extend) do
+        table.insert(r, v)
+      end
+      return r
     end,
 
     ---@param extend? table
