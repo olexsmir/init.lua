@@ -33,7 +33,7 @@ return {
     capabilities = function(extend)
       return vim.tbl_extend(
         "force",
-        require("cmp_nvim_lsp").default_capabilities(),
+        vim.lsp.protocol.make_client_capabilities(),
         extend or {}
       )
     end,
