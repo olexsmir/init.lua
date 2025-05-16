@@ -4,7 +4,7 @@ local u = require("core.utils").lsp
 return {
   cmd = { "markdown-oxide" },
   filetypes = { "markdown" },
-  root_markers = { ".git", ".obsidian", ".moxide.toml" },
+  root_markers = { ".moxide.toml" },
   capabilities = u.capabilities {
     workspace = {
       didChangeWatchedFiles = {
