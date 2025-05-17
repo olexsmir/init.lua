@@ -1,5 +1,4 @@
 local u = require "core.utils"
-local h = require("hidden").org
 local orgdir = "~/org/"
 
 ---@param p string
@@ -45,36 +44,6 @@ return {
   },
   dependencies = {
     { "akinsho/org-bullets.nvim", config = true },
-    {
-      "chipsenkbeil/org-roam.nvim",
-      version = false,
-      keys = { "<leader>r" },
-      ---@module "org-roam"
-      ---@type org-roam.config.Data
-      opts = {
-        directory = orgpath("roam", true),
-        org_files = { orgpath "refile", orgpath "personal" },
-        bindings = {
-          prefix = "<leader>r",
-          find_node = "<prefix>s",
-        },
-        templates = h.templates {
-          n = {
-            description = "Note",
-            template = "%?",
-            target = "%<%Y%m%d%H%M%S>-%[slug].org",
-          },
-        },
-        ---@class org-roam.config.Extensions
-        extensions = {
-          dailies = {
-            bindings = {
-              goto_today = "<prefix>t",
-            },
-          },
-        },
-      },
-    },
     {
       "nvim-cmp",
       ---@module "cmp"
