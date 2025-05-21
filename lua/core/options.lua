@@ -70,7 +70,7 @@ vim.opt.diffopt = {
   "algorithm:histogram",
   "linematch:200",
   "indent-heuristic",
-  "inline:word",
+  -- "inline:word",
 }
 
 -- swap files
