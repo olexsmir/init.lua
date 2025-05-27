@@ -7,7 +7,6 @@ return {
   { "tpope/vim-speeddating", keys = { "<C-a>", "<C-x>" } },
   { "tweekmonster/helpful.vim", cmd = "HelpfulVersion" },
   { "wakatime/vim-wakatime", event = "VeryLazy" },
-  { "pmizio/typescript-tools.nvim", ft = { "typescript" }, config = true },
   { "OXY2DEV/markview.nvim", ft = { "markdown" }, version = false },
   {
     "folke/tokyonight.nvim",
