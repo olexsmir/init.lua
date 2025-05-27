@@ -33,7 +33,7 @@ return {
       codelenses = {
         generate = true,
         gc_details = false,
-        test = true,
+        test = false,
         tidy = true,
         run_govulncheck = true,
         upgrade_dependency = true,
