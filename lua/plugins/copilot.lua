@@ -57,21 +57,4 @@ return {
       },
     },
   },
-  {
-    "nvim-cmp",
-    enabled = enabled,
-    dependencies = {
-      "copilot.lua",
-      { "zbirenbaum/copilot-cmp", config = true },
-    },
-    ---@module "cmp"
-    ---@param opts cmp.ConfigSchema
-    opts = function(_, opts)
-      table.insert(opts.sources, 1, {
-        name = "copilot",
-        group_index = 0,
-        max_item_count = 3,
-      })
-    end,
-  },
 }

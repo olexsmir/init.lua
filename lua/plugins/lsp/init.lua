@@ -31,27 +31,4 @@ return {
       require("illuminate").configure(opts)
     end,
   },
-
-  {
-    "nvim-cmp",
-    dependencies = {
-      {
-        "hrsh7th/cmp-nvim-lsp",
-        config = function()
-          vim.lsp.config("*", {
-            capabilities = require("cmp_nvim_lsp").default_capabilities(),
-          })
-        end,
-      },
-    },
-    ---@module "cmp"
-    ---@param opts cmp.ConfigSchema
-    opts = function(_, opts)
-      table.insert(opts.sources, 1, {
-        name = "nvim_lsp",
-        group_index = 0,
-        max_item_count = 12,
-      })
-    end,
-  },
 }

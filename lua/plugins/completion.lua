@@ -1,119 +1,50 @@
----@type LazySpec
 return {
-  "hrsh7th/nvim-cmp",
-  event = "InsertEnter",
+  "saghen/blink.cmp",
   dependencies = {
-    "hrsh7th/cmp-buffer",
-    "hrsh7th/cmp-path",
-    { "hrsh7th/cmp-cmdline", keys = { ":" } },
-    { "kirasok/cmp-hledger", ft = "ledger" },
+    "rafamadriz/friendly-snippets",
+    "fang2hou/blink-copilot",
   },
-  config = function(_, opts)
-    local cmp = require "cmp"
-
-    for _, setup_fn in ipairs(opts.custom_setups) do
-      setup_fn(cmp)
-    end
-
-    cmp.setup(opts)
-  end,
-  opts = function()
-    local cmp = require "cmp"
-
-    ---@type cmp.Config
-    ---@diagnostic disable-next-line: missing-fields
-    return {
-      custom_setups = {
-        function(c)
-          c.setup.filetype("ledger", {
-            sources = {
-              { name = "hledger" },
-              { name = "buffer" },
-            },
-          })
-        end,
-        function(c)
-          c.setup.cmdline(":", {
-            mapping = c.mapping.preset.cmdline(),
-            sources = {
-              { name = "path" },
-              { name = "cmdline" },
-            },
-          })
-        end,
+  version = "1.*",
+  event = "InsertEnter",
+  ---@module 'blink.cmp'
+  ---@type blink.cmp.Config
+  opts = {
+    keymap = {
+      preset = "enter",
+      ["<C-u>"] = { "scroll_documentation_up", "fallback" },
+      ["<C-d>"] = { "scroll_documentation_down", "fallback" },
+      -- prob should remove but i just got too used to accepting snippets this way
+      ["<C-l>"] = { "snippet_forward", "accept", "fallback" },
+    },
+    appearance = { nerd_font_variant = "mono" },
+    completion = {
+      documentation = {
+        auto_show = true,
+        auto_show_delay_ms = 300,
       },
-
-      -- snippets are set up in [luasnip.lua]
-
-      enabled = function()
-        local bt = vim.api.nvim_get_option_value("buftype", { buf = 0 })
-        return not (bt == "nofile" or bt == "prompt")
-      end,
-
-      ---@diagnostic disable-next-line: missing-fields
-      view = { entries = { follow_cursor = true } },
-      experimental = { ghost_text = true },
-      ---@diagnostic disable-next-line: missing-fields
-      formatting = {
-        format = function(_, vim_item)
-          vim_item.kind = ({
-            Text = "",
-            Method = "",
-            Function = "",
-            Constructor = "",
-            Field = "",
-            Variable = "",
-            Class = "",
-            Interface = "",
-            Module = "",
-            Property = "",
-            Unit = "",
-            Value = "",
-            Enum = "",
-            Keyword = "",
-            Snippet = "",
-            Color = "",
-            File = "",
-            Reference = "",
-            Folder = "",
-            EnumMember = "",
-            Constant = "",
-            Struct = "",
-            Event = "",
-            Operator = "",
-            TypeParameter = "",
-            Copilot = "",
-          })[vim_item.kind]
-          return vim_item
-        end,
+    },
+    sources = {
+      default = { "copilot", "lsp", "path", "snippets", "buffer" },
+      per_filetype = {
+        lua = { inherit_defaults = true, "lazydev" },
       },
-      mapping = cmp.mapping.preset.insert {
-        ["<C-u>"] = cmp.mapping.scroll_docs(-4),
-        ["<C-d>"] = cmp.mapping.scroll_docs(4),
-        ["<C-Space>"] = cmp.mapping.complete {},
-        ["<CR>"] = cmp.mapping.confirm {
-          behavior = cmp.ConfirmBehavior.Insert,
-          select = false,
+      providers = {
+        lazydev = {
+          name = "LazyDev",
+          module = "lazydev.integrations.blink",
+          score_offset = 100,
         },
-        ["<Tab>"] = function(fallback)
-          if cmp.visible() then
-            cmp.select_next_item()
-          else
-            fallback()
-          end
-        end,
-        ["<S-Tab>"] = function(fallback)
-          if cmp.visible() then
-            cmp.select_prev_item()
-          else
-            fallback()
-          end
-        end,
+        copilot = {
+          name = "copilot",
+          module = "blink-copilot",
+          score_offset = 100,
+          async = true,
+        },
       },
-      sources = {
-        { name = "buffer", group_index = 1, max_item_count = 4 },
-        { name = "path", group_index = 1, max_item_count = 2 },
-      },
-    }
-  end,
+    },
+    fuzzy = { -- :h blink-cmp-config-fuzzy
+      implementation = "prefer_rust_with_warning",
+    },
+  },
+  opts_extend = { "sources.default" },
 }

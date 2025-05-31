@@ -3,19 +3,6 @@ return {
   "folke/lazydev.nvim",
   ft = "lua",
   cmd = "LazyDev",
-  dependencies = {
-    {
-      "nvim-cmp",
-      ---@module "cmp"
-      ---@param opts cmp.ConfigSchema
-      opts = function(_, opts)
-        table.insert(opts.sources, 1, {
-          name = "lazydev",
-          group_index = 0,
-        })
-      end,
-    },
-  },
   ---@module "lazydev"
   ---@type lazydev.Config
   opts = {
