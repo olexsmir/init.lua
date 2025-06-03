@@ -1,8 +1,8 @@
 local u = require "core.utils"
 
 vim.lsp.config("*", {
-  root_markers = u.lsp.default_markers,
   flags = { debounce_text_changes = 150 },
+  capabilities = require("blink.cmp").get_lsp_capabilities(),
 })
 
 vim.lsp.enable {

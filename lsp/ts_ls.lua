@@ -1,5 +1,3 @@
-local u = require("core.utils").lsp
-
 ---@return vim.lsp.Config
 return {
   cmd = { "typescript-language-server", "--stdio" },
@@ -12,7 +10,8 @@ return {
     "typescriptreact",
     "typescript.tsx",
   },
-  root_markers = u.root_marker {
+  root_markers = {
+    "node_modules",
     "tsconfig.json",
     "jsconfig.json",
     "package.json",

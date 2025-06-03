@@ -1,10 +1,8 @@
-local u = require("core.utils").lsp
-
 ---@return vim.lsp.Config
 return {
   cmd = { "gopls" },
   filetypes = { "go", "gomod", "gowork", "gotmpl" },
-  root_markers = u.root_marker {
+  root_markers = {
     "go.mod",
     "go.work",
   },

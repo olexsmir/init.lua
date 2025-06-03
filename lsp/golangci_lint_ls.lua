@@ -1,5 +1,3 @@
-local u = require("core.utils").lsp
-
 ---@return vim.lsp.Config
 return {
   cmd = { "golangci-lint-langserver" },
@@ -12,7 +10,7 @@ return {
       "--show-stats=false",
     },
   },
-  root_markers = u.root_marker {
+  root_markers = {
     ".golangci.yml",
     ".golangci.yaml",
     ".golangci.toml",
