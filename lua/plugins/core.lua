@@ -9,6 +9,24 @@ return {
   { "wakatime/vim-wakatime", event = "VeryLazy" },
   { "OXY2DEV/markview.nvim", ft = { "markdown" }, version = false },
   {
+    "bngarren/checkmate.nvim",
+    ft = "markdown",
+    ---@module "checkmate"
+    ---@type checkmate.Config
+    ---@diagnostic disable-next-line: missing-fields
+    opts = {
+      files = { "todo", "TODO", "*.todo*", "*.pali*", "*.prj*" },
+      keys = {
+        ["<localleader>t"] = "toggle",
+        ["<localleader>c"] = "check",
+        ["<localleader>u"] = "uncheck",
+        ["<localleader>n"] = "create",
+        ["<localleader>r"] = "remove_all_metadata",
+        ["<localleader>a"] = "archive",
+      },
+    },
+  },
+  {
     "folke/tokyonight.nvim",
     opts = { style = "night" },
     init = function()
