@@ -1,5 +1,4 @@
 vim.opt.shell = "/bin/bash" -- fixes issues with fish shell
-require("vim._extui").enable {}
 
 vim.diagnostic.config {
   update_in_insert = true,
