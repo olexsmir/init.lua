@@ -8,4 +8,5 @@ vim.opt_local.softtabstop = 2
 map("n", "<localleader>t", ":=MiniTest.run_file()<CR>", true)
 map("n", "<localleader>x", function()
   vim.cmd.source "%"
+  vim.print((vim.fn.expand "%:t") .. " reloaded")
 end, true)
