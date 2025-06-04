@@ -50,7 +50,6 @@ return {
     event = "BufRead",
     config = function()
       require("todo-comments").setup {}
-      require("telescope").load_extension "todo-comments"
     end,
   },
 }
