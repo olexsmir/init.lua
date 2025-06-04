@@ -70,7 +70,7 @@ return {
         staged_diff_split_kind = "split_above",
       },
       integrations = {
-        telescope = true,
+        snacks = true,
         diffview = true,
       },
       sections = {

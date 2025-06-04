@@ -40,6 +40,24 @@ return {
   {
     "folke/snacks.nvim",
     lazy = false,
+    priority = 1001,
+    keys = function()
+      local function wrap(mod, fn)
+        return function()
+          return Snacks[mod][fn]()
+        end
+      end
+
+      return {
+        { "<leader>f", wrap("picker", "files") },
+        { "<leader>b", wrap("picker", "buffers") },
+        { "<leader>sr", wrap("picker", "recent") },
+        { "<leader>sg", wrap("picker", "grep") },
+        { "<leader>sd", wrap("picker", "diagnostics") },
+        { "<leader>sh", wrap("picker", "help") },
+        { "z=", wrap("picker", "spelling") },
+      }
+    end,
     ---@module "snacks"
     ---@type snacks.Config
     opts = {
@@ -47,13 +65,28 @@ return {
         enabled = true,
         doc = { inline = false },
       },
+      picker = {
+        enabled = true,
+        layout = {
+          preset = "ivy",
+          layout = {
+            height = 25,
+          },
+        },
+        win = {
+          input = {
+            keys = {
+              ["<Esc>"] = { "close", mode = { "n", "i" } },
+              ["<C-k>"] = { "" },
+              ["<C-j>"] = { "" },
+            },
+          },
+        },
+        sources = {
+          select = { layout = { preset = "ivy" } },
+          spelling = { layout = { preset = "ivy" } },
+        },
+      },
     },
-    config = function(_, opts)
-      require("snacks").setup(opts)
-
-      vim.api.nvim_create_user_command("SnacksScratch", function()
-        Snacks.scratch()
-      end, { nargs = 0 })
-    end,
   },
 }

@@ -34,13 +34,18 @@ u.aucmd("LspAttach", {
       vim.lsp.buf.format { async = true }
     end, bufnr)
 
-    u.map("n", "gd", "<cmd>Telescope lsp_definitions<cr>", bufnr)
-    u.map("n", "gr", "<cmd>Telescope lsp_references<cr>", bufnr)
-    u.map("n", "gi", "<cmd>Telescope lsp_implementations<cr>", bufnr)
+    u.map("n", "gd", "<cmd>lua Snacks.picker.lsp_definitions()<cr>", bufnr)
+    u.map("n", "gr", "<cmd>lua Snacks.picker.lsp_references()<cr>", bufnr)
+    u.map("n", "gi", "<cmd>lua Snacks.picker.lsp_implementations()<cr>", bufnr)
     u.map("n", "gl", vim.diagnostic.open_float, bufnr)
     u.map("n", "<leader>la", vim.lsp.buf.code_action, bufnr)
     u.map("n", "<leader>lr", vim.lsp.buf.rename, bufnr)
-    u.map("n", "<leader>ss", "<cmd>Telescope lsp_document_symbols<cr>", bufnr)
+    u.map(
+      "n",
+      "<leader>ss",
+      "<cmd>lua Snacks.picker.lsp_symbols()<cr>",
+      bufnr
+    )
     u.map("n", "<leader>ll", vim.lsp.codelens.run, bufnr)
     u.map("n", "<leader>li", function()
       if vim.lsp.inlay_hint.is_enabled { bufnr = bufnr } then
