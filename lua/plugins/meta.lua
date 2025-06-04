@@ -40,16 +40,24 @@ return {
   {
     "folke/snacks.nvim",
     lazy = false,
-    priority = 1000,
-    keys = {
-      { "<leader>f", "<cmd>lua Snacks.picker.files()<cr>" },
-      { "<leader>b", "<cmd>lua Snacks.picker.buffers()<cr>" },
-      { "<leader>sr", "<cmd>lua Snacks.picker.recent()<cr>" },
-      { "<leader>sg", "<cmd>lua Snacks.picker.grep()<cr>" },
-      { "<leader>sd", "<cmd>lua Snacks.picker.diagnostics()<cr>" },
-      { "<leader>sh", "<cmd>lua Snacks.picker.help()<cr>" },
-      { "z=", "<cmd>lua Snacks.picker.spelling()<cr>" },
-    },
+    priority = 1001,
+    keys = function()
+      local function wrap(mod, fn)
+        return function()
+          return Snacks[mod][fn]()
+        end
+      end
+
+      return {
+        { "<leader>f", wrap("picker", "files") },
+        { "<leader>b", wrap("picker", "buffers") },
+        { "<leader>sr", wrap("picker", "recent") },
+        { "<leader>sg", wrap("picker", "grep") },
+        { "<leader>sd", wrap("picker", "diagnostics") },
+        { "<leader>sh", wrap("picker", "help") },
+        { "z=", wrap("picker", "spelling") },
+      }
+    end,
     ---@module "snacks"
     ---@type snacks.Config
     opts = {
