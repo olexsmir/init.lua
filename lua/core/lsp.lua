@@ -1,10 +1,5 @@
 local u = require "core.utils"
 
-vim.lsp.config("*", {
-  flags = { debounce_text_changes = 150 },
-  capabilities = require("blink.cmp").get_lsp_capabilities(),
-})
-
 vim.lsp.enable {
   "golangci_lint_ls",
   "gopls",

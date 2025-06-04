@@ -46,5 +46,11 @@ return {
       implementation = "prefer_rust_with_warning",
     },
   },
-  opts_extend = { "sources.default" },
+  config = function(_, opts)
+    require("blink.cmp").setup(opts)
+    vim.lsp.config("*", {
+      flags = { debounce_text_changes = 150 },
+      capabilities = require("blink.cmp").get_lsp_capabilities(),
+    })
+  end,
 }
