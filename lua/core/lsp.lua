@@ -1,6 +1,7 @@
 local u = require "core.utils"
 
 vim.lsp.enable {
+  "elmls",
   "golangci_lint_ls",
   "gopls",
   "jsonls",
@@ -35,12 +36,7 @@ u.aucmd("LspAttach", {
     u.map("n", "gl", vim.diagnostic.open_float, bufnr)
     u.map("n", "<leader>la", vim.lsp.buf.code_action, bufnr)
     u.map("n", "<leader>lr", vim.lsp.buf.rename, bufnr)
-    u.map(
-      "n",
-      "<leader>ss",
-      "<cmd>lua Snacks.picker.lsp_symbols()<cr>",
-      bufnr
-    )
+    u.map("n", "<leader>ss", "<cmd>lua Snacks.picker.lsp_symbols()<cr>", bufnr)
     u.map("n", "<leader>ll", vim.lsp.codelens.run, bufnr)
     u.map("n", "<leader>li", function()
       if vim.lsp.inlay_hint.is_enabled { bufnr = bufnr } then
