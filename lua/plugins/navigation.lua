@@ -69,6 +69,7 @@ return {
               ["build"] = {},
               ["dist"] = {},
               ["node_modules"] = {},
+              ["elm-stuff"] = {},
               ["__pycache__"] = {},
               ["target"] = {},
             })[name]
