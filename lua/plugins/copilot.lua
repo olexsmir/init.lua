@@ -23,6 +23,7 @@ return {
         TelescopePrompt = false,
         org = false,
         ledger = false,
+        todotxt = false,
         ["."] = false,
       },
     },
@@ -32,7 +33,6 @@ return {
     "CopilotC-Nvim/CopilotChat.nvim",
     dependencies = { "copilot.lua" },
     enabled = enabled,
-    version = false,
     cmd = { "CopilotChat" },
     build = "make tiktoken",
     keys = {
