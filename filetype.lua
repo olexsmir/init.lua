@@ -16,6 +16,7 @@ vim.filetype.add {
     [".editorconfig"] = "dosini",
     [".stignore"] = "gitignore",
     ["todo.txt"] = "todotxt",
+    ["done.txt"] = "todotxt",
   },
   pattern = {
     ["%.env%.[%w_.-]+"] = "sh",
