@@ -15,7 +15,7 @@ return {
     ---@type checkmate.Config
     ---@diagnostic disable-next-line: missing-fields
     opts = {
-      files = { "todo", "TODO", "*.todo*", "*.pali*", "*.prj*" },
+      files = { "todo", "Projects/*", "*.todo*", "*.pali*" },
       keys = {
         ["<localleader>t"] = "toggle",
         ["<localleader>c"] = "check",
