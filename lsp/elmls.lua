@@ -16,7 +16,7 @@ return {
     on_dir(nil)
   end,
   init_options = {
-    elmReviewDiagnostics = "off", -- 'off' | 'warning' | 'error'
+    elmReviewDiagnostics = "warning",
     skipInstallPackageConfirmation = false,
     disableElmLSDiagnostics = false,
     onlyUpdateDiagnosticsOnSave = false,
