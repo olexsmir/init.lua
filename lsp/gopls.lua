@@ -25,6 +25,7 @@ return {
         SA1023 = true, -- modifying the buffer in an io.Writer implementation
         SA9001 = true, -- defers in range loops may not run when you expect them to
         ST1013 = true, -- should use constants for HTTP error codes, not magic numbers
+        ST1000 = false, -- Incorrect or missing package comment
       },
       hints = {
         assignVariableTypes = true,
