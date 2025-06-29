@@ -14,7 +14,7 @@ vim.diagnostic.config {
 
 -- leader
 vim.g.mapleader = " "
-vim.g.maplocalleader = "\\"
+vim.g.maplocalleader = "-"
 
 -- indenting
 vim.o.smartindent = true
