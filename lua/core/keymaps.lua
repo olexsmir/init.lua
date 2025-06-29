@@ -6,9 +6,14 @@ if vim.fn.has "nvim-0.11" == 1 then
   vim.keymap.del({ "n", "x" }, "gra")
   vim.keymap.del("n", "grr")
   vim.keymap.del("n", "gri")
+  vim.keymap.del("n", "grt")
   vim.keymap.del("n", "gO")
   vim.keymap.del({ "i", "s" }, "<C-s>")
 end
+
+-- notes
+u.map("n", "<leader>oo", "<cmd>e $HOME/org/todo.txt<cr>")
+u.map("n", "<leader>oi", "<cmd>e $HOME/org/notes/Inbox.md<cr>")
 
 -- general
 u.map("n", "<leader>q", "<cmd>quit!<cr>")
