@@ -16,8 +16,18 @@ return {
     ---@diagnostic disable-next-line: missing-fields
     opts = {
       files = { "todo", "Projects/*", "*.todo*", "*.pali*" },
+      metadata = {
+        next = { style = { fg = "#0db9d7" } },
+        done = {
+          key = "<localleader>td",
+          style = { fg = "#96de7a" },
+          get_value = function()
+            return tostring(os.date "%Y-%m-%d")
+          end,
+        },
+      },
       keys = {
-        ["<localleader>t"] = "toggle",
+        ["<localleader>T"] = "toggle",
         ["<localleader>c"] = "check",
         ["<localleader>u"] = "uncheck",
         ["<localleader>n"] = "create",
