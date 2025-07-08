@@ -73,6 +73,10 @@ vim.opt.diffopt = {
   -- "inline:word",
 }
 
+vim.o.foldenable = false
+vim.o.foldmethod = "expr"
+vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+
 -- swap files
 vim.o.undofile = true
 vim.o.swapfile = false
