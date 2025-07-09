@@ -33,7 +33,8 @@ return {
     "CopilotC-Nvim/CopilotChat.nvim",
     dependencies = { "copilot.lua" },
     enabled = enabled,
-    cmd = { "CopilotChat" },
+    -- stylua: ignore
+    cmd = { "CopilotChat", "CopilotChatFix", "CopilotChatTests", "CopilotChatExplain", "CopilotChatDocs"},
     build = "make tiktoken",
     keys = {
       { "<leader>C", ":CopilotChat ", mode = { "n", "v" } },
