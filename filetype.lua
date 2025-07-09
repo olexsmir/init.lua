@@ -7,6 +7,7 @@ vim.filetype.add {
     lock = "yaml",
     gotmpl = "gotmpl",
     org_archive = "org",
+    jjdescription = "gitcommit"
   },
   filename = {
     [".eslintrc"] = "jsonc",
