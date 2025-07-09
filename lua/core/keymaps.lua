@@ -1,18 +1,17 @@
 local u = require "core.utils"
 
 -- i dont want any builtin keymap for my lsp
-if vim.fn.has "nvim-0.11" == 1 then
-  vim.keymap.del("n", "grn")
-  vim.keymap.del({ "n", "x" }, "gra")
-  vim.keymap.del("n", "grr")
-  vim.keymap.del("n", "gri")
-  vim.keymap.del("n", "grt")
-  vim.keymap.del("n", "gO")
-  vim.keymap.del({ "i", "s" }, "<C-s>")
-end
+vim.keymap.del("n", "grn")
+vim.keymap.del({ "n", "x" }, "gra")
+vim.keymap.del("n", "grr")
+vim.keymap.del("n", "gri")
+vim.keymap.del("n", "grt")
+vim.keymap.del("n", "gO")
+vim.keymap.del({ "i", "s" }, "<C-s>")
 
 -- notes
-u.map("n", "<leader>oo", "<cmd>e $HOME/org/todo.txt<cr>")
+u.map("n", "<leader>oo", "<cmd>e $HOME/org/obtf.txt<cr>")
+u.map("n", "<leader>ot", "<cmd>e $HOME/org/todo.txt<cr>") --codespell:ignore
 u.map("n", "<leader>oi", "<cmd>e $HOME/org/notes/Inbox.md<cr>")
 
 -- general
