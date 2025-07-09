@@ -7,6 +7,7 @@ vim.filetype.add {
     lock = "yaml",
     gotmpl = "gotmpl",
     org_archive = "org",
+    jjdescription = "gitcommit",
   },
   filename = {
     [".eslintrc"] = "jsonc",
@@ -17,6 +18,7 @@ vim.filetype.add {
     [".stignore"] = "gitignore",
     ["todo.txt"] = "todotxt",
     ["done.txt"] = "todotxt",
+    ["obtf.txt"] = "markdown",
   },
   pattern = {
     ["%.env%.[%w_.-]+"] = "sh",
