@@ -39,8 +39,8 @@ u.map("n", "<C-Up", "<cmd>resize -1<cr>")
 u.map("n", "<C-Right>", "<cmd>vertical resize +2<CR>")
 
 -- move lines
-u.map("v", "K", ":move '<-2<CR>gv-gv")
-u.map("v", "J", ":move '>+1<CR>gv-gv")
+u.map("v", "<A-k>", ":move '<-2<CR>gv-gv")
+u.map("v", "<A-j>", ":move '>+1<CR>gv-gv")
 u.map("n", "<A-j>", ":m .+1<CR>==")
 u.map("n", "<A-k>", ":m .-2<CR>==")
 u.map("v", "<", "<gv")
