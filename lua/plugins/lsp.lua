@@ -14,20 +14,6 @@ return {
     },
   },
   {
-    "RRethy/vim-illuminate",
-    event = { "BufReadPre", "BufNewFile" },
-    opts = {
-      providers = { "lsp", "treesitter" },
-      filetypes_denylist = {
-        "NeogitStatus",
-        "TelescopePrompt",
-      },
-    },
-    config = function(_, opts)
-      require("illuminate").configure(opts)
-    end,
-  },
-  {
     "folke/lazydev.nvim",
     ft = "lua",
     cmd = "LazyDev",

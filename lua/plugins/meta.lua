@@ -65,6 +65,10 @@ return {
         enabled = true,
         doc = { inline = false },
       },
+      words = {
+        enabled = true,
+        debounce = 100,
+      },
       picker = {
         enabled = true,
         layout = {
