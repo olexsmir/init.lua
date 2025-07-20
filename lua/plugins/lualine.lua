@@ -25,24 +25,6 @@ local c = {
       end
     end,
   },
-  harpoon_status = {
-    function()
-      local list = require("harpoon"):list()
-      local rdir = list.config:get_root_dir()
-      local cfpath = vim.api.nvim_buf_get_name(0)
-      local status = {}
-      for i = 1, list:length() do
-        local value = list:get(i).value:gsub("^%./", "")
-        if cfpath == rdir .. "/" .. value then
-          table.insert(status, string.format("]%d[", i))
-        else
-          table.insert(status, i)
-        end
-      end
-
-      return table.concat(status, " "):reverse()
-    end,
-  },
 }
 
 ---@type LazySpec
@@ -66,7 +48,7 @@ return {
     sections = {
       lualine_a = { c.mode },
       lualine_b = {},
-      lualine_c = { c.harpoon_status, "filename", "branch", c.diagnostic },
+      lualine_c = { "filename", "branch", c.diagnostic },
       lualine_x = { c.lsp, "diff" },
       lualine_y = {},
       lualine_z = { c.location },

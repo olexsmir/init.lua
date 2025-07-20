@@ -10,32 +10,6 @@ return {
   },
 
   {
-    "ThePrimeagen/harpoon",
-    branch = "harpoon2",
-    keys = function()
-      -- stylua: ignore
-      return {
-        { "<leader>a", function() require("harpoon"):list():add() end },
-        { "<C-f>", function() require("harpoon").ui:toggle_quick_menu(require("harpoon"):list()) end },
-        { "<A-f>", function() require("harpoon"):list():select(1) end },
-        { "<A-d>", function() require("harpoon"):list():select(2) end },
-        { "<A-s>", function() require("harpoon"):list():select(3) end },
-        { "<A-a>", function() require("harpoon"):list():select(4) end },
-      }
-    end,
-    ---@type HarpoonPartialConfig
-    opts = {
-      settings = {
-        save_on_toggle = true,
-        sync_on_close = true,
-      },
-    },
-    config = function(_, opts)
-      require("harpoon"):setup(opts)
-    end,
-  },
-
-  {
     "stevearc/oil.nvim",
     event = "VeryLazy",
     cmd = "Oil",
