@@ -1,8 +1,8 @@
 ---@type LazySpec
 return {
   {
-    "echasnovski/mini.bufremove",
-    opts = { silent = true },
+    "echasnovski/mini.nvim",
+    event = "VeryLazy",
     keys = {
       {
         "<leader>c",
@@ -10,33 +10,18 @@ return {
           require("mini.bufremove").delete()
         end,
       },
-    },
-  },
-  {
-    "echasnovski/mini.splitjoin",
-    config = true,
-    keys = {
       { "gS", mode = { "n", "v" } },
-    },
-  },
-  {
-    "echasnovski/mini.ai",
-    config = true,
-    keys = {
       { "a", mode = { "o", "x" } },
       { "i", mode = { "o", "x" } },
     },
+    config = function()
+      require("mini.bufremove").setup { silent = true }
+      require("mini.splitjoin").setup {}
+      require("mini.pairs").setup {}
+      require("mini.ai").setup {}
+    end,
   },
-  {
-    "echasnovski/mini.test",
-    config = true,
-    ft = { "lua" },
-  },
-  {
-    "echasnovski/mini.pairs",
-    event = "InsertEnter",
-    config = true,
-  },
+
   {
     "folke/snacks.nvim",
     lazy = false,
