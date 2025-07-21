@@ -24,10 +24,6 @@ u.map("n", "<leader>h", "<cmd>nohlsearch<cr>")
 u.map("n", "<C-d>", "<C-d>zz")
 u.map("n", "<C-u>", "<C-u>zz")
 
--- macros
-u.map("n", "Q", "@qj")
-u.map("x", "Q", ":norm @qj<cr>")
-
 -- window navigation and resize
 u.map("n", "<C-h>", "<cmd>wincmd h<cr>")
 u.map("n", "<C-j>", "<cmd>wincmd j<cr>")
