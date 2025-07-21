@@ -19,6 +19,7 @@ return {
       require("mini.splitjoin").setup {}
       require("mini.pairs").setup {}
       require("mini.ai").setup {}
+      require("mini.icons").setup {}
     end,
   },
 
