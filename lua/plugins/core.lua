@@ -13,24 +13,9 @@ return {
     ---@type checkmate.Config
     ---@diagnostic disable-next-line: missing-fields
     opts = {
-      files = { "todo", "Projects/*", "*.todo*", "*.pali*" },
-      metadata = {
-        next = { style = { fg = "#0db9d7" } },
-        done = {
-          key = "<localleader>td",
-          style = { fg = "#96de7a" },
-          get_value = function()
-            return tostring(os.date "%Y-%m-%d")
-          end,
-        },
-      },
+      files = { "Projects/*", "Journal/*", ".todo", ".pali" },
       keys = {
-        ["<localleader>T"] = "toggle",
-        ["<localleader>c"] = "check",
-        ["<localleader>u"] = "uncheck",
-        ["<localleader>a"] = "create",
-        ["<localleader>r"] = "remove_all_metadata",
-        ["<localleader>A"] = "archive",
+        ["<localleader>t"] = { rhs = "<cmd>Checkmate toggle<CR>" },
       },
     },
   },
