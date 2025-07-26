@@ -23,8 +23,7 @@ return {
     opts = {
       library = {
         { path = "${3rd}/luv/library", words = { "vim%.uv" } },
-        { path = "mini.test", words = { "MiniTest" } },
-        { path = "mini.ai", words = { "MiniAI" } },
+        { path = "mini.nvim", words = { "MiniAI", "MiniTest" } },
         { path = "snacks.nvim", words = { "Snacks" } },
         "lazy.nvim",
       },
