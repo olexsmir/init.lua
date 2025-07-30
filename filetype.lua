@@ -8,6 +8,7 @@ vim.filetype.add {
     gotmpl = "gotmpl",
     org_archive = "org",
     jjdescription = "gitcommit",
+    vil = "json",
   },
   filename = {
     [".eslintrc"] = "jsonc",
