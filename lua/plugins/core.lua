@@ -17,6 +17,9 @@ return {
       keys = {
         ["<localleader>t"] = { rhs = "<cmd>Checkmate toggle<CR>" },
       },
+      metadata = {
+        next = { style = { fg = "#9fddff" } },
+      },
     },
   },
   {
