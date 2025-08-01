@@ -17,6 +17,7 @@ return {
       format = { enable = false },
       completion = { callSnippet = "Replace" },
       telemetry = { enable = false },
+      runtime = { version = "LuaJIT" },
       hint = {
         enable = true,
         arrayIndex = "Disable",

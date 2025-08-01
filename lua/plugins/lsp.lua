@@ -3,7 +3,7 @@ return {
   "b0o/schemastore.nvim",
   {
     "j-hui/fidget.nvim",
-    event = { "BufReadPre", "BufNewFile" },
+    event = "LspAttach",
     opts = {
       progress = {
         display = {
