@@ -1,6 +1,6 @@
 ---@type LazySpec
 return {
-  "nvim-lua/plenary.nvim",
+  { "nvim-lua/plenary.nvim", version = false },
   { "tpope/vim-surround", keys = { "c", "d", "y" } },
   { "tpope/vim-repeat", event = "VeryLazy" },
   { "tpope/vim-speeddating", keys = { "<C-a>", "<C-x>" } },

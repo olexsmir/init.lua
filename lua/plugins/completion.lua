@@ -1,8 +1,8 @@
----@return LazySpec
 return {
   "saghen/blink.cmp",
   dependencies = {
     "rafamadriz/friendly-snippets",
+    { "fang2hou/blink-copilot", dependencies = "copilot.lua" },
   },
   version = "1.*",
   event = "InsertEnter",
@@ -24,7 +24,7 @@ return {
       },
     },
     sources = {
-      default = { "lsp", "path", "snippets", "buffer" },
+      default = { "copilot", "lsp", "path", "snippets", "buffer" },
       per_filetype = {
         lua = { inherit_defaults = true, "lazydev" },
       },
@@ -33,6 +33,12 @@ return {
           name = "LazyDev",
           module = "lazydev.integrations.blink",
           score_offset = 100,
+        },
+        copilot = {
+          name = "copilot",
+          module = "blink-copilot",
+          score_offset = 100,
+          async = true,
         },
       },
     },
