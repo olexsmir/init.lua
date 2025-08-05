@@ -16,9 +16,8 @@ u.map("n", "<leader>oi", "<cmd>e $HOME/org/notes/Inbox/Inbox.md<cr>")
 
 -- general
 u.map("n", "<leader>q", "<cmd>quit!<cr>")
-u.map("n", "<leader>Q", "<cmd>tabclose!<cr>")
-u.map("n", "<leader>w", "<cmd>write!<cr>")
-u.map("n", "<C-s>", "<cmd>write!<cr>")
+u.map("n", "<leader>w", "<cmd>update<cr>")
+u.map("n", "<C-s>", "<cmd>update<cr>")
 u.map("i", "jk", "<esc>")
 u.map("n", "<leader>h", "<cmd>nohlsearch<cr>")
 u.map("n", "<C-d>", "<C-d>zz")
