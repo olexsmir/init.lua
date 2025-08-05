@@ -4,7 +4,7 @@ local u = require("core.utils").lsp
 return {
   cmd = { "markdown-oxide" },
   filetypes = { "markdown" },
-  root_markers = { ".moxide.toml" },
+  root_markers = { ".moxide.toml", ".obsidian" },
   capabilities = u.capabilities {
     workspace = {
       didChangeWatchedFiles = {
@@ -12,4 +12,11 @@ return {
       },
     },
   },
+  on_attach = function(_, bufnr)
+    u.command(bufnr, "LspToday", { command = "jump", arguments = { "today" } })
+    u.command(bufnr, "LspLastSunday", {
+      command = "jump",
+      arguments = { "last sunday" },
+    })
+  end,
 }
