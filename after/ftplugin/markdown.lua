@@ -6,6 +6,6 @@ vim.opt_local.conceallevel = 2
 vim.opt_local.concealcursor = "cv"
 
 map("n", "<localleader>v", "<cmd>Markview toggle<cr>", true)
-map("n", "<localleader>d", function()
+map("n", "<localleader>t", function()
   require("scratch.tasks").complete()
 end)

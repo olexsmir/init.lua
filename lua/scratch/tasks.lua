@@ -3,8 +3,10 @@ local config = {
   archive_header = "# Archive",
 }
 
--- TODO: if task has `#next` tag, remove it before moving to the archive
+-- TODO: highlight the `feat:`, `docs:`, `fix:`, probably should be done with `mini.hipatterns`
 -- TODO: add support for multiple line tasks
+-- TODO: undoing tasks, if task is marked as done, and has `done` label, it should replace done with `undone`
+-- TODO: sort tasks under `# Tasks`, and move tasks with `#next` tag, on top
 -- TODO: show the progress of tasks(if task has subtasks, show in virtual text how many of them is done)
 --       sub tasks should be only archived with the parent task
 
@@ -25,6 +27,7 @@ local function check_task_status(str)
   return str:match "^(%s*%- )%[x%]" ~= nil
 end
 
+-- converts a like with markdown task to completed task, and removes `#next` in it, if there's one
 ---@param str string
 ---@return string?
 local function to_complete_task(str)
@@ -37,12 +40,13 @@ local function to_complete_task(str)
 
   str = task_prefix .. " `" .. label .. "`" .. str:sub(#task_prefix + 1)
   str = str:gsub("^(%s*%- )%[%s*%]", "%1[x]")
-
+  str = str:gsub("%#next", "")
+  str = str:gsub("%s+$", "")
   return str
 end
 
 ---@param lines string[]
----@return number?  Line of the heading, nil if not found
+---@return number? - Line of the heading, nil if not found
 local function find_archive_heading(lines)
   local heading_line = nil
   for i, line in ipairs(lines) do
@@ -56,12 +60,10 @@ end
 
 local tasks = {}
 
--- TODO: implement this
 function tasks.list_undone()
   error "unimplemented"
 end
 
--- TODO: implement this
 function tasks.list_done()
   error "unimplemented"
 end
