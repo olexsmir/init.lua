@@ -27,6 +27,7 @@ return {
       require("mini.ai").setup {}
       require("mini.icons").setup {}
       require("mini.test").setup {}
+      require("mini.hipatterns").setup {}
       require("mini.comment").setup {
         custom_commentstring = function()
           return require("ts_context_commentstring.internal").calculate_commentstring()
