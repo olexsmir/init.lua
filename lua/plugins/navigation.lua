@@ -39,6 +39,7 @@ return {
             ({
               [".."] = {}, -- annoying as hell
               [".git"] = {},
+              [".jj"] = {},
               [".docker"] = {},
               ["build"] = {},
               ["dist"] = {},
