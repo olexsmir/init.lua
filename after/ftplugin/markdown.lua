@@ -17,5 +17,6 @@ vim.b.minihipatterns_config = {
     refactor = { pattern = "refactor%:", group = "@comment.info" },
     fix = { pattern = "fix%:", group = "@comment.error" },
     docs = { pattern = "docs%:", group = "@label" },
+    test = { pattern = "test%:", group = "@comment.note" },
   },
 }
