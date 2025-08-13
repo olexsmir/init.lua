@@ -174,8 +174,6 @@ function tasks.agenda()
   end, { buffer = buf, desc = "Open file under cursor", silent = true })
 end
 
-tasks.agenda()
-
 function tasks.complete()
   vim.cmd.mkview() -- saves current folds/scroll
 

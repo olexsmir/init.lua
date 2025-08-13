@@ -15,6 +15,7 @@ u.map("n", "<leader>oi", "<cmd>e $HOME/org/notes/Inbox/Inbox.md<cr>")
 u.map("n", "<leader>a", require("scratch.tasks").agenda)
 
 -- general
+u.map("t", "<esc><esc>", "<C-\\><C-n>")
 u.map("n", "<leader>q", "<cmd>quit!<cr>")
 u.map("n", "<leader>w", "<cmd>update<cr>")
 u.map("n", "<C-s>", "<cmd>update<cr>")
