@@ -42,9 +42,9 @@ return {
     lazy = false,
     priority = 1001,
     keys = function()
-      local function wrap(mod, fn)
+      local function wrap(mod, fn, opts)
         return function()
-          return Snacks[mod][fn]()
+          return Snacks[mod][fn](opts or {})
         end
       end
 
@@ -52,7 +52,7 @@ return {
         { "<leader>f", wrap("picker", "files") },
         { "<leader>b", wrap("picker", "buffers") },
         { "<leader>sr", wrap("picker", "recent") },
-        { "<leader>sg", wrap("picker", "grep") },
+        { "<leader>sg", wrap("picker", "grep", { args = { "-i" } }) },
         { "<leader>sd", wrap("picker", "diagnostics") },
         { "<leader>sh", wrap("picker", "help") },
         { "z=", wrap("picker", "spelling") },
