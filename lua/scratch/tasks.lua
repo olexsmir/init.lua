@@ -68,11 +68,18 @@ local function remove_task_prefix(str)
   return res
 end
 
+---@param str string
+---@return string
+local function remove_next_tag(str)
+  local res = str:gsub("%#next", "")
+  return res
+end
+
 ---@param fname string
 ---@param line number
 ---@return string
 local function display_file(fname, line)
-  local str = "" .. (fname:match "^(.-)%.%w+$" or fname) .. ":" .. line
+  local str = (fname:match "^(.-)%.%w+$" or fname) .. ":" .. line
   return (str .. string.rep(" ", 14 - #str))
 end
 
@@ -89,7 +96,7 @@ local function to_complete_task(str)
 
   str = task_prefix .. " `" .. label .. "`" .. str:sub(#task_prefix + 1)
   str = str:gsub("^(%s*%- )%[%s*%]", "%1[x]")
-  str = str:gsub("%#next", "")
+  str = remove_next_tag(str)
   str = str:gsub("%s+$", "")
   return str
 end
@@ -108,6 +115,30 @@ local function find_archive_heading(lines)
 end
 
 local tasks = {}
+
+local function agenda_go_to_task()
+  local line = vim.api.nvim_get_current_line()
+  local fname, lineno = line:match "^([^:]+):(%d+)"
+  if fname == nil or lineno == nil then
+    vim.notify(
+      "No file name or line number found in the line",
+      vim.log.levels.WARN
+    )
+    return
+  end
+
+  local fpath = full_file_path_from_short_name(fname)
+  if fpath == nil then
+    vim.notify("No file name found in the line", vim.log.levels.WARN)
+    return
+  end
+
+  local winid = vim.api.nvim_get_current_win()
+  vim.api.nvim_win_close(winid, true)
+
+  vim.cmd.edit(fpath)
+  vim.api.nvim_win_set_cursor(0, { tonumber(lineno), 0 })
+end
 
 function tasks.agenda()
   -- parse all `task_files` for `#next` tag
@@ -130,16 +161,18 @@ function tasks.agenda()
   local output = { "# Agenda" }
   for fname, ftasks in pairs(agenda_tasks) do
     for _, ftask in pairs(ftasks) do
-      table.insert(
-        output,
-        display_file(fname, ftask.line) .. " " .. remove_task_prefix(ftask.task)
-      )
+      local task = remove_task_prefix(ftask.task)
+      task = remove_next_tag(task)
+
+      table.insert(output, display_file(fname, ftask.line) .. " " .. task)
     end
   end
 
   -- open the agenda view
   vim.cmd.new()
   local buf = vim.api.nvim_get_current_buf()
+  local winid = vim.api.nvim_get_current_win()
+
   vim.api.nvim_buf_set_name(buf, "scratch.tasks:agenda")
   vim.api.nvim_set_option_value("filetype", "markdown", { buf = buf })
   vim.api.nvim_set_option_value("bufhidden", "wipe", { buf = buf })
@@ -147,31 +180,15 @@ function tasks.agenda()
   vim.api.nvim_set_option_value("swapfile", false, { buf = buf })
   vim.api.nvim_buf_set_lines(buf, 0, -1, false, output)
   vim.api.nvim_set_option_value("modifiable", false, { buf = buf })
-  vim.api.nvim_exec_autocmds("FileType", { buffer = buf }) -- loads the ftplugins
-  vim.api.nvim_win_set_height(0, 10)
-  vim.api.nvim_win_set_cursor(0, { 2, 0 })
+  vim.api.nvim_exec_autocmds("FileType", { buffer = buf })
+  vim.api.nvim_win_set_height(winid, 10)
+  vim.api.nvim_win_set_cursor(winid, { 2, 0 })
 
-  -- FIXME: this should be a separate function
-  vim.keymap.set("n", "<CR>", function()
-    local line = vim.api.nvim_get_current_line()
-    local fname, lineno = line:match "^([^:]+):(%d+)"
-    if fname == nil or lineno == nil then
-      vim.notify(
-        "No file name or line number found in the line",
-        vim.log.levels.WARN
-      )
-      return
-    end
-
-    local fpath = full_file_path_from_short_name(fname)
-    if fpath == nil then
-      vim.notify("No file name found in the line", vim.log.levels.WARN)
-      return
-    end
-
-    vim.cmd.edit(fpath)
-    vim.api.nvim_win_set_cursor(0, { tonumber(lineno), 0 })
-  end, { buffer = buf, desc = "Open file under cursor", silent = true })
+  vim.keymap.set("n", "<CR>", agenda_go_to_task, {
+    desc = "Open file under cursor",
+    buffer = buf,
+    silent = true,
+  })
 end
 
 function tasks.complete()
