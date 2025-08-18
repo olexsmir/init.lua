@@ -10,8 +10,6 @@ vim.keymap.del("n", "gO")
 vim.keymap.del({ "i", "s" }, "<C-s>")
 
 -- notes
-u.map("n", "<leader>ot", "<cmd>e $HOME/org/todo.txt<cr>") --codespell:ignore
-u.map("n", "<leader>oi", "<cmd>e $HOME/org/notes/Inbox/Inbox.md<cr>")
 u.map("n", "<leader>a", require("scratch.tasks").agenda)
 
 -- general
