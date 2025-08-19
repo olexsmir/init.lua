@@ -22,7 +22,7 @@ return {
     ---@diagnostic disable-next-line: missing-fields
     opts = {
       default_flags = { "-i" },
-      open_with = "vsplit",
+      open_with = "buffer",
     },
   },
   {
