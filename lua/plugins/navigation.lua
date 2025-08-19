@@ -6,6 +6,7 @@ return {
     keys = { { "<leader>u", vim.cmd.UndotreeToggle } },
     init = function()
       vim.g.undotree_DiffAutoOpen = 0
+      vim.g.undotree_WindowLayout = 3
     end,
   },
 
