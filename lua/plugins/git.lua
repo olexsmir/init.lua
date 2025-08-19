@@ -23,8 +23,6 @@ return {
     ---@type Gitsigns.Config
     ---@diagnostic disable: missing-fields
     opts = {
-      max_file_length = 1000,
-      current_line_blame = true,
       numhl = true,
       signs = {
         add = { text = "" },
@@ -34,6 +32,7 @@ return {
         changedelete = { text = "" },
         untracked = { text = "" },
       },
+      current_line_blame = true,
       current_line_blame_opts = {
         virt_text_pos = "eol",
         delay = 300,
