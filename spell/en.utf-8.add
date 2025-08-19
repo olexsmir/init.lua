@@ -19,8 +19,6 @@ Config
 stylua
 neotest
 linter
-i'm
-and
 nvim
 tawa
 pona
@@ -28,8 +26,6 @@ pana
 li
 ni
 toki
-dont
-didnt
 seme
 kepeken
 taso
@@ -56,12 +52,9 @@ api
 V1
 localhost
 onasty
-os
 param
 struct
 yaml
-toc
-pos
 cmd
 args
 Dockerfile
