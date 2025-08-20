@@ -71,7 +71,7 @@ end
 ---@param str string
 ---@return string
 local function remove_next_tag(str)
-  local res = str:gsub("%#next", "")
+  local res = str:gsub(" %#next", "")
   return res
 end
 
@@ -80,7 +80,7 @@ end
 ---@return string
 local function display_file(fname, line)
   local str = (fname:match "^(.-)%.%w+$" or fname) .. ":" .. line
-  return (str .. string.rep(" ", 14 - #str))
+  return (str .. string.rep(" ", 10 - #str))
 end
 
 -- converts a like with markdown task to completed task, and removes `#next` in it, if there's one
@@ -114,8 +114,6 @@ local function find_archive_heading(lines)
   return heading_line
 end
 
-local tasks = {}
-
 local function agenda_go_to_task()
   local line = vim.api.nvim_get_current_line()
   local fname, lineno = line:match "^([^:]+):(%d+)"
@@ -139,6 +137,8 @@ local function agenda_go_to_task()
   vim.cmd.edit(fpath)
   vim.api.nvim_win_set_cursor(0, { tonumber(lineno), 0 })
 end
+
+local tasks = {}
 
 function tasks.agenda()
   -- parse all `task_files` for `#next` tag
@@ -184,6 +184,7 @@ function tasks.agenda()
   vim.api.nvim_win_set_height(winid, 10)
   vim.api.nvim_win_set_cursor(winid, { 2, 0 })
 
+  vim.keymap.set("n", "q", "<cmd>quit<cr>", { buffer = buf, silent = true })
   vim.keymap.set("n", "<CR>", agenda_go_to_task, {
     desc = "Open file under cursor",
     buffer = buf,
