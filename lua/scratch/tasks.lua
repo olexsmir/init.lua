@@ -16,10 +16,10 @@ local config = {
 }
 
 -- TODO: add support for multiple line tasks
+-- TODO: rewrite agenda to use quickfix list
+-- TODO: add "review" mode, show list of tasks that was done during this/previous week
 -- TODO: undoing tasks, if task is marked as done, and has `done` label, it should replace done with `undone`
--- TODO: sort tasks under `# Tasks`, and move tasks with `#next` tag, on top
--- TODO: show the progress of tasks(if task has subtasks, show in virtual text how many of them is done)
---       sub tasks should be only archived with the parent task
+-- TODO: show the progress of tasks(if task has subtasks, show in virtual text how many of them is done) sub tasks should be only archived with the parent task
 
 ---@param fpath string
 ---@return string
@@ -180,11 +180,10 @@ function tasks.agenda()
   vim.api.nvim_set_option_value("swapfile", false, { buf = buf })
   vim.api.nvim_buf_set_lines(buf, 0, -1, false, output)
   vim.api.nvim_set_option_value("modifiable", false, { buf = buf })
-  vim.api.nvim_exec_autocmds("FileType", { buffer = buf })
   vim.api.nvim_win_set_height(winid, 10)
-  vim.api.nvim_win_set_cursor(winid, { 2, 0 })
+  vim.api.nvim_win_set_cursor(winid, { 2, 10 })
 
-  vim.keymap.set("n", "q", "<cmd>quit<cr>", { buffer = buf, silent = true })
+  vim.keymap.set("n", "q", "<cmd>close!<cr>", { buffer = buf, silent = true })
   vim.keymap.set("n", "<CR>", agenda_go_to_task, {
     desc = "Open file under cursor",
     buffer = buf,
