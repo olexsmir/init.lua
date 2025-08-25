@@ -5,7 +5,7 @@ vim.opt_local.list = false
 vim.opt_local.conceallevel = 2
 vim.opt_local.concealcursor = "cv"
 
-map("n", "<localleader>v", "<cmd>Markview toggle<cr>", true)
+map("n", "<localleader>v", "<cmd>RenderMarkdown toggle<cr>", true)
 map("n", "<localleader>t", require("scratch.tasks").complete, true)
 
 vim.b.minihipatterns_config = {

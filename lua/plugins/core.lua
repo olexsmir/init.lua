@@ -5,7 +5,7 @@ return {
   { "tpope/vim-repeat", event = "VeryLazy" },
   { "tpope/vim-speeddating", keys = { "<C-a>", "<C-x>" } },
   { "wakatime/vim-wakatime", event = "VeryLazy" },
-  { "OXY2DEV/markview.nvim", ft = "markdown" },
+  { "MeanderingProgrammer/render-markdown.nvim", ft = "markdown", config = true },
   {
     "folke/tokyonight.nvim",
     opts = { style = "night" },
