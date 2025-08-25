@@ -11,7 +11,7 @@ local config = {
     task_file "TODO",
     task_file "Onasty",
     task_file "GBAC",
-    task_file "Projects/gopher.nvim",
+    task_file "gopher.nvim",
   },
 }
 
