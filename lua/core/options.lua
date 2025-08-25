@@ -53,7 +53,7 @@ vim.o.wrap = false
 -- spelling
 vim.o.infercase = true
 vim.o.spell = true
-vim.o.spelllang = "en_us,uk"
+vim.o.spelllang = "en_us,uk,tp"
 
 -- listchars
 vim.o.list = true
