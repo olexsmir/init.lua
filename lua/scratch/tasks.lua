@@ -16,27 +16,9 @@ local config = {
 }
 
 -- TODO: add support for multiple line tasks
--- TODO: rewrite agenda to use quickfix list
 -- TODO: add "review" mode, show list of tasks that was done during this/previous week
 -- TODO: undoing tasks, if task is marked as done, and has `done` label, it should replace done with `undone`
 -- TODO: show the progress of tasks(if task has subtasks, show in virtual text how many of them is done) sub tasks should be only archived with the parent task
-
----@param fpath string
----@return string
-local function file_name_from_path(fpath)
-  return fpath:match "^.+/(.+)$" or fpath
-end
-
----@param short_name string
----@return string?
-local function full_file_path_from_short_name(short_name)
-  for _, fname in ipairs(config.task_files) do
-    if file_name_from_path(fname) == short_name .. ".md" then
-      return fname
-    end
-  end
-  return nil
-end
 
 ---@return string
 local function get_done_label()
@@ -75,12 +57,11 @@ local function remove_next_tag(str)
   return res
 end
 
----@param fname string
----@param line number
+---@param str string
 ---@return string
-local function display_file(fname, line)
-  local str = (fname:match "^(.-)%.%w+$" or fname) .. ":" .. line
-  return (str .. string.rep(" ", 10 - #str))
+local function remove_file_extension(str)
+  local res = (str:match "^(.-)%.%w+$" or str)
+  return res
 end
 
 -- converts a like with markdown task to completed task, and removes `#next` in it, if there's one
@@ -114,81 +95,44 @@ local function find_archive_heading(lines)
   return heading_line
 end
 
-local function agenda_go_to_task()
-  local line = vim.api.nvim_get_current_line()
-  local fname, lineno = line:match "^([^:]+):(%d+)"
-  if fname == nil or lineno == nil then
-    vim.notify(
-      "No file name or line number found in the line",
-      vim.log.levels.WARN
-    )
-    return
-  end
-
-  local fpath = full_file_path_from_short_name(fname)
-  if fpath == nil then
-    vim.notify("No file name found in the line", vim.log.levels.WARN)
-    return
-  end
-
-  local winid = vim.api.nvim_get_current_win()
-  vim.api.nvim_win_close(winid, true)
-
-  vim.cmd.edit(fpath)
-  vim.api.nvim_win_set_cursor(0, { tonumber(lineno), 0 })
-end
-
 local tasks = {}
-
 function tasks.agenda()
   -- parse all `task_files` for `#next` tag
   --  FIXME: that's probably should be cached
 
-  ---@type table<string, {task: string, line: number}[]>
+  ---@type table<string, {text: string, line: number}[]>
   local agenda_tasks = {}
   for _, fname in ipairs(config.task_files) do
     local lines = vim.fn.readfile(fname)
     for i, line in ipairs(lines) do
       if is_task(line) and has_next_tag(line) then
-        local short_name = file_name_from_path(fname)
-        agenda_tasks[short_name] = agenda_tasks[short_name] or {}
-        table.insert(agenda_tasks[short_name], { task = line, line = i })
+        agenda_tasks[fname] = agenda_tasks[fname] or {}
+        table.insert(agenda_tasks[fname], {
+          text = line,
+          line = i,
+        })
       end
     end
   end
 
   -- build the output
-  local output = { "# Agenda" }
+  local output = {}
   for fname, ftasks in pairs(agenda_tasks) do
     for _, ftask in pairs(ftasks) do
-      local task = remove_task_prefix(ftask.task)
+      local task = remove_file_extension(ftask.text)
       task = remove_next_tag(task)
+      task = remove_task_prefix(task)
 
-      table.insert(output, display_file(fname, ftask.line) .. " " .. task)
+      table.insert(output, {
+        lnum = ftask.line,
+        filename = fname,
+        text = task,
+      }--[[ @as vim.quickfix.entry ]])
     end
   end
 
-  -- open the agenda view
-  vim.cmd.new()
-  local buf = vim.api.nvim_get_current_buf()
-  local winid = vim.api.nvim_get_current_win()
-
-  vim.api.nvim_buf_set_name(buf, "scratch.tasks:agenda")
-  vim.api.nvim_set_option_value("filetype", "markdown", { buf = buf })
-  vim.api.nvim_set_option_value("bufhidden", "wipe", { buf = buf })
-  vim.api.nvim_set_option_value("buftype", "nofile", { buf = buf })
-  vim.api.nvim_set_option_value("swapfile", false, { buf = buf })
-  vim.api.nvim_buf_set_lines(buf, 0, -1, false, output)
-  vim.api.nvim_set_option_value("modifiable", false, { buf = buf })
-  vim.api.nvim_win_set_height(winid, 10)
-  vim.api.nvim_win_set_cursor(winid, { 2, 10 })
-
-  vim.keymap.set("n", "q", "<cmd>close!<cr>", { buffer = buf, silent = true })
-  vim.keymap.set("n", "<CR>", agenda_go_to_task, {
-    desc = "Open file under cursor",
-    buffer = buf,
-    silent = true,
-  })
+  vim.fn.setqflist(output, "r")
+  vim.cmd.copen()
 end
 
 function tasks.complete()
