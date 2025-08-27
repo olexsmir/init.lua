@@ -36,36 +36,25 @@ return {
       view_options = {
         show_hidden = false,
         is_always_hidden = function(name, _)
-          if
-            ({
-              [".."] = {}, -- annoying as hell
-              [".git"] = {},
-              [".jj"] = {},
-              [".docker"] = {},
-              ["build"] = {},
-              ["dist"] = {},
-              ["node_modules"] = {},
-              ["elm-stuff"] = {},
-              ["__pycache__"] = {},
-              ["target"] = {},
-            })[name]
-          then
-            return true
-          end
-          return false
+          return ({
+            [".."] = {}, -- annoying as hell
+            [".git"] = {},
+            [".jj"] = {},
+            [".docker"] = {},
+            ["build"] = {},
+            ["dist"] = {},
+            ["node_modules"] = {},
+            ["elm-stuff"] = {},
+            ["target"] = {},
+          })[name] ~= nil
         end,
         is_hidden_file = function(name, _)
-          if
-            ({
-              ["vendor"] = {},
-              [".vscode"] = {},
-              [".bin"] = {},
-              ["tmp"] = {},
-            })[name]
-          then
-            return true
-          end
-          return vim.startswith(name, ".")
+          return ({
+            ["vendor"] = {},
+            [".vscode"] = {},
+            [".bin"] = {},
+            ["tmp"] = {},
+          })[name] ~= nil or vim.startswith(name, ".")
         end,
       },
     },
