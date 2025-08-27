@@ -98,7 +98,7 @@ end
 local tasks = {}
 function tasks.agenda()
   -- parse all `task_files` for `#next` tag
-  --  FIXME: that's probably should be cached
+  --  FIXME: that probably should be cached
 
   ---@type table<string, {text: string, line: number}[]>
   local agenda_tasks = {}
