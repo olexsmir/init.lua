@@ -3,12 +3,6 @@ return {
   {
     "echasnovski/mini.nvim",
     event = "VeryLazy",
-    dependencies = {
-      {
-        "JoosepAlviste/nvim-ts-context-commentstring",
-        opts = { enable_autocmd = false },
-      },
-    },
     keys = {
       {
         "<leader>c",
@@ -16,9 +10,6 @@ return {
           require("mini.bufremove").delete()
         end,
       },
-      { "gS", mode = { "n", "v" } },
-      { "a", mode = { "o", "x" } },
-      { "i", mode = { "o", "x" } },
     },
     config = function()
       require("mini.bufremove").setup { silent = true }
@@ -28,12 +19,7 @@ return {
       require("mini.icons").setup {}
       require("mini.test").setup {}
       require("mini.hipatterns").setup {}
-      require("mini.comment").setup {
-        custom_commentstring = function()
-          return require("ts_context_commentstring.internal").calculate_commentstring()
-            or vim.bo.commentstring
-        end,
-      }
+      require("mini.comment").setup {}
     end,
   },
 
