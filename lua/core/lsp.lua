@@ -2,6 +2,7 @@ local u = require "core.utils"
 
 vim.lsp.enable {
   "elmls",
+  "gleam",
   "golangci_lint_ls",
   "gopls",
   "jsonls",
