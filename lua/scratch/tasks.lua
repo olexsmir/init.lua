@@ -32,6 +32,12 @@ local function is_task(str)
 end
 
 ---@param str string
+---@return boolean res
+local function is_task_labled(str)
+  return str:match "^%s*%- %[[x ]%] `%" ~= nil
+end
+
+---@param str string
 ---@return boolean
 local function has_next_tag(str)
   return str:match "%#next" ~= nil
@@ -156,7 +162,10 @@ function tasks.complete()
     return
   end
 
-  if check_task_status(lines[task_index]) then
+  if
+    check_task_status(lines[task_index])
+    and is_task_labled(lines[task_index])
+  then
     vim.notify("Task already completed", vim.log.levels.ERROR)
     vim.cmd.loadview()
     return
