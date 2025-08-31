@@ -2,7 +2,6 @@ return {
   "saghen/blink.cmp",
   dependencies = {
     "rafamadriz/friendly-snippets",
-    { "fang2hou/blink-copilot", dependencies = "copilot.lua" },
   },
   version = "1.*",
   event = "InsertEnter",
