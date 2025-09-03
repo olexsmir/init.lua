@@ -1,24 +1,33 @@
----@param name string
----@return string
-local function task_file(name)
-  return vim.fs.joinpath(vim.fn.expand "~/org/notes", name .. ".md")
-end
-
+local cache = {}
 local config = {
   label = "done:%Y%m%d-%H%M",
   archive_header = "# Archive",
-  task_files = {
-    task_file "TODO",
-    task_file "Onasty",
-    task_file "GBAC",
-    task_file "gopher.nvim",
-  },
+  tasks_file = vim.fn.stdpath "config" .. "/tasks.json",
 }
 
 -- TODO: add support for multiple line tasks
 -- TODO: add "review" mode, show list of tasks that was done during this/previous week
 -- TODO: undoing tasks, if task is marked as done, and has `done` label, it should replace done with `undone`
 -- TODO: show the progress of tasks(if task has subtasks, show in virtual text how many of them is done) sub tasks should be only archived with the parent task
+
+---@return string[]|nil
+local function get_files()
+  if cache.files then
+    return cache.files
+  end
+
+  local f = io.open(config.tasks_file, "r")
+  if f then
+    local data = f:read "*a"
+    local ok, files = pcall(vim.json.decode, data)
+    if ok then
+      cache.files = files.files
+      return files.files
+    end
+    f:close()
+  end
+  return nil
+end
 
 ---@return string
 local function get_done_label()
@@ -106,9 +115,14 @@ function tasks.agenda()
   -- parse all `task_files` for `#next` tag
   --  FIXME: that's probably should be cached
 
+  local task_files = get_files()
+  if not task_files then
+    return
+  end
+
   ---@type table<string, {text: string, line: number}[]>
   local agenda_tasks = {}
-  for _, fname in ipairs(config.task_files) do
+  for _, fname in ipairs(task_files) do
     local lines = vim.fn.readfile(fname)
     for i, line in ipairs(lines) do
       if is_task(line) and has_next_tag(line) then
