@@ -1,87 +1,62 @@
-local cache = {}
 local config = {
   label = "done:%Y%m%d-%H%M",
   archive_header = "# Archive",
   tasks_file = vim.fn.stdpath "config" .. "/tasks.json",
 }
 
--- TODO: add support for multiple line tasks
--- TODO: add "review" mode, show list of tasks that was done during this/previous week
--- TODO: undoing tasks, if task is marked as done, and has `done` label, it should replace done with `undone`
--- TODO: show the progress of tasks(if task has subtasks, show in virtual text how many of them is done) sub tasks should be only archived with the parent task
+-- TODO: multi line tasks support
+-- TODO: add support for nested tasks(one level max)
+--    completing a nested task will tick it, not archive
+--    once the parent task get archived, only then it's "children" gets archived
+-- TODO: show progress of task with nested tasks(visual text, with, e.g 5/9)
 
----@return string[]|nil
-local function get_files()
-  if cache.files then
-    return cache.files
-  end
-
+---@return string[]
+local function get_tasks_files()
   local f = io.open(config.tasks_file, "r")
-  if f then
-    local data = f:read "*a"
-    local ok, files = pcall(vim.json.decode, data)
-    if ok then
-      cache.files = files.files
-      return files.files
-    end
-    f:close()
+  if not f then
+    error("cannot read " .. config.tasks_file)
   end
-  return nil
+  return vim.json.decode(f:read "*a")["files"]
 end
 
----@return string
 local function get_done_label()
   return os.date(config.label) --[[@as string]]
 end
 
 ---@param str string
----@return boolean
 local function is_task(str)
   return str:match "^%s*%- %[[x ]%]" ~= nil
 end
 
 ---@param str string
----@return boolean res
 local function is_task_labled(str)
   return str:match "^%s*%- %[[x ]%] `%" ~= nil
 end
 
 ---@param str string
----@return boolean
 local function has_next_tag(str)
   return str:match "%#next" ~= nil
 end
 
 ---@param str string
----@return boolean
 local function check_task_status(str)
   return str:match "^(%s*%- )%[x%]" ~= nil
 end
 
 ---@param str string
----@return string
 local function remove_task_prefix(str)
   local res = str:gsub("^%- %[ %] ", "")
   return res
 end
 
 ---@param str string
----@return string
 local function remove_next_tag(str)
   local res = str:gsub(" %#next", "")
   return res
 end
 
----@param str string
----@return string
-local function remove_file_extension(str)
-  local res = (str:match "^(.-)%.%w+$" or str)
-  return res
-end
-
 -- converts a like with markdown task to completed task, and removes `#next` in it, if there's one
 ---@param str string
----@return string?
 local function to_complete_task(str)
   local label = get_done_label()
 
@@ -113,16 +88,9 @@ end
 local tasks = {}
 function tasks.agenda()
   -- parse all `task_files` for `#next` tag
-  --  FIXME: that's probably should be cached
-
-  local task_files = get_files()
-  if not task_files then
-    return
-  end
-
   ---@type table<string, {text: string, line: number}[]>
   local agenda_tasks = {}
-  for _, fname in ipairs(task_files) do
+  for _, fname in ipairs(get_tasks_files()) do
     local lines = vim.fn.readfile(fname)
     for i, line in ipairs(lines) do
       if is_task(line) and has_next_tag(line) then
@@ -139,8 +107,7 @@ function tasks.agenda()
   local output = {}
   for fname, ftasks in pairs(agenda_tasks) do
     for _, ftask in pairs(ftasks) do
-      local task = remove_file_extension(ftask.text)
-      task = remove_next_tag(task)
+      local task = remove_next_tag(ftask.text)
       task = remove_task_prefix(task)
 
       table.insert(output, {
@@ -156,32 +123,18 @@ function tasks.agenda()
 end
 
 function tasks.complete()
-  vim.cmd.mkview() -- saves current folds/scroll
-
   local bufnr = vim.api.nvim_get_current_buf()
-  local cur_pos = vim.api.nvim_win_get_cursor(0)
+  local task_idx = vim.api.nvim_win_get_cursor(0)[1]
   local lines = vim.api.nvim_buf_get_lines(bufnr, 0, -1, false)
+  local task = lines[task_idx]
 
-  local task_index = cur_pos[1]
-
-  -- if cursor is beyond last line, exit
-  if task_index > #lines then
-    vim.cmd.loadview()
-    return
-  end
-
-  if not is_task(lines[task_index]) then
+  if not is_task(task) then
     vim.notify("Not a task", vim.log.levels.WARN)
-    vim.cmd.loadview()
     return
   end
 
-  if
-    check_task_status(lines[task_index])
-    and is_task_labled(lines[task_index])
-  then
+  if check_task_status(task) and is_task_labled(task) then
     vim.notify("Task already completed", vim.log.levels.ERROR)
-    vim.cmd.loadview()
     return
   end
 
@@ -194,16 +147,12 @@ function tasks.complete()
     archived_heading = #lines
   end
 
-  local completed_task = to_complete_task(lines[task_index])
-
-  table.remove(lines, task_index)
-  vim.api.nvim_buf_set_lines(bufnr, 0, -1, true, lines)
-
+  local completed_task = to_complete_task(task)
+  table.remove(lines, task_idx)
   table.insert(lines, archived_heading, completed_task)
   vim.api.nvim_buf_set_lines(bufnr, 0, -1, true, lines)
 
-  vim.cmd "silent update"
-  vim.cmd.loadview()
+  vim.cmd.update()
 end
 
 return tasks
