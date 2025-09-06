@@ -12,6 +12,11 @@ vim.lsp.enable {
   "yamlls",
 }
 
+vim.api.nvim_create_user_command("LspRestart", function(opts)
+  vim.lsp.enable(opts.args, false)
+  vim.lsp.enable(opts.args, true)
+end, { nargs = 1, complete = u.lsp.get_clients })
+
 u.aucmd("LspAttach", {
   group = u.augroup "lsp",
   callback = function(args)

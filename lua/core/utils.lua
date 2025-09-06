@@ -33,5 +33,16 @@ return {
         vim.lsp.buf.execute_command(command)
       end, {})
     end,
+
+    ---get list of lsp servers connected to current buffer
+    ---@return string[]
+    get_clients = function()
+      return vim
+        .iter(vim.lsp.get_clients { bufnr = 0 })
+        :map(function(e)
+          return (e.name ~= "null-ls" and e.name) or nil
+        end)
+        :totable()
+    end,
   },
 }

@@ -1,3 +1,4 @@
+local u = require "core.utils"
 local c = {
   mode = {
     function()
@@ -9,20 +10,8 @@ local c = {
   location = { "location", padding = 1, colored = false },
   lsp = {
     function()
-      local clients = vim.lsp.get_clients { bufnr = 0 }
-      local client_names = {}
-      for _, client in pairs(clients) do
-        if client.name ~= "null-ls" then
-          table.insert(client_names, client.name)
-        end
-      end
-
-      local client_names_str = table.concat(client_names, ", ")
-      if #client_names_str == 0 then
-        return ""
-      else
-        return "[" .. client_names_str .. "]"
-      end
+      local clients = table.concat(u.lsp.get_clients(), ", ")
+      return (#clients == 0 and "") or ("[" .. clients .. "]")
     end,
   },
 }
