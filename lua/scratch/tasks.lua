@@ -50,6 +50,12 @@ local function remove_task_prefix(str)
 end
 
 ---@param str string
+local function remove_note_link(str)
+  local res = str:gsub("%[%[(.-)%]%]", "[%1]")
+  return res
+end
+
+---@param str string
 local function remove_next_tag(str)
   local res = str:gsub(" %#next", "")
   return res
@@ -109,6 +115,7 @@ function tasks.agenda()
     for _, ftask in pairs(ftasks) do
       local task = remove_next_tag(ftask.text)
       task = remove_task_prefix(task)
+      task = remove_note_link(task)
 
       table.insert(output, {
         lnum = ftask.line,
