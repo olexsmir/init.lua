@@ -71,7 +71,6 @@ vim.opt.diffopt = {
   "algorithm:histogram",
   "linematch:200",
   "indent-heuristic",
-  "inline:word",
 }
 
 vim.o.foldenable = false
