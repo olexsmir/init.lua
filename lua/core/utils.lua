@@ -25,15 +25,6 @@ return {
       return require("blink.cmp").get_lsp_capabilities(extend or {})
     end,
 
-    ---@param bufnr integer
-    ---@param name string
-    ---@param command lsp.ExecuteCommandParams
-    command = function(bufnr, name, command)
-      vim.api.nvim_buf_create_user_command(bufnr, name, function()
-        vim.lsp.buf.execute_command(command)
-      end, {})
-    end,
-
     ---get list of lsp servers connected to current buffer
     ---@return string[]
     get_clients = function()

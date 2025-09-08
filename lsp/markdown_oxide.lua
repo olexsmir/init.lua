@@ -12,11 +12,4 @@ return {
       },
     },
   },
-  on_attach = function(_, bufnr)
-    u.command(bufnr, "LspToday", { command = "jump", arguments = { "today" } })
-    u.command(bufnr, "LspLastSunday", {
-      command = "jump",
-      arguments = { "last sunday" },
-    })
-  end,
 }

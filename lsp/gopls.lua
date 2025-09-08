@@ -2,10 +2,7 @@
 return {
   cmd = { "gopls" },
   filetypes = { "go", "gomod", "gowork", "gotmpl" },
-  root_markers = {
-    "go.mod",
-    "go.work",
-  },
+  root_markers = { "go.mod", "go.work" },
   settings = {
     gopls = {
       linksInHover = false,
