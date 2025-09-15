@@ -39,6 +39,7 @@ return {
         { "<leader>b", wrap("picker", "buffers") },
         { "<leader>sr", wrap("picker", "recent") },
         { "<leader>sg", wrap("picker", "grep", { args = { "-i" } }) },
+        { "<leader>ss", wrap("picker", "lsp_symbols") },
         { "<leader>sd", wrap("picker", "diagnostics") },
         { "<leader>sh", wrap("picker", "help") },
         { "z=", wrap("picker", "spelling") },
