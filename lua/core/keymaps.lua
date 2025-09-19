@@ -7,12 +7,12 @@ vim.keymap.del("n", "grr")
 vim.keymap.del("n", "gri")
 vim.keymap.del("n", "grt")
 vim.keymap.del("n", "gO")
-vim.keymap.del({ "i", "s" }, "<C-s>")
 
 -- notes
 u.map("n", "<leader>a", require("scratch.tasks").agenda)
 
 -- general
+u.map({ "n", "x" }, "<leader>z", "1z=")
 u.map("t", "<esc><esc>", "<C-\\><C-n>")
 u.map("n", "<leader>q", "<cmd>quit!<cr>")
 u.map("n", "<leader>w", "<cmd>update<cr>")

@@ -1,5 +1,3 @@
-local u = require("core.utils").lsp
-
 ---@return vim.lsp.Client
 return {
   cmd = { "elm-language-server" },
@@ -11,7 +9,5 @@ return {
     disableElmLSDiagnostics = false,
     onlyUpdateDiagnosticsOnSave = false,
   },
-  capabilities = u.capabilities {
-    offsetEncoding = { "utf-8", "utf-16" },
-  },
+  capabilities = { offsetEncoding = { "utf-8", "utf-16" } },
 }

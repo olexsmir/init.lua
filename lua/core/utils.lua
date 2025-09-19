@@ -20,11 +20,6 @@ return {
   end,
 
   lsp = {
-    ---@param extend? table
-    capabilities = function(extend)
-      return require("blink.cmp").get_lsp_capabilities(extend or {})
-    end,
-
     ---get list of lsp servers connected to current buffer
     ---@return string[]
     get_clients = function()
