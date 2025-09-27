@@ -43,6 +43,8 @@ u.aucmd("LspAttach", {
     u.map("n", "<leader>la", vim.lsp.buf.code_action, bufnr)
     u.map("n", "<leader>lr", vim.lsp.buf.rename, bufnr)
     u.map("n", "<leader>ll", vim.lsp.codelens.run, bufnr)
+    u.map("n", "<leader>ls", Snacks.picker.lsp_symbols)
+    u.map("n", "<leader>lS", Snacks.picker.lsp_workspace_symbols)
     u.map("n", "<leader>li", function()
       if vim.lsp.inlay_hint.is_enabled { bufnr = bufnr } then
         vim.lsp.inlay_hint.enable(false, { bufnr = bufnr })
