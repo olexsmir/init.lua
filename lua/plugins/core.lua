@@ -32,4 +32,16 @@ return {
       require("todo-comments").setup {}
     end,
   },
+  {
+    "olexsmir/gopher.nvim",
+    ---@module "gopher"
+    ---@type gopher.Config
+    ---@diagnostic disable-next-line: missing-fields
+    opts = {
+      log_level = vim.log.levels.TRACE,
+      gotests = {
+        template = "testify",
+      },
+    },
+  },
 }

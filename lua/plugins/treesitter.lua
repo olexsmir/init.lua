@@ -13,12 +13,7 @@ return {
   ---@diagnostic disable-next-line: missing-fields
   opts = {
     auto_install = true,
-    ensure_installed = {
-      "sql",
-      "markdown",
-      "markdown_inline",
-      "query",
-    },
+    ensure_installed = { "sql", "markdown", "markdown_inline", "query" },
     ignore_install = { "org" },
     indent = { enable = true, disable = { "python" } },
     highlight = { enable = true, additional_vim_regex_highlighting = false },
