@@ -15,3 +15,5 @@ map("n", "<localleader>a", "<cmd>GoTestsAll<cr>", true)
 map("n", "<localleader>e", "<cmd>GoTestsExp<cr>", true)
 
 map("n", "<localleader>s", require("scratch.gotest").switch, true)
+map("n", "<localleader>b", require("scratch.dlv").bset, true)
+map("n", "<localleader>B", require("scratch.dlv").clear, true)
