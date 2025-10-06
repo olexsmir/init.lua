@@ -42,6 +42,7 @@ return {
 
   {
     "TimUntersberger/neogit",
+    enabled = false,
     cmd = "Neogit",
     keys = { { "<leader>gg", vim.cmd.Neogit } },
     ---@module "neogit"
