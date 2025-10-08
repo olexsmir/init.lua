@@ -22,7 +22,6 @@
   "snacks.nvim": { "branch": "main", "commit": "da230e3ca8146da4b73752daaf0a1d07d343c12d" },
   "todo-comments.nvim": { "branch": "main", "commit": "ae0a2afb47cf7395dc400e5dc4e05274bf4fb9e0" },
   "tokyonight.nvim": { "branch": "main", "commit": "4d159616aee17796c2c94d2f5f87d2ee1a3f67c7" },
-  "undotree": { "branch": "master", "commit": "fe9a9d0645f0f5532360b5e5f5c550d7bb4f1869" },
   "vim-repeat": { "branch": "master", "commit": "8106e142dfdc278ff3eaaadd7b362ad7949d4357" },
   "vim-speeddating": { "branch": "master", "commit": "426c792e479f6e1650a6996c683943a09344c21e" },
   "vim-surround": { "branch": "master", "commit": "aeb933272e72617f7c4d35e1f003be16836b948d" },

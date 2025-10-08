@@ -1,16 +1,6 @@
 ---@type LazySpec
 return {
   {
-    "mbbill/undotree",
-    cmd = "UndotreeToggle",
-    keys = { { "<leader>u", vim.cmd.UndotreeToggle } },
-    init = function()
-      vim.g.undotree_DiffAutoOpen = 0
-      vim.g.undotree_WindowLayout = 3
-    end,
-  },
-
-  {
     "stevearc/oil.nvim",
     event = "VeryLazy",
     cmd = "Oil",
