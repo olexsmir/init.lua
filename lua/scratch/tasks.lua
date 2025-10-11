@@ -142,4 +142,20 @@ function tasks.complete()
   vim.cmd.update()
 end
 
+function tasks.clear_archive()
+  local bufnr = vim.api.nvim_get_current_buf()
+  local lines = vim.api.nvim_buf_get_lines(bufnr, 0, -1, false)
+
+  local archived_heading = find_archive_heading(lines)
+  if not archived_heading then
+    vim.notify("Looks like there's no archive of tasks", vim.log.levels.ERROR)
+  end
+
+  -- minus 2 because = 1(the archive heading) + 1(empty line before it)
+  lines = vim.list_slice(lines, 1, archived_heading - 2)
+  vim.api.nvim_buf_set_lines(bufnr, 0, -1, true, lines)
+
+  vim.cmd.update()
+end
+
 return tasks

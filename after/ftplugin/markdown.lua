@@ -7,6 +7,7 @@ vim.opt_local.concealcursor = "cv"
 
 map("n", "<localleader>v", "<cmd>RenderMarkdown toggle<cr>", true)
 map("n", "<localleader>t", require("scratch.tasks").complete, true)
+map("n", "<localleader>c", require("scratch.tasks").clear_archive, true)
 
 vim.b.minihipatterns_config = {
   highlighters = {
