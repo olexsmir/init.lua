@@ -35,6 +35,7 @@ return {
       end
 
       return {
+        { "<leader>d", wrap("picker", "resume") },
         { "<leader>f", wrap("picker", "files") },
         { "<leader>b", wrap("picker", "buffers") },
         { "<leader>sr", wrap("picker", "recent") },
