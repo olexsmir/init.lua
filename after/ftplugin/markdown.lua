@@ -8,10 +8,12 @@ vim.opt_local.concealcursor = "cv"
 map("n", "<localleader>v", "<cmd>RenderMarkdown toggle<cr>", true)
 map("n", "<localleader>t", require("scratch.tasks").complete, true)
 map("n", "<localleader>c", require("scratch.tasks").clear_archive, true)
+map("n", "<localleader>a", "<cmd>norm o- [ ] <cr>a", true)
+map("n", "<localleader>n", "<cmd>norm A #n<cr>", true)
 
 vim.b.minihipatterns_config = {
   highlighters = {
-    next = { pattern = "%#next", group = "MiniTestPass" },
+    next = { pattern = "%#n[ext]*", group = "MiniTestPass" },
     front = { pattern = "front%:", group = "@boolean" },
     feat = { pattern = "feat%:", group = "@boolean" },
     chore = { pattern = "chore%:", group = "@character" },

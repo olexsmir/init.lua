@@ -4,11 +4,7 @@ local config = {
   tasks_file = vim.fn.stdpath "config" .. "/tasks.json",
 }
 
--- TODO: multi line tasks support
--- TODO: add support for nested tasks(one level max)
---    completing a nested task will tick it, not archive
---    once the parent task get archived, only then it's "children" gets archived
--- TODO: show progress of task with nested tasks(visual text, with, e.g 5/9)
+local ns = vim.api.nvim_create_namespace "scratch.tasks"
 
 ---@return string[]
 local function get_tasks_files()
@@ -17,6 +13,12 @@ local function get_tasks_files()
     error("cannot read " .. config.tasks_file)
   end
   return vim.json.decode(f:read "*a")["files"] or error "'files' is not found"
+end
+
+local function display_filename(str)
+  local res = vim.fs.basename(str)
+  res = res:gsub("%.%w+$", "")
+  return res
 end
 
 ---@param str string
@@ -31,7 +33,7 @@ end
 
 ---@param str string
 local function has_next_tag(str)
-  return str:match "%#next" ~= nil
+  return str:match "%#n[ext]*" ~= nil
 end
 
 ---@param str string
@@ -40,20 +42,14 @@ local function is_task_complete(str)
 end
 
 ---@param str string
-local function remove_task_prefix(str)
-  local res = str:gsub("^%- %[ %] ", "")
-  return res
-end
-
----@param str string
-local function remove_note_link(str)
+local function remove_task_link(str)
   local res = str:gsub("%[%[(.-)%]%]", "[%1]")
   return res
 end
 
 ---@param str string
 local function remove_next_tag(str)
-  local res = str:gsub(" %#next", "")
+  local res = str:gsub(" %#n[ext]*", "")
   return res
 end
 
@@ -66,10 +62,10 @@ local function to_complete_task(str)
 
   local label = os.date(config.label) --[[@as string]]
   str = task_prefix .. " `" .. label .. "`" .. str:sub(#task_prefix + 1)
-  str = str:gsub("^(%s*%- )%[%s*%]", "%1[x]")
-  str = remove_note_link(str)
+  str = str:gsub("^(%s*%- )%[%s*%]", "%1[x]") -- mark task as complete
+  str = remove_task_link(str)
   str = remove_next_tag(str)
-  str = str:gsub("%s+$", "")
+  str = str:gsub("%s+$", "") -- white space in the end
   return str
 end
 
@@ -83,7 +79,7 @@ end
 
 local tasks = {}
 function tasks.agenda()
-  local qf_output = vim
+  local qf_items = vim
     .iter(get_tasks_files())
     :map(function(fname)
       return vim
@@ -93,13 +89,15 @@ function tasks.agenda()
         end)
         :map(function(lnum, line)
           local task = remove_next_tag(line)
-          task = remove_task_prefix(task)
-          task = remove_note_link(task)
+          task = remove_task_link(task)
+          task = task:gsub("^%- %[ %] ", "") -- remove task prefix
+          task = task:gsub("`", "")
 
           return {
             lnum = lnum,
             filename = fname,
             text = task,
+            user_data = { filename = fname },
           } --[[@as vim.quickfix.entry]]
         end)
         :totable()
@@ -107,7 +105,35 @@ function tasks.agenda()
     :flatten()
     :totable()
 
-  vim.fn.setqflist(qf_output, "r")
+  vim.fn.setqflist({}, "r", {
+    nr = "$",
+    title = "scratch.tasks",
+    items = qf_items,
+    quickfixtextfunc = function(info)
+      local items = vim.fn.getqflist({ id = info.id, items = 1 }).items
+      local lines, highlights = {}, {}
+      for item = info.start_idx, info.end_idx do
+        local entry = items[item]
+        local fname = display_filename(entry.user_data.filename)
+        local fname_paded = fname .. string.rep(" ", 7 - #fname) .. " "
+
+        table.insert(lines, fname_paded .. entry.text)
+        table.insert(highlights, { fname_len = #fname_paded })
+      end
+
+      vim.schedule(function()
+        vim.api.nvim_buf_clear_namespace(0, ns, 0, -1)
+        for i, hl in ipairs(highlights) do
+          local line = info.start_idx + i - 2
+          vim.hl.range(0, ns, "qfFileName", { line, 0 }, { line, hl.fname_len })
+          vim.hl.range(0, ns, "Bold", { line, hl.fname_len }, { line, -1 })
+        end
+      end)
+
+      return lines
+    end,
+  })
+
   vim.cmd.copen()
 end
 

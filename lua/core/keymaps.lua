@@ -10,6 +10,8 @@ vim.keymap.del("n", "gO")
 
 -- notes
 u.map("n", "<leader>a", require("scratch.tasks").agenda)
+u.map("n", "<leader>nt", "<cmd>e ~/org/notes/TODO.md<cr>")
+u.map("n", "<leader>nn", "<cmd>e ~/org/notes/0Inbox.md<cr>")
 
 -- general
 u.map({ "n", "x" }, "<leader>z", "1z=")
