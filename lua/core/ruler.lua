@@ -36,7 +36,7 @@ local function git_diff()
   return join {
     (diff.added ~= nil and diff.added > 0) and ("%#GitSignsAdd#+" .. diff.added .. "%*") or "",
     (diff.changed ~= nil and diff.changed > 0) and ("%#GitSignsChange#~" .. diff.changed .. "%*") or "",
-    (diff.removed ~= nil and diff.removed > 0) and ("%#GitSignsDelete#+" .. diff.removed .. "%*") or "",
+    (diff.removed ~= nil and diff.removed > 0) and ("%#GitSignsDelete#-" .. diff.removed .. "%*") or "",
   }
 end
 
