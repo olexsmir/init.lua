@@ -29,7 +29,7 @@ return {
   end,
   dependencies = {
     "nvim-neotest/nvim-nio",
-    "fredrikaverpil/neotest-golang",
+    { "fredrikaverpil/neotest-golang", version = "v1" },
     "nvim-treesitter",
   },
   config = function()

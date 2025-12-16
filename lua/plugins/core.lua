@@ -34,6 +34,7 @@ return {
   },
   {
     "olexsmir/gopher.nvim",
+    lazy = false,
     ---@module "gopher"
     ---@type gopher.Config
     ---@diagnostic disable-next-line: missing-fields
