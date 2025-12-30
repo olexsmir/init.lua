@@ -58,6 +58,7 @@ return {
       },
       picker = {
         enabled = true,
+        main = { current = true },
         layout = {
           preset = "ivy",
           layout = {
