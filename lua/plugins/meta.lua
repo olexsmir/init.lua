@@ -36,7 +36,7 @@ return {
 
       return {
         { "<leader>d", wrap("picker", "resume") },
-        { "<leader>f", wrap("picker", "files") },
+        { "<leader>f", wrap("picker", "smart") },
         { "<leader>b", wrap("picker", "buffers") },
         { "<leader>sr", wrap("picker", "recent") },
         { "<leader>sg", wrap("picker", "grep", { args = { "-i" } }) },
@@ -77,6 +77,7 @@ return {
         sources = {
           select = { layout = { preset = "ivy" } },
           spelling = { layout = { preset = "ivy" } },
+          smart = { multi = { "buffers", "files" } },
         },
       },
     },
