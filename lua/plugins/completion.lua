@@ -24,12 +24,17 @@ return {
       default = { "lsp", "path", "snippets", "buffer" },
       per_filetype = {
         lua = { inherit_defaults = true, "lazydev" },
+        ledger = { inherit_defaults = true, "ledger" },
       },
       providers = {
         lazydev = {
           name = "LazyDev",
           module = "lazydev.integrations.blink",
           score_offset = 100,
+        },
+        ledger = {
+          name = "ledger",
+          module = "scratch.ledger",
         },
       },
     },
