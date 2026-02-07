@@ -1,52 +1,48 @@
 local dlv = {}
 local cache = {
-  tab_id = nil,
+  pane_id = nil,
   signs = {},
 }
 
 vim.fn.sign_define("Breakpoint", { text = "b", texthl = "Error" })
 
-local function kitty(args)
-  local res = vim.system({ "kitty", "@", unpack(args) }, { text = true }):wait()
+local function get_dlv_pane_id()
+  if cache.pane_id then
+    return cache.pane_id
+  end
+
+  local res = vim
+    .system({
+      "tmux",
+      "list-panes",
+      "-s",
+      "-F",
+      "#{pane_id}:#{pane_current_command}",
+    }, { text = true })
+    :wait()
+
   if res.code ~= 0 then
-    vim.notify("failed to kitty @ " .. vim.inspect(args), vim.log.levels.ERROR)
-  end
-  return res
-end
-
-local function get_dlv_tab_id()
-  if cache.tab_id then
-    return cache.tab_id
+    vim.notify("Failed to list tmux panes", vim.log.levels.ERROR)
+    return
   end
 
-  local res = kitty { "ls" }
-  local out = vim.json.decode(res.stdout)
-
-  for _, tab in ipairs(out) do
-    for _, win in ipairs(tab.tabs or {}) do
-      for _, w in ipairs(win.windows or {}) do
-        if
-          w.title:match "^dlv connect"
-          or w.title:match "^dlv debug"
-          or w.title:match "^dlv test"
-        then
-          cache.tab_id = w.id
-          return w.id
-        end
-      end
+  for line in res.stdout:gmatch "[^\n]+" do
+    local pane_id, command = line:match "([^:]+):(.*)"
+    if command and command:match "^dlv" then
+      cache.pane_id = pane_id
+      return pane_id
     end
   end
 
-  vim.notify("it seems like there's no dlv running", vim.log.levels.ERROR)
+  vim.notify("No dlv session found", vim.log.levels.ERROR)
 end
 
 function dlv.bset()
   local line = vim.fn.line "."
 
   -- send breakpoint
-  local tid = get_dlv_tab_id()
-  local cmd = string.format("break %s:%d\n", vim.fn.expand "%:t", line)
-  kitty { "send-text", "-m", "id:" .. tid, cmd }
+  local cmd = string.format("break %s:%d", vim.fn.expand "%:p", line) 
+  vim.system { "tmux", "send-keys", "-t", get_dlv_pane_id(), cmd, "Enter" }
 
   -- set sign
   local fullpath = vim.fn.expand "%:p"
