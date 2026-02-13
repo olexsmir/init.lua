@@ -6,8 +6,9 @@ require "core.ruler"
 require "core.lsp"
 
 if vim.fn.has "nvim-0.12" == 1 then
-  require("vim._extui").enable { enable = true }
+  require("vim._core.ui2").enable { enable = true }
   vim.opt.diffopt:append "inline:word"
   vim.cmd.packadd "nvim.undotree"
+  vim.cmd.packadd "nvim.difftool"
   require("core.utils").map("n", "<leader>u", vim.cmd.Undotree)
 end
