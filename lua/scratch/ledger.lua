@@ -4,11 +4,8 @@ local t = require("blink.cmp.types").CompletionItemKind
 ---@class blink.cmp.Source
 local source = {}
 
-function source.new(opts)
-  local self = setmetatable({}, { __index = source })
-  self.opts = opts
-  self.items = {}
-  return self
+function source.new(_)
+  return setmetatable({}, { __index = source })
 end
 
 function source:enabled()
@@ -16,27 +13,27 @@ function source:enabled()
 end
 
 function source:get_trigger_characters()
-  return { "  ", ":", "as", "eq", "li", "in", "ex" }
+  return { ":", "as", "eq", "li", "in", "ex" }
 end
 
 function source:get_completions(_, callback)
   local rs = vim
     .system({ "hledger", "accounts", "--flat" }, { text = true })
     :wait()
-  assert(rs.code == 0, "Failed to run hledger accounts: " .. rs.stderr)
 
   ---@type lsp.CompletionItem[]
-  local items = vim
-    .iter(vim.split(rs.stdout, "\n"))
-    :map(function(acc)
-      ---@type lsp.CompletionItem
-      return {
-        label = acc,
-        kind = t.Property,
-        insertTextFormat = vim.lsp.protocol.InsertTextFormat.PlainText,
-      }
-    end)
-    :totable()
+  local items = rs.code == 0
+      and vim
+        .iter(vim.split(rs.stdout, "\n"))
+        :map(function(acc)
+          return {
+            label = acc,
+            kind = t.Property,
+            insertTextFormat = vim.lsp.protocol.InsertTextFormat.PlainText,
+          }
+        end)
+        :totable()
+    or {}
 
   callback {
     items = items,
