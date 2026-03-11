@@ -1,6 +1,7 @@
 local u = require "core.utils"
 
 vim.lsp.enable {
+  "ctags",
   "elmls",
   "gleam",
   "golangci_lint_ls",
@@ -29,7 +30,7 @@ u.aucmd("LspAttach", {
     if
       client:supports_method(vim.lsp.protocol.Methods.textDocument_codeLens)
     then
-      vim.lsp.codelens.refresh { bufnr = bufnr }
+      vim.lsp.codelens.enable(true, { bufnr = bufnr })
     end
 
     u.map("n", "<leader>lf", function()
@@ -43,8 +44,8 @@ u.aucmd("LspAttach", {
     u.map("n", "<leader>la", vim.lsp.buf.code_action, bufnr)
     u.map("n", "<leader>lr", vim.lsp.buf.rename, bufnr)
     u.map("n", "<leader>ll", vim.lsp.codelens.run, bufnr)
-    u.map("n", "<leader>ls", Snacks.picker.lsp_symbols)
-    u.map("n", "<leader>lS", Snacks.picker.lsp_workspace_symbols)
+    u.map("n", "<leader>lS", Snacks.picker.lsp_symbols)
+    u.map("n", "<leader>ls", Snacks.picker.lsp_workspace_symbols)
     u.map("n", "<leader>li", function()
       if vim.lsp.inlay_hint.is_enabled { bufnr = bufnr } then
         vim.lsp.inlay_hint.enable(false, { bufnr = bufnr })

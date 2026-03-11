@@ -13,6 +13,7 @@ return {
         unreachable = true,
         unusedwrite = true,
         shadow = true,
+        ST1003 = false, -- naming conventions; Url -> URL, etc
         S1008 = true, -- simplify returning boolean expression
         SA5000 = true, -- assignment to nil map
         SA5007 = true, -- infinite recursion call
@@ -35,7 +36,7 @@ return {
       },
       codelenses = {
         generate = true,
-        gc_details = false,
+        gc_details = true,
         test = false,
         tidy = true,
         run_govulncheck = true,

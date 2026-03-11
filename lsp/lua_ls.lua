@@ -14,7 +14,7 @@ return {
   settings = {
     Lua = {
       format = { enable = false },
-      completion = { callSnippet = "Replace" },
+      completion = { callSnippet = "Disable" },
       telemetry = { enable = false },
       runtime = { version = "LuaJIT" },
       hint = {
