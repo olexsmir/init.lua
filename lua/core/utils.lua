@@ -11,12 +11,13 @@ return {
     })
   end,
 
-  aucmd = vim.api.nvim_create_autocmd,
+  ---@param ev string
+  ---@param grp string
+  ---@param evopts vim.api.keyset.create_autocmd
+  aucmd = function(ev, grp, evopts)
+    local group = vim.api.nvim_create_augroup("olexsmir_" .. grp, { clear = true })
 
-  ---@param name string
-  ---@return integer
-  augroup = function(name)
-    return vim.api.nvim_create_augroup("olexsmir_" .. name, { clear = true })
+    vim.api.nvim_create_autocmd(ev, vim.tbl_extend("force", evopts, { group = group }))
   end,
 
   lsp = {

@@ -1,3 +1,11 @@
+require("core.utils").aucmd("User", "OilActionsPost", {
+  callback = function(ev)
+    if ev and ev.data and ev.data.actions and ev.data.actions.type == "move" then
+      Snacks.rename.on_rename_file(ev.data.actions.src_url, ev.data.actions.dest_url)
+    end
+  end,
+})
+
 ---@type LazySpec
 return {
   {

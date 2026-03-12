@@ -1,28 +1,24 @@
 local u = require "core.utils"
 
-u.aucmd("TextYankPost", {
-  group = u.augroup "highlight_yank",
+u.aucmd("TextYankPost", "highlight_yank", {
   callback = function()
     vim.hl.on_yank()
   end,
 })
 
-u.aucmd("VimResized", {
-  group = u.augroup "resize_splits",
+u.aucmd("VimResized", "resize_splits", {
   callback = function()
     vim.cmd "tabdo wincmd ="
     vim.cmd("tabnext " .. vim.fn.tabpagenr())
   end,
 })
 
-u.aucmd("FileType", {
-  group = u.augroup "help",
+u.aucmd("FileType", "help", {
   pattern = { "help", "man" },
   command = "wincmd L",
 })
 
-u.aucmd("FileType", {
-  group = u.augroup "formatoptions",
+u.aucmd("FileType", "formatoptions", {
   callback = function()
     vim.opt.formatoptions:remove {
       "c", -- autowrap comments using textwidth with leader
@@ -36,17 +32,5 @@ u.aucmd("FileType", {
       "l", -- long lines not broken in insert mode
       "1", -- don't break a line after a one-letter word
     }
-  end,
-})
-
-u.aucmd("User", {
-  pattern = "OilActionsPost",
-  callback = function(ev)
-    if ev.data.actions.type == "move" then
-      Snacks.rename.on_rename_file(
-        ev.data.actions.src_url,
-        ev.data.actions.dest_url
-      )
-    end
   end,
 })

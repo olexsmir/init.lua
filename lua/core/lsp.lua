@@ -18,18 +18,13 @@ vim.api.nvim_create_user_command("LspRestart", function(opts)
   vim.lsp.enable(opts.args, true)
 end, { nargs = 1, complete = u.lsp.get_clients })
 
-u.aucmd("LspAttach", {
-  group = u.augroup "lsp",
+u.aucmd("LspAttach", "lsp", {
   callback = function(args)
     local bufnr = args.buf
     local client = vim.lsp.get_client_by_id(args.data.client_id)
-    if not client then
-      error "couldn't get an lsp server"
-    end
+    if not client then error "couldn't get an lsp server" end
 
-    if
-      client:supports_method(vim.lsp.protocol.Methods.textDocument_codeLens)
-    then
+    if client:supports_method(vim.lsp.protocol.Methods.textDocument_codeLens) then
       vim.lsp.codelens.enable(true, { bufnr = bufnr })
     end
 
