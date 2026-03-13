@@ -1,14 +1,26 @@
-require "core.options"
-require "core.lazy"
-require "core.keymaps"
-require "core.autocmd"
-require "core.ruler"
-require "core.lsp"
+_G.Config = {}
 
-if vim.fn.has "nvim-0.12" == 1 then
-  require("vim._core.ui2").enable { enable = true }
-  vim.opt.diffopt:append "inline:word"
-  vim.cmd.packadd "nvim.undotree"
-  vim.cmd.packadd "nvim.difftool"
-  require("core.utils").map("n", "<leader>u", vim.cmd.Undotree)
+---@param mode string|table
+---@param from string
+---@param to string|function
+---@param buffer? integer|boolean
+Config.map = function(mode, from, to, buffer)
+  vim.keymap.set(mode, from, to, {
+    noremap = true,
+    silent = true,
+    buffer = buffer or false,
+  })
+end
+
+Config.aucmd = vim.api.nvim_create_autocmd
+
+Config.packchange = function(pname, kinds, callback)
+  Config.aucmd("PackChanged", {
+    pattern = "*",
+    callback = function(ev)
+      if not (ev.data.spec.name and vim.tbl_contains(kinds, ev.data.kind)) then return end
+      if not ev.data.active then vim.cmd.packadd(pname) end
+      callback()
+    end,
+  })
 end

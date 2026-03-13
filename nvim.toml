@@ -6,3 +6,6 @@ any = true
 
 [Snacks]
 any = true
+
+[Config]
+any = true
