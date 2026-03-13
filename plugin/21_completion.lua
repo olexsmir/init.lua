@@ -39,7 +39,7 @@ require("blink.cmp").setup {
       },
       ledger = {
         name = "ledger",
-        module = "scratch.ledger",
+        module = "s.ledger",
       },
     },
   },
