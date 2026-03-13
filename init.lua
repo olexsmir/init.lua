@@ -1,4 +1,4 @@
-_G.Config = {}
+Config = {}
 
 ---@param mode string|table
 ---@param from string

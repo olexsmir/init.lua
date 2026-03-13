@@ -9,7 +9,7 @@ Config.aucmd("User", {
   end,
 })
 
-Config.map("u", "<leader>e", vim.cmd.Oil)
+Config.map("n", "<leader>e", vim.cmd.Oil)
 require("oil").setup {
   columns = { "icon" },
   delete_to_trash = true,
