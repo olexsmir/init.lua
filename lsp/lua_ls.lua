@@ -17,6 +17,7 @@ return {
       completion = { callSnippet = "Disable" },
       telemetry = { enable = false },
       runtime = { version = "LuaJIT" },
+      diagnostics = { globals = { "vim", "Config" } },
       hint = {
         enable = true,
         arrayIndex = "Disable",
