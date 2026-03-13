@@ -29,13 +29,6 @@ local diagnostic = null_ls.builtins.diagnostics
 null_ls.setup {
   sources = {
     formatting.pg_format,
-    diagnostic.codespell.with {
-      args = {
-        "--ignore-words",
-        vim.env.HOME .. "/.config/codespell-ignore.txt",
-        "-",
-      },
-    },
 
     formatting.stylua,
     diagnostic.selene.with {
