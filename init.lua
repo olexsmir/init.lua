@@ -1,5 +1,6 @@
 Config = {}
 
+-- TODO: alternative syntax: map("key", ":something") = map("n", "key", "something")
 ---@param mode string|table
 ---@param from string
 ---@param to string|function
