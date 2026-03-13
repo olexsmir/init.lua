@@ -9,9 +9,7 @@ local ns = vim.api.nvim_create_namespace "scratch.tasks"
 ---@return string[]
 local function get_tasks_files()
   local f = io.open(config.tasks_file, "r")
-  if not f then
-    error("cannot read " .. config.tasks_file)
-  end
+  if not f then error("cannot read " .. config.tasks_file) end
   return vim.json.decode(f:read "*a")["files"] or error "'files' is not found"
 end
 
@@ -56,9 +54,7 @@ end
 ---@param str string
 local function to_complete_task(str)
   local task_prefix = str:match "^(%s*%- %[[x ]%])"
-  if not task_prefix then
-    return nil
-  end
+  if not task_prefix then return nil end
 
   local label = os.date(config.label) --[[@as string]]
   str = task_prefix .. " `" .. label .. "`" .. str:sub(#task_prefix + 1)
