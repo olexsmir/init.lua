@@ -5,20 +5,15 @@ local cache = {
 }
 
 vim.fn.sign_define("Breakpoint", { text = "b", texthl = "Error" })
-
 local function get_dlv_pane_id()
   if cache.pane_id then return cache.pane_id end
 
   local res = vim
-    .system({
-      "tmux",
-      "list-panes",
-      "-s",
-      "-F",
-      "#{pane_id}:#{pane_current_command}",
-    }, { text = true })
+    .system(
+      { "tmux", "list-panes", "-s", "-F", "#{pane_id}:#{pane_current_command}" },
+      { text = true }
+    )
     :wait()
-
   if res.code ~= 0 then
     vim.notify("Failed to list tmux panes", vim.log.levels.ERROR)
     return

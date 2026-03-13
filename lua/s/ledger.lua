@@ -1,5 +1,3 @@
-local t = require("blink.cmp.types").CompletionItemKind
-
 ---@module 'blink.cmp'
 ---@class blink.cmp.Source
 local source = {}
@@ -16,10 +14,9 @@ function source:get_trigger_characters()
   return { ":", "as", "eq", "li", "in", "ex" }
 end
 
+local t = require("blink.cmp.types").CompletionItemKind
 function source:get_completions(_, callback)
-  local rs = vim
-    .system({ "hledger", "accounts", "--flat" }, { text = true })
-    :wait()
+  local rs = vim.system({ "hledger", "accounts", "--flat" }, { text = true }):wait()
 
   ---@type lsp.CompletionItem[]
   local items = rs.code == 0
