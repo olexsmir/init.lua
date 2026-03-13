@@ -12,6 +12,9 @@ Config.map = function(mode, from, to, buffer)
   })
 end
 
+-- TODO:
+-- 1. set custom group for each augroup
+-- 2. syntax like: aucmd("PackChanged", "*", function() end) sets pattern and callback
 Config.aucmd = vim.api.nvim_create_autocmd
 
 Config.packchange = function(pname, kinds, callback)
