@@ -1,24 +1,22 @@
-local u = require "core.utils"
-
-u.aucmd("TextYankPost", "highlight_yank", {
+Config.aucmd("TextYankPost", {
   callback = function()
     vim.hl.on_yank()
   end,
 })
 
-u.aucmd("VimResized", "resize_splits", {
+Config.aucmd("VimResized", {
   callback = function()
     vim.cmd "tabdo wincmd ="
     vim.cmd("tabnext " .. vim.fn.tabpagenr())
   end,
 })
 
-u.aucmd("FileType", "help", {
+Config.aucmd("FileType", {
   pattern = { "help", "man" },
   command = "wincmd L",
 })
 
-u.aucmd("FileType", "formatoptions", {
+Config.aucmd("FileType", {
   callback = function()
     vim.opt.formatoptions:remove {
       "c", -- autowrap comments using textwidth with leader
