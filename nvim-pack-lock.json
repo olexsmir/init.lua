@@ -36,9 +36,22 @@
       "rev": "b8bfe77ba9a350ce8ea05c38133e28d776a6457c",
       "src": "https://github.com/TimUntersberger/neogit"
     },
+    "neotest": {
+      "rev": "deadfb1af5ce458742671ad3a013acb9a6b41178",
+      "src": "https://github.com/nvim-neotest/neotest"
+    },
+    "neotest-golang": {
+      "rev": "ad6ae703e18874eb66fee539224eac2dd9cc0890",
+      "src": "https://github.com/fredrikaverpil/neotest-golang",
+      "version": "1.0.0 - 2.0.0"
+    },
     "none-ls.nvim": {
       "rev": "c9317c2a8629d4e39e7cf47be74cb67f3ab37cda",
       "src": "https://github.com/nvimtools/none-ls.nvim"
+    },
+    "nvim-nio": {
+      "rev": "21f5324bfac14e22ba26553caf69ec76ae8a7662",
+      "src": "https://github.com/nvim-neotest/nvim-nio"
     },
     "nvim-treesitter": {
       "rev": "42fc28ba918343ebfd5565147a42a26580579482",
