@@ -1,6 +1,5 @@
 Config = {}
 
--- TODO: alternative syntax: map("key", ":something") = map("n", "key", "something")
 ---@param mode string|table
 ---@param from string
 ---@param to string|function
@@ -13,10 +12,14 @@ Config.map = function(mode, from, to, buffer)
   })
 end
 
--- TODO:
--- 1. set custom group for each augroup
--- 2. syntax like: aucmd("PackChanged", "*", function() end) sets pattern and callback
-Config.aucmd = vim.api.nvim_create_autocmd
+---@param ev vim.api.keyset.events|vim.api.keyset.events
+---@param opts vim.api.keyset.create_autocmd
+Config.aucmd = function(ev, opts)
+  opts = vim.tbl_deep_extend("force", opts, {
+    group = vim.api.nvim_create_augroup("olexsmir", {}),
+  })
+  vim.api.nvim_create_autocmd(ev, opts)
+end
 
 Config.packchange = function(pname, kinds, callback)
   Config.aucmd("PackChanged", {
