@@ -12,6 +12,5 @@ Config.map("n", "<localleader>t", "<cmd>GoTestAdd<cr>", true)
 Config.map("n", "<localleader>a", "<cmd>GoTestsAll<cr>", true)
 Config.map("n", "<localleader>e", "<cmd>GoTestsExp<cr>", true)
 
-Config.map("n", "<localleader>s", require("s.gotest").switch, true)
 Config.map("n", "<localleader>b", require("s.dlv").bset, true)
 Config.map("n", "<localleader>B", require("s.dlv").clear, true)
