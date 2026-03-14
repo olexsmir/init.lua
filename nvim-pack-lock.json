@@ -1,7 +1,7 @@
 {
   "plugins": {
     "blink.cmp": {
-      "rev": "539053d87740e357a96fb304c9a4da2ef27b3576",
+      "rev": "451168851e8e2466bc97ee3e026c3dcb9141ce07",
       "src": "https://github.com/saghen/blink.cmp",
       "version": "1.0.0 - 2.0.0"
     },
@@ -38,7 +38,7 @@
       "src": "https://github.com/nvim-neotest/neotest"
     },
     "neotest-golang": {
-      "rev": "004ece08643950e9bceb3764fb1cb16e375019d3",
+      "rev": "dce3ec832d914fb17aecfd5814255b7ab62b95d1",
       "src": "https://github.com/fredrikaverpil/neotest-golang"
     },
     "nvim-nio": {
