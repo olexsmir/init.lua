@@ -47,8 +47,3 @@ Config.aucmd("FileType", "lua", function()
     },
   }
 end)
-
-Config.aucmd("FileType", "markdown", function()
-  Config.add "MeanderingProgrammer/render-markdown.nvim"
-  require("render-markdown").setup {}
-end)
