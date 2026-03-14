@@ -31,11 +31,9 @@ Config.later(function()
     },
   }, vim.api.nvim_create_namespace "neotest")
 
-  vim.pack.add {
-    "https://github.com/nvim-neotest/neotest",
-    "https://github.com/nvim-neotest/nvim-nio",
-    "https://github.com/fredrikaverpil/neotest-golang",
-  }
+  Config.add "nvim-neotest/neotest"
+  Config.add "nvim-neotest/nvim-nio"
+  Config.add "fredrikaverpil/neotest-golang"
 
   ---@diagnostic disable-next-line: missing-fields
   require("neotest").setup {
