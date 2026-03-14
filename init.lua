@@ -21,7 +21,7 @@ Config.aucmd = function(ev, opts)
 end
 
 ---@param ev vim.api.keyset.events|vim.api.keyset.events
----@param pattern string|string[]
+---@param pattern string|string[]|nil
 ---@param callback fun()|fun(event)
 Config.aucmd2 = function(ev, pattern, callback)
   Config.aucmd(ev, { pattern = pattern, callback = callback })
