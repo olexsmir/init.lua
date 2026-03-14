@@ -31,6 +31,7 @@ Config.aucmd = function(ev, opts)
 end
 
 Config.packchange = function(pname, kinds, callback)
+  if type(kinds) == "string" then kinds = { kinds } end
   Config.aucmd("PackChanged", {
     pattern = "*",
     callback = function(ev)
@@ -38,5 +39,13 @@ Config.packchange = function(pname, kinds, callback)
       if not ev.data.active then vim.cmd.packadd(pname) end
       callback()
     end,
+  })
+end
+
+Config.later = vim.schedule
+Config.event = function(evname, callback)
+  Config.aucmd(evname, {
+    once = true,
+    callback = callback,
   })
 end
