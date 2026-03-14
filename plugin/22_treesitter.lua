@@ -1,12 +1,9 @@
-Config.packchange("nvim-treesitter", "update", function()
+Config.onpack("nvim-treesitter", "update", function()
   vim.cmd.TSUpdate()
 end)
 
+Config.add { src = "nvim-treesitter/nvim-treesitter", version = "main" }
 Config.add "RRethy/nvim-treesitter-endwise"
-Config.add {
-  src = "nvim-treesitter/nvim-treesitter",
-  version = "main",
-}
 
 Config.later(function()
   Config.add "nvim-treesitter/nvim-treesitter-context"
