@@ -1,7 +1,3 @@
--- TODO: oil -> mini.files ??
--- TODO: redo some of my scripts
--- TODO: reorganize my plugin/
-
 Config = {}
 
 ---@param mode string|table
@@ -16,13 +12,12 @@ Config.map = function(mode, from, to, buffer)
   })
 end
 
+local grp = vim.api.nvim_create_augroup("olexsmir", { clear = true })
+
 ---@param ev vim.api.keyset.events|vim.api.keyset.events
 ---@param opts vim.api.keyset.create_autocmd
 Config.aucmd = function(ev, opts)
-  -- opts = vim.tbl_extend("force", {
-  --   group = vim.api.nvim_create_augroup("olexsmir", {}),
-  -- }, opts)
-  vim.api.nvim_create_autocmd(ev, opts)
+  vim.api.nvim_create_autocmd(ev, vim.tbl_extend("force", { group = grp }, opts))
 end
 
 ---@param ev vim.api.keyset.events|vim.api.keyset.events
