@@ -1,14 +1,10 @@
 vim.lsp.enable {
   "ctags",
-  "elmls",
   "gleam",
-  "golangci_lint_ls",
   "gopls",
-  "jsonls",
   "lua_ls",
   "markdown_oxide",
   "ts_ls",
-  "yamlls",
 }
 
 local map = Config.map
