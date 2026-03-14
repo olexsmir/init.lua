@@ -5,16 +5,18 @@ vim.pack.add {
   "https://github.com/tpope/vim-speeddating",
   "https://github.com/wakatime/vim-wakatime",
   "https://github.com/folke/tokyonight.nvim",
-  "https://github.com/oysandvik94/curl.nvim",
 }
 
 require("tokyonight").setup { style = "night" }
 vim.cmd.colorscheme "tokyonight"
 
-require("curl").setup {
-  default_flags = { "-i" },
-  open_with = "buffer",
-}
+Config.later(function()
+  vim.pack.add { "https://github.com/oysandvik94/curl.nvim" }
+  require("curl").setup {
+    default_flags = { "-i" },
+    open_with = "buffer",
+  }
+end)
 
 Config.later(function()
   vim.pack.add { "https://github.com/folke/todo-comments.nvim" }
@@ -22,13 +24,11 @@ Config.later(function()
 end)
 
 Config.event("FileType markdown", function()
-  vim.print "markdown"
   vim.pack.add { "https://github.com/MeanderingProgrammer/render-markdown.nvim" }
   require("render-markdown").setup {}
 end)
 
 Config.event("FileType go", function()
-  vim.print "go"
   vim.pack.add { "file:///home/olex/code/gopher.nvim" }
   require("gopher").setup {
     log_level = vim.log.levels.TRACE,

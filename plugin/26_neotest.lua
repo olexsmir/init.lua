@@ -1,16 +1,3 @@
-vim.diagnostic.config({
-  virtual_text = {
-    format = function(diagnostic)
-      local r, _ = diagnostic.message
-        :gsub("\n", " ")
-        :gsub("\t", " ")
-        :gsub("%s+", " ")
-        :gsub("^%s+", "")
-      return r
-    end,
-  },
-}, vim.api.nvim_create_namespace "neotest")
-
 local function wrap(first, second, args)
   return function()
     return require("neotest")[first][second](args or nil)
@@ -31,6 +18,19 @@ Config.map("n", "]T", wrap("jump", "next", { status = "failed" }))
 Config.map("n", "[T", wrap("jump", "prev", { status = "failed" }))
 
 Config.later(function()
+  vim.diagnostic.config({
+    virtual_text = {
+      format = function(diagnostic)
+        local r, _ = diagnostic.message
+          :gsub("\n", " ")
+          :gsub("\t", " ")
+          :gsub("%s+", " ")
+          :gsub("^%s+", "")
+        return r
+      end,
+    },
+  }, vim.api.nvim_create_namespace "neotest")
+
   vim.pack.add {
     "https://github.com/nvim-neotest/neotest",
     "https://github.com/nvim-neotest/nvim-nio",

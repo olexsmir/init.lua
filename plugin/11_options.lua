@@ -1,17 +1,19 @@
 vim.opt.shell = "/bin/bash" -- fixes issues with fish shell
 
-vim.diagnostic.config {
-  update_in_insert = true,
-  virtual_text = true,
-  signs = {
-    text = {
-      [vim.diagnostic.severity.ERROR] = "",
-      [vim.diagnostic.severity.WARN] = "",
-      [vim.diagnostic.severity.HINT] = "",
-      [vim.diagnostic.severity.INFO] = "",
+Config.later(function()
+  vim.diagnostic.config {
+    update_in_insert = true,
+    virtual_text = true,
+    signs = {
+      text = {
+        [vim.diagnostic.severity.ERROR] = "",
+        [vim.diagnostic.severity.WARN] = "",
+        [vim.diagnostic.severity.HINT] = "",
+        [vim.diagnostic.severity.INFO] = "",
+      },
     },
-  },
-}
+  }
+end)
 
 -- leader
 vim.g.mapleader = " "
