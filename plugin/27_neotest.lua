@@ -4,9 +4,6 @@ local function wrap(first, second, args)
   end
 end
 
-Config.map("n", "<leader>tt", function()
-  require("neotest").run.run(vim.fn.expand "%")
-end)
 Config.map("n", "<leader>tn", wrap("run", "run"))
 Config.map("n", "<leader>tS", wrap("run", "stop"))
 Config.map("n", "<leader>to", wrap("output", "open"))
@@ -16,6 +13,9 @@ Config.map("n", "]t", wrap("jump", "next"))
 Config.map("n", "[t", wrap("jump", "prev"))
 Config.map("n", "]T", wrap("jump", "next", { status = "failed" }))
 Config.map("n", "[T", wrap("jump", "prev", { status = "failed" }))
+Config.map("n", "<leader>tt", function()
+  require("neotest").run.run(vim.fn.expand "%")
+end)
 
 Config.later(function()
   vim.diagnostic.config({
