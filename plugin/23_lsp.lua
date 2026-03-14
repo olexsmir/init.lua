@@ -10,6 +10,29 @@ Config.later(function()
   }
 end)
 
+Config.later(function()
+  vim.pack.add { "https://github.com/nvimtools/none-ls.nvim" }
+  local null_ls = require "null-ls"
+  local formatting = null_ls.builtins.formatting
+  local diagnostic = null_ls.builtins.diagnostics
+
+  null_ls.setup {
+    sources = {
+      formatting.pg_format,
+
+      formatting.stylua,
+      diagnostic.selene.with {
+        condition = function(utils)
+          return utils.root_has_file "selene.toml"
+        end,
+      },
+
+      formatting.goimports,
+      formatting.golines,
+    },
+  }
+end)
+
 Config.aucmd2("FileType", "lua", function()
   vim.pack.add { "https://github.com/folke/lazydev.nvim" }
   require("lazydev").setup {
@@ -20,24 +43,3 @@ Config.aucmd2("FileType", "lua", function()
     },
   }
 end)
-
--- vim.pack.add("https://github.com/nvimtools/none-ls.nvim",)
--- local null_ls = require "null-ls"
--- local formatting = null_ls.builtins.formatting
--- local diagnostic = null_ls.builtins.diagnostics
---
--- null_ls.setup {
---   sources = {
---     formatting.pg_format,
---
---     formatting.stylua,
---     diagnostic.selene.with {
---       condition = function(utils)
---         return utils.root_has_file "selene.toml"
---       end,
---     },
---
---     formatting.goimports,
---     formatting.golines,
---   },
--- }
