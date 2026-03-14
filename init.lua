@@ -1,3 +1,12 @@
+-- TODO: oil -> mini.files ??
+-- TODO: go though my options.lua
+-- TODO: i might need to delete some lsp servers
+-- TODO: ftplugins/
+-- TODO: remove json and yaml servers ????
+-- TODO: redo some of my scripts
+-- TODO: reorganize my plugin/
+-- TODO: optimize of start up time (some things should be loaded with vim.schedule)
+
 Config = {}
 
 ---@param mode string|table

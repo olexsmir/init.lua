@@ -1,5 +1,4 @@
 vim.pack.add {
-  "https://github.com/b0o/schemastore.nvim",
   "https://github.com/j-hui/fidget.nvim",
   "https://github.com/folke/lazydev.nvim",
   "https://github.com/nvimtools/none-ls.nvim",
