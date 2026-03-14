@@ -3,6 +3,15 @@ return {
   cmd = { "gopls" },
   filetypes = { "go", "gomod", "gosum", "gowork", "gotmpl" },
   root_markers = { "go.mod", "go.work" },
+  on_attach = function(_, buf)
+    Config.map("n", "<leader>lf", function()
+      vim.lsp.buf.code_action {
+        apply = true,
+        context = { only = { "source.organizeImports" }, diagnostics = {} },
+      }
+      vim.lsp.buf.format()
+    end, buf)
+  end,
   settings = {
     gopls = {
       staticcheck = true,
