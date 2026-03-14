@@ -8,6 +8,15 @@ Config.add "folke/tokyonight.nvim"
 require("tokyonight").setup { style = "night" }
 vim.cmd.colorscheme "tokyonight"
 
+vim.pack.add { "file:///home/olex/code/gopher.nvim" }
+---@diagnostic disable-next-line: missing-fields
+require("gopher").setup {
+  log_level = vim.log.levels.TRACE,
+  gotests = {
+    template = "testify",
+  },
+}
+
 Config.later(function()
   Config.add "oysandvik94/curl.nvim"
   require("curl").setup {
@@ -47,14 +56,4 @@ end)
 Config.aucmd2("FileType", "markdown", function()
   Config.add "MeanderingProgrammer/render-markdown.nvim"
   require("render-markdown").setup {}
-end)
-
-Config.aucmd2("FileType", "go", function()
-  vim.pack.add { "file:///home/olex/code/gopher.nvim" }
-  require("gopher").setup {
-    log_level = vim.log.levels.TRACE,
-    gotests = {
-      template = "testify",
-    },
-  }
 end)
