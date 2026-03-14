@@ -1,11 +1,8 @@
-Config.aucmd("User", {
-  pattern = "OilActionsPost",
-  callback = function(ev)
-    if ev.data.actions.type == "move" then
-      Snacks.rename.on_rename_file(ev.data.actions.src_url, ev.data.actions.dest_url)
-    end
-  end,
-})
+Config.aucmd2("User", "OilActionsPost", function(ev)
+  if ev.data.actions.type == "move" then
+    Snacks.rename.on_rename_file(ev.data.actions.src_url, ev.data.actions.dest_url)
+  end
+end)
 
 Config.map("n", "<leader>e", vim.cmd.Oil)
 Config.later(function()
