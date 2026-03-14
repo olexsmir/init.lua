@@ -8,7 +8,6 @@ vim.fn.sign_define("Breakpoint", { text = "b", texthl = "Error" })
 
 local function get_dlv_pane_id()
   if cache.pane_id then return cache.pane_id end
-
   local res = vim
     .system({
       "tmux",
@@ -37,14 +36,10 @@ end
 
 function dlv.bset()
   local line = vim.fn.line "."
-
-  -- send breakpoint
   local cmd = string.format("break %s:%d", vim.fn.expand "%:p", line)
   vim.system { "tmux", "send-keys", "-t", get_dlv_pane_id(), cmd, "Enter" }
 
-  -- set sign
   local fullpath = vim.fn.expand "%:p"
-
   local sid = tonumber(string.format("%d%04d", vim.fn.bufnr(), line)) --[[ @as number]]
   vim.fn.sign_place(sid, "Breakpoints", "Breakpoint", fullpath, { lnum = line })
   table.insert(cache.signs, sid)
