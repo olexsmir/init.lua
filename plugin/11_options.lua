@@ -29,6 +29,7 @@ vim.o.tabstop = 4
 
 -- ruler
 vim.o.laststatus = 0
+vim.o.showmode = false
 vim.o.ruler = true
 vim.opt.rulerformat = "%27(%=%{%v:lua.require'ruler'()%}%)"
 
@@ -39,12 +40,9 @@ vim.o.smartcase = true
 vim.o.number = true
 vim.o.relativenumber = true
 vim.o.termguicolors = true
-vim.o.mousemodel = "extend"
 vim.o.completeopt = "menuone,noselect"
 vim.o.clipboard = "unnamedplus"
-vim.o.fileencoding = "utf-8"
 vim.o.mouse = "a"
-vim.o.showmode = false
 vim.o.splitbelow = true
 vim.o.splitright = true
 vim.o.pumheight = 8
@@ -59,7 +57,7 @@ vim.o.wrap = false
 
 -- spelling
 vim.o.infercase = true
-vim.o.spell = true
+vim.o.spell = false
 vim.o.spelllang = "en_us,uk"
 
 -- listchars
