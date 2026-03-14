@@ -1,5 +1,4 @@
-vim.pack.add { "https://github.com/lewis6991/gitsigns.nvim" }
-
+Config.add "lewis6991/gitsigns.nvim"
 require("gitsigns").setup {
   numhl = true,
   signs = {
@@ -33,8 +32,7 @@ Config.map("n", "<leader>gb", wrap "blame")
 
 -- neogit
 Config.later(function()
-  vim.pack.add { "https://github.com/TimUntersberger/neogit" }
-
+  Config.add "TimUntersberger/neogit"
   Config.map("n", "<leader>gg", vim.cmd.Neogit)
   require("neogit").setup {
     kind = "vsplit",

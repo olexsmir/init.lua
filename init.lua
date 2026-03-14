@@ -12,6 +12,18 @@ Config.map = function(mode, from, to, buffer)
   })
 end
 
+Config.add = function(opts)
+  if type(opts) == "string" then
+    vim.pack.add { "https://github.com/" .. opts }
+  elseif type(opts) == "table" and opts.src then
+    vim.pack.add {
+      vim.tbl_extend("keep", {
+        src = "https://github.com/" .. opts.src,
+      }, opts),
+    }
+  end
+end
+
 local grp = vim.api.nvim_create_augroup("olexsmir", { clear = true })
 
 ---@param ev vim.api.keyset.events|vim.api.keyset.events

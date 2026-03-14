@@ -6,7 +6,7 @@ end)
 
 Config.map("n", "<leader>e", vim.cmd.Oil)
 Config.later(function()
-  vim.pack.add { "https://github.com/stevearc/oil.nvim" }
+  Config.add "stevearc/oil.nvim"
   require("oil").setup {
     columns = { "icon" },
     delete_to_trash = true,

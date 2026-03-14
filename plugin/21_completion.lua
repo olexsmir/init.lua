@@ -1,14 +1,8 @@
-Config.packchange("blink.cmp", { "update" }, function()
-  -- TODO: cargo build --release
-end)
-
-vim.pack.add { "https://github.com/rafamadriz/friendly-snippets" }
+Config.add "rafamadriz/friendly-snippets"
 Config.later(function()
-  vim.pack.add {
-    {
-      src = "https://github.com/saghen/blink.cmp",
-      version = vim.version.range "1.x",
-    },
+  Config.add {
+    src = "saghen/blink.cmp",
+    version = vim.version.range "1.x",
   }
 
   vim.lsp.config("*", {
