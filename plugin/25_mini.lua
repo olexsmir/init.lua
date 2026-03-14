@@ -13,10 +13,16 @@ Config.later(function()
   require("mini.ai").setup {}
   require("mini.bufremove").setup { silent = true }
   require("mini.comment").setup {}
-  require("mini.hipatterns").setup {}
   require("mini.pairs").setup {}
   require("mini.splitjoin").setup {}
   require("mini.test").setup {}
+  require("mini.hipatterns").setup {
+    highlighters = {
+      fixme = { pattern = "%f[%w]()FIXME()%f[%W]", group = "MiniHipatternsFixme" },
+      todo = { pattern = "%f[%w]()TODO()%f[%W]", group = "MiniHipatternsTodo" },
+      note = { pattern = "%f[%w]()NOTE()%f[%W]", group = "MiniHipatternsNote" },
+    },
+  }
 end)
 
 Config.aucmd("User", "MiniFilesActionRename", function(ev)
