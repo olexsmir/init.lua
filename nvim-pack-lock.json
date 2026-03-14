@@ -43,12 +43,7 @@
     },
     "neotest-golang": {
       "rev": "ad6ae703e18874eb66fee539224eac2dd9cc0890",
-      "src": "https://github.com/fredrikaverpil/neotest-golang",
-      "version": "1.0.0 - 2.0.0"
-    },
-    "none-ls.nvim": {
-      "rev": "c9317c2a8629d4e39e7cf47be74cb67f3ab37cda",
-      "src": "https://github.com/nvimtools/none-ls.nvim"
+      "src": "https://github.com/fredrikaverpil/neotest-golang"
     },
     "nvim-nio": {
       "rev": "21f5324bfac14e22ba26553caf69ec76ae8a7662",
@@ -57,7 +52,7 @@
     "nvim-treesitter": {
       "rev": "42fc28ba918343ebfd5565147a42a26580579482",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter",
-      "version": "'master'"
+      "version": "'main'"
     },
     "nvim-treesitter-context": {
       "rev": "529ee357b8c03d76ff71233afed68fd0f5fe10b1",

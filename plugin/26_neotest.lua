@@ -1,12 +1,3 @@
-vim.pack.add {
-  "https://github.com/nvim-neotest/neotest",
-  "https://github.com/nvim-neotest/nvim-nio",
-  {
-    src = "https://github.com/fredrikaverpil/neotest-golang",
-    version = vim.version.range "^1",
-  },
-}
-
 vim.diagnostic.config({
   virtual_text = {
     format = function(diagnostic)
@@ -21,9 +12,8 @@ vim.diagnostic.config({
 }, vim.api.nvim_create_namespace "neotest")
 
 local function wrap(first, second, args)
-  args = args or nil
   return function()
-    return require("neotest")[first][second](args)
+    return require("neotest")[first][second](args or nil)
   end
 end
 
@@ -40,38 +30,46 @@ Config.map("n", "[t", wrap("jump", "prev"))
 Config.map("n", "]T", wrap("jump", "next", { status = "failed" }))
 Config.map("n", "[T", wrap("jump", "prev", { status = "failed" }))
 
----@diagnostic disable-next-line: missing-fields
-require("neotest").setup {
-  adapters = {
-    require "neotest-golang" {
-      go_test_args = { "-count=1", "-timeout=60s" },
-      testify_enabled = true,
-    },
-  },
-  discovery = {
-    enabled = true,
-    concurrent = 0,
-  },
-  running = { concurrent = true },
-  icons = {
-    expanded = "",
-    child_prefix = "",
-    child_indent = "",
-    final_child_prefix = "",
-    non_collapsible = "",
-    collapsed = "",
-    passed = "",
-    running = "",
-    failed = "",
-    unknown = "",
-  },
+Config.later(function()
+  vim.pack.add {
+    "https://github.com/nvim-neotest/neotest",
+    "https://github.com/nvim-neotest/nvim-nio",
+    "https://github.com/fredrikaverpil/neotest-golang",
+  }
+
   ---@diagnostic disable-next-line: missing-fields
-  summary = {
-    animated = false,
-    ---@diagnostic disable-next-line: missing-fields
-    mappings = {
-      expand = { "l", "h", "<CR>" },
-      stop = "s",
+  require("neotest").setup {
+    adapters = {
+      require "neotest-golang" {
+        go_test_args = { "-count=1", "-timeout=60s" },
+        testify_enabled = true,
+      },
     },
-  },
-}
+    discovery = {
+      enabled = true,
+      concurrent = 0,
+    },
+    running = { concurrent = true },
+    icons = {
+      expanded = "",
+      child_prefix = "",
+      child_indent = "",
+      final_child_prefix = "",
+      non_collapsible = "",
+      collapsed = "",
+      passed = "",
+      running = "",
+      failed = "",
+      unknown = "",
+    },
+    ---@diagnostic disable-next-line: missing-fields
+    summary = {
+      animated = false,
+      ---@diagnostic disable-next-line: missing-fields
+      mappings = {
+        expand = { "l", "h", "<CR>" },
+        stop = "s",
+      },
+    },
+  }
+end)
