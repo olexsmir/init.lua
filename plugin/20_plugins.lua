@@ -4,15 +4,9 @@ vim.pack.add {
   "https://github.com/tpope/vim-repeat",
   "https://github.com/tpope/vim-speeddating",
   "https://github.com/wakatime/vim-wakatime",
-  "https://github.com/MeanderingProgrammer/render-markdown.nvim",
-  "https://github.com/folke/todo-comments.nvim",
   "https://github.com/folke/tokyonight.nvim",
   "https://github.com/oysandvik94/curl.nvim",
-  "file:///home/olex/code/gopher.nvim",
 }
-
-require("render-markdown").setup {}
-require("todo-comments").setup {}
 
 require("tokyonight").setup { style = "night" }
 vim.cmd.colorscheme "tokyonight"
@@ -22,9 +16,24 @@ require("curl").setup {
   open_with = "buffer",
 }
 
-require("gopher").setup {
-  log_level = vim.log.levels.TRACE,
-  gotests = {
-    template = "testify",
-  },
-}
+Config.later(function()
+  vim.pack.add { "https://github.com/folke/todo-comments.nvim" }
+  require("todo-comments").setup {}
+end)
+
+Config.event("FileType markdown", function()
+  vim.print "markdown"
+  vim.pack.add { "https://github.com/MeanderingProgrammer/render-markdown.nvim" }
+  require("render-markdown").setup {}
+end)
+
+Config.event("FileType go", function()
+  vim.print "go"
+  vim.pack.add { "file:///home/olex/code/gopher.nvim" }
+  require("gopher").setup {
+    log_level = vim.log.levels.TRACE,
+    gotests = {
+      template = "testify",
+    },
+  }
+end)

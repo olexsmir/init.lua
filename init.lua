@@ -24,9 +24,9 @@ end
 ---@param ev vim.api.keyset.events|vim.api.keyset.events
 ---@param opts vim.api.keyset.create_autocmd
 Config.aucmd = function(ev, opts)
-  opts = vim.tbl_deep_extend("force", opts, {
-    group = vim.api.nvim_create_augroup("olexsmir", {}),
-  })
+  -- opts = vim.tbl_extend("force", {
+  --   group = vim.api.nvim_create_augroup("olexsmir", {}),
+  -- }, opts)
   vim.api.nvim_create_autocmd(ev, opts)
 end
 
@@ -44,8 +44,10 @@ end
 
 Config.later = vim.schedule
 Config.event = function(evname, callback)
-  Config.aucmd(evname, {
+  local parts = vim.split(evname, " ")
+  Config.aucmd(parts[1], {
     once = true,
+    pattern = parts[2] or nil,
     callback = callback,
   })
 end
