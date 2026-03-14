@@ -33,10 +33,6 @@
       "rev": "9990c41f10f54f29a888d13024c9f765037bde23",
       "src": "https://github.com/echasnovski/mini.nvim"
     },
-    "neogit": {
-      "rev": "b8bfe77ba9a350ce8ea05c38133e28d776a6457c",
-      "src": "https://github.com/TimUntersberger/neogit"
-    },
     "neotest": {
       "rev": "deadfb1af5ce458742671ad3a013acb9a6b41178",
       "src": "https://github.com/nvim-neotest/neotest"
