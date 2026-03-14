@@ -5,9 +5,9 @@ return {
   root_markers = { "go.mod", "go.work" },
   settings = {
     gopls = {
-      linksInHover = false,
       staticcheck = true,
       gofumpt = true,
+      renameMovesSubpackages = true,
       analyses = {
         unusedparams = true,
         unreachable = true,
@@ -28,18 +28,19 @@ return {
       hints = {
         assignVariableTypes = true,
         compositeLiteralFields = true,
-        compositeLiteralTypes = true,
+        compositeLiteralTypes = false,
         constantValues = true,
+        ignoredError = true,
         functionTypeParameters = false,
         parameterNames = true,
         rangeVariableTypes = true,
       },
       codelenses = {
         generate = true,
+        regenerate_cgo = true,
         gc_details = true,
         test = false,
         tidy = true,
-        run_govulncheck = true,
         upgrade_dependency = true,
       },
     },
