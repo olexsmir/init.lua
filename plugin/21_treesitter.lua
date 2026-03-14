@@ -13,7 +13,7 @@ Config.later(function()
   require("treesitter-context").setup()
 end)
 
-Config.aucmd("FileType", {
+Config.audocmd("FileType", {
   callback = function()
     -- TODO: auto install parsers ??
     pcall(vim.treesitter.start)

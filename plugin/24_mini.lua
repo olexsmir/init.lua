@@ -19,7 +19,7 @@ Config.later(function()
   require("mini.test").setup {}
 end)
 
-Config.aucmd2("User", "MiniFilesActionRename", function(ev)
+Config.aucmd("User", "MiniFilesActionRename", function(ev)
   Snacks.rename.on_rename_file(ev.data.from, ev.data.to)
 end)
 

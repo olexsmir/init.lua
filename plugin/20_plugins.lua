@@ -42,7 +42,7 @@ Config.later(function()
   }
 end)
 
-Config.aucmd2("FileType", "lua", function()
+Config.aucmd("FileType", "lua", function()
   Config.add "folke/lazydev.nvim"
   require("lazydev").setup {
     library = {
@@ -53,7 +53,7 @@ Config.aucmd2("FileType", "lua", function()
   }
 end)
 
-Config.aucmd2("FileType", "markdown", function()
+Config.aucmd("FileType", "markdown", function()
   Config.add "MeanderingProgrammer/render-markdown.nvim"
   require("render-markdown").setup {}
 end)
