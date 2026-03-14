@@ -1,13 +1,16 @@
-return {
-  "saghen/blink.cmp",
-  dependencies = {
-    "rafamadriz/friendly-snippets",
-  },
-  version = "1.*",
-  event = "InsertEnter",
-  ---@module 'blink.cmp'
-  ---@type blink.cmp.Config
-  opts = {
+Config.add "rafamadriz/friendly-snippets"
+Config.later(function()
+  Config.add {
+    src = "saghen/blink.cmp",
+    version = vim.version.range "1.x",
+  }
+
+  vim.lsp.config("*", {
+    flags = { debounce_text_changes = 150 },
+    capabilities = require("blink.cmp").get_lsp_capabilities(),
+  })
+
+  require("blink.cmp").setup {
     keymap = {
       preset = "enter",
       ["<C-u>"] = { "scroll_documentation_up", "fallback" },
@@ -34,16 +37,9 @@ return {
         },
         ledger = {
           name = "ledger",
-          module = "scratch.ledger",
+          module = "s.ledger",
         },
       },
     },
-  },
-  config = function(_, opts)
-    require("blink.cmp").setup(opts)
-    vim.lsp.config("*", {
-      flags = { debounce_text_changes = 150 },
-      capabilities = require("blink.cmp").get_lsp_capabilities(),
-    })
-  end,
-}
+  }
+end)

@@ -1,16 +1,9 @@
 ---@return vim.lsp.Config
 return {
   cmd = { "typescript-language-server", "--stdio" },
-  init_options = { hostInfo = "neovim" },
   root_markers = { "tsconfig.json", "jsconfig.json", "package.json" },
-  filetypes = {
-    "javascript",
-    "javascriptreact",
-    "javascript.jsx",
-    "typescript",
-    "typescriptreact",
-    "typescript.tsx",
-  },
+  filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
+  init_options = { hostInfo = "neovim" },
   handlers = {
     -- handle rename request for certain code actions like extracting functions / types
     ["_typescript.rename"] = function(_, result, ctx)

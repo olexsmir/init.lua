@@ -1,15 +1,12 @@
-local map = require("core.utils").map
-
 vim.opt_local.wrap = true
 vim.opt_local.list = false
 vim.opt_local.conceallevel = 2
 vim.opt_local.concealcursor = "cv"
 
-map("n", "<localleader>v", "<cmd>RenderMarkdown toggle<cr>", true)
-map("n", "<localleader>t", require("scratch.tasks").complete, true)
-map("n", "<localleader>c", require("scratch.tasks").clear_archive, true)
-map("n", "<localleader>a", "<cmd>norm o- [ ] <cr>a", true)
-map("n", "<localleader>n", "<cmd>norm A #n<cr>", true)
+Config.map("n", "<localleader>v", "<cmd>RenderMarkdown toggle<cr>", true)
+Config.map("n", "<localleader>t", require("s.tasks").complete, true)
+Config.map("n", "<localleader>c", require("s.tasks").clear_archive, true)
+Config.map("n", "<localleader>a", "<cmd>norm o- [ ] <cr>a", true)
 
 vim.b.minihipatterns_config = {
   highlighters = {

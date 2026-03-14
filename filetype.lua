@@ -1,7 +1,3 @@
-if not vim.filetype then
-  return
-end
-
 vim.filetype.add {
   extension = {
     lock = "yaml",

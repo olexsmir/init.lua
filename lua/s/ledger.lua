@@ -17,9 +17,7 @@ function source:get_trigger_characters()
 end
 
 function source:get_completions(_, callback)
-  local rs = vim
-    .system({ "hledger", "accounts", "--flat" }, { text = true })
-    :wait()
+  local rs = vim.system({ "hledger", "accounts", "--flat" }, { text = true }):wait()
 
   ---@type lsp.CompletionItem[]
   local items = rs.code == 0

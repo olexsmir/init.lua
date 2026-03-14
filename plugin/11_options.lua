@@ -1,17 +1,19 @@
 vim.opt.shell = "/bin/bash" -- fixes issues with fish shell
 
-vim.diagnostic.config {
-  update_in_insert = true,
-  virtual_text = true,
-  signs = {
-    text = {
-      [vim.diagnostic.severity.ERROR] = "",
-      [vim.diagnostic.severity.WARN] = "",
-      [vim.diagnostic.severity.HINT] = "",
-      [vim.diagnostic.severity.INFO] = "",
+Config.later(function()
+  vim.diagnostic.config {
+    update_in_insert = true,
+    virtual_text = true,
+    signs = {
+      text = {
+        [vim.diagnostic.severity.ERROR] = "",
+        [vim.diagnostic.severity.WARN] = "",
+        [vim.diagnostic.severity.HINT] = "",
+        [vim.diagnostic.severity.INFO] = "",
+      },
     },
-  },
-}
+  }
+end)
 
 -- leader
 vim.g.mapleader = " "
@@ -24,6 +26,11 @@ vim.o.cursorline = true
 vim.o.shiftwidth = 4
 vim.o.softtabstop = 4
 vim.o.tabstop = 4
+
+-- ruler
+vim.o.laststatus = 0
+vim.o.ruler = true
+vim.opt.rulerformat = "%27(%=%{%v:lua.require'ruler'()%}%)"
 
 -- other cool stuff
 vim.g.editorconfig = true
@@ -53,7 +60,7 @@ vim.o.wrap = false
 -- spelling
 vim.o.infercase = true
 vim.o.spell = true
-vim.o.spelllang = "en_us,uk,tp"
+vim.o.spelllang = "en_us,uk"
 
 -- listchars
 vim.o.list = true
@@ -71,6 +78,7 @@ vim.opt.diffopt = {
   "algorithm:histogram",
   "linematch:200",
   "indent-heuristic",
+  "inline:word",
 }
 
 vim.o.foldenable = false
@@ -81,9 +89,3 @@ vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 vim.o.undofile = true
 vim.o.swapfile = false
 vim.o.writebackup = false
-
--- disable builtin modules
-vim.g.loaded_perl_provider = 0
-vim.g.loaded_ruby_provider = 0
-vim.g.loaded_node_provider = 0
-vim.g.loaded_python3_provider = 0
