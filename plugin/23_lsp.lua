@@ -10,7 +10,7 @@ Config.later(function()
   }
 end)
 
-Config.event("FileType lua", function()
+Config.aucmd2("FileType", "lua", function()
   vim.pack.add { "https://github.com/folke/lazydev.nvim" }
   require("lazydev").setup {
     library = {
