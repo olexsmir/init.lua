@@ -7,7 +7,7 @@ Config.aucmd("VimResized", nil, function()
   vim.cmd("tabnext " .. vim.fn.tabpagenr())
 end)
 
-Config.audocmd("FileType", {
+Config.autocmd("FileType", {
   pattern = { "help", "man" },
   command = "wincmd L",
 })
