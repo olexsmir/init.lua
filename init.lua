@@ -20,12 +20,12 @@ Config.add = function(opts)
 end
 
 local grp = vim.api.nvim_create_augroup("olexsmir", { clear = true })
-Config.audocmd = function(ev, opts)
+Config.autocmd = function(ev, opts)
   vim.api.nvim_create_autocmd(ev, vim.tbl_extend("force", { group = grp }, opts))
 end
 
 Config.aucmd = function(ev, pattern, callback)
-  Config.audocmd(ev, { pattern = pattern, callback = callback })
+  Config.autocmd(ev, { pattern = pattern, callback = callback })
 end
 
 Config.later = vim.schedule
