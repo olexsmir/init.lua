@@ -10,9 +10,8 @@ Config.later(function()
   }
 end)
 
-Config.later(function()
+Config.event("FileType lua", function()
   vim.pack.add { "https://github.com/folke/lazydev.nvim" }
-
   require("lazydev").setup {
     library = {
       { path = "${3rd}/luv/library", words = { "vim%.uv" } },

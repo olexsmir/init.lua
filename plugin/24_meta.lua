@@ -7,14 +7,16 @@ Config.map("n", "<leader>c", function()
   require("mini.bufremove").delete()
 end)
 
-require("mini.bufremove").setup { silent = true }
-require("mini.splitjoin").setup {}
-require("mini.pairs").setup {}
-require("mini.ai").setup {}
 require("mini.icons").setup {}
-require("mini.test").setup {}
-require("mini.hipatterns").setup {}
-require("mini.comment").setup {}
+Config.later(function()
+  require("mini.ai").setup {}
+  require("mini.bufremove").setup { silent = true }
+  require("mini.comment").setup {}
+  require("mini.hipatterns").setup {}
+  require("mini.pairs").setup {}
+  require("mini.splitjoin").setup {}
+  require("mini.test").setup {}
+end)
 
 -- snacks
 local function wrap(mod, fn, opts)
