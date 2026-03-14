@@ -1,18 +1,18 @@
-Config.aucmd2("TextYankPost", nil, function()
+Config.aucmd("TextYankPost", nil, function()
   vim.hl.on_yank()
 end)
 
-Config.aucmd2("VimResized", nil, function()
+Config.aucmd("VimResized", nil, function()
   vim.cmd "tabdo wincmd ="
   vim.cmd("tabnext " .. vim.fn.tabpagenr())
 end)
 
-Config.aucmd("FileType", {
+Config.audocmd("FileType", {
   pattern = { "help", "man" },
   command = "wincmd L",
 })
 
-Config.aucmd2("FileType", nil, function()
+Config.aucmd("FileType", nil, function()
   vim.opt.formatoptions:remove {
     "c", -- autowrap comments using textwidth with leader
     "r", -- don't auto-insert comment leader on enter in insert
