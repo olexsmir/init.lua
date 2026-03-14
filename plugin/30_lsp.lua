@@ -8,7 +8,7 @@ vim.lsp.enable {
 }
 
 local map = Config.map
-Config.aucmd("LspAttach", {
+Config.audocmd("LspAttach", {
   callback = function(ev)
     local bufnr = ev.buf
     local client = vim.lsp.get_client_by_id(ev.data.client_id)
