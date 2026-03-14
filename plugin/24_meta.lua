@@ -1,7 +1,4 @@
-vim.pack.add {
-  "https://github.com/echasnovski/mini.nvim",
-  "https://github.com/folke/snacks.nvim",
-}
+Config.add "echasnovski/mini.nvim"
 
 Config.map("n", "<leader>c", function()
   require("mini.bufremove").delete()
@@ -19,6 +16,8 @@ Config.later(function()
 end)
 
 -- snacks
+Config.add "folke/snacks.nvim"
+
 local function wrap(mod, fn, opts)
   return function()
     return Snacks[mod][fn](opts or {})

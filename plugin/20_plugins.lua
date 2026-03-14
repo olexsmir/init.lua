@@ -1,17 +1,15 @@
-vim.pack.add {
-  "https://github.com/nvim-lua/plenary.nvim",
-  "https://github.com/tpope/vim-surround",
-  "https://github.com/tpope/vim-repeat",
-  "https://github.com/tpope/vim-speeddating",
-  "https://github.com/wakatime/vim-wakatime",
-  "https://github.com/folke/tokyonight.nvim",
-}
+Config.add "nvim-lua/plenary.nvim"
+Config.add "tpope/vim-surround"
+Config.add "tpope/vim-repeat"
+Config.add "tpope/vim-speeddating"
+Config.add "wakatime/vim-wakatime"
+Config.add "folke/tokyonight.nvim"
 
 require("tokyonight").setup { style = "night" }
 vim.cmd.colorscheme "tokyonight"
 
 Config.later(function()
-  vim.pack.add { "https://github.com/oysandvik94/curl.nvim" }
+  Config.add "oysandvik94/curl.nvim"
   require("curl").setup {
     default_flags = { "-i" },
     open_with = "buffer",
@@ -19,12 +17,12 @@ Config.later(function()
 end)
 
 Config.later(function()
-  vim.pack.add { "https://github.com/folke/todo-comments.nvim" }
+  Config.add "folke/todo-comments.nvim"
   require("todo-comments").setup {}
 end)
 
 Config.later(function()
-  vim.pack.add { "https://github.com/j-hui/fidget.nvim" }
+  Config.add "j-hui/fidget.nvim"
   require("fidget").setup {
     progress = {
       display = {
@@ -36,7 +34,7 @@ Config.later(function()
 end)
 
 Config.aucmd2("FileType", "lua", function()
-  vim.pack.add { "https://github.com/folke/lazydev.nvim" }
+  Config.add "folke/lazydev.nvim"
   require("lazydev").setup {
     library = {
       { path = "${3rd}/luv/library", words = { "vim%.uv" } },
@@ -47,7 +45,7 @@ Config.aucmd2("FileType", "lua", function()
 end)
 
 Config.aucmd2("FileType", "markdown", function()
-  vim.pack.add { "https://github.com/MeanderingProgrammer/render-markdown.nvim" }
+  Config.add "MeanderingProgrammer/render-markdown.nvim"
   require("render-markdown").setup {}
 end)
 
