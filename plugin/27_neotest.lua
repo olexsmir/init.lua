@@ -48,21 +48,8 @@ Config.later(function()
       concurrent = 0,
     },
     running = { concurrent = true },
-    icons = {
-      expanded = "",
-      child_prefix = "",
-      child_indent = "",
-      final_child_prefix = "",
-      non_collapsible = "",
-      collapsed = "",
-      passed = "",
-      running = "",
-      failed = "",
-      unknown = "",
-    },
     ---@diagnostic disable-next-line: missing-fields
     summary = {
-      animated = false,
       ---@diagnostic disable-next-line: missing-fields
       mappings = {
         expand = { "l", "h", "<CR>" },

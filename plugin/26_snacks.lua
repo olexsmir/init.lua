@@ -29,9 +29,7 @@ require("snacks").setup {
     main = { current = true },
     layout = {
       preset = "ivy",
-      layout = {
-        height = 25,
-      },
+      layout = { height = 25 },
     },
     win = {
       input = {
