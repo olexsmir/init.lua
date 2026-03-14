@@ -3,7 +3,10 @@ Config.packchange("blink.cmp", { "update" }, function()
 end)
 
 vim.pack.add {
-  "https://github.com/saghen/blink.cmp", -- version = "1.*",
+  {
+    src = "https://github.com/saghen/blink.cmp",
+    version = vim.version.range "1.x",
+  },
   "https://github.com/rafamadriz/friendly-snippets",
 }
 
