@@ -9,12 +9,13 @@ return {
     ".stylua.toml",
     "stylua.toml",
     "selene.toml",
-    "selene.yml",
   },
   settings = {
     Lua = {
-      format = { enable = false },
-      completion = { callSnippet = "Disable" },
+      completion = {
+        keywordSnippet = "Disable",
+        callSnippet = "Disable",
+      },
       telemetry = { enable = false },
       runtime = { version = "LuaJIT" },
       diagnostics = { globals = { "vim", "Config" } },
