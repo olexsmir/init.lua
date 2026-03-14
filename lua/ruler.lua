@@ -12,14 +12,13 @@ local function diagnostics()
   local counts = vim.diagnostic.count(vim.api.nvim_get_current_buf())
   local errors = counts[vim.diagnostic.severity.ERROR] or 0
   local warns = counts[vim.diagnostic.severity.WARN] or 0
-  local info = counts[vim.diagnostic.severity.INFO] or 0
-  local hint = counts[vim.diagnostic.severity.HINT] or 0
-
+  local infos = counts[vim.diagnostic.severity.INFO] or 0
+  local hints = counts[vim.diagnostic.severity.HINT] or 0
   return join {
     (errors > 0 and "%#DiagnosticError#" .. "󰅚 " .. errors .. "%*" or ""),
     (warns > 0 and "%#DiagnosticWarn#" .. "󰀪 " .. warns .. "%*" or ""),
-    (info > 0 and "%#DiagnosticInfo#" .. "󰋽 " .. info .. "%*" or ""),
-    (hint > 0 and "%#DiagnosticHint#" .. "󰌶 " .. hint .. "%*" or ""),
+    (infos > 0 and "%#DiagnosticInfo#" .. "󰋽 " .. infos .. "%*" or ""),
+    (hints > 0 and "%#DiagnosticHint#" .. "󰌶 " .. hints .. "%*" or ""),
   }
 end
 
