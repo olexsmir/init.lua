@@ -1,3 +1,5 @@
+vim.loader.enable()
+
 Config = {}
 
 ---@param mode string|table
