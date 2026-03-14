@@ -42,7 +42,7 @@ Config.aucmd("FileType", "lua", function()
   require("lazydev").setup {
     library = {
       { path = "${3rd}/luv/library", words = { "vim%.uv" } },
-      { path = "mini.nvim", words = { "MiniAI", "MiniTest" } },
+      { path = "mini.nvim", words = { "MiniAI", "MiniTest", "MiniFiles" } },
       { path = "snacks.nvim", words = { "Snacks" } },
     },
   }
