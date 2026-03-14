@@ -26,11 +26,6 @@ Config.later(function()
 end)
 
 Config.later(function()
-  Config.add "folke/todo-comments.nvim"
-  require("todo-comments").setup {}
-end)
-
-Config.later(function()
   Config.add "j-hui/fidget.nvim"
   require("fidget").setup {
     progress = {
