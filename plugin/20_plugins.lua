@@ -23,12 +23,12 @@ Config.later(function()
   require("todo-comments").setup {}
 end)
 
-Config.event("FileType markdown", function()
+Config.aucmd2("FileType", "markdown", function()
   vim.pack.add { "https://github.com/MeanderingProgrammer/render-markdown.nvim" }
   require("render-markdown").setup {}
 end)
 
-Config.event("FileType go", function()
+Config.aucmd2("FileType", "go", function()
   vim.pack.add { "file:///home/olex/code/gopher.nvim" }
   require("gopher").setup {
     log_level = vim.log.levels.TRACE,

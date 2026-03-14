@@ -1,11 +1,6 @@
 -- TODO: oil -> mini.files ??
--- TODO: go though my options.lua
--- TODO: i might need to delete some lsp servers
--- TODO: ftplugins/
--- TODO: remove json and yaml servers ????
 -- TODO: redo some of my scripts
 -- TODO: reorganize my plugin/
--- TODO: optimize of start up time (some things should be loaded with vim.schedule)
 
 Config = {}
 
@@ -30,24 +25,16 @@ Config.aucmd = function(ev, opts)
   vim.api.nvim_create_autocmd(ev, opts)
 end
 
-Config.packchange = function(pname, kinds, callback)
-  if type(kinds) == "string" then kinds = { kinds } end
-  Config.aucmd("PackChanged", {
-    pattern = "*",
-    callback = function(ev)
-      if not (ev.data.spec.name and vim.tbl_contains(kinds, ev.data.kind)) then return end
-      if not ev.data.active then vim.cmd.packadd(pname) end
-      callback()
-    end,
-  })
+Config.aucmd2 = function(ev, pattern, callback)
+  Config.aucmd(ev, { pattern = pattern, callback = callback })
 end
 
 Config.later = vim.schedule
-Config.event = function(evname, callback)
-  local parts = vim.split(evname, " ")
-  Config.aucmd(parts[1], {
-    once = true,
-    pattern = parts[2] or nil,
-    callback = callback,
-  })
+Config.packchange = function(pname, kinds, callback)
+  if type(kinds) == "string" then kinds = { kinds } end
+  Config.aucmd2("PackChanged", "*", function(ev)
+    if not (ev.data.spec.name and vim.tbl_contains(kinds, ev.data.kind)) then return end
+    if not ev.data.active then vim.cmd.packadd(pname) end
+    callback()
+  end)
 end
