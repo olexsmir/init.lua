@@ -11,12 +11,11 @@ end
 
 Config.add = function(opts)
   if type(opts) == "string" then
-    vim.pack.add { "https://github.com/" .. opts }
-  elseif type(opts) == "table" and opts.src then
-    vim.pack.add {
-      vim.tbl_extend("force", opts, { src = "https://github.com/" .. opts.src }),
-    }
+    opts = { src = "https://github.com/" .. opts }
+  else
+    opts.src = "https://github.com/" .. opts.src
   end
+  vim.pack.add { opts }
 end
 
 local grp = vim.api.nvim_create_augroup("olexsmir", { clear = true })
