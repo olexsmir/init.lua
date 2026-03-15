@@ -35,7 +35,7 @@ Config.later(function()
   Config.add "nvim-neotest/nvim-nio"
   Config.add "fredrikaverpil/neotest-golang"
 
-  ---@diagnostic disable-next-line: missing-fields
+  ---@diagnostic disable: missing-fields
   require("neotest").setup {
     adapters = {
       require "neotest-golang" {
@@ -48,9 +48,7 @@ Config.later(function()
       concurrent = 0,
     },
     running = { concurrent = true },
-    ---@diagnostic disable-next-line: missing-fields
     summary = {
-      ---@diagnostic disable-next-line: missing-fields
       mappings = {
         expand = { "l", "h", "<CR>" },
         stop = "s",
