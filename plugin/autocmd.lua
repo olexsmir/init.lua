@@ -17,7 +17,7 @@ Config.aucmd("FileType", nil, function()
     "c", -- autowrap comments using textwidth with leader
     "r", -- don't auto-insert comment leader on enter in insert
     "o", -- don't auto-insert comment leader on o/O in normal
-    "n", -- don't recognized numbered lists
+    "n", -- don't recognizes numbered lists
     "2", -- don't use the indent of second paragraph line
   }
 

@@ -54,5 +54,11 @@ Config.later(function()
         stop = "s",
       },
     },
+    icons = {
+      passed = "",
+      running = "",
+      failed = "",
+      unknown = "",
+    },
   }
 end)

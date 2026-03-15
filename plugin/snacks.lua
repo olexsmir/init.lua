@@ -35,8 +35,6 @@ require("snacks").setup {
       input = {
         keys = {
           ["<Esc>"] = { "close", mode = { "n", "i" } },
-          ["<C-k>"] = { "" },
-          ["<C-j>"] = { "" },
         },
       },
     },
