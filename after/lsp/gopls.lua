@@ -21,6 +21,7 @@ return {
         unusedparams = true,
         unreachable = true,
         unusedwrite = true,
+        nilness = true,
         shadow = true,
         ST1003 = false, -- naming conventions; Url -> URL, etc
         S1008 = true, -- simplify returning boolean expression
