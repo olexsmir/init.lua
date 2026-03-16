@@ -38,7 +38,7 @@
       "src": "https://github.com/nvim-neotest/neotest"
     },
     "neotest-golang": {
-      "rev": "dce3ec832d914fb17aecfd5814255b7ab62b95d1",
+      "rev": "58d07a76d714f8f768bbe27711b06d41ca237728",
       "src": "https://github.com/fredrikaverpil/neotest-golang"
     },
     "nvim-nio": {
@@ -46,7 +46,7 @@
       "src": "https://github.com/nvim-neotest/nvim-nio"
     },
     "nvim-treesitter": {
-      "rev": "2f5d4c3f3c675962242096bcc8e586d76dd72eb2",
+      "rev": "b9f9d692f1c7f0427502a3b84fa25d4bedb29ec1",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter",
       "version": "'main'"
     },
