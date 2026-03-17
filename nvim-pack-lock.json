@@ -21,10 +21,6 @@
       "rev": "7c4faa3540d0781a28588cafbd4dd187a28ac6e3",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
-    "gopher.nvim": {
-      "rev": "ed4ec7cbd8e947b5776350dd31cc73f367826cb8",
-      "src": "file:///home/olex/code/gopher.nvim"
-    },
     "lazydev.nvim": {
       "rev": "ff2cbcba459b637ec3fd165a2be59b7bbaeedf0d",
       "src": "https://github.com/folke/lazydev.nvim"

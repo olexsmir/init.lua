@@ -29,7 +29,10 @@ Config.later(function()
 end)
 
 Config.later(function()
-  vim.pack.add { "file:///home/olex/code/gopher.nvim" }
+  -- NOTE: wait till https://github.com/neovim/neovim/pull/37727 gets merged
+  -- mkdir -p ~/.local/share/nvim/site/pack/my-plugins/opt
+  -- ln -s ~/code/gopher.nvim ~/.local/share/nvim/site/pack/my-plugins/opt/gopher.nvim
+  vim.cmd.packadd "gopher.nvim"
   require("gopher").setup {
     log_level = vim.log.levels.TRACE,
     gotests = { template = "testify" },
