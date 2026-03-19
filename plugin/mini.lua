@@ -23,6 +23,16 @@ Config.later(function()
       note = { pattern = "%f[%w]()NOTE()%f[%W]", group = "MiniHipatternsNote" },
     },
   }
+
+  require("mini.notify").setup {
+    window = {
+      config = {
+        anchor = "SE",
+        border = "none",
+        row = vim.o.lines - vim.o.cmdheight - math.min(1, vim.o.laststatus),
+      },
+    },
+  }
 end)
 
 Config.aucmd("User", "MiniFilesActionRename", function(ev)
