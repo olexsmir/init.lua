@@ -5,11 +5,21 @@ return {
   root_markers = { "go.mod", "go.work" },
   on_attach = function(_, buf)
     Config.map("n", "<leader>lf", function()
-      vim.lsp.buf.format()
-      vim.lsp.buf.code_action {
-        apply = true,
-        context = { only = { "source.organizeImports" }, diagnostics = {} },
-      }
+      vim.lsp.buf.format { async = false }
+
+      local params = vim.lsp.util.make_range_params(0, "utf-8")
+      params.context = { only = { "source.organizeImports" } } ---@diagnostic disable-line: inject-field
+      local result = vim.lsp.buf_request_sync(buf, "textDocument/codeAction", params)
+      for cid, res in pairs(result or {}) do
+        for _, r in pairs(res.result or {}) do
+          if r.edit then
+            vim.lsp.util.apply_workspace_edit(
+              r.edit,
+              (vim.lsp.get_client_by_id(cid) or {}).offset_encoding or "utf-16"
+            )
+          end
+        end
+      end
     end, buf)
   end,
   settings = {
