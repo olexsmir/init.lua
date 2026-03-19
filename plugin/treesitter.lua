@@ -3,8 +3,6 @@ Config.onpack("nvim-treesitter", "update", function()
 end)
 
 Config.add { src = "nvim-treesitter/nvim-treesitter", version = "main" }
-Config.add "RRethy/nvim-treesitter-endwise"
-
 Config.later(function()
   Config.add "nvim-treesitter/nvim-treesitter-context"
   require("treesitter-context").setup {
