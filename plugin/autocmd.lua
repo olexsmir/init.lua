@@ -15,6 +15,10 @@ Config.autocmd("FileType", {
 Config.autocmd("TermOpen", { pattern = "term://*", command = "startinsert" })
 Config.autocmd("TermClose", { pattern = "term://*", command = "stopinsert" })
 
+Config.aucmd("BufReadPost", "*", function()
+  vim.fn.setpos(".", vim.fn.getpos "'\"")
+end)
+
 Config.aucmd("FileType", nil, function()
   vim.opt.formatoptions:remove {
     "c", -- autowrap comments using textwidth with leader
