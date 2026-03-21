@@ -33,7 +33,7 @@ Config.later = vim.schedule
 Config.onpack = function(pname, kinds, callback)
   if type(kinds) == "string" then kinds = { kinds } end
   Config.aucmd("PackChanged", "*", function(ev)
-    if not (ev.data.spec.name and vim.tbl_contains(kinds, ev.data.kind)) then return end
+    if not (ev.data.spec.name == pname and vim.tbl_contains(kinds, ev.data.kind)) then return end
     if not ev.data.active then vim.cmd.packadd(pname) end
     callback()
   end)
