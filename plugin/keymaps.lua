@@ -1,6 +1,7 @@
 local map = Config.map
 
 map("n", "<leader>u", vim.cmd.Undotree)
+map("n", "<leader>n", ":e ~/org/notes/stuff.md<cr>")
 
 -- i dont want any builtin keymap for my lsp
 vim.keymap.del("n", "grn")
