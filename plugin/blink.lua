@@ -28,6 +28,7 @@ Config.later(function()
       per_filetype = {
         lua = { inherit_defaults = true, "lazydev" },
         ledger = { inherit_defaults = true, "ledger" },
+        markdown = { inherit_defaults = true, "notes" },
       },
       providers = {
         lazydev = {
@@ -35,10 +36,8 @@ Config.later(function()
           module = "lazydev.integrations.blink",
           score_offset = 100,
         },
-        ledger = {
-          name = "ledger",
-          module = "s.ledger",
-        },
+        ledger = { name = "ledger", module = "s.ledger" },
+        notes = { name = "notes", module = "s.notes" },
       },
     },
   }
