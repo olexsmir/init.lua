@@ -1,0 +1,35 @@
+{
+  "for n statement": {
+    "prefix": "fori",
+    "body": "for ${1:i} := ${2:0}; $1 < ${3:count}; $1${4:++} {\n\t$0\n}",
+    "description": "Snippet for a for loop"
+  },
+  "http ResponseWriter *Request": {
+    "prefix": "wr",
+    "body": "${1:w} http.ResponseWriter, ${2:r} *http.Request",
+    "description": "Snippet for http Response"
+  },
+  "main function": {
+    "prefix": "fmain",
+    "body": "func main() {\n\t$1\n}",
+    "description": "Snippet for main function"
+  },
+  "switch statement": {
+    "prefix": "switch",
+    "body": "switch ${1:expression} {\ncase ${2:condition}:\n\t$0\n}",
+    "description": "Snippet for switch statement"
+  },
+  "select statement": {
+    "prefix": "sel",
+    "body": "select {\ncase ${1:condition}:\n\t$0\n}",
+    "description": "Snippet for select statement"
+  },
+  "test func":  {
+    "prefix": "test",
+    "body": "func Test$0(t *testing.T) {\n\t$1\n}"
+  },
+  "t.Run": {
+    "prefix": "trun",
+    "body": "t.Run($0, func(t *testing.T) {\n\t$1\n})"
+  }
+}

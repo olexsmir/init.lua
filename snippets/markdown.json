@@ -1,0 +1,11 @@
+{
+  "Note": {
+    "prefix": "j",
+    "body": [
+      "# ${1:Title}",
+      "${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE} ${2:https://}",
+      "tags: ${3:tags}",
+      ""
+    ]
+  }
+}

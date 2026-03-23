@@ -1,0 +1,12 @@
+{
+  "name": "snippets",
+  "contributes": {
+    "snippets": [
+      { "language": "all", "path": "./global.json" },
+      { "language": "go", "path": "./go.json" },
+      { "language": "lua", "path": "./lua.json" },
+      { "language": "ledger", "path": "./ledger.json" },
+      { "language": "markdown", "path": "./markdown.json" }
+    ]
+  }
+}
