@@ -8,16 +8,16 @@ Config.add "folke/tokyonight.nvim"
 require("tokyonight").setup { style = "night" }
 vim.cmd.colorscheme "tokyonight"
 
+Config.add "oysandvik94/curl.nvim"
 Config.later(function()
-  Config.add "oysandvik94/curl.nvim"
   require("curl").setup {
     default_flags = { "-i" },
     open_with = "buffer",
   }
 end)
 
+Config.add "j-hui/fidget.nvim"
 Config.later(function()
-  Config.add "j-hui/fidget.nvim"
   require("fidget").setup {
     progress = {
       display = {
@@ -39,8 +39,8 @@ Config.later(function()
   }
 end)
 
+Config.add "folke/lazydev.nvim"
 Config.aucmd("FileType", "lua", function()
-  Config.add "folke/lazydev.nvim"
   require("lazydev").setup {
     library = {
       { path = "${3rd}/luv/library", words = { "vim%.uv" } },

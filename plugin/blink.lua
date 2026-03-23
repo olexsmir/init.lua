@@ -1,10 +1,10 @@
 Config.add "rafamadriz/friendly-snippets"
-Config.later(function()
-  Config.add {
-    src = "saghen/blink.cmp",
-    version = vim.version.range "1.x",
-  }
+Config.add {
+  src = "saghen/blink.cmp",
+  version = vim.version.range "1.x",
+}
 
+Config.later(function()
   vim.lsp.config("*", {
     flags = { debounce_text_changes = 150 },
     capabilities = require("blink.cmp").get_lsp_capabilities(),

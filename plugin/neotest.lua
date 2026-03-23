@@ -17,6 +17,9 @@ Config.map("n", "<leader>tt", function()
   require("neotest").run.run(vim.fn.expand "%")
 end)
 
+Config.add "nvim-neotest/neotest"
+Config.add "nvim-neotest/nvim-nio"
+Config.add "fredrikaverpil/neotest-golang"
 Config.later(function()
   vim.diagnostic.config({
     virtual_text = {
@@ -30,10 +33,6 @@ Config.later(function()
       end,
     },
   }, vim.api.nvim_create_namespace "neotest")
-
-  Config.add "nvim-neotest/neotest"
-  Config.add "nvim-neotest/nvim-nio"
-  Config.add "fredrikaverpil/neotest-golang"
 
   ---@diagnostic disable: missing-fields
   require("neotest").setup {
