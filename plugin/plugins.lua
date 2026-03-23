@@ -29,7 +29,7 @@ Config.later(function()
 end)
 
 Config.later(function()
-  -- NOTE: wait till https://github.com/neovim/neovim/pull/37727 gets merged
+  -- HACK: wait till https://github.com/neovim/neovim/pull/37727 gets merged
   -- mkdir -p ~/.local/share/nvim/site/pack/my-plugins/opt
   -- ln -s ~/code/gopher.nvim ~/.local/share/nvim/site/pack/my-plugins/opt/gopher.nvim
   vim.cmd.packadd "gopher.nvim"
