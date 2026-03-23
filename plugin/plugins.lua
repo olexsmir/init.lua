@@ -3,8 +3,8 @@ Config.add "tpope/vim-surround"
 Config.add "tpope/vim-repeat"
 Config.add "tpope/vim-speeddating"
 Config.add "wakatime/vim-wakatime"
-Config.add "folke/tokyonight.nvim"
 
+Config.add "folke/tokyonight.nvim"
 require("tokyonight").setup { style = "night" }
 vim.cmd.colorscheme "tokyonight"
 
