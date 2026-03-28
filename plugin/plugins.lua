@@ -39,6 +39,16 @@ Config.later(function()
   }
 end)
 
+Config.later(function()
+  vim.cmd.packadd "utest.nvim"
+  require("utest").setup {}
+  Config.map("n", "<leader>tn", require("utest").run)
+  Config.map("n", "<leader>tt", require("utest").run_file)
+  Config.map("n", "<leader>tc", require("utest").cancel)
+  Config.map("n", "<leader>tr", require("utest").clear)
+  Config.map("n", "<leader>tq", require("utest").qf)
+end)
+
 Config.aucmd("FileType", "lua", function()
   Config.add "folke/lazydev.nvim"
   require("lazydev").setup {
