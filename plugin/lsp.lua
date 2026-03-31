@@ -1,5 +1,4 @@
 vim.lsp.enable {
-  "ctags",
   "gleam",
   "gopls",
   "lua_ls",
