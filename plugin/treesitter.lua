@@ -3,11 +3,10 @@ Config.onpack("nvim-treesitter", "update", function()
 end)
 
 Config.add { src = "nvim-treesitter/nvim-treesitter", version = "main" }
+Config.add "nvim-treesitter/nvim-treesitter-context"
+
 Config.later(function()
-  Config.add "nvim-treesitter/nvim-treesitter-context"
-  require("treesitter-context").setup {
-    max_lines = 4,
-  }
+  require("treesitter-context").setup { max_lines = 4 }
 end)
 
 Config.aucmd("FileType", "*", function(ev)
