@@ -77,6 +77,7 @@ vim.o.rulerformat = "%27(%=%{%v:lua.require'ruler'()%}%)"
 
 -- other cool stuff
 vim.g.editorconfig = true
+vim.o.exrc = true
 vim.o.shell = "/bin/bash" -- fixes issues with fish shell
 vim.o.ignorecase = true
 vim.o.smartcase = true
