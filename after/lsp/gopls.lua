@@ -27,13 +27,13 @@ return {
       staticcheck = true,
       gofumpt = true,
       renameMovesSubpackages = true,
+      directoryFilters = { "-.git", "-.jj", "-.idea", "-node_modules" },
       analyses = {
         unusedparams = true,
         unreachable = true,
         unusedwrite = true,
         nilness = true,
         shadow = true,
-        ST1003 = false, -- naming conventions; Url -> URL, etc
         S1008 = true, -- simplify returning boolean expression
         SA5000 = true, -- assignment to nil map
         SA5007 = true, -- infinite recursion call
