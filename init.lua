@@ -4,11 +4,7 @@ require("vim._core.ui2").enable { enable = true }
 -- i like my helpers ------------------------------------------------
 Config = {}
 Config.map = function(mode, from, to, buffer)
-  vim.keymap.set(mode, from, to, {
-    noremap = true,
-    silent = true,
-    buffer = buffer or false,
-  })
+  vim.keymap.set(mode, from, to, { silent = true, buffer = buffer or false })
 end
 
 Config.add = function(opts)
