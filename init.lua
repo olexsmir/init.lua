@@ -39,9 +39,12 @@ end
 
 --- settings --------------------------------------------------------
 Config.later(function()
+  vim.o.clipboard = "unnamedplus"
+end)
+Config.later(function()
   vim.diagnostic.config {
     update_in_insert = true,
-    virtual_text = true,
+    virtual_text = { virt_text_pos = "eol", current_line = true },
     signs = {
       text = {
         [vim.diagnostic.severity.ERROR] = "",
@@ -74,14 +77,14 @@ vim.o.rulerformat = "%27(%=%{%v:lua.require'ruler'()%}%)"
 -- other cool stuff
 vim.g.editorconfig = true
 vim.o.exrc = true
+vim.o.secure = true
 vim.o.shell = "/bin/bash" -- fixes issues with fish shell
 vim.o.ignorecase = true
 vim.o.smartcase = true
 vim.o.number = true
 vim.o.relativenumber = true
 vim.o.termguicolors = true
-vim.o.completeopt = "menuone,noselect"
-vim.o.clipboard = "unnamedplus"
+vim.o.completeopt = "menuone,noselect,noinsert,fuzzy,popup"
 vim.o.mouse = "a"
 vim.o.splitbelow = true
 vim.o.splitright = true
@@ -106,6 +109,7 @@ vim.opt.listchars:append {
   space = "·",
   trail = "~",
   tab = "│·",
+  nbsp = "␣",
 }
 
 vim.o.foldenable = false

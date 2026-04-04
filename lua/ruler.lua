@@ -15,10 +15,10 @@ local function diagnostics()
   local infos = counts[vim.diagnostic.severity.INFO] or 0
   local hints = counts[vim.diagnostic.severity.HINT] or 0
   return join {
-    (errors > 0 and "%#DiagnosticError#" .. "󰅚 " .. errors .. "%*" or ""),
-    (warns > 0 and "%#DiagnosticWarn#" .. "󰀪 " .. warns .. "%*" or ""),
-    (infos > 0 and "%#DiagnosticInfo#" .. "󰋽 " .. infos .. "%*" or ""),
-    (hints > 0 and "%#DiagnosticHint#" .. "󰌶 " .. hints .. "%*" or ""),
+    errors > 0 and ("%#DiagnosticError#󰅚 " .. errors .. "%*") or "",
+    warns > 0 and ("%#DiagnosticWarn#󰀪 " .. warns .. "%*") or "",
+    infos > 0 and ("%#DiagnosticInfo#󰋽 " .. infos .. "%*") or "",
+    hints > 0 and ("%#DiagnosticHint#󰌶 " .. hints .. "%*") or "",
   }
 end
 
