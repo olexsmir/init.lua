@@ -1,30 +1,21 @@
-Config.add "nvim-lua/plenary.nvim"
-Config.add "tpope/vim-surround"
-Config.add "tpope/vim-repeat"
-Config.add "tpope/vim-speeddating"
-Config.add "wakatime/vim-wakatime"
+Config.later(function()
+  Config.add "tpope/vim-surround"
+  Config.add "tpope/vim-speeddating"
+  Config.add "tpope/vim-repeat"
+  Config.add "wakatime/vim-wakatime"
+end)
 
 Config.add "folke/tokyonight.nvim"
 require("tokyonight").setup { style = "night" }
 vim.cmd.colorscheme "tokyonight"
 
 Config.later(function()
-  Config.add "oysandvik94/curl.nvim"
-  require("curl").setup {
-    default_flags = { "-i" },
-    open_with = "buffer",
-  }
-end)
-
-Config.later(function()
   Config.add "j-hui/fidget.nvim"
   require("fidget").setup {
-    progress = {
-      display = {
-        render_limit = 2,
-        done_ttl = 2,
-      },
-    },
+    progress = { display = {
+      render_limit = 2,
+      done_ttl = 2,
+    } },
   }
 end)
 
@@ -33,13 +24,10 @@ Config.later(function()
   -- mkdir -p ~/.local/share/nvim/site/pack/my-plugins/opt
   -- ln -s ~/code/gopher.nvim ~/.local/share/nvim/site/pack/my-plugins/opt/gopher.nvim
   vim.cmd.packadd "gopher.nvim"
-  require("gopher").setup {
-    log_level = vim.log.levels.TRACE,
-    gotests = { template = "testify" },
-  }
-end)
 
-Config.later(function()
+  vim.cmd.packadd "curl.nvim"
+  require("curl").setup {}
+
   vim.cmd.packadd "utest.nvim"
   require("utest").setup {}
   Config.map("n", "<leader>tn", require("utest").run)
@@ -49,13 +37,11 @@ Config.later(function()
   Config.map("n", "<leader>tq", require("utest").qf)
 end)
 
+Config.add "folke/lazydev.nvim"
 Config.aucmd("FileType", "lua", function()
-  Config.add "folke/lazydev.nvim"
-  require("lazydev").setup {
-    library = {
-      { path = "${3rd}/luv/library", words = { "vim%.uv" } },
-      { path = "mini.nvim", words = { "MiniAI", "MiniTest", "MiniFiles" } },
-      { path = "snacks.nvim", words = { "Snacks" } },
-    },
-  }
-end)
+  require("lazydev").setup { library = {
+    { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+    { path = "mini.nvim", words = { "MiniAI", "MiniTest", "MiniFiles" } },
+    { path = "snacks.nvim", words = { "Snacks" } },
+  } }
+end, true)

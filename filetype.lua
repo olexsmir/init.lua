@@ -5,13 +5,11 @@ vim.filetype.add {
     vil = "json",
   },
   filename = {
-    [".eslintrc"] = "jsonc",
-    [".prettierrc"] = "jsonc",
     [".stignore"] = "gitignore",
   },
   pattern = {
     ["%.env%.[%w_.-]+"] = "sh",
-    ["*.Dockerfile.*"] = "dockerfile",
+    [".*Dockerfile.*"] = "dockerfile",
     [".*/hypr/.+%.conf"] = "hyprlang",
     [".*/kitty/.+%.conf"] = "kitty",
   },

@@ -1,10 +1,7 @@
 ---@param itms table<string>
 local function join(itms)
-  return vim
-    .iter(itms)
-    :filter(function(e)
-      return e ~= ""
-    end)
+  return vim.iter(itms)
+    :filter(function(e) return e ~= "" end)
     :join " "
 end
 
@@ -15,18 +12,16 @@ local function diagnostics()
   local infos = counts[vim.diagnostic.severity.INFO] or 0
   local hints = counts[vim.diagnostic.severity.HINT] or 0
   return join {
-    (errors > 0 and "%#DiagnosticError#" .. "󰅚 " .. errors .. "%*" or ""),
-    (warns > 0 and "%#DiagnosticWarn#" .. "󰀪 " .. warns .. "%*" or ""),
-    (infos > 0 and "%#DiagnosticInfo#" .. "󰋽 " .. infos .. "%*" or ""),
-    (hints > 0 and "%#DiagnosticHint#" .. "󰌶 " .. hints .. "%*" or ""),
+    errors > 0 and ("%#DiagnosticError#󰅚 " .. errors .. "%*") or "",
+    warns > 0 and ("%#DiagnosticWarn#󰀪 " .. warns .. "%*") or "",
+    infos > 0 and ("%#DiagnosticInfo#󰋽 " .. infos .. "%*") or "",
+    hints > 0 and ("%#DiagnosticHint#󰌶 " .. hints .. "%*") or "",
   }
 end
 
 local function git_diff()
   local diff = vim.b.gitsigns_status_dict
   if diff == nil then return "" end
-
-  -- stylua: ignore
   return join {
     (diff.added ~= nil and diff.added > 0) and ("%#GitSignsAdd#+" .. diff.added .. "%*") or "",
     (diff.changed ~= nil and diff.changed > 0) and ("%#GitSignsChange#~" .. diff.changed .. "%*") or "",
@@ -34,6 +29,4 @@ local function git_diff()
   }
 end
 
-return function()
-  return join { git_diff(), diagnostics(), "%m", "%#TabLineSel# %l:%c %*" }
-end
+return function() return join { git_diff(), diagnostics(), "%m", "%#TabLineSel# %l:%c %*" } end
