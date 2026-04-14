@@ -1,11 +1,9 @@
 Config.add "echasnovski/mini.nvim"
 
+Config.map("n", "<leader>c", function() require("mini.bufremove").delete() end)
 Config.map("n", "<leader>e", function()
   MiniFiles.open(vim.api.nvim_buf_get_name(0), true)
   MiniFiles.reveal_cwd()
-end)
-Config.map("n", "<leader>c", function()
-  require("mini.bufremove").delete()
 end)
 
 require("mini.icons").setup {}
@@ -15,22 +13,31 @@ Config.later(function()
   require("mini.comment").setup {}
   require("mini.pairs").setup {}
   require("mini.splitjoin").setup {}
-  require("mini.test").setup {}
 
   local hi_words = require("mini.extra").gen_highlighter.words
   require("mini.hipatterns").setup {
     highlighters = {
       hex_color = require("mini.hipatterns").gen_highlighter.hex_color(),
-      fixme     = hi_words({ "FIXME" }, "MiniHipatternsFixme"),
-      todo      = hi_words({ "TODO", "todo" }, "MiniHipatternsTodo"),
-      note      = hi_words({ "NOTE" }, "MiniHipatternsNote"),
-      hack      = hi_words({ "HACK" }, "MiniHipatternsHack"),
+      fixme = hi_words({ "FIXME" }, "MiniHipatternsFixme"),
+      todo = hi_words({ "TODO", "Todo" }, "MiniHipatternsTodo"),
+      note = hi_words({ "NOTE" }, "MiniHipatternsNote"),
+      hack = hi_words({ "HACK" }, "MiniHipatternsHack"),
     },
   }
 end)
 
 Config.aucmd("User", "MiniFilesActionRename", function(ev)
   Snacks.rename.on_rename_file(ev.data.from, ev.data.to)
+end)
+
+Config.aucmd("User", "MiniFilesBufferCreate", function(ev)
+  vim.schedule(function()
+    vim.api.nvim_set_option_value("buftype", "acwrite", { buf = 0 })
+    vim.api.nvim_create_autocmd("BufWriteCmd", {
+      callback = function() require("mini.files").synchronize() end,
+      buffer = ev.data.buf_id,
+    })
+  end)
 end)
 
 require("mini.files").setup {

@@ -2,23 +2,13 @@
 ---@class blink.cmp.Source
 local source = {}
 
-function source.new(_)
-  return setmetatable({}, { __index = source })
-end
-
-function source:enabled()
-  return vim.bo.filetype == "ledger"
-end
-
-function source:get_trigger_characters()
-  return { ":", "as", "eq", "li", "in", "ex" }
-end
+function source.new(_) return setmetatable({}, { __index = source }) end
+function source:enabled() return vim.bo.filetype == "ledger" end
+function source:get_trigger_characters() return { ":", "as", "eq", "li", "in", "ex" } end
 
 local t = require("blink.cmp.types").CompletionItemKind
 function source:get_completions(_, callback)
   local rs = vim.system({ "hledger", "accounts", "--flat" }, { text = true }):wait()
-
-  ---@type lsp.CompletionItem[]
   local items = rs.code == 0
       and vim
         .iter(vim.split(rs.stdout, "\n"))

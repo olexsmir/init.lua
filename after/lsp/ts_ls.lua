@@ -10,10 +10,7 @@ return {
       local client = assert(vim.lsp.get_client_by_id(ctx.client_id))
       vim.lsp.util.show_document({
         uri = result.textDocument.uri,
-        range = {
-          start = result.position,
-          ["end"] = result.position,
-        },
+        range = { start = result.position, ["end"] = result.position },
       }, client.offset_encoding)
       vim.lsp.buf.rename()
       return vim.NIL

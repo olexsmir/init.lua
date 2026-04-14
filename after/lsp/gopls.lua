@@ -5,7 +5,7 @@ return {
   root_markers = { "go.mod", "go.work" },
   on_attach = function(_, buf)
     Config.map("n", "<leader>lf", function()
-      vim.lsp.buf.format { async = false }
+      vim.lsp.buf.format()
 
       local params = vim.lsp.util.make_range_params(0, "utf-8")
       params.context = { only = { "source.organizeImports" } } ---@diagnostic disable-line: inject-field
@@ -13,10 +13,7 @@ return {
       for cid, res in pairs(result or {}) do
         for _, r in pairs(res.result or {}) do
           if r.edit then
-            vim.lsp.util.apply_workspace_edit(
-              r.edit,
-              (vim.lsp.get_client_by_id(cid) or {}).offset_encoding or "utf-16"
-            )
+            vim.lsp.util.apply_workspace_edit(r.edit, (vim.lsp.get_client_by_id(cid) or {}).offset_encoding or "utf-8")
           end
         end
       end
@@ -27,13 +24,13 @@ return {
       staticcheck = true,
       gofumpt = true,
       renameMovesSubpackages = true,
+      directoryFilters = { "-.git", "-.jj", "-node_modules" },
       analyses = {
         unusedparams = true,
         unreachable = true,
         unusedwrite = true,
         nilness = true,
         shadow = true,
-        ST1003 = false, -- naming conventions; Url -> URL, etc
         S1008 = true, -- simplify returning boolean expression
         SA5000 = true, -- assignment to nil map
         SA5007 = true, -- infinite recursion call
@@ -62,6 +59,7 @@ return {
         test = false,
         tidy = true,
         upgrade_dependency = true,
+        vendor = true,
       },
     },
   },

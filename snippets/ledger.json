@@ -31,7 +31,8 @@
     "body": [
       "${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE} * reconcile",
       "  assets:bank  = ${1:0}.00 UAH",
-      "  assets:${2:cash}  = ",
+      "  assets:cash  = ${2:0}.00 UAH",
+      "  assets:${3:cash}  = ",
       ""
     ]
   }
