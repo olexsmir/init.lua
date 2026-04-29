@@ -50,6 +50,8 @@ Config.later(function()
   }
 end)
 
+vim.cmd.colorscheme "kolir"
+
 vim.g.mapleader = " "
 vim.g.maplocalleader = "-"
 

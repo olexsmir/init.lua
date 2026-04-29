@@ -5,10 +5,6 @@ Config.later(function()
   Config.add "wakatime/vim-wakatime"
 end)
 
-Config.add "folke/tokyonight.nvim"
-require("tokyonight").setup { style = "night" }
-vim.cmd.colorscheme "tokyonight"
-
 Config.later(function()
   Config.add "j-hui/fidget.nvim"
   require("fidget").setup {
