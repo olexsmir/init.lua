@@ -13,8 +13,6 @@ Config.later(function()
     } },
     sources = {
       default = { "lsp", "path", "snippets", "buffer" },
-      per_filetype = { hledger = { inherit_defaults = true, "hledger" } },
-      providers = { ledger = { name = "hledger", module = "hledger" } },
     },
   }
 

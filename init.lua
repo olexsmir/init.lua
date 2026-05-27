@@ -204,7 +204,7 @@ Config.aucmd("FileType", nil, function()
 end)
 
 --- lsp --------------------------------------------------------------
-vim.lsp.enable { "gleam", "gopls", "lua_ls", "ts_ls" }
+vim.lsp.enable { "clerk", "gleam", "gopls", "lua_ls", "ts_ls" }
 Config.aucmd("LspAttach", nil, function(ev)
   local bufnr = ev.buf
   local client = vim.lsp.get_client_by_id(ev.data.client_id)
