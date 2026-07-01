@@ -10,7 +10,7 @@ vim.g.loaded_ruby_provider = 0
 vim.g.loaded_node_provider = 0
 vim.g.loaded_python3_provider = 0
 for _, p in ipairs {
-  "netrw", "netrwPlugin", "netrwSettings", "netrwFileHandlers",
+  "netrw", "netrwPlugin", "netrwSettings", "netrwFileHandlers", "nvim_dir_plugin",
   "gzip", "zip", "zipPlugin", "tar", "tarPlugin",
   "getscript", "getscriptPlugin", "vimball", "vimballPlugin", "remote_plugins", "rrhelper",
   "tohtml", "2html_plugin",
