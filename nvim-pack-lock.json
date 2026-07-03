@@ -6,7 +6,7 @@
       "version": "1.0.0 - 2.0.0"
     },
     "fidget.nvim": {
-      "rev": "889e2e96edef4e144965571d46f7a77bcc4d0ddf",
+      "rev": "e1a07a5e46fb65a45a0c76870140bd2d16a73ebf",
       "src": "https://github.com/j-hui/fidget.nvim",
       "version": ">=0.0.0"
     },
@@ -21,7 +21,7 @@
       "version": ">=0.0.0"
     },
     "mini.nvim": {
-      "rev": "a995fe9cd4193fb492b5df69175a351a74b3d36b",
+      "rev": "1345d191bb3da9c7b0e977f4387c5761f9bff68d",
       "src": "https://github.com/echasnovski/mini.nvim",
       "version": ">=0.0.0"
     },
