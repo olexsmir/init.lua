@@ -178,7 +178,7 @@ Config.map("n", "<leader>a", function()
 end)
 
 --- autocmds ---------------------------------------------------------
-Config.aucmd("TextYankPost", nil, function() vim.hl.on_yank() end)
+Config.aucmd("TextYankPost", nil, function() vim.hl.hl_op { higroup = "Visual" } end)
 
 Config.aucmd("VimResized", nil, function()
   vim.cmd "tabdo wincmd ="
@@ -200,18 +200,15 @@ Config.aucmd("TermRequest", nil, function(ev)
 end)
 
 Config.autocmd("FileType", { pattern = { "help", "man" }, command = "wincmd L" })
-Config.aucmd("FileType", nil, function()
-  vim.opt.formatoptions:append {
-    "l", -- long lines not broken in insert mode
-    "1", -- don't break a line after a one-letter word
-  }
-  vim.opt.formatoptions:remove {
-    "c", -- autowrap comments using textwidth with leader
-    "r", -- don't auto-insert comment leader on enter in insert
-    "o", -- don't auto-insert comment leader on o/O in normal
-    "n", -- don't recognizes numbered lists
-    "2", -- don't use the indent of second paragraph line
-  }
+Config.aucmd("FileType", "*", function()
+  vim.opt_local.formatoptions:append("l") -- long lines not broken in insert mode
+  vim.opt_local.formatoptions:append("1") -- don't break a line after a one-letter word
+
+  vim.opt_local.formatoptions:remove("c") -- autowrap comments using textwidth with leader
+  vim.opt_local.formatoptions:remove("r") -- don't auto-insert comment leader on enter in insert
+  vim.opt_local.formatoptions:remove("o") -- don't auto-insert comment leader on o/O in normal
+  vim.opt_local.formatoptions:remove("n") -- don't recognizes numbered lists
+  vim.opt_local.formatoptions:remove("2") -- don't use the indent of second paragraph line
 end)
 
 --- lsp --------------------------------------------------------------
