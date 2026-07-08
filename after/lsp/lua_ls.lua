@@ -4,7 +4,7 @@ return {
   filetypes = { "lua" },
   root_markers = { ".luarc.json", ".luarc.jsonc", ".luacheckrc", ".stylua.toml", "stylua.toml", "selene.toml" },
   settings = { Lua = {
-    runtime = { version = "LuaJIT" },
+    runtime = { version = "LuaJIT", path = { 'lua/?.lua', 'lua/?/init.lua' } },
     telemetry = { enable = false },
     semantic = { enable = false },
     format = { defaultConfig = {
@@ -35,6 +35,14 @@ return {
       paramType = false,
       semicolon = "Disable",
       setType = true,
+    },
+    workspace = {
+      checkThirdParty = false,
+      library = {
+        vim.env.VIMRUNTIME,
+        "${3rd}/luv/library",
+        "$HOME/.local/share/nvim/site/pack/core"
+      },
     },
   } },
 }

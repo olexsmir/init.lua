@@ -15,11 +15,6 @@
       "src": "https://github.com/lewis6991/gitsigns.nvim",
       "version": ">=0.0.0"
     },
-    "lazydev.nvim": {
-      "rev": "ff2cbcba459b637ec3fd165a2be59b7bbaeedf0d",
-      "src": "https://github.com/folke/lazydev.nvim",
-      "version": ">=0.0.0"
-    },
     "mini.nvim": {
       "rev": "1345d191bb3da9c7b0e977f4387c5761f9bff68d",
       "src": "https://github.com/echasnovski/mini.nvim",

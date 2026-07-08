@@ -237,15 +237,6 @@ Config.add { src = "tpope/vim-speeddating", version = "master" }
 Config.add { src = "tpope/vim-repeat", version = "master" }
 Config.add "wakatime/vim-wakatime"
 
-Config.add "folke/lazydev.nvim"
-Config.aucmd("FileType", "lua", function()
-  require("lazydev").setup { library = {
-    { path = "${3rd}/luv/library", words = { "vim%.uv" } },
-    { path = "mini.nvim", words = { "MiniAI", "MiniTest", "MiniFiles" } },
-    { path = "snacks.nvim", words = { "Snacks" } },
-  } }
-end, true)
-
 Config.add "j-hui/fidget.nvim"
 Config.later(function()
   require("fidget").setup {
