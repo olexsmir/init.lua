@@ -4,12 +4,11 @@ local langs = {
   go = "Go",
   hare = "Hare",
   javascript = "JavaScript",
+  typescript = "TypeScript",
   ledger = "Hledger",
   lua = "Lua",
   ocaml = "OCaml",
   odin = "Odin",
-  typescript = "TypeScript",
-  zig = "Zig",
 }
 
 return function(pattern, _, _)

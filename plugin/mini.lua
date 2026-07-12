@@ -26,10 +26,6 @@ Config.later(function()
   }
 end)
 
-Config.aucmd("User", "MiniFilesActionRename", function(ev)
-  Snacks.rename.on_rename_file(ev.data.from, ev.data.to)
-end)
-
 Config.aucmd("User", "MiniFilesBufferCreate", function(ev)
   vim.schedule(function()
     vim.api.nvim_set_option_value("buftype", "acwrite", { buf = 0 })

@@ -264,10 +264,35 @@ Config.later(function()
   Config.map("n", "<leader>tq", require("utest").qf)
 end)
 
+Config.add { src = "saghen/blink.cmp", version = vim.version.range "1.x" }
+Config.later(function()
+  require("blink.cmp").setup {
+    keymap = {
+      preset = "enter",
+      ["<C-u>"] = { "scroll_documentation_up", "fallback" },
+      ["<C-d>"] = { "scroll_documentation_down", "fallback" },
+      ["<C-l>"] = { "snippet_forward", "accept", "fallback" },
+    },
+    completion = { documentation = {
+      auto_show = true,
+      auto_show_delay_ms = 300,
+    } },
+    sources = {
+      default = { "lsp", "path", "snippets", "buffer" },
+    },
+  }
+
+  vim.lsp.config("*", {
+    flags = { debounce_text_changes = 150 },
+    capabilities = require("blink.cmp").get_lsp_capabilities(),
+  })
+end)
+
 -- treesitter
 Config.onpack("nvim-treesitter", "update", function() vim.cmd.TSUpdate() end)
 Config.add { src = "nvim-treesitter/nvim-treesitter", version = "main" }
 Config.add "nvim-treesitter/nvim-treesitter-context"
+
 Config.later(function() require("treesitter-context").setup { max_lines = 3 } end)
 Config.aucmd("FileType", "*", function(ev)
   if not ev.match or ev.match == "" or ev.match == "text" then vim.treesitter.stop() end

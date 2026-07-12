@@ -4,7 +4,6 @@ local function wrap(mod, fn, opts)
   return function() return Snacks[mod][fn](opts or {}) end
 end
 
-Config.map("n", "z=", wrap("picker", "spelling"))
 Config.map("n", "<leader>b", wrap("picker", "buffers"))
 Config.map("n", "<leader>d", wrap("picker", "diagnostics"))
 Config.map("n", "<leader>f", wrap("picker", "smart"))
