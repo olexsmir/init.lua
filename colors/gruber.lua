@@ -11,4 +11,5 @@ require "kolir" {
   secondary = "#73c936",
   muted = "#ffdd33",
   marker = "#ff9000",
+  danger = "#e8484d",
 }

@@ -12,6 +12,7 @@ if vim.o.background == "dark" then
     secondary = "#95cb82",
     muted = "#aaaaaa",
     marker = "#dfdf8e",
+    danger = "#d96060",
   }
 else
   require "kolir" {
@@ -21,5 +22,6 @@ else
     secondary = "#448c27",
     muted = "#666666",
     marker = "#aa3731",
+    danger = "#d04040",
   }
 end

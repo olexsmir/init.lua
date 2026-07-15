@@ -8,7 +8,8 @@ if vim.o.background == "dark" then
     primary = "#85a6eb",   -- declarations
     secondary = "#94c85a", -- vars/consts
     muted = "#9d7cd8",     -- keywords
-    marker = "#d4a06a",    -- comments, search, errors
+    marker = "#d4a06a",    -- comments, search, warnings
+    danger = "#db6f6f",    -- errors, deletions
   }
 else
   require "kolir" {
@@ -17,6 +18,7 @@ else
     primary = "#2a53ab",
     secondary = "#267349",
     muted = "#5b30a6",
-    marker = "#b3722c",
+    marker = "#b3722c",    -- comments, search, warnings
+    danger = "#b84040",    -- errors, deletions
   }
 end
