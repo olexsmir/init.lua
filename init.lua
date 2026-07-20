@@ -146,8 +146,6 @@ Config.map("n", "<leader>u", "<cmd>Undotree<cr>")
 Config.map("n", "<leader>N", "<cmd>e ~/org/notes/stuff.md<cr>")
 Config.map("n", "<leader>n", "<cmd>e ~/org/notes/_todo.md<cr>")
 Config.map({ "n", "x" }, "<leader>z", "1z=")
-Config.map({ "n", "x" }, "j", "gj")
-Config.map({ "n", "x" }, "k", "gk")
 
 Config.map("n", "<C-h>", "<cmd>wincmd h<cr>")
 Config.map("n", "<C-j>", "<cmd>wincmd j<cr>")
@@ -210,7 +208,7 @@ Config.aucmd("LspAttach", nil, function(ev)
   local client = vim.lsp.get_client_by_id(ev.data.client_id)
   if not client then error "couldn't get an lsp server" end
 
-  client.server_capabilities.semanticTokensProvider = nil
+  if client.name ~= "clerk" then client.server_capabilities.semanticTokensProvider = nil end
   if client:supports_method(vim.lsp.protocol.Methods.textDocument_codeLens) then
     vim.lsp.codelens.enable(true, { bufnr = bufnr })
   end
@@ -262,6 +260,9 @@ Config.later(function()
   Config.map("n", "<leader>tc", require("utest").cancel)
   Config.map("n", "<leader>tr", require("utest").clear)
   Config.map("n", "<leader>tq", require("utest").qf)
+
+  vim.cmd.packadd "viye"
+  require "viye".setup {}
 end)
 
 Config.add { src = "saghen/blink.cmp", version = vim.version.range "1.x" }
