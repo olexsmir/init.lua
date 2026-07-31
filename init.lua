@@ -108,7 +108,6 @@ vim.o.showmode = false
 vim.o.ruler = true
 vim.o.rulerformat = "%27(%=%{%v:lua.require'ruler'()%}%)"
 
-vim.o.tagfunc = "v:lua.require'tags'"
 
 vim.o.list = true
 vim.opt.listchars:append {
