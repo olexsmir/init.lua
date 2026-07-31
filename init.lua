@@ -2,7 +2,6 @@ vim.loader.enable()
 require("vim._core.ui2").enable { enable = true }
 
 vim.cmd.packadd "nvim.undotree"
-vim.cmd.packadd "nvim.difftool"
 vim.cmd.packadd "cfilter"
 
 vim.g.loaded_perl_provider = 0
@@ -106,8 +105,7 @@ vim.o.spelllang = "en_us,uk"
 vim.o.laststatus = 0
 vim.o.showmode = false
 vim.o.ruler = true
-vim.o.rulerformat = "%27(%=%{%v:lua.require'ruler'()%}%)"
-
+vim.o.rulerformat = "%30(%=%{%v:lua.require'ruler'()%}%)"
 
 vim.o.list = true
 vim.opt.listchars:append {

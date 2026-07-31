@@ -29,4 +29,6 @@ local function git_diff()
   }
 end
 
-return function() return join { git_diff(), diagnostics(), "%m", "%#TabLineSel# %l:%c %*" } end
+return function()
+  return join { git_diff(), diagnostics(), "%m", "%#TabLineSel# %l:%c %*" }
+end
