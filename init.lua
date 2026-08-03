@@ -77,7 +77,6 @@ vim.o.tabstop = 4
 
 vim.o.exrc = true
 vim.o.secure = true
-vim.o.shell = "/bin/bash" -- fixes issues with fish shell
 vim.o.ignorecase = true
 vim.o.smartcase = true
 vim.o.cursorline = true
@@ -180,8 +179,17 @@ end)
 
 Config.aucmd("BufReadPost", "*", function() vim.fn.setpos(".", vim.fn.getpos "'\"") end)
 
-Config.autocmd("TermOpen", { pattern = "term://*", command = "startinsert" })
-Config.autocmd("TermClose", { pattern = "term://*", command = "stopinsert" })
+Config.aucmd("TermOpen", "term://*", function()
+  vim.cmd.startinsert()
+  vim.keymap.set('n', '<leader>q', '<cmd>hide<CR>', { buffer = true })
+end)
+Config.aucmd("TermRequest", nil, function(ev)
+  local pwd, n = string.gsub(ev.data.sequence, "\027]7;file://[^/]*", "")
+  if n <= 0 then return end
+  if vim.fn.isdirectory(pwd) == 0 then return end
+  if vim.api.nvim_get_current_buf() ~= ev.buf then return end
+  vim.cmd.cd(pwd)
+end)
 
 Config.autocmd("FileType", { pattern = { "help", "man" }, command = "wincmd L" })
 Config.aucmd("FileType", nil, function()
