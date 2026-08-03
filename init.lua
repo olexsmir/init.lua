@@ -169,6 +169,15 @@ Config.map("n", "<C-q>", function()
   vim.cmd.copen()
 end)
 
+Config.map("n", "<C-n>", function() vim.cmd "silent! 1argument" end)
+Config.map("n", "<C-m>", function() vim.cmd "silent! 2argument" end)
+Config.map("n", "<C-,>", function() vim.cmd "silent! 3argument" end)
+Config.map("n", "<C-.>", function() vim.cmd "silent! 4argument" end)
+Config.map("n", "<leader>a", function()
+  vim.cmd("argadd %")
+  vim.cmd("argdedup")
+end)
+
 --- autocmds ---------------------------------------------------------
 Config.aucmd("TextYankPost", nil, function() vim.hl.on_yank() end)
 
