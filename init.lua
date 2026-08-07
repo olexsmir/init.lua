@@ -52,7 +52,6 @@ end
 Config.later(function() vim.o.clipboard = "unnamedplus" end)
 Config.later(function()
   vim.diagnostic.config {
-    update_in_insert = true,
     virtual_text = { virt_text_pos = "eol", current_line = false },
     float = { source = "if_many" },
     signs = { text = {
@@ -89,6 +88,7 @@ vim.o.splitright = true
 vim.o.pumheight = 8
 vim.o.scrolloff = 14
 vim.o.sidescrolloff = 16
+vim.o.smoothscroll = true
 vim.o.signcolumn = "yes"
 vim.o.title = true
 vim.o.wrap = false
@@ -139,8 +139,7 @@ Config.map("n", "<leader>q", "<cmd>quit!<cr>")
 Config.map("n", "<leader>w", "<cmd>update<cr>")
 Config.map("n", "<leader>h", "<cmd>nohlsearch<cr>")
 Config.map("n", "<leader>u", "<cmd>Undotree<cr>")
-Config.map("n", "<leader>N", "<cmd>e ~/org/notes/stuff.md<cr>")
-Config.map("n", "<leader>n", "<cmd>e ~/org/notes/_todo.md<cr>")
+Config.map("n", "<leader>n", "<cmd>e ~/org/todo.md<cr>")
 Config.map({ "n", "x" }, "<leader>z", "1z=")
 
 Config.map("n", "<C-h>", "<cmd>wincmd h<cr>")
@@ -259,13 +258,13 @@ Config.later(function()
   }
 end)
 
+vim.cmd.packadd "viye"
 Config.later(function()
   -- HACK: wait till https://github.com/neovim/neovim/pull/37727 gets merged
   -- ln -s ~/code/gopher.nvim ~/.local/share/nvim/site/pack/my-plugins/opt/gopher.nvim
   vim.cmd.packadd "gopher.nvim"
 
   vim.cmd.packadd "curl.nvim"
-  require("curl").setup {}
 
   vim.cmd.packadd "utest.nvim"
   require("utest").setup {}
@@ -274,9 +273,6 @@ Config.later(function()
   Config.map("n", "<leader>tc", require("utest").cancel)
   Config.map("n", "<leader>tr", require("utest").clear)
   Config.map("n", "<leader>tq", require("utest").qf)
-
-  vim.cmd.packadd "viye"
-  require "viye".setup {}
 end)
 
 Config.add { src = "saghen/blink.cmp", version = vim.version.range "1.x" }
@@ -292,9 +288,7 @@ Config.later(function()
       auto_show = true,
       auto_show_delay_ms = 300,
     } },
-    sources = {
-      default = { "lsp", "path", "snippets", "buffer" },
-    },
+    sources = { default = { "lsp", "path", "snippets", "buffer" } },
   }
 
   vim.lsp.config("*", {

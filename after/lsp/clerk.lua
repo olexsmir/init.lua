@@ -2,4 +2,7 @@
 return {
   cmd = { "clerk", "lsp" },
   filetypes = { "ledger" },
+  settings = {
+    latinToCyrillicCompletion = true,
+  }
 }

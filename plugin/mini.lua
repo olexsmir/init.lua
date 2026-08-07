@@ -3,7 +3,7 @@ Config.add "echasnovski/mini.nvim"
 Config.map("n", "<leader>c", function() MiniBufremove.delete() end)
 Config.map("n", "<leader>e", function()
   local path = vim.api.nvim_buf_get_name(0)
-  if path == nil or vim.startswith(path, "term://") then path = vim.uv.cwd() or "" end
+  if path == nil or vim.startswith(path, "term://") or vim.fn.filereadable(path) == 0 then path = vim.uv.cwd() or "" end
   MiniFiles.open(path, true)
   MiniFiles.reveal_cwd()
 end)
